@@ -1,2 +1,27 @@
+# Dữ liệu
 dataset/
+extracted_features.pt
+
+# Môi trường
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Trọng số mô hình
+*.pt
+*.pth
+
+# OS
 .DS_Store
+Thumbs.db
