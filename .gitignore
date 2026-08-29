@@ -1,5 +1,14 @@
+# macOS
 .DS_Store
+**/.DS_Store
 
-../.DS_Store
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
 
-/dataset
+# Dataset heavy raw files
+oxford-iiit-pet/
+**/oxford-iiit-pet/
+dataset/oxford-iiit-pet/
