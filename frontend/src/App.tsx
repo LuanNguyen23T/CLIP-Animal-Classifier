@@ -1,10 +1,11 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { Cat, History, Zap } from 'lucide-react';
+import { Cat, History, Zap, Moon, Sun } from 'lucide-react';
 import { HomePage } from './pages/Home';
 import { HistoryPage } from './pages/History';
 import './index.css';
 
-function NavBar() {
+function NavBar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => void }) {
   const navLinkStyle = ({ isActive }: { isActive: boolean }): React.CSSProperties => ({
     display: 'flex',
     alignItems: 'center',
@@ -25,9 +26,9 @@ function NavBar() {
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      background: 'rgba(10,11,20,0.85)',
+      background: 'var(--color-nav-bg)',
       backdropFilter: 'blur(20px)',
-      borderBottom: '1px solid rgba(139,92,246,0.1)',
+      borderBottom: '1px solid var(--color-border)',
     }}>
       <div style={{
         maxWidth: 1100,
@@ -78,22 +79,64 @@ function NavBar() {
         {/* Nav links */}
         <NavLink to="/" style={navLinkStyle} end id="nav-home">
           <Zap size={15} />
-          Phân loại
+          Classify
         </NavLink>
 
         <NavLink to="/history" style={navLinkStyle} id="nav-history">
           <History size={15} />
-          Lịch sử
+          History
         </NavLink>
+        
+        {/* Theme Toggle */}
+        <button 
+          onClick={toggleTheme}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 36,
+            height: 36,
+            borderRadius: '50%',
+            border: '1px solid var(--color-border)',
+            background: 'transparent',
+            color: 'var(--color-text-muted)',
+            cursor: 'pointer',
+            marginLeft: 'auto',
+            transition: 'all 0.2s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(139,92,246,0.1)';
+            e.currentTarget.style.color = 'var(--color-text)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.color = 'var(--color-text-muted)';
+          }}
+          aria-label="Toggle theme"
+        >
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
       </div>
     </nav>
   );
 }
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark(!isDark);
+
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar isDark={isDark} toggleTheme={toggleTheme} />
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />

@@ -1,37 +1,50 @@
 import { useState, useRef, useCallback } from 'react';
-import { Upload, ImageIcon, X } from 'lucide-react';
+import { Upload, ImageIcon, X, Loader } from 'lucide-react';
 
 interface ImageUploaderProps {
   onFileSelected: (file: File) => void;
   isUploading: boolean;
+  children?: React.ReactNode;
 }
 
 const ACCEPTED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 const MAX_SIZE_MB = 10;
 
-export function ImageUploader({ onFileSelected, isUploading }: ImageUploaderProps) {
+export function ImageUploader({ onFileSelected, isUploading, children }: ImageUploaderProps) {
   const [isDragOver, setIsDragOver] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const actionRowRef = useRef<HTMLDivElement>(null);
 
   const validateAndSet = useCallback((file: File) => {
     setValidationError(null);
 
     if (!ACCEPTED_TYPES.includes(file.type)) {
-      setValidationError('Chỉ hỗ trợ JPG, PNG, WebP');
+      setValidationError('Only JPG, PNG, WebP are supported');
       return;
     }
 
     if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-      setValidationError(`File quá lớn (tối đa ${MAX_SIZE_MB}MB)`);
+      setValidationError(`File is too large (max ${MAX_SIZE_MB}MB)`);
       return;
     }
 
     setSelectedFile(file);
     const url = URL.createObjectURL(file);
     setPreview(url);
+    
+    // Auto-scroll slightly down to make room for dropdown but not too deep
+    setTimeout(() => {
+      if (actionRowRef.current) {
+        const elementRect = actionRowRef.current.getBoundingClientRect();
+        // Scroll so the action row is about 150px from the bottom of the screen
+        // This ensures the image stays in view while leaving space for the dropdown
+        const offset = elementRect.top + window.scrollY - (window.innerHeight - 200);
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    }, 100);
   }, []);
 
   const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
@@ -102,11 +115,11 @@ export function ImageUploader({ onFileSelected, isUploading }: ImageUploaderProp
               color: 'var(--color-text)',
               marginBottom: 8,
             }}>
-              {isDragOver ? 'Thả ảnh vào đây!' : 'Kéo & thả ảnh vào đây'}
+              {isDragOver ? 'Drop image here!' : 'Drag & drop image here'}
             </h3>
 
             <p style={{ color: 'var(--color-text-muted)', fontSize: 14, marginBottom: 20 }}>
-              hoặc <span style={{ color: 'var(--color-accent)', fontWeight: 600 }}>click để chọn file</span>
+              or <span style={{ color: 'var(--color-accent)', fontWeight: 600 }}>click to select file</span>
             </p>
 
             <div style={{
@@ -166,8 +179,35 @@ export function ImageUploader({ onFileSelected, isUploading }: ImageUploaderProp
                 maxHeight: 360,
                 objectFit: 'contain',
                 display: 'block',
+                opacity: isUploading ? 0.7 : 1,
+                transition: 'opacity 0.3s'
               }}
             />
+            {isUploading && (
+              <>
+                <style>
+                  {`
+                    @keyframes scan-line {
+                      0% { transform: translateY(-100%); opacity: 0; }
+                      10% { opacity: 1; }
+                      90% { opacity: 1; }
+                      100% { transform: translateY(600%); opacity: 0; }
+                    }
+                  `}
+                </style>
+                <div style={{
+                  position: 'absolute',
+                  top: 0, left: 0, right: 0,
+                  height: '20%',
+                  background: 'linear-gradient(to bottom, transparent, rgba(99,102,241,0.2), rgba(99,102,241,0.6))',
+                  borderBottom: '3px solid #6366f1',
+                  animation: 'scan-line 2s linear infinite',
+                  zIndex: 20,
+                  pointerEvents: 'none',
+                  boxShadow: '0 4px 20px rgba(99,102,241,0.5)'
+                }} />
+              </>
+            )}
 
             {/* Overlay controls */}
             <div style={{
@@ -191,7 +231,7 @@ export function ImageUploader({ onFileSelected, isUploading }: ImageUploaderProp
                   cursor: 'pointer',
                   backdropFilter: 'blur(10px)',
                 }}
-                title="Xóa ảnh"
+                title="Remove image"
                 id="clear-image-btn"
               >
                 <X size={16} color="white" />
@@ -220,40 +260,28 @@ export function ImageUploader({ onFileSelected, isUploading }: ImageUploaderProp
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div style={{ display: 'flex', gap: 12, marginTop: 16 }}>
-            <button
-              className="btn btn-ghost"
-              onClick={handleClear}
-              style={{ flex: 1 }}
-              id="change-image-btn"
-            >
-              <Upload size={16} />
-              Đổi ảnh
-            </button>
+          {/* Action Row */}
+          <div ref={actionRowRef} style={{ display: 'flex', gap: 12, marginTop: 16, alignItems: 'stretch' }}>
+            <div style={{ flex: '0 0 260px', minWidth: 0 }}>
+              {children}
+            </div>
+            
             <button
               className="btn btn-primary"
               onClick={handleSubmit}
               disabled={isUploading}
-              style={{ flex: 2 }}
+              style={{ flex: 1, height: '100%', minHeight: '44px' }}
               id="classify-btn"
             >
               {isUploading ? (
                 <>
-                  <span className="animate-spin" style={{
-                    width: 16,
-                    height: 16,
-                    border: '2px solid rgba(255,255,255,0.3)',
-                    borderTopColor: 'white',
-                    borderRadius: '50%',
-                    display: 'inline-block',
-                  }} />
-                  Đang phân tích...
+                  <Loader size={18} className="animate-spin" />
+                  Processing...
                 </>
               ) : (
                 <>
-                  <ImageIcon size={16} />
-                  Phân loại ngay
+                  <ImageIcon size={18} />
+                  Classify Now
                 </>
               )}
             </button>

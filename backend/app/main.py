@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from app.core.config import settings
 from app.models import species, breed, prediction  # noqa: F401 - ensure models registered
-from app.api.routes import breeds, predictions
+from app.api.routes import breeds, predictions, models
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
@@ -16,6 +17,7 @@ app.add_middleware(
 
 app.include_router(breeds.router, prefix=settings.API_V1_STR, tags=["breeds"])
 app.include_router(predictions.router, prefix=settings.API_V1_STR, tags=["predictions"])
+app.include_router(models.router, prefix=settings.API_V1_STR, tags=["models"])
 
 @app.get("/")
 def read_root():

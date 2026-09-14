@@ -1,6 +1,17 @@
 // TypeScript interfaces matching the backend API schemas
 
 export type PredictionStatus = 'UPLOADED' | 'PROCESSING' | 'COMPLETED' | 'FAILED';
+export type ModelMethod = 'zero-shot' | 'tip-adapter-f' | 'clip-adapter' | 'coop';
+
+export interface ModelInfo {
+  id: ModelMethod;
+  name: string;
+  description: string;
+  accuracy: number;
+  latency_ms: number;
+  params: number;
+  tag: string;
+}
 
 export interface SpeciesResponse {
   id: number;
@@ -24,6 +35,7 @@ export interface TopKResult {
 export interface PredictionCreateResponse {
   id: string;
   status: PredictionStatus;
+  method: ModelMethod | null;
 }
 
 export interface PredictionResponse {
@@ -33,6 +45,8 @@ export interface PredictionResponse {
   score: number | null;
   top_k_results: TopKResult[] | null;
   model_version: string | null;
+  method: ModelMethod | null;
+  processing_time?: number;
   status: PredictionStatus;
   error_message: string | null;
   created_at: string;

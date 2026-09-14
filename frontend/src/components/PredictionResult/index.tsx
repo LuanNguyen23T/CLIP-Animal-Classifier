@@ -8,10 +8,10 @@ interface PredictionResultProps {
 
 function StatusBadge({ status }: { status: string }) {
   const configs = {
-    UPLOADED: { label: 'Đã Upload', className: 'badge badge-uploaded', icon: <Clock size={11} /> },
-    PROCESSING: { label: 'Đang xử lý', className: 'badge badge-processing', icon: <Loader2 size={11} className="animate-spin" /> },
-    COMPLETED: { label: 'Hoàn thành', className: 'badge badge-completed', icon: <CheckCircle size={11} /> },
-    FAILED: { label: 'Thất bại', className: 'badge badge-failed', icon: <XCircle size={11} /> },
+    UPLOADED: { label: 'Uploaded', className: 'badge badge-uploaded', icon: <Clock size={11} /> },
+    PROCESSING: { label: 'Processing', className: 'badge badge-processing', icon: <Loader2 size={11} className="animate-spin" /> },
+    COMPLETED: { label: 'Completed', className: 'badge badge-completed', icon: <CheckCircle size={11} /> },
+    FAILED: { label: 'Failed', className: 'badge badge-failed', icon: <XCircle size={11} /> },
   };
 
   const config = configs[status as keyof typeof configs] ?? configs.UPLOADED;
@@ -64,7 +64,7 @@ function ScoreRing({ score }: { score: number }) {
 }
 
 export function PredictionResult({ prediction }: PredictionResultProps) {
-  const { status, predicted_breed, score, top_k_results, model_version, error_message } = prediction;
+  const { status, predicted_breed, score, top_k_results, model_version, method, error_message } = prediction;
 
   /* ---------- PROCESSING ---------- */
   if (status === 'UPLOADED' || status === 'PROCESSING') {
@@ -79,9 +79,9 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
           animation: 'spin 1s linear infinite',
           margin: '0 auto 20px',
         }} />
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>Đang phân tích ảnh...</h3>
+        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>Analyzing image...</h3>
         <p style={{ color: 'var(--color-text-muted)', fontSize: 14 }}>
-          AI đang nhận diện giống thú cưng của bạn
+          AI is identifying your pet's breed
         </p>
       </div>
     );
@@ -97,7 +97,7 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
       }}>
         <XCircle size={48} color="var(--color-error)" style={{ margin: '0 auto 16px' }} />
         <h3 style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-error)', marginBottom: 8 }}>
-          Phân loại thất bại
+          Classification Failed
         </h3>
         {error_message && (
           <p style={{
@@ -129,7 +129,7 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
               <StatusBadge status={status} />
-              {model_version && (
+              {(method || model_version) && (
                 <span style={{
                   display: 'flex', alignItems: 'center', gap: 4,
                   fontSize: 11, color: 'var(--color-text-faint)',
@@ -139,7 +139,20 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
                   borderRadius: 6,
                 }}>
                   <Cpu size={10} />
-                  {model_version}
+                  {method ? `Method: ${method}` : model_version}
+                </span>
+              )}
+              {prediction.processing_time != null && (
+                <span style={{
+                  display: 'flex', alignItems: 'center', gap: 4,
+                  fontSize: 11, color: 'var(--color-text-faint)',
+                  padding: '3px 8px',
+                  background: 'rgba(16, 185, 129, 0.05)',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: 6,
+                }}>
+                  <Clock size={10} />
+                  {prediction.processing_time.toFixed(2)}s
                 </span>
               )}
             </div>
@@ -164,7 +177,7 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
               <TrendingUp size={14} color="var(--color-accent)" />
               <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-text-muted)' }}>
-                Top {top_k_results.length} kết quả
+                Top {top_k_results.length} results
               </span>
             </div>
             <PredictionChart topKResults={top_k_results} />

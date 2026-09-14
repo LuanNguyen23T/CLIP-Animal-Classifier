@@ -4,6 +4,8 @@ import type {
   PredictionResponse,
   BreedResponse,
   SpeciesResponse,
+  ModelMethod,
+  ModelInfo,
 } from '../types/prediction';
 
 const api = axios.create({
@@ -16,10 +18,10 @@ export const predictionApi = {
    * Upload an image and create a new prediction record.
    * Returns immediately with id + status=UPLOADED.
    */
-  createPrediction: async (file: File): Promise<PredictionCreateResponse> => {
+  createPrediction: async (file: File, method: ModelMethod = 'coop'): Promise<PredictionCreateResponse> => {
     const formData = new FormData();
     formData.append('file', file);
-    const { data } = await api.post<PredictionCreateResponse>('/predictions', formData, {
+    const { data } = await api.post<PredictionCreateResponse>(`/predictions?method=${method}`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
     return data;
@@ -40,10 +42,19 @@ export const predictionApi = {
   listPredictions: async (params?: {
     breed_id?: number;
     status?: string;
+    method?: string;
     skip?: number;
     limit?: number;
   }): Promise<PredictionResponse[]> => {
     const { data } = await api.get<PredictionResponse[]>('/predictions', { params });
+    return data;
+  },
+
+  /**
+   * List available classification models
+   */
+  listModels: async (): Promise<ModelInfo[]> => {
+    const { data } = await api.get<ModelInfo[]>('/models');
     return data;
   },
 };

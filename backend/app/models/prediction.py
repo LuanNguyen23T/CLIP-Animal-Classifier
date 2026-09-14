@@ -21,6 +21,8 @@ class Prediction(Base):
     score = Column(Float, nullable=True)
     top_k_results = Column(JSONB, nullable=True)
     model_version = Column(String, nullable=True)
+    method = Column(String, nullable=True)  # ModelMethod value: zero-shot | tip-adapter-f | clip-adapter | coop
+    processing_time = Column(Float, nullable=True) # in seconds
     status = Column(Enum(PredictionStatus), default=PredictionStatus.UPLOADED, nullable=False)
     error_message = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)

@@ -2,13 +2,16 @@ import { useState, useCallback } from 'react';
 import { Cat, Zap, Sparkles } from 'lucide-react';
 import { ImageUploader } from '../../components/ImageUploader';
 import { PredictionResult } from '../../components/PredictionResult';
+import ModelSelector from '../../components/ModelSelector';
 import { predictionApi } from '../../services/predictionApi';
 import { usePrediction } from '../../hooks/usePrediction';
+import type { ModelMethod } from '../../types/prediction';
 
 export function HomePage() {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [selectedMethod, setSelectedMethod] = useState<ModelMethod>('zero-shot');
   const { prediction, isPolling, error: pollError, startPolling, reset } = usePrediction();
 
   const handleFileSelected = useCallback(async (file: File) => {
@@ -20,15 +23,15 @@ export function HomePage() {
     setPreviewUrl(url);
 
     try {
-      const created = await predictionApi.createPrediction(file);
+      const created = await predictionApi.createPrediction(file, selectedMethod);
       startPolling(created.id);
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Upload thất bại';
+      const message = err instanceof Error ? err.message : 'Upload failed';
       setUploadError(message);
     } finally {
       setIsUploading(false);
     }
-  }, [startPolling]);
+  }, [startPolling, selectedMethod]);
 
   const handleReset = useCallback(() => {
     reset();
@@ -68,7 +71,7 @@ export function HomePage() {
           marginBottom: 24,
         }}>
           <Sparkles size={14} />
-          CLIP Vision Model — Oxford-IIIT Pet Dataset
+          AI-Powered Pet Identification
         </div>
 
         <h1 style={{
@@ -78,20 +81,18 @@ export function HomePage() {
           lineHeight: 1.05,
           marginBottom: 20,
         }}>
-          <span className="gradient-text">Pet Breed</span>{' '}
-          <span style={{ color: 'var(--color-text)' }}>Classifier</span>
+          <span className="gradient-text">Discover</span>{' '}
+          <span style={{ color: 'var(--color-text)' }}>Your Pet's Breed</span>
         </h1>
 
         <p style={{
           color: 'var(--color-text-muted)',
           fontSize: 18,
-          maxWidth: 520,
+          maxWidth: 560,
           margin: '0 auto',
           lineHeight: 1.7,
         }}>
-          Upload ảnh thú cưng và AI sẽ nhận diện{' '}
-          <strong style={{ color: 'var(--color-text)' }}>37 giống chó/mèo</strong>{' '}
-          từ bộ dataset Oxford-IIIT Pet
+          Upload a photo of your pet and let our AI system quickly and accurately identify dozens of popular dog and cat breeds.
         </p>
 
         {/* Stats row */}
@@ -103,9 +104,9 @@ export function HomePage() {
           flexWrap: 'wrap',
         }}>
           {[
-            { label: '37 Breeds', sub: 'Chó & mèo', icon: <Cat size={16} /> },
-            { label: '80.16%', sub: 'Accuracy Zero-Shot', icon: <Zap size={16} /> },
-            { label: 'Top-K', sub: 'Kết quả chi tiết', icon: <Sparkles size={16} /> },
+            { label: 'Lightning Fast', sub: 'Instant Recognition', icon: <Zap size={16} /> },
+            { label: 'Highly Accurate', sub: 'Top-K Analysis', icon: <Sparkles size={16} /> },
+            { label: 'Many Breeds', sub: 'Dogs & Cats', icon: <Cat size={16} /> },
           ].map((stat) => (
             <div key={stat.label} style={{
               display: 'flex',
@@ -130,7 +131,9 @@ export function HomePage() {
           <ImageUploader
             onFileSelected={handleFileSelected}
             isUploading={isUploading || isPolling}
-          />
+          >
+            <ModelSelector selectedMethod={selectedMethod} onSelectMethod={setSelectedMethod} />
+          </ImageUploader>
 
           {uploadError && (
             <div style={{
@@ -159,7 +162,7 @@ export function HomePage() {
               ⚠ {pollError}
             </div>
           )}
-        </div>
+          </div>
       ) : (
         /* Result view — 2 column on wide screens */
         <div style={{
@@ -181,7 +184,7 @@ export function HomePage() {
               letterSpacing: '0.08em',
               marginBottom: 16,
             }}>
-              Ảnh đã upload
+              Uploaded Image
             </h3>
 
             {previewUrl ? (
@@ -197,7 +200,7 @@ export function HomePage() {
               }}>
                 <img
                   src={previewUrl}
-                  alt="Ảnh đã upload"
+                  alt="Uploaded Image"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -219,7 +222,7 @@ export function HomePage() {
               style={{ marginTop: 12, width: '100%' }}
               id="new-prediction-btn"
             >
-              Phân loại ảnh mới
+              Classify New Image
             </button>
           </div>
 
@@ -233,12 +236,54 @@ export function HomePage() {
               letterSpacing: '0.08em',
               marginBottom: 16,
             }}>
-              Kết quả phân loại
+              Classification Result
             </h3>
             <PredictionResult prediction={prediction} />
           </div>
         </div>
       )}
+
+      {/* Intro / Footer Section */}
+      <footer style={{
+        marginTop: '80px',
+        padding: '40px 0',
+        borderTop: '1px solid var(--color-border)',
+        textAlign: 'center',
+      }}>
+        <h2 style={{ fontSize: 24, fontWeight: 700, color: 'var(--color-text)', marginBottom: 16 }}>
+          How It Works
+        </h2>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: 24,
+          maxWidth: 900,
+          margin: '0 auto',
+          textAlign: 'left',
+        }}>
+          <div style={{ background: 'var(--color-surface)', padding: 24, borderRadius: 16, border: '1px solid var(--color-border)', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
+            <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--color-text)', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 24, height: 24, background: 'var(--color-accent-glow)', color: 'var(--color-accent)', borderRadius: '50%', fontSize: 12 }}>1</span>
+              Upload Image
+            </h3>
+            <p style={{ fontSize: 14, color: 'var(--color-text-muted)', lineHeight: 1.6 }}>Choose a clear photo of a dog or cat. Our system works best with well-lit, front-facing images.</p>
+          </div>
+          <div style={{ background: 'var(--color-surface)', padding: 24, borderRadius: 16, border: '1px solid var(--color-border)', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
+            <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--color-text)', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 24, height: 24, background: 'var(--color-accent-glow)', color: 'var(--color-accent)', borderRadius: '50%', fontSize: 12 }}>2</span>
+              Select AI Model
+            </h3>
+            <p style={{ fontSize: 14, color: 'var(--color-text-muted)', lineHeight: 1.6 }}>Choose from our advanced CLIP models. CoOp provides highest accuracy, while Zero-Shot is lightning fast.</p>
+          </div>
+          <div style={{ background: 'var(--color-surface)', padding: 24, borderRadius: 16, border: '1px solid var(--color-border)', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
+            <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--color-text)', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 24, height: 24, background: 'var(--color-accent-glow)', color: 'var(--color-accent)', borderRadius: '50%', fontSize: 12 }}>3</span>
+              Get Results
+            </h3>
+            <p style={{ fontSize: 14, color: 'var(--color-text-muted)', lineHeight: 1.6 }}>Our neural networks will analyze the image in milliseconds and return the top 5 most likely breeds.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

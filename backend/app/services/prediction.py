@@ -23,11 +23,23 @@ def run_inference_task(
         # Mark as processing
         prediction_repo.update_prediction_status(db, db_obj, PredictionStatus.PROCESSING)
         
-        # Get absolute path from storage
-        image_path = storage.get_path(db_obj.image_key)
+        import urllib.request
+        
+        # The image_key is now a Cloudinary URL
+        image_url = db_obj.image_key
+        
+        # Download image into bytes
+        req = urllib.request.Request(image_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req) as response:
+            image_bytes = response.read()
+        
+        import time
+        start_time = time.time()
         
         # Run classifier
-        result = classifier.predict(image_path)
+        result = classifier.predict(image_bytes)
+        
+        processing_time = time.time() - start_time
         
         # Convert top_k to serializable dicts
         top_k_dicts = [item.model_dump() for item in result.top_k_results]
@@ -40,7 +52,8 @@ def run_inference_task(
             predicted_breed_id=result.predicted_breed_id,
             score=result.score,
             top_k_results=top_k_dicts,
-            model_version=result.model_version
+            model_version=result.model_version,
+            processing_time=processing_time
         )
         
     except Exception as e:

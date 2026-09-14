@@ -5,10 +5,10 @@ import { predictionApi, breedApi } from '../../services/predictionApi';
 import type { PredictionResponse, SpeciesResponse } from '../../types/prediction';
 
 const STATUS_OPTIONS = [
-  { value: '', label: 'Tất cả trạng thái' },
-  { value: 'COMPLETED', label: 'Hoàn thành' },
-  { value: 'PROCESSING', label: 'Đang xử lý' },
-  { value: 'FAILED', label: 'Thất bại' },
+  { value: '', label: 'All Statuses' },
+  { value: 'COMPLETED', label: 'Completed' },
+  { value: 'PROCESSING', label: 'Processing' },
+  { value: 'FAILED', label: 'Failed' },
 ];
 
 const LIMIT = 12;
@@ -76,10 +76,10 @@ export function HistoryPage() {
       <div style={{ marginBottom: 32 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
           <History size={22} color="var(--color-accent)" />
-          <h1 style={{ fontSize: 28, fontWeight: 800 }}>Lịch sử phân loại</h1>
+          <h1 style={{ fontSize: 28, fontWeight: 800 }}>Classification History</h1>
         </div>
         <p style={{ color: 'var(--color-text-muted)', fontSize: 15 }}>
-          {loading ? 'Đang tải...' : `${predictions.length} predictions (trang ${page})`}
+          {loading ? 'Loading...' : `${predictions.length} predictions (page ${page})`}
         </p>
         {/* Unused but loaded: species info available */}
         {species.length > 0 && (
@@ -97,7 +97,7 @@ export function HistoryPage() {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           <Filter size={14} color="var(--color-text-muted)" />
-          <span style={{ fontSize: 13, color: 'var(--color-text-muted)', fontWeight: 600 }}>Lọc:</span>
+          <span style={{ fontSize: 13, color: 'var(--color-text-muted)', fontWeight: 600 }}>Filter:</span>
         </div>
 
         {/* Status filter */}
@@ -120,7 +120,7 @@ export function HistoryPage() {
           id="refresh-btn"
         >
           <RefreshCw size={14} />
-          Làm mới
+          Refresh
         </button>
       </div>
 
@@ -144,7 +144,7 @@ export function HistoryPage() {
         }}>
           <p style={{ fontSize: 16 }}>⚠ {error}</p>
           <button className="btn btn-primary" onClick={fetchPredictions} style={{ marginTop: 20 }}>
-            Thử lại
+            Retry
           </button>
         </div>
       ) : predictions.length === 0 ? (
@@ -154,9 +154,9 @@ export function HistoryPage() {
           color: 'var(--color-text-muted)',
         }}>
           <History size={48} color="rgba(139,92,246,0.3)" style={{ margin: '0 auto 16px' }} />
-          <p style={{ fontSize: 16, marginBottom: 8 }}>Chưa có predictions nào</p>
+          <p style={{ fontSize: 16, marginBottom: 8 }}>No predictions yet</p>
           <p style={{ fontSize: 14, color: 'var(--color-text-faint)' }}>
-            Upload ảnh ở trang Home để bắt đầu
+            Upload an image on the Home page to get started
           </p>
         </div>
       ) : (
@@ -185,11 +185,11 @@ export function HistoryPage() {
               disabled={page === 1}
               id="prev-page-btn"
             >
-              ← Trước
+              ← Previous
             </button>
 
             <span style={{ color: 'var(--color-text-muted)', fontSize: 14, padding: '0 16px' }}>
-              Trang {page}
+              Page {page}
             </span>
 
             <button
@@ -198,7 +198,7 @@ export function HistoryPage() {
               disabled={!hasNextPage}
               id="next-page-btn"
             >
-              Sau →
+              Next →
             </button>
           </div>
         </>

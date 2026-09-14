@@ -3,9 +3,10 @@ from uuid import UUID
 from sqlalchemy.orm import Session
 from app.models.prediction import Prediction, PredictionStatus
 
-def create_prediction(db: Session, image_key: str) -> Prediction:
+def create_prediction(db: Session, image_key: str, method: Optional[str] = None) -> Prediction:
     db_obj = Prediction(
         image_key=image_key,
+        method=method,
         status=PredictionStatus.UPLOADED
     )
     db.add(db_obj)
@@ -20,6 +21,7 @@ def get_predictions(
     db: Session, 
     status: Optional[PredictionStatus] = None, 
     breed_id: Optional[int] = None,
+    method: Optional[str] = None,
     skip: int = 0, 
     limit: int = 100
 ) -> List[Prediction]:
@@ -28,6 +30,8 @@ def get_predictions(
         query = query.filter(Prediction.status == status)
     if breed_id:
         query = query.filter(Prediction.predicted_breed_id == breed_id)
+    if method:
+        query = query.filter(Prediction.method == method)
     
     return query.order_by(Prediction.created_at.desc()).offset(skip).limit(limit).all()
 
@@ -39,7 +43,9 @@ def update_prediction_status(
     score: Optional[float] = None,
     top_k_results: Optional[Any] = None,
     model_version: Optional[str] = None,
-    error_message: Optional[str] = None
+    method: Optional[str] = None,
+    error_message: Optional[str] = None,
+    processing_time: Optional[float] = None
 ) -> Prediction:
     db_obj.status = status
     if predicted_breed_id is not None:
@@ -50,8 +56,12 @@ def update_prediction_status(
         db_obj.top_k_results = top_k_results
     if model_version is not None:
         db_obj.model_version = model_version
+    if method is not None:
+        db_obj.method = method
     if error_message is not None:
         db_obj.error_message = error_message
+    if processing_time is not None:
+        db_obj.processing_time = processing_time
         
     db.commit()
     db.refresh(db_obj)

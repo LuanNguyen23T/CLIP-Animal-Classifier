@@ -29,24 +29,72 @@ export function PredictionCard({ prediction, onClick }: PredictionCardProps) {
       className="glass-card"
       onClick={onClick}
       style={{
-        padding: 20,
         cursor: onClick ? 'pointer' : 'default',
         display: 'flex',
         flexDirection: 'column',
-        gap: 12,
+        overflow: 'hidden',
       }}
       id={`prediction-card-${prediction.id}`}
     >
-      {/* Status + Date */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span className={cfg.className}>
-          {cfg.icon}
-          {cfg.label}
-        </span>
-        <span style={{ fontSize: 11, color: 'var(--color-text-faint)' }}>
-          {formatDate(created_at)}
-        </span>
+      {/* Image Banner */}
+      <div style={{
+        width: '100%',
+        height: 180,
+        background: 'var(--color-surface-2)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {prediction.image_key && prediction.image_key.startsWith('http') ? (
+          <img 
+            src={prediction.image_key} 
+            alt="Uploaded pet" 
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        ) : (
+          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-faint)', fontSize: 12 }}>
+            No Image
+          </div>
+        )}
+        <div style={{
+          position: 'absolute',
+          top: 12,
+          right: 12,
+          background: 'rgba(255,255,255,0.9)',
+          backdropFilter: 'blur(4px)',
+          padding: '4px 10px',
+          borderRadius: 999,
+          display: 'flex',
+          alignItems: 'center',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        }}>
+          <span className={cfg.className} style={{ margin: 0, padding: 0, background: 'transparent', color: 'var(--color-text)' }}>
+            {cfg.icon}
+            <span style={{ marginLeft: 4, fontWeight: 700, fontSize: 11 }}>{cfg.label}</span>
+          </span>
+        </div>
       </div>
+
+      <div style={{ padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {/* Date, Method, Time */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 6 }}>
+            {prediction.method && (
+              <span style={{ fontSize: 10, color: 'var(--color-text-faint)', background: 'var(--color-surface)', padding: '2px 6px', borderRadius: 4, border: '1px solid var(--color-border)' }}>
+                {prediction.method}
+              </span>
+            )}
+            {prediction.processing_time != null && (
+              <span style={{ fontSize: 10, color: 'var(--color-text-faint)', background: 'var(--color-surface)', padding: '2px 6px', borderRadius: 4, border: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 3 }}>
+                <Clock size={9} />
+                {prediction.processing_time.toFixed(2)}s
+              </span>
+            )}
+          </div>
+          <span style={{ fontSize: 11, color: 'var(--color-text-faint)' }}>
+            {formatDate(created_at)}
+          </span>
+        </div>
+
 
       {/* Breed */}
       <div>
@@ -93,17 +141,6 @@ export function PredictionCard({ prediction, onClick }: PredictionCardProps) {
         </div>
       )}
 
-      {/* Image key (truncated) */}
-      <div style={{
-        fontSize: 10,
-        color: 'var(--color-text-faint)',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-        borderTop: '1px solid var(--color-border)',
-        paddingTop: 8,
-      }}>
-        🗂 {prediction.image_key}
       </div>
     </div>
   );
