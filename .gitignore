@@ -7,8 +7,29 @@ __pycache__/
 *.py[cod]
 *$py.class
 .ipynb_checkpoints/
+venv/
+env/
+backend/venv/
+.pytest_cache/
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# User Uploads
+uploads/
 
 # Dataset heavy raw files
+dataset/
 oxford-iiit-pet/
 **/oxford-iiit-pet/
-dataset/oxford-iiit-pet/
+dataset_ZIP/
+
+# R&D and Temp Notes
+/R&D_TEST/
+
+# IDE / Editor
+.agent/
+.vscode/
+.idea/
