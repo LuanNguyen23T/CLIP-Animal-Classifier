@@ -19,10 +19,7 @@ MODEL_ID = "openai/clip-vit-base-patch32"
 
 # Prompt templates — ensemble of 4 for enriched text embeddings
 PROMPT_TEMPLATES = [
-    "a photo of a {breed}",
-    "a photo of a {breed}, a type of pet",
-    "a close up photo of a {breed}",
-    "a photo of a {breed}, a type of {species}",
+    "Picture of a pet with breed: {raw_name}, which is a type of animal."
 ]
 
 # 37 breeds — order matches DB ids 1-37
@@ -75,6 +72,8 @@ _device: Optional[torch.device] = None
 
 def get_device() -> torch.device:
     """Auto-detect best available device."""
+    if torch.backends.mps.is_available():
+        return torch.device("mps")
     if torch.cuda.is_available():
         return torch.device("cuda")
     return torch.device("cpu")
@@ -121,9 +120,9 @@ def _build_text_features_from_scratch() -> torch.Tensor:
     model, processor, device = get_clip_backbone()
 
     prompts = []
-    for _, _, species, display_name in BREED_CATALOGUE:
+    for _, raw_name, _, _ in BREED_CATALOGUE:
         for tmpl in PROMPT_TEMPLATES:
-            prompts.append(tmpl.format(breed=display_name, species=species.lower()))
+            prompts.append(tmpl.format(raw_name=raw_name))
 
     inputs = processor(text=prompts, return_tensors="pt", padding=True, truncation=True)
     inputs = {k: v.to(device) for k, v in inputs.items()}

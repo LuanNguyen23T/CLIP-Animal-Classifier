@@ -41,7 +41,7 @@ TTA_CROPS = [
     (0.15, 0.15, 1.0,  1.0),
 ]
 
-CLASS_NAMES = [b[3] for b in BREED_CATALOGUE]
+CLASS_NAMES = [b[1] for b in BREED_CATALOGUE]
 
 
 def _construct_coop_input_ids(

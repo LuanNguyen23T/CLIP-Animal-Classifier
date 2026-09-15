@@ -9,7 +9,6 @@ from app.repositories import prediction as prediction_repo
 from app.services.prediction import run_inference_task
 from app.storage.cloudinary_storage import upload_image_to_cloudinary
 # from app.storage.local import LocalStorage
-# from app.ai.mock import MockClassifier  # Phase 1-3: MockClassifier (rollback nếu cần)
 from app.ai.registry import ClassifierRegistry, ModelMethod
 
 router = APIRouter()
@@ -50,7 +49,7 @@ def background_task_runner(prediction_id: UUID, method: str):
     db = SessionLocal()
     try:
         classifier = ClassifierRegistry.get(ModelMethod(method))
-        run_inference_task(db, prediction_id, None, classifier)
+        run_inference_task(db, prediction_id, classifier)
     finally:
         db.close()
 

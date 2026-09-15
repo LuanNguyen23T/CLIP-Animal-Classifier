@@ -29,7 +29,7 @@ from torch.utils.data import DataLoader, TensorDataset
 from transformers import CLIPModel, CLIPProcessor
 
 # ─── Config ──────────────────────────────────────────────────────────────────
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DEVICE = torch.device("mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"))
 MODEL_ID = "openai/clip-vit-base-patch32"
 NUM_CLASSES = 37
 NUM_CTX = 4
@@ -79,13 +79,10 @@ BREED_CATALOGUE = [
     (36, "wheaten_terrier",           "Dog", "Wheaten Terrier"),
     (37, "yorkshire_terrier",         "Dog", "Yorkshire Terrier"),
 ]
-CLASS_NAMES = [b[3] for b in BREED_CATALOGUE]
+CLASS_NAMES = [b[1] for b in BREED_CATALOGUE]
 
 PROMPT_TEMPLATES = [
-    "a photo of a {breed}",
-    "a photo of a {breed}, a type of pet",
-    "a close up photo of a {breed}",
-    "a photo of a {breed}, a type of {species}",
+    "Picture of a pet with breed: {raw_name}, which is a type of animal."
 ]
 
 # ─── 1. Load CLIP & build text features ──────────────────────────────────────
@@ -98,9 +95,9 @@ print(f"  logit_scale = {logit_scale_val:.2f}")
 
 print("[1/5] Building enriched text features...")
 all_prompts = []
-for _, _, species, display_name in BREED_CATALOGUE:
+for _, raw_name, _, _ in BREED_CATALOGUE:
     for tmpl in PROMPT_TEMPLATES:
-        all_prompts.append(tmpl.format(breed=display_name, species=species.lower()))
+        all_prompts.append(tmpl.format(raw_name=raw_name))
 
 inputs = clip_processor(text=all_prompts, return_tensors="pt", padding=True, truncation=True)
 inputs = {k: v.to(DEVICE) for k, v in inputs.items()}
@@ -165,7 +162,9 @@ for epoch in range(50):
     model_ca.train()
     for xb, yb in loader:
         xb, yb = xb.to(DEVICE), yb.to(DEVICE)
-        opt.zero_grad(); criterion(model_ca(xb), yb).backward(); opt.step()
+        opt.zero_grad()
+        criterion(model_ca(xb), yb).backward()
+        opt.step()
     if (epoch + 1) % 10 == 0:
         print(f"  Epoch {epoch+1}/50")
 
@@ -219,7 +218,9 @@ for epoch in range(50):
     model_coop.train()
     for xb, yb in loader:
         xb, yb = xb.to(DEVICE), yb.to(DEVICE)
-        opt_coop.zero_grad(); criterion(model_coop(xb, coop_input_ids), yb).backward(); opt_coop.step()
+        opt_coop.zero_grad()
+        criterion(model_coop(xb, coop_input_ids), yb).backward()
+        opt_coop.step()
     if (epoch + 1) % 10 == 0:
         print(f"  Epoch {epoch+1}/50")
 
@@ -253,7 +254,9 @@ for epoch in range(20):
     model_tip.train()
     for xb, yb in loader:
         xb, yb = xb.to(DEVICE), yb.to(DEVICE)
-        opt_tip.zero_grad(); criterion(model_tip(xb), yb).backward(); opt_tip.step()
+        opt_tip.zero_grad()
+        criterion(model_tip(xb), yb).backward()
+        opt_tip.step()
     if (epoch + 1) % 5 == 0:
         print(f"  Epoch {epoch+1}/20")
 

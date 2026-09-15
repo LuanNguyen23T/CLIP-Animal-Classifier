@@ -8,6 +8,10 @@ pydantic-settings==2.1.0
 python-multipart==0.0.6
 Pillow==10.1.0
 
+# Image processing
+opencv-python>=4.8.0
+numpy>=1.24.0
+
 # Phase 4 — AI/ML (tích hợp sau khi R&D xong)
 torch>=2.0.0
 torchvision>=0.15.0

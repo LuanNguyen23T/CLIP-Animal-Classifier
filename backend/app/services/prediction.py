@@ -3,13 +3,11 @@ from uuid import UUID
 from sqlalchemy.orm import Session
 from app.repositories import prediction as prediction_repo
 from app.models.prediction import PredictionStatus
-from app.storage.base import Storage
 from app.ai.base import Classifier
 
 def run_inference_task(
     db: Session, 
     prediction_id: UUID, 
-    storage: Storage, 
     classifier: Classifier
 ):
     """
@@ -36,8 +34,14 @@ def run_inference_task(
         import time
         start_time = time.time()
         
+        import io
+        from PIL import Image
+        from app.services.image import apply_optimal_preprocessing
+        
         # Run classifier
-        result = classifier.predict(image_bytes)
+        pil_img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+        processed_img = apply_optimal_preprocessing(pil_img)
+        result = classifier.predict(processed_img)
         
         processing_time = time.time() - start_time
         
