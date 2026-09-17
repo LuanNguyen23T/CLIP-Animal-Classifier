@@ -1,7 +1,10 @@
 // TypeScript interfaces matching the backend API schemas
 
 export type PredictionStatus = 'UPLOADED' | 'PROCESSING' | 'COMPLETED' | 'FAILED';
-export type ModelMethod = 'zero-shot' | 'tip-adapter-f' | 'clip-adapter' | 'coop';
+export type BackboneType = 'clip' | 'resnet50';
+export type ModelMethod = 
+  | 'zero-shot' | 'tip-adapter' | 'tip-adapter-f' | 'clip-adapter' | 'coop'
+  | 'resnet50-baseline' | 'resnet50-prototype' | 'resnet50-linear' | 'resnet50-adapter' | 'resnet50-cosine';
 
 export interface ModelInfo {
   id: ModelMethod;
@@ -11,6 +14,7 @@ export interface ModelInfo {
   latency_ms: number;
   params: number;
   tag: string;
+  backbone: BackboneType;
 }
 
 export interface SpeciesResponse {

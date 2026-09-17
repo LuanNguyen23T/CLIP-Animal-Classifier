@@ -36,12 +36,9 @@ def run_inference_task(
         
         import io
         from PIL import Image
-        from app.services.image import apply_optimal_preprocessing
-        
         # Run classifier
         pil_img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
-        processed_img = apply_optimal_preprocessing(pil_img)
-        result = classifier.predict(processed_img)
+        result = classifier.predict(pil_img)
         
         processing_time = time.time() - start_time
         

@@ -36,13 +36,6 @@ WEIGHTS_FILE = Path(__file__).parent.parent.parent / "weights" / "tip_adapter_f_
 NUM_CLASSES = 37
 MODEL_VERSION = "clip-vit-b32-tip-adapter-f-tta"
 
-TTA_CROPS = [
-    (0.0,  0.0,  1.0,  1.0),
-    (0.0,  0.0,  0.85, 0.85),
-    (0.15, 0.0,  1.0,  0.85),
-    (0.0,  0.15, 0.85, 1.0),
-    (0.15, 0.15, 1.0,  1.0),
-]
 
 
 class _TipAdapterF(nn.Module):
@@ -120,16 +113,35 @@ class TipAdapterFClassifier(Classifier):
         inputs = {k: v.to(self._device) for k, v in inputs.items()}
         with torch.no_grad():
             out = self._clip.get_image_features(**inputs)
-            feats = out if isinstance(out, torch.Tensor) else out.pooler_output
+            if isinstance(out, torch.Tensor):
+                feats = out
+            else:
+                if hasattr(out, 'image_embeds') and out.image_embeds is not None:
+                    feats = out.image_embeds
+                elif hasattr(out, 'pooler_output'):
+                    if out.pooler_output.shape[-1] == self._clip.visual_projection.in_features:
+                        feats = self._clip.visual_projection(out.pooler_output)
+                    else:
+                        feats = out.pooler_output
+                else:
+                    raise ValueError(f"Unknown output type: {type(out)}")
             return F.normalize(feats, dim=-1)
 
     def _encode_tta(self, img: PILImage.Image) -> torch.Tensor:
-        w, h = img.size
-        embeddings = []
-        for x0, y0, x1, y1 in TTA_CROPS:
-            crop = img.crop((int(x0*w), int(y0*h), int(x1*w), int(y1*h)))
-            embeddings.append(self._encode_image(crop))
-        return F.normalize(torch.cat(embeddings, dim=0).mean(dim=0, keepdim=True), dim=-1)
+        """5-view TTA +' average L2-normalized embedding [1, 512]."""
+        from app.services.image import (
+            get_raw_view, get_denoise_view, get_clahe_view, get_optimal_view, get_geom_view
+        )
+        views = [
+            get_raw_view(img),
+            get_denoise_view(img),
+            get_clahe_view(img),
+            get_optimal_view(img),
+            get_geom_view(img)
+        ]
+        embeddings = [self._encode_image(v) for v in views]
+        stacked = torch.cat(embeddings, dim=0)   # [5, 512]
+        return F.normalize(stacked.mean(dim=0, keepdim=True), dim=-1)
 
     def predict(self, image: Union[str, bytes, PILImage.Image]) -> ClassifierResult:
         pil = self._load_image(image)

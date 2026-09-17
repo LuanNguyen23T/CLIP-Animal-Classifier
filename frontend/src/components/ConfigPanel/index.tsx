@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import type { ModelInfo, ModelMethod } from '../../types/prediction';
+import type { ModelInfo, ModelMethod, BackboneType } from '../../types/prediction';
 import { predictionApi } from '../../services/predictionApi';
 import { ChevronDown, Cpu, Sparkles, ImageIcon, TextCursorInput } from 'lucide-react';
 
@@ -13,7 +13,7 @@ interface ConfigPanelProps {
 
 const DEFAULT_PROMPT = "Picture of a pet with breed: {raw_name}, which is a type of animal.";
 
-const getModelDisplayName = (m: ModelInfo | {id: string, name: string}) => {
+const getModelDisplayName = (m: ModelInfo | { id: string, name: string }) => {
   let name = m.name.replace(/\s*\(.*?\)\s*/g, '').trim();
   if (m.id === 'coop') return `${name} (Recommended 🌟)`;
   if (m.id === 'zero-shot') return `${name} (Fastest ⚡)`;
@@ -28,8 +28,20 @@ export const ConfigPanel: React.FC<ConfigPanelProps> = ({
   onClassify
 }) => {
   const [models, setModels] = useState<ModelInfo[]>([]);
-  const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
-  
+  const [activeBackbone, setActiveBackbone] = useState<BackboneType>('clip');
+
+  // Automatically select the first model of the newly selected backbone
+  const handleBackboneChange = (backbone: BackboneType) => {
+    setActiveBackbone(backbone);
+    const available = models.filter(m => m.backbone === backbone);
+    if (available.length > 0) {
+      onSelectMethod(available[0].id);
+    } else {
+      // Fallbacks if models aren't loaded yet
+      onSelectMethod(backbone === 'clip' ? 'zero-shot' : 'resnet50-cosine');
+    }
+  };
+
   useEffect(() => {
     predictionApi.listModels()
       .then(data => setModels(data))
@@ -69,28 +81,34 @@ export const ConfigPanel: React.FC<ConfigPanelProps> = ({
             Model Backbone
           </label>
           <div style={{ display: 'flex', gap: 12 }}>
-            <button 
-              className="flex-1 px-4 py-3 bg-indigo-50 dark:bg-indigo-900/20 border-2 border-indigo-500 rounded-xl text-indigo-700 dark:text-indigo-300 font-semibold text-sm flex items-center justify-center gap-2 transition-all"
+            <button
+              onClick={() => handleBackboneChange('clip')}
+              className={`flex-1 px-4 py-3 border-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${activeBackbone === 'clip'
+                  ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 text-indigo-700 dark:text-indigo-300'
+                  : 'bg-slate-50 dark:bg-slate-800/50 border-transparent text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
             >
               <Cpu size={16} /> CLIP
             </button>
-            <button 
-              disabled
-              className="flex-1 px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border-2 border-transparent rounded-xl text-slate-400 font-semibold text-sm flex items-center justify-center gap-2 cursor-not-allowed opacity-60"
-              title="Coming soon"
+            <button
+              onClick={() => handleBackboneChange('resnet50')}
+              className={`flex-1 px-4 py-3 border-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${activeBackbone === 'resnet50'
+                  ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 text-indigo-700 dark:text-indigo-300'
+                  : 'bg-slate-50 dark:bg-slate-800/50 border-transparent text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
             >
-              <Cpu size={16} /> ResNet
+              <Cpu size={16} /> ResNet-50
             </button>
           </div>
         </div>
 
         {/* Adaptive Method */}
-        <div>
+        <div className="animate-fade-in">
           <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--color-text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Adaptive Method
+            {activeBackbone === 'clip' ? 'CLIP Adapter Method' : 'ResNet-50 Adapter Method'}
           </label>
           <div className="relative">
-            <select 
+            <select
               value={selectedMethod}
               onChange={(e) => onSelectMethod(e.target.value as ModelMethod)}
               style={{
@@ -109,18 +127,29 @@ export const ConfigPanel: React.FC<ConfigPanelProps> = ({
               className="hover:border-indigo-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
             >
               {models.length > 0 ? (
-                models.map(m => (
+                models.filter(m => m.backbone === activeBackbone).map(m => (
                   <option key={m.id} value={m.id}>
                     {getModelDisplayName(m)}
                   </option>
                 ))
               ) : (
-                <>
-                  <option value="zero-shot">{getModelDisplayName({id: 'zero-shot', name: 'Zero-Shot'})}</option>
-                  <option value="tip-adapter-f">Tip-Adapter-F</option>
-                  <option value="clip-adapter">CLIP-Adapter</option>
-                  <option value="coop">{getModelDisplayName({id: 'coop', name: 'CoOp'})}</option>
-                </>
+                activeBackbone === 'clip' ? (
+                  <>
+                    <option value="zero-shot">Zero-Shot (Fastest ⚡)</option>
+                    <option value="tip-adapter">Tip-Adapter (Free)</option>
+                    <option value="tip-adapter-f">Tip-Adapter-F</option>
+                    <option value="clip-adapter">CLIP-Adapter</option>
+                    <option value="coop">CoOp (Recommended 🌟)</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="resnet50-baseline">ResNet-50 Baseline</option>
+                    <option value="resnet50-prototype">ResNet-50 Prototype</option>
+                    <option value="resnet50-linear">ResNet-50 Linear Probe</option>
+                    <option value="resnet50-adapter">ResNet-50 Residual Adapter</option>
+                    <option value="resnet50-cosine">ResNet-50 Cosine Head (Recommended 🌟)</option>
+                  </>
+                )
               )}
             </select>
             <ChevronDown size={18} style={{ position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: 'var(--color-text-muted)' }} />
@@ -135,7 +164,7 @@ export const ConfigPanel: React.FC<ConfigPanelProps> = ({
             </label>
             <div className="relative">
               <TextCursorInput size={16} className="absolute left-3 top-3.5 text-slate-400" />
-              <input 
+              <input
                 type="text"
                 value={customPrompt}
                 onChange={(e) => onPromptChange(e.target.value)}

@@ -22,16 +22,11 @@ from app.ai.shared_backbone import (
     BREED_CATALOGUE, get_clip_backbone, get_text_features
 )
 
-logger = logging.getLogger(__name__)
+from app.services.image import (
+    get_raw_view, get_denoise_view, get_clahe_view, get_optimal_view, get_geom_view
+)
 
-# TTA 5-crop offsets (fraction of image dimensions)
-TTA_CROPS = [
-    (0.0,  0.0,  1.0,  1.0),   # full image
-    (0.0,  0.0,  0.85, 0.85),  # top-left
-    (0.15, 0.0,  1.0,  0.85),  # top-right
-    (0.0,  0.15, 0.85, 1.0),   # bottom-left
-    (0.15, 0.15, 1.0,  1.0),   # bottom-right
-]
+logger = logging.getLogger(__name__)
 
 MODEL_VERSION = "clip-vit-b32-zero-shot-tta"
 
@@ -63,16 +58,30 @@ class ZeroShotClassifier(Classifier):
         inputs = {k: v.to(self._device) for k, v in inputs.items()}
         with torch.no_grad():
             out = self._model.get_image_features(**inputs)
-            feats = out if isinstance(out, torch.Tensor) else out.pooler_output
-            return F.normalize(feats, dim=-1)
+            if isinstance(out, torch.Tensor):
+                img_feats = out
+            else:
+                if hasattr(out, 'image_embeds') and out.image_embeds is not None:
+                    img_feats = out.image_embeds
+                elif hasattr(out, 'pooler_output'):
+                    if out.pooler_output.shape[-1] == self._model.visual_projection.in_features:
+                        img_feats = self._model.visual_projection(out.pooler_output)
+                    else:
+                        img_feats = out.pooler_output
+                else:
+                    raise ValueError(f"Unknown output type: {type(out)}")
+            return F.normalize(img_feats, dim=-1)
 
     def _encode_tta(self, img: PILImage.Image) -> torch.Tensor:
-        """5-crop TTA → average L2-normalized embedding [1, 512]."""
-        w, h = img.size
-        embeddings = []
-        for x0, y0, x1, y1 in TTA_CROPS:
-            crop = img.crop((int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)))
-            embeddings.append(self._encode_image(crop))
+        """5-view TTA → average L2-normalized embedding [1, 512]."""
+        views = [
+            get_raw_view(img),
+            get_denoise_view(img),
+            get_clahe_view(img),
+            get_optimal_view(img),
+            get_geom_view(img)
+        ]
+        embeddings = [self._encode_image(v) for v in views]
         stacked = torch.cat(embeddings, dim=0)   # [5, 512]
         return F.normalize(stacked.mean(dim=0, keepdim=True), dim=-1)
 

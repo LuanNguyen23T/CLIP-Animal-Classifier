@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Filter, RefreshCw, History } from 'lucide-react';
 import { PredictionCard } from '../../components/PredictionCard';
 import { predictionApi, breedApi } from '../../services/predictionApi';
-import type { PredictionResponse, SpeciesResponse } from '../../types/prediction';
+import type { PredictionResponse, SpeciesResponse, ModelInfo } from '../../types/prediction';
 
 const STATUS_OPTIONS = [
   { value: '', label: 'All Statuses' },
@@ -21,7 +21,10 @@ export function HistoryPage() {
 
   // Filters
   const [selectedStatus, setSelectedStatus] = useState('');
+  const [selectedBackbone, setSelectedBackbone] = useState('');
+  const [selectedMethod, setSelectedMethod] = useState('');
   const [page, setPage] = useState(1);
+  const [models, setModels] = useState<ModelInfo[]>([]);
 
   const fetchPredictions = useCallback(async () => {
     setLoading(true);
@@ -29,6 +32,7 @@ export function HistoryPage() {
     try {
       const data = await predictionApi.listPredictions({
         status: selectedStatus || undefined,
+        method: selectedMethod || undefined,
         skip: (page - 1) * LIMIT,
         limit: LIMIT,
       });
@@ -38,11 +42,12 @@ export function HistoryPage() {
     } finally {
       setLoading(false);
     }
-  }, [selectedStatus, page]);
+  }, [selectedStatus, selectedMethod, page]);
 
   // Load species once (for display only)
   useEffect(() => {
     breedApi.listSpecies().then(setSpecies).catch(console.error);
+    predictionApi.listModels().then(setModels).catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -109,6 +114,35 @@ export function HistoryPage() {
         >
           {STATUS_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
+
+        {/* Backbone filter */}
+        <select
+          value={selectedBackbone}
+          onChange={(e) => { 
+            setSelectedBackbone(e.target.value); 
+            setSelectedMethod(''); 
+            setPage(1); 
+          }}
+          style={filterSelectStyle}
+          id="filter-backbone"
+        >
+          <option value="">All Architectures</option>
+          <option value="clip">CLIP</option>
+          <option value="resnet50">ResNet-50</option>
+        </select>
+
+        {/* Model filter */}
+        <select
+          value={selectedMethod}
+          onChange={(e) => { setSelectedMethod(e.target.value); setPage(1); }}
+          style={filterSelectStyle}
+          id="filter-method"
+        >
+          <option value="">All Adapters</option>
+          {models.filter(m => !selectedBackbone || m.backbone === selectedBackbone).map((opt) => (
+            <option key={opt.id} value={opt.id}>{opt.name}</option>
           ))}
         </select>
 

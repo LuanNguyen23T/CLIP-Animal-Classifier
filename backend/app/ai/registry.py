@@ -18,36 +18,54 @@ logger = logging.getLogger(__name__)
 
 class ModelMethod(str, Enum):
     ZERO_SHOT    = "zero-shot"
+    TIP_ADAPTER  = "tip-adapter"
     TIP_ADAPTER_F = "tip-adapter-f"
     CLIP_ADAPTER = "clip-adapter"
     COOP         = "coop"
+    RESNET50_PROTOTYPE = "resnet50-prototype"
+    RESNET50_BASELINE  = "resnet50-baseline"
+    RESNET50_LINEAR    = "resnet50-linear"
+    RESNET50_ADAPTER   = "resnet50-adapter"
+    RESNET50_COSINE    = "resnet50-cosine"
 
 
 # Human-readable display names for the UI
 MODEL_DISPLAY_INFO: Dict[str, dict] = {
     ModelMethod.ZERO_SHOT: {
-        "name":        "CLIP Zero-Shot Baseline",
-        "description": "Pure prompt-based classification. No training required.",
+        "name":        "Zero-Shot",
+        "description": "Baseline CLIP using manually crafted text prompts.",
         "accuracy":    87.76,
-        "latency_ms":  0.85,
+        "latency_ms":  0.45,
+        "params":      0,
+        "tag":         "Fastest",
+        "backbone":    "clip",
+    },
+    ModelMethod.TIP_ADAPTER: {
+        "name":        "Tip-Adapter (Free)",
+        "description": "Training-free cache model using few-shot support set.",
+        "accuracy":    89.56,
+        "latency_ms":  1.20,
         "params":      0,
         "tag":         "Training-Free",
+        "backbone":    "clip",
     },
     ModelMethod.TIP_ADAPTER_F: {
-        "name":        "Tip-Adapter-F (Cache Adapter)",
-        "description": "Fine-tuned cache model blending zero-shot and nearest-neighbor logits.",
-        "accuracy":    89.56,
-        "latency_ms":  0.92,
-        "params":      1884160,
-        "tag":         "Fine-Tuned",
+        "name":        "Tip-Adapter-F",
+        "description": "Fine-tuned cache model keys for optimal few-shot performance.",
+        "accuracy":    90.15,
+        "latency_ms":  1.20,
+        "params":      819200,
+        "tag":         "Few-Shot Tuned",
+        "backbone":    "clip",
     },
     ModelMethod.CLIP_ADAPTER: {
-        "name":        "CLIP-Adapter (Feature Adapter)",
-        "description": "Residual bottleneck MLP adapter on image features with cosine head.",
+        "name":        "CLIP-Adapter",
+        "description": "Residual feature adapter with bottleneck MLP.",
         "accuracy":    90.27,
-        "latency_ms":  0.89,
-        "params":      66112,
-        "tag":         "Lightweight",
+        "latency_ms":  0.68,
+        "params":      262656,
+        "tag":         "Feature Tuned",
+        "backbone":    "clip",
     },
     ModelMethod.COOP: {
         "name":        "CoOp (Prompt Tuning)",
@@ -56,6 +74,52 @@ MODEL_DISPLAY_INFO: Dict[str, dict] = {
         "latency_ms":  0.95,
         "params":      2048,
         "tag":         "Best Accuracy",
+        "backbone":    "clip",
+    },
+    ModelMethod.RESNET50_PROTOTYPE: {
+        "name":        "ResNet-50 Prototype",
+        "description": "Nearest centroid classification using frozen ResNet features.",
+        "accuracy":    91.69,
+        "latency_ms":  18.50,
+        "params":      0,
+        "tag":         "Training-Free",
+        "backbone":    "resnet50",
+    },
+    ModelMethod.RESNET50_BASELINE: {
+        "name":        "ResNet-50 Baseline",
+        "description": "Standard linear probe on raw images without TTA.",
+        "accuracy":    91.80,
+        "latency_ms":  4.50,
+        "params":      75813,
+        "tag":         "Standard",
+        "backbone":    "resnet50",
+    },
+    ModelMethod.RESNET50_LINEAR: {
+        "name":        "ResNet-50 Linear Probe",
+        "description": "Standard linear layer trained on frozen features.",
+        "accuracy":    92.40,
+        "latency_ms":  18.60,
+        "params":      75813,
+        "tag":         "Standard Probe",
+        "backbone":    "resnet50",
+    },
+    ModelMethod.RESNET50_ADAPTER: {
+        "name":        "ResNet-50 Residual Adapter",
+        "description": "Residual MLP with bottleneck architecture.",
+        "accuracy":    92.42,
+        "latency_ms":  19.10,
+        "params":      1050213,
+        "tag":         "Deep Probe",
+        "backbone":    "resnet50",
+    },
+    ModelMethod.RESNET50_COSINE: {
+        "name":        "ResNet-50 Cosine Head",
+        "description": "Cosine distance classifier with 5-view TTA.",
+        "accuracy":    93.08,
+        "latency_ms":  20.45,
+        "params":      75815,
+        "tag":         "Best CNN",
+        "backbone":    "resnet50",
     },
 }
 
@@ -82,6 +146,10 @@ class ClassifierRegistry:
             from app.ai.clip_zero_shot import ZeroShotClassifier
             return ZeroShotClassifier()
 
+        elif method == ModelMethod.TIP_ADAPTER:
+            from app.ai.tip_adapter import TipAdapterClassifier
+            return TipAdapterClassifier()
+
         elif method == ModelMethod.TIP_ADAPTER_F:
             from app.ai.tip_adapter_f import TipAdapterFClassifier
             return TipAdapterFClassifier()
@@ -93,6 +161,26 @@ class ClassifierRegistry:
         elif method == ModelMethod.COOP:
             from app.ai.coop import CoOpClassifier
             return CoOpClassifier()
+
+        elif method == ModelMethod.RESNET50_PROTOTYPE:
+            from app.ai.resnet50_prototype import ResNet50PrototypeClassifier
+            return ResNet50PrototypeClassifier()
+
+        elif method == ModelMethod.RESNET50_BASELINE:
+            from app.ai.resnet50_baseline import ResNet50BaselineClassifier
+            return ResNet50BaselineClassifier()
+            
+        elif method == ModelMethod.RESNET50_LINEAR:
+            from app.ai.resnet50_linear import ResNet50LinearClassifier
+            return ResNet50LinearClassifier()
+            
+        elif method == ModelMethod.RESNET50_ADAPTER:
+            from app.ai.resnet50_adapter import ResNet50AdapterClassifier
+            return ResNet50AdapterClassifier()
+
+        elif method == ModelMethod.RESNET50_COSINE:
+            from app.ai.resnet50_cosine import ResNet50CosineClassifier
+            return ResNet50CosineClassifier()
 
         raise ValueError(f"Unknown model method: {method}")
 

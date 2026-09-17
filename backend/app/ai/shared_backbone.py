@@ -19,7 +19,19 @@ MODEL_ID = "openai/clip-vit-base-patch32"
 
 # Prompt templates — ensemble of 4 for enriched text embeddings
 PROMPT_TEMPLATES = [
-    "Picture of a pet with breed: {raw_name}, which is a type of animal."
+    "Picture of a pet with breed: {c}, which is a type of animal."
+]
+
+# Exact class names from torchvision.datasets.OxfordIIITPet.classes
+OXFORD_CLASSES = [
+    'Abyssinian', 'American Bulldog', 'American Pit Bull Terrier', 'Basset Hound', 
+    'Beagle', 'Bengal', 'Birman', 'Bombay', 'Boxer', 'British Shorthair', 
+    'Chihuahua', 'Egyptian Mau', 'English Cocker Spaniel', 'English Setter', 
+    'German Shorthaired', 'Great Pyrenees', 'Havanese', 'Japanese Chin', 
+    'Keeshond', 'Leonberger', 'Maine Coon', 'Miniature Pinscher', 'Newfoundland', 
+    'Persian', 'Pomeranian', 'Pug', 'Ragdoll', 'Russian Blue', 'Saint Bernard', 
+    'Samoyed', 'Scottish Terrier', 'Shiba Inu', 'Siamese', 'Sphynx', 
+    'Staffordshire Bull Terrier', 'Wheaten Terrier', 'Yorkshire Terrier'
 ]
 
 # 37 breeds — order matches DB ids 1-37
@@ -120,9 +132,9 @@ def _build_text_features_from_scratch() -> torch.Tensor:
     model, processor, device = get_clip_backbone()
 
     prompts = []
-    for _, raw_name, _, _ in BREED_CATALOGUE:
+    for c in OXFORD_CLASSES:
         for tmpl in PROMPT_TEMPLATES:
-            prompts.append(tmpl.format(raw_name=raw_name))
+            prompts.append(tmpl.format(c=c))
 
     inputs = processor(text=prompts, return_tensors="pt", padding=True, truncation=True)
     inputs = {k: v.to(device) for k, v in inputs.items()}
