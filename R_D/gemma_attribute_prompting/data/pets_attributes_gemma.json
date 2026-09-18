@@ -1,0 +1,446 @@
+{
+  "abyssinian": {
+    "breed": "abyssinian",
+    "human_name": "Abyssinian",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Finely chiseled, proportionate skull structure; ears are medium-sized, erect, and sharply triangular.",
+      "eyes": "Large, expressive, almond-shaped orbits; coloration is typically a vivid amber or gold.",
+      "coat": "Extremely short, sleek pile; the defining feature is a dense, uniform ticked coat pattern achieved through micropigmentation of guard hairs.",
+      "body": "Lean, muscular, and elegantly proportioned; exhibits a graceful carriage with a medium-length, tapering tail.",
+      "distinguishing_mark": "The high-density ticked coat pattern provides a visual texture and depth, making the color appear multidimensional rather than solid."
+    }
+  },
+  "american_bulldog": {
+    "breed": "american_bulldog",
+    "human_name": "American Bulldog",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Wide, powerful cranial structure; muzzle is broad and deep, proportionate to the skull; ears are typically semi-erect or naturally dropped.",
+      "eyes": "Deeply set, exhibiting a medium to dark amber or brown hue; the shape is generally round to slightly almond.",
+      "coat": "Short, dense, and smooth double coat; color patterns are variable but often include fawn, red, or brindle hues with minimal harsh markings.",
+      "body": "Extremely muscular and heavily boned frame; possesses a deep chest cavity indicative of powerful thorax musculature; tail is usually medium in length and set low.",
+      "distinguishing_mark": "The unique combination of the broad, powerful skull structure and the profound muscular development visible in the neck and shoulders."
+    }
+  },
+  "american_pit_bull_terrier": {
+    "breed": "american_pit_bull_terrier",
+    "human_name": "American Pit Bull Terrier",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Broad, powerful skull structure; moderate muzzle length proportionate to the head; ears are typically semi-erect or cropped, set high on the skull.",
+      "eyes": "Alert and expressive; typically medium to dark brown or amber, providing a watchful gaze.",
+      "coat": "Extremely short, dense, and smooth coat; colors are highly variable but commonly include solid fawn, red, brindle patterns, or black patches.",
+      "body": "Compact and powerfully muscled physique; strong chest depth; proportionate, sturdy frame with moderate tail carriage.",
+      "distinguishing_mark": "The combination of the blocky, wide cranial structure and the tight musculature visible beneath the short coat."
+    }
+  },
+  "basset_hound": {
+    "breed": "basset_hound",
+    "human_name": "Basset Hound",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Moderately long muzzle supported by a low-set skull; the most defining feature is the pair of extremely long, heavy, pendulous ears that hang close to the ground.",
+      "eyes": "Dark amber to deep brown eyes, often appearing mournful due to the heavy brow structure and drooping orbital bone configuration.",
+      "coat": "Short, dense, smooth double coat. Coloration is typically tricolor (black, tan, and white) with minimal variation in texture or guard hair length.",
+      "body": "Low-slung, heavily boned torso supported by relatively short, sturdy legs. The overall impression is one of compact muscularity combined with extreme ground clearance.",
+      "distinguishing_mark": "The unique combination of the disproportionately heavy, dragging pendulous ears and the low-slung gait resulting from the combination of short legs and heavy bone structure."
+    }
+  },
+  "beagle": {
+    "breed": "beagle",
+    "human_name": "Beagle",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "The skull is proportionate to the body size, featuring a moderately tapered muzzle. The ears are pendulous (floppy), set high on the cranium, and hang close to the cheeks.",
+      "eyes": "Medium-sized, exhibiting a deep amber to dark brown hue. They are set in sockets that convey alertness and expressiveness.",
+      "coat": "A short, dense double coat provides a smooth visual texture. Coloration is typically tricolor (black, tan, and white) or various hound patterns, with distinct markings clearly visible.",
+      "body": "The build is sturdy and mesomorphic, possessing a moderate frame. The torso is well-muscled, supported by proportionate limbs, and the tail is of moderate length.",
+      "distinguishing_mark": "The combination of the moderately tapered muzzle, the high placement and pendulous carriage of the ears, and the uniform smoothness of the short coat provides a unique visual signature."
+    }
+  },
+  "bengal": {
+    "breed": "bengal",
+    "human_name": "Bengal",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Muscular, well-defined skull structure; moderate muzzle length; sharply pointed, erect ears.",
+      "eyes": "Large, expressive, and almond-shaped; typically vivid golden amber or deep green.",
+      "coat": "Short to medium length, dense texture; exhibits high-contrast patterns ranging from crisp solid spots to complex, large rosettes (marbling or ticking).",
+      "body": "Athletic and highly muscular build; sleek profile with a proportionate, balanced tail.",
+      "distinguishing_mark": "The unique presence of large, distinct rosette patterns or crisp, high-contrast spots that visually mimic those found in wild felids."
+    }
+  },
+  "birman": {
+    "breed": "birman",
+    "human_name": "Birman",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Moderately sized, rounded cranium with a balanced muzzle; ears are medium in size, set wide, and possess a semi-erect carriage.",
+      "eyes": "Large, expressive eyes with an almond to round shape, typically exhibiting a rich copper or amber pigmentation.",
+      "coat": "A dense, medium-pile coat of creamy ivory body color, contrasted by uniform, rich mahogany or seal-point saturation on the extremities (mask, tail, legs).",
+      "body": "A medium to large frame exhibiting a graceful, muscular build; the tail is proportionate and tapers elegantly.",
+      "distinguishing_mark": "The sharp visual contrast between the pale, creamy base coat and the deep, saturated mahogany tipping that defines the facial mask and points."
+    }
+  },
+  "bombay": {
+    "breed": "bombay",
+    "human_name": "Bombay",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Rounded, well-proportioned cranium with a medium muzzle; ears are erect, triangular, and set symmetrically high on the skull.",
+      "eyes": "Large orbital prominence; intense amber or copper hue; shape is typically round to slightly almond.",
+      "coat": "Ultra-short, dense pile providing a sleek, velvety texture; the coat exhibits a high-gloss lustre, resembling polished obsidian due to uniform solid black pigmentation.",
+      "body": "Muscular, compact frame with balanced proportions; the tail is medium in length and maintains the same dense coat quality.",
+      "distinguishing_mark": "The combination of the uniform, deep black pigmentation and the exceptional, oil-like sheen achieved by the short, fine coat pile."
+    }
+  },
+  "boxer": {
+    "breed": "boxer",
+    "human_name": "Boxer",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Massive, square skull structure with a defined stop; muzzle is proportionate and strong. Ears are typically medium-sized, set high on the skull, and hang pendulously.",
+      "eyes": "Medium-sized, exhibiting a dark amber to rich brown hue; the orbital structure provides a focused, alert gaze.",
+      "coat": "Extremely short, dense, and smooth coat texture. Coloration is predominantly fawn or red, often displaying rich mahogany tones, with crisp white markings commonly present on the chest and lower legs.",
+      "body": "Highly muscular, robust, and powerful build. The torso is compact and squarely proportioned to the head, suggesting immense physical density.",
+      "distinguishing_mark": "The unique combination of the blocky, powerful cranial architecture and the tautness of the short fawn coat provides a distinct visual profile."
+    }
+  },
+  "british_shorthair": {
+    "breed": "british_shorthair",
+    "human_name": "British Shorthair",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Massive, perfectly rounded skull structure; short, broad muzzle; small, sturdy ears set high and slightly back.",
+      "eyes": "Large, deeply set eyes with a round shape; typically exhibiting hues of copper, gold, or deep green.",
+      "coat": "Extremely dense, plush double coat; short to medium length but with high volume; uniform texture across the body, allowing for clear visualization of underlying musculature.",
+      "body": "Compact, cobby physique; powerful and muscular build with a low-slung stance; tail is usually short and sturdy.",
+      "distinguishing_mark": "The unique combination of the disproportionately large, perfectly spherical head relative to the body size, supported by a dense, plush coat."
+    }
+  },
+  "chihuahua": {
+    "breed": "chihuahua",
+    "human_name": "Chihuahua",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Small, finely structured cranium; muzzle is short and delicate. Pinnae (ears) are large, triangular, erect, and sharply pointed.",
+      "eyes": "Large orbits relative to the skull size; eyes are typically dark, exhibiting a liquid or intense quality.",
+      "coat": "Varies from an extremely fine-grained, short pelage (smooth coat) to a luxurious, flowing double coat. Color patterns are diverse but the texture is uniformly fine.",
+      "body": "Highly gracile and diminutive structure. The torso is compact, supported by fine bone structure, with a short tail carriage.",
+      "distinguishing_mark": "The unique combination of the delicate, fine osseous structure with large, alert ocular presentation and highly erect auditory appendages."
+    }
+  },
+  "egyptian_mau": {
+    "breed": "egyptian_mau",
+    "human_name": "Egyptian Mau",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Sleek, well-chiseled wedge shape; ears are proportionate, triangular, and set high on the skull.",
+      "eyes": "Large, almond-shaped orbits; coloration typically ranges from vivid green to deep amber.",
+      "coat": "Extremely short, fine-grained pile providing a smooth texture; the coat exhibits a subtle, metallic sheen or iridescence when viewed in direct light, characteristic of its pattern.",
+      "body": "Muscular and gracefully proportioned; exhibits a lithe, fluid build with moderate bone structure. Tail is tapering and proportionate to the body length.",
+      "distinguishing_mark": "The combination of the short, dense coat texture and the unique, shimmering quality of the pattern markings (often mackerel or classic tabby patterns) which gives the appearance of a subtle metallic overlay."
+    }
+  },
+  "english_cocker_spaniel": {
+    "breed": "english_cocker_spaniel",
+    "human_name": "English Cocker Spaniel",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "The head is proportionate to the body, featuring a medium-long muzzle. The ears are pendulous, set moderately low on the skull, and covered in long, silky feathering that frames the face.",
+      "eyes": "Dark brown to amber-toned, exhibiting a medium size and an alert yet gentle expression; the shape is typically almond to round.",
+      "coat": "A dense, medium-to-long double coat. The texture is soft and silky, characterized by profuse feathering that cascades heavily over the chest, ears, flanks, and legs.",
+      "body": "The body structure is balanced and sturdy, displaying a graceful yet muscular build. The tail is typically feathered and carried in a natural, gentle curve.",
+      "distinguishing_mark": "The combination of the well-defined skull structure and the specific, voluminous quality of the silky feathering that originates from the ears and flows down the neck."
+    }
+  },
+  "english_setter": {
+    "breed": "english_setter",
+    "human_name": "English Setter",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Moderately chiseled skull with a defined stop; muzzle is proportionate and strong. Ears are set moderately high and hang gracefully alongside the neck.",
+      "eyes": "Medium-sized, almond shape; typically amber or dark brown, conveying alertness and depth.",
+      "coat": "Medium-long pile, dense, and soft to the touch. The coat exhibits a characteristic ticked or roan pattern of rich mahogany, tan, and deep liver hues.",
+      "body": "Elegant, medium-to-large frame with graceful musculature. The tail is long and tapering, carried level or slightly elevated.",
+      "distinguishing_mark": "The finely distributed, high-contrast ticking pattern across the body coat, combined with the balanced proportions of the head and thorax."
+    }
+  },
+  "german_shorthaired": {
+    "breed": "german_shorthaired",
+    "human_name": "German Shorthaired",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Moderately long muzzle with a strong, well-defined skull structure. Ears are medium in size, set high on the cranium, and held erect or semi-erect.",
+      "eyes": "Alert, expressive eyes typically ranging from deep brown to amber. The orbital structure contributes to an intelligent, focused gaze.",
+      "coat": "Short, dense, and smooth texture. The coat exhibits a characteristic ticking or roan pattern (often liver/tan points) providing complex visual depth across the body.",
+      "body": "Athletic, balanced conformation with powerful musculature. The torso is well-proportioned to the head, and the tail is typically carried level or slightly downward.",
+      "distinguishing_mark": "The combination of the short, close-lying coat and the specific ticking pattern provides a unique visual texture that differentiates it from breeds with solid coloration or longer coats."
+    }
+  },
+  "great_pyrenees": {
+    "breed": "great_pyrenees",
+    "human_name": "Great Pyrenees",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Broad, noble skull structure; muzzle is proportionate and strong. Ears are medium-sized, set high on the head, and carried naturally pendulous.",
+      "eyes": "Deep-set eyes exhibiting a watchful expression; coloration is typically amber or rich brown.",
+      "coat": "Possesses an exceptionally dense, luxurious double coat. The outer guard hairs are long and flowing, creating a voluminous, cloud-like texture. Coloration is brilliant white to creamy ivory.",
+      "body": "Large, heavily muscled frame with substantial bone structure. The body is balanced and powerful, supported by strong legs. Tail is long and often plume-like.",
+      "distinguishing_mark": "The sheer volume and uniform brilliance of the pure white, thick double coat combined with the massive, noble head carriage."
+    }
+  },
+  "havanese": {
+    "breed": "havanese",
+    "human_name": "Havanese",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Moderate skull structure, gentle facial profile, muzzle of medium length with a slight taper; ears are moderately sized and pendulous.",
+      "eyes": "Large, highly expressive eyes; typically dark brown or amber in color, possessing a soft, almond to round shape.",
+      "coat": "Long, exceptionally fine, and silky coat texture; the density varies but presents a flowing appearance. Coloration is highly variable, ranging from solid creams and silvers to patterned hues.",
+      "body": "Small to medium frame, exhibiting graceful and balanced proportions; the body structure is slender and well-boned. Tail carriage is natural, often moderately feathered.",
+      "distinguishing_mark": "The unique combination of the flowing, fine-grained coat texture and the delicate, gentle facial morphology."
+    }
+  },
+  "japanese_chin": {
+    "breed": "japanese_chin",
+    "human_name": "Japanese Chin",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Highly refined skull structure; muzzle is short and compressed, transitioning into a delicate facial mask; ears are typically small, set high, and semi-erect or softly dropped.",
+      "eyes": "Large relative to the facial structure; almond-shaped, often exhibiting deep amber or dark brown pigmentation.",
+      "coat": "Extremely long, dense, and flowing double coat; texture is silky and luxurious, requiring constant maintenance; color patterns are variable but often include fawn, cream, or sable tones with subtle tipping.",
+      "body": "Small to medium frame; exhibits a graceful, delicate bone structure and carriage; the tail is typically long and plume-like, carried with elegance.",
+      "distinguishing_mark": "The combination of the compressed facial profile and the voluminous, floor-length coat that cascades around the body provides a unique visual silhouette."
+    }
+  },
+  "keeshond": {
+    "breed": "keeshond",
+    "human_name": "Keeshond",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Large, noble head structure with a moderate muzzle depth; ears are medium-sized and held firmly erect.",
+      "eyes": "Almond-shaped, conveying alertness; color is typically a rich amber or dark brown.",
+      "coat": "Dense, medium-long double coat; color ranges from deep fawn to blackish-grey and exhibits a characteristic ticked or banded pattern, providing visual depth.",
+      "body": "Sturdy and balanced medium-to-large frame; musculature is visible beneath the coat, supporting a strong gait. The tail is carried moderately and often features feathering.",
+      "distinguishing_mark": "The combination of the substantial cranial mass and the uniform, dense texture of the double coat, which creates a cohesive, robust profile."
+    }
+  },
+  "leonberger": {
+    "breed": "leonberger",
+    "human_name": "Leonberger",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Massive, noble skull structure; moderate muzzle length proportionate to head size; ears are medium-sized and pendulous, hanging close to the cheeks.",
+      "eyes": "Deep amber to dark brown hue; almond-shaped, conveying a gentle yet watchful expression.",
+      "coat": "Dense, luxurious double coat; medium to long in texture; coloration is typically fawn or reddish-gold with pronounced black tipping (sable) on the extremities and undercarriage.",
+      "body": "Extremely robust, powerful musculature; substantial bone density visible in the gait and stance; tail is medium length and carried low, tapering gracefully.",
+      "distinguishing_mark": "The combination of the immense, heavily boned frame and the uniform fawn coat contrasted sharply with black points on the muzzle and legs."
+    }
+  },
+  "maine_coon": {
+    "breed": "maine_coon",
+    "human_name": "Maine Coon",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Broad, powerful skull structure; moderate muzzle length; ears are medium-sized and erect, often featuring distinct lynx ear tufts.",
+      "eyes": "Large orbital presence; expressive, typically amber or golden hue; almond to oval shape.",
+      "coat": "Dense, luxurious double coat of variable length; texture is flowing and voluminous; color patterns range widely but maintain visual depth.",
+      "body": "Robust, heavily muscled frame with substantial bone structure; the caudal appendage (tail) is exceptionally long and densely plumed.",
+      "distinguishing_mark": "The combination of the powerful, wedge-shaped head and the pronounced caudal plume that balances the body mass."
+    }
+  },
+  "miniature_pinscher": {
+    "breed": "miniature_pinscher",
+    "human_name": "Miniature Pinscher",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Finely chiseled, proportionate head structure; muzzle is strong and tapering; ears are sharply erect, thin, and precisely pointed.",
+      "eyes": "Deeply set, exhibiting a keen intelligence; almond-shaped with dark pigmentation.",
+      "coat": "Extremely short, smooth, and close-lying coat texture; the pile is fine and exhibits a high sheen depending on color (e.g., rich mahogany or jet black).",
+      "body": "Compact, muscular build with a graceful carriage; the torso is finely proportioned to the head, and the tail is typically set low and carried level.",
+      "distinguishing_mark": "The combination of the taut, sleek coat texture and the highly refined musculature visible beneath the skin contributes to a distinctly elegant and poised silhouette."
+    }
+  },
+  "newfoundland": {
+    "breed": "newfoundland",
+    "human_name": "Newfoundland",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Massive, broad skull structure; moderate muzzle length proportionate to head size; ears are medium-sized, set high on the cranium, and typically hang slightly pendulous.",
+      "eyes": "Deeply set orbits; rich mahogany to dark amber iris color; conveys a profound, gentle intelligence.",
+      "coat": "Extremely dense, voluminous double coat; outer guard hairs are long, oily, and lie flat against the body; texture is thick, luxurious, and highly water-resistant. Colors range from deep black to rich sable brown.",
+      "body": "Powerful, heavily muscled frame; deep thorax and chest cavity; sturdy bone structure providing a low, balanced stance.",
+      "distinguishing_mark": "The sheer density and uniform volume of the thick, luxurious double coat combined with the immense breadth of the skull."
+    }
+  },
+  "persian": {
+    "breed": "persian",
+    "human_name": "Persian",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Highly brachycephalic skull structure resulting in a broad, rounded head; muzzle is extremely short and flattened (brachyfacial); ears are small, set wide apart, and often semi-erect or partially obscured by facial furnishings.",
+      "eyes": "Large, prominent orbital structure; eyes are typically wide-set and possess a deep, expressive quality, often appearing round or slightly almond-shaped depending on the specific breed line.",
+      "coat": "Extremely long, dense double coat characterized by a luxurious pile and flowing texture; the guard hairs are thick and provide volume, while the undercoat is soft and insulating. Color patterns range from solid to patterned, but the coat length is universally defining.",
+      "body": "Compact and cobby body type with a sturdy, well-boned frame. Legs are relatively short in proportion to the torso. Tail is typically moderate and often obscured by the voluminous coat.",
+      "distinguishing_mark": "The combination of pronounced brachycephaly (flat face) and the exceptionally dense, flowing pelage creates a unique visual profile that is instantly recognizable from a frontal view."
+    }
+  },
+  "pomeranian": {
+    "breed": "pomeranian",
+    "human_name": "Pomeranian",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Small, finely chiseled head structure; muzzle is short and well-defined; ears are erect, triangular, and proportionate to the skull.",
+      "eyes": "Dark pigmentation; eyes are typically almond-shaped, conveying an alert and bright expression.",
+      "coat": "Possesses a dense, voluminous double coat. The outer guard hairs are profuse and exhibit a fine-grained texture when viewed closely, giving the animal a characteristic fluffy halo. Color patterns are sharply defined.",
+      "body": "Compact and sturdy build; legs are relatively short in proportion to the body mass. The tail is carried high and maintains a plume-like volume.",
+      "distinguishing_mark": "The extreme density and fluffiness of the coat, which creates a consistently spherical or 'puffball' silhouette across the torso and head."
+    }
+  },
+  "pug": {
+    "breed": "pug",
+    "human_name": "Pug",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Pronounced brachycephalic skull structure; muzzle is extremely short and heavily wrinkled; ears are small, semi-erect, and closely appressed to the cranium.",
+      "eyes": "Large relative to the skull size; typically dark brown or amber hue, conveying a highly expressive quality.",
+      "coat": "Extremely short, dense, and fine-grained texture; coat color varies but is often fawn or black, exhibiting crisp markings.",
+      "body": "Compact, muscular, and sturdy build; the torso is proportionate to the head size. The tail is short and carried in a tight, characteristic curl.",
+      "distinguishing_mark": "The unique combination of the heavily wrinkled facial topography and the tightly coiled tail structure."
+    }
+  },
+  "ragdoll": {
+    "breed": "ragdoll",
+    "human_name": "Ragdoll",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Moderately sized, well-chiseled head structure with a proportionate muzzle; ears are medium in size and semi-erect, providing excellent cranial orientation.",
+      "eyes": "Large, deeply set eyes characterized by a luminous quality; color is typically striking blue or deep amber depending on the specific genetic line.",
+      "coat": "Dense, plush double coat texture; exhibits a semi-long pile that feels exceptionally soft. Coloration is often achieved through distinct 'pointed' patterns or solid hues, depending on the specific phenotype.",
+      "body": "Medium to large frame with a muscular yet graceful build; the body is well-balanced and exhibits fluid movement. The tail is proportionate to the body length.",
+      "distinguishing_mark": "The unique combination of a large, expressive facial structure with the plush density and specific color patterning of the coat, creating a highly uniform visual profile."
+    }
+  },
+  "russian_blue": {
+    "breed": "russian_blue",
+    "human_name": "Russian Blue",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Well-chiseled skull structure; moderate muzzle length, tapering gracefully; ears are proportionate, triangular, and set high on the cranium.",
+      "eyes": "Deeply set, exhibiting an almond shape; color is typically a vivid green or greenish-gold.",
+      "coat": "Extremely short, dense, and plush pile; the coloration is a uniform smoky blue-gray achieved through the density and structure of the guard hairs, giving it a characteristic velvety appearance.",
+      "body": "Medium to large frame; muscular yet elegant build; tail is proportionate and held with grace.",
+      "distinguishing_mark": "The unique, cool, silvery-blue sheen of the coat pile, which provides a visual depth and saturation unlike simple gray pelage."
+    }
+  },
+  "saint_bernard": {
+    "breed": "saint_bernard",
+    "human_name": "Saint Bernard",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Broad, powerful skull structure; muzzle is deep and proportionate to the head; ears are medium-sized, set high, and typically hang close to the skull.",
+      "eyes": "Deep-set orbits containing large, dark brown eyes with a soft, watchful expression; the eye shape is generally roundish.",
+      "coat": "A dense, thick double coat providing insulation; the outer guard hairs are medium-long and lie flat, while the undercoat is exceptionally plush. Coloration ranges from fawn to deep reddish-brown, often overlaid with crisp white markings on the chest, legs, and muzzle.",
+      "body": "Massive, heavily muscled mesomorph body plan; the torso is deep and rectangular, supported by strong bone structure. The tail is moderately thick and carried low.",
+      "distinguishing_mark": "The combination of immense physical bulk with the specific pattern of fawn body color contrasted by stark white blaze markings on the chest and muzzle."
+    }
+  },
+  "samoyed": {
+    "breed": "samoyed",
+    "human_name": "Samoyed",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Strong, well-balanced skull; muzzle is moderate and gently tapering; ears are erect, medium in size, triangular, and set high on the cranium.",
+      "eyes": "Almond-shaped; typically dark amber to deep brown, providing an expression of alert warmth.",
+      "coat": "Extremely dense double coat; plush, thick texture achieved through a soft undercoat and longer guard hairs; coloration is predominantly pristine white to creamy ivory.",
+      "body": "Medium-to-large, sturdy yet graceful build; the tail is thick and carried high, often forming a characteristic plume or curl.",
+      "distinguishing_mark": "The combination of the immaculate, voluminous white coat and the specific high carriage of the tail plume."
+    }
+  },
+  "scottish_terrier": {
+    "breed": "scottish_terrier",
+    "human_name": "Scottish Terrier",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Strong, proportionate head structure with a defined muzzle of moderate length. Ears are typically small and set high on the skull, often semi-pricked or close to the head.",
+      "eyes": "Deeply set, dark brown eyes characterized by an alert and intelligent expression.",
+      "coat": "A dense, harsh, wiry double coat. The texture is coarse and bristly, composed of tightly packed guard hairs over a softer undercoat. Colors are typically rich reds, browns, or wheaten tones.",
+      "body": "Compact, muscular, and low-slung frame. The body exhibits a sturdy balance appropriate to its size, maintaining a level carriage.",
+      "distinguishing_mark": "The unique combination of the extremely dense, harsh texture of the wiry coat and the robustly compact skeletal structure."
+    }
+  },
+  "shiba_inu": {
+    "breed": "shiba_inu",
+    "human_name": "Shiba Inu",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Wedge-shaped skull structure with a proportionate, moderate muzzle length; ears are sharply pointed, erect, and triangular.",
+      "eyes": "Almond-shaped orbits containing deep amber to dark brown irises, conveying alertness and intelligence.",
+      "coat": "Dense double coat; the outer guard hairs are short, smooth, and lie close to the body, providing a sleek visual profile; colors include solid reds, blacks, and sesame tones.",
+      "body": "Compact, muscular, and balanced frame; the tail is carried high and exhibits a characteristic tight curl over the loin.",
+      "distinguishing_mark": "The combination of the clean, chiseled facial lines and the specific, tightly coiled carriage of the tail."
+    }
+  },
+  "siamese": {
+    "breed": "siamese",
+    "human_name": "Siamese",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Defined wedge-shaped skull structure, chiseled muzzle, and large, erect triangular ears set high on the cranium.",
+      "eyes": "Vivid sapphire blue, almond-shaped, providing a high degree of visual contrast with the coat.",
+      "coat": "Extremely short, fine texture. The body exhibits a pale base color (cream/ivory), while the extremities develop sharply defined, hyperpigmented points in rich seal brown or sable tones.",
+      "body": "Slender, elegant, and muscular frame with a graceful gait. The tail is long and tapering, maintaining the body's linear profile.",
+      "distinguishing_mark": "The crisp, high-contrast demarcation line between the pale body coat and the dark, intensely pigmented points, which is characteristic of the colorpoint pattern."
+    }
+  },
+  "sphynx": {
+    "breed": "sphynx",
+    "human_name": "Sphynx",
+    "species": "cat",
+    "attributes": {
+      "head_and_ears": "Wedge-shaped cranium with a defined muzzle; ears are proportionate, erect, and finely tapered.",
+      "eyes": "Large orbital prominence with a wide aperture; coloration is typically intense (e.g., amber, gold, or vivid green), providing high contrast against the skin.",
+      "coat": "Visually characterized by the absence of a dense pelage; the surface presents as smooth, pliable skin texture with visible micro-folds and wrinkles.",
+      "body": "Compact, muscular physique; the torso exhibits a taut yet yielding quality due to underlying musculature and loose epidermal folds, particularly around the neck and flanks.",
+      "distinguishing_mark": "The unique combination of the highly elastic, wrinkled epidermal layer and the pronounced underlying skeletal musculature, visible through the lack of insulating fur."
+    }
+  },
+  "staffordshire_bull_terrier": {
+    "breed": "staffordshire_bull_terrier",
+    "human_name": "Staffordshire Bull Terrier",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Broad, powerful skull structure; moderate muzzle length proportionate to the head; ears are typically semi-pricked or close-fitting to the skull.",
+      "eyes": "Deep, dark brown iris; alert and expressive gaze with a medium-sized orbital structure.",
+      "coat": "Short, dense, and smooth double coat; texture is sleek and tight against the body; coloration varies but often presents in fawn, red, or brin patterns.",
+      "body": "Compact, muscular, and sturdy build; low-slung torso with visible muscle definition beneath the coat; tail is typically short and set close to the body.",
+      "distinguishing_mark": "The extreme density and definition of the musculature, which gives the animal a powerful, blocky silhouette despite its moderate size."
+    }
+  },
+  "wheaten_terrier": {
+    "breed": "wheaten_terrier",
+    "human_name": "Wheaten Terrier",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Moderately sized, well-chiseled skull structure; muzzle is strong and proportionate to the cranium. Ears are typically set high and semi-erect, maintaining a clean profile.",
+      "eyes": "Deeply set eyes exhibiting a rich amber to dark brown hue; the shape is alert and almond-like, conveying high visual acuity.",
+      "coat": "A dense double coat characterized by a fine-grained texture. The color is uniformly saturated golden yellow (wheaten), often exhibiting subtle tan tipping on the extremities, providing visual depth.",
+      "body": "Compact and muscular build with balanced proportions. The torso is sturdy, supporting a gait that appears agile and purposeful. Tail carriage is typically level or slightly elevated.",
+      "distinguishing_mark": "The unique, consistent saturation and warmth of the golden coat color across the entire body mass, which provides a striking visual contrast against the underlying musculature and bone structure."
+    }
+  },
+  "yorkshire_terrier": {
+    "breed": "yorkshire_terrier",
+    "human_name": "Yorkshire Terrier",
+    "species": "dog",
+    "attributes": {
+      "head_and_ears": "Small, finely chiseled head structure with a tapering muzzle; ears are small, erect, and set high on the skull.",
+      "eyes": "Dark, highly reflective eyes with an almond to round shape, conveying alertness and expressiveness.",
+      "coat": "A dense, single-layer coat characterized by a remarkably fine, silky texture. The coloration typically exhibits distinct bands of steel blue-gray and rich tan/gold tipping.",
+      "body": "Small, delicate, and gracefully proportioned body build; the tail is typically carried high and often forms a plume or gentle curl.",
+      "distinguishing_mark": "The unique combination of the compact, elegant cranial structure and the exceptionally fine-grained, flowing coat that maintains its specific blue/tan chromatic pattern."
+    }
+  }
+}
