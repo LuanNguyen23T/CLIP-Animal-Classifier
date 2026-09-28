@@ -1,232 +1,519 @@
+"""Export the CLIP artifacts used by the benchmark notebook.
+
+The seed, split, training order, optimizers, and hyperparameters mirror
+``notebooks/benchmark_clip_animal_classifier.ipynb``. Paths are configurable
+so the same script can run locally or on Kaggle.
 """
-export_clip_weights.py — Extract features and train CLIP models.
-Target environment: Kaggle
-"""
-import os
-import sys
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import platform
+import random
+from importlib.metadata import version
 from pathlib import Path
 
-from transformers import CLIPModel, CLIPProcessor
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader, TensorDataset
+from torch.utils.data import DataLoader, Dataset, TensorDataset
 from torchvision.datasets import OxfordIIITPet
 from tqdm.auto import tqdm
+from transformers import CLIPModel, CLIPProcessor
 
-# --- CONFIG FOR KAGGLE ---
-DEVICE = torch.device("mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"))
-KAGGLE_INPUT_DIR = Path("/kaggle/input/datasets/vanton2005/allmodel")
-DATASET_ROOT = Path("/kaggle/working/dataset")
-WEIGHTS_DIR = Path("/kaggle/working/weights")
-WEIGHTS_DIR.mkdir(parents=True, exist_ok=True)
-DATASET_ROOT.mkdir(parents=True, exist_ok=True)
 
+SEED = 42
 NUM_CLASSES = 37
-
-PROMPT_TEMPLATES = [
-    "Picture of a pet with breed: {c}, which is a type of animal."
-]
+MODEL_ID = "openai/clip-vit-base-patch32"
+MODEL_REVISION = "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+PROMPT_TEMPLATE = "Picture of a pet with breed: {c}, which is a type of animal."
+EXPECTED_TTA_ACCURACY = {
+    "zero_shot": 87.76,
+    "tip_adapter": 87.90,
+    "tip_adapter_f": 89.56,
+    "clip_adapter": 90.27,
+    "coop": 91.61,
+}
 
 OXFORD_CLASSES = [
-    'Abyssinian', 'American Bulldog', 'American Pit Bull Terrier', 'Basset Hound', 
-    'Beagle', 'Bengal', 'Birman', 'Bombay', 'Boxer', 'British Shorthair', 
-    'Chihuahua', 'Egyptian Mau', 'English Cocker Spaniel', 'English Setter', 
-    'German Shorthaired', 'Great Pyrenees', 'Havanese', 'Japanese Chin', 
-    'Keeshond', 'Leonberger', 'Maine Coon', 'Miniature Pinscher', 'Newfoundland', 
-    'Persian', 'Pomeranian', 'Pug', 'Ragdoll', 'Russian Blue', 'Saint Bernard', 
-    'Samoyed', 'Scottish Terrier', 'Shiba Inu', 'Siamese', 'Sphynx', 
-    'Staffordshire Bull Terrier', 'Wheaten Terrier', 'Yorkshire Terrier'
+    "Abyssinian", "American Bulldog", "American Pit Bull Terrier", "Basset Hound",
+    "Beagle", "Bengal", "Birman", "Bombay", "Boxer", "British Shorthair",
+    "Chihuahua", "Egyptian Mau", "English Cocker Spaniel", "English Setter",
+    "German Shorthaired", "Great Pyrenees", "Havanese", "Japanese Chin",
+    "Keeshond", "Leonberger", "Maine Coon", "Miniature Pinscher", "Newfoundland",
+    "Persian", "Pomeranian", "Pug", "Ragdoll", "Russian Blue", "Saint Bernard",
+    "Samoyed", "Scottish Terrier", "Shiba Inu", "Siamese", "Sphynx",
+    "Staffordshire Bull Terrier", "Wheaten Terrier", "Yorkshire Terrier",
 ]
 
-BREED_CATALOGUE = [
-    (1,  "Abyssinian",                "Cat", "Abyssinian cat"),
-    (2,  "american_bulldog",          "Dog", "American Bulldog"),
-    (3,  "american_pit_bull_terrier", "Dog", "American Pit Bull Terrier"),
-    (4,  "basset_hound",              "Dog", "Basset Hound"),
-    (5,  "beagle",                    "Dog", "Beagle"),
-    (6,  "Bengal",                    "Cat", "Bengal cat"),
-    (7,  "Birman",                    "Cat", "Birman cat"),
-    (8,  "Bombay",                    "Cat", "Bombay cat"),
-    (9,  "boxer",                     "Dog", "Boxer dog"),
-    (10, "British_Shorthair",         "Cat", "British Shorthair cat"),
-    (11, "chihuahua",                 "Dog", "Chihuahua"),
-    (12, "Egyptian_Mau",              "Cat", "Egyptian Mau cat"),
-    (13, "english_cocker_spaniel",    "Dog", "English Cocker Spaniel"),
-    (14, "english_setter",            "Dog", "English Setter"),
-    (15, "german_shorthaired",        "Dog", "German Shorthaired Pointer"),
-    (16, "great_pyrenees",            "Dog", "Great Pyrenees"),
-    (17, "havanese",                  "Dog", "Havanese"),
-    (18, "japanese_chin",             "Dog", "Japanese Chin"),
-    (19, "keeshond",                  "Dog", "Keeshond"),
-    (20, "leonberger",                "Dog", "Leonberger"),
-    (21, "Maine_Coon",                "Cat", "Maine Coon cat"),
-    (22, "miniature_pinscher",        "Dog", "Miniature Pinscher"),
-    (23, "newfoundland",              "Dog", "Newfoundland dog"),
-    (24, "Persian",                   "Cat", "Persian cat"),
-    (25, "pomeranian",                "Dog", "Pomeranian"),
-    (26, "pug",                       "Dog", "Pug"),
-    (27, "Ragdoll",                   "Cat", "Ragdoll cat"),
-    (28, "Russian_Blue",              "Cat", "Russian Blue cat"),
-    (29, "saint_bernard",             "Dog", "Saint Bernard"),
-    (30, "samoyed",                   "Dog", "Samoyed"),
-    (31, "scottish_terrier",          "Dog", "Scottish Terrier"),
-    (32, "shiba_inu",                 "Dog", "Shiba Inu"),
-    (33, "Siamese",                   "Cat", "Siamese cat"),
-    (34, "Sphynx",                    "Cat", "Sphynx cat"),
-    (35, "staffordshire_bull_terrier","Dog", "Staffordshire Bull Terrier"),
-    (36, "wheaten_terrier",           "Dog", "Wheaten Terrier"),
-    (37, "yorkshire_terrier",         "Dog", "Yorkshire Terrier"),
-]
 
-TEXT_PROMPTS = [PROMPT_TEMPLATES[0].format(c=c) for c in OXFORD_CLASSES]
+def set_seed(seed: int = SEED) -> None:
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+def resolve_device(value: str) -> torch.device:
+    if value != "auto":
+        return torch.device(value)
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    if torch.backends.mps.is_available():
+        return torch.device("mps")
+    return torch.device("cpu")
+
+
+def projected_features(output) -> torch.Tensor:
+    """Unwrap CLIPModel.get_*_features without applying projection twice."""
+    if isinstance(output, torch.Tensor):
+        return output
+    for attribute in ("text_embeds", "image_embeds", "pooler_output"):
+        value = getattr(output, attribute, None)
+        if isinstance(value, torch.Tensor):
+            return value
+    raise TypeError(f"Unsupported CLIP feature output: {type(output)!r}")
+
+
+class CLIPTransformDataset(Dataset):
+    def __init__(self, base_dataset, processor):
+        self.base_dataset = base_dataset
+        self.processor = processor
+
+    def __len__(self):
+        return len(self.base_dataset)
+
+    def __getitem__(self, index):
+        image, label = self.base_dataset[index]
+        pixels = self.processor(images=image, return_tensors="pt")["pixel_values"][0]
+        return pixels, label
+
+
+def extract_trainval_features(dataset, model, processor, device):
+    loader = DataLoader(CLIPTransformDataset(dataset, processor), batch_size=128, shuffle=False)
+    features, labels = [], []
+    with torch.no_grad():
+        for pixels, batch_labels in tqdm(loader, desc="CLIP trainval features"):
+            output = model.get_image_features(pixel_values=pixels.to(device))
+            features.append(F.normalize(projected_features(output), dim=-1).cpu())
+            labels.append(batch_labels.cpu())
+    return torch.cat(features), torch.cat(labels)
+
+
+def get_stratified_split(features, labels, train_ratio=0.9, seed=SEED):
+    set_seed(seed)
+    train_indices, validation_indices = [], []
+    for class_index in range(NUM_CLASSES):
+        indices = (labels == class_index).nonzero(as_tuple=True)[0]
+        permutation = torch.randperm(len(indices))
+        train_count = max(1, int(len(indices) * train_ratio))
+        train_indices.append(indices[permutation[:train_count]])
+        validation_indices.append(indices[permutation[train_count:]])
+    train_index = torch.cat(train_indices)
+    validation_index = torch.cat(validation_indices)
+    return (
+        (features[train_index], labels[train_index]),
+        (features[validation_index], labels[validation_index]),
+    )
+
+
+def run_tip_adapter(
+    test_features, text_features, support_features, support_labels,
+    logit_scale, alpha=1.0, beta=10.0,
+):
+    support_norm = F.normalize(support_features, dim=-1)
+    one_hot = F.one_hot(support_labels, num_classes=NUM_CLASSES).float()
+    zero_shot = (test_features @ text_features.t()) * logit_scale
+    affinity = torch.exp(-beta * (1.0 - test_features @ support_norm.t()))
+    cache = ((affinity @ one_hot) / (len(support_features) / float(NUM_CLASSES))) * logit_scale
+    return zero_shot + alpha * cache
+
+
+def grid_search_tip_adapter(
+    validation_features, validation_labels, text_features, support_features,
+    support_labels, logit_scale,
+):
+    best_accuracy, best_alpha, best_beta = 0.0, 1.0, 5.0
+    for alpha in [0.1, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0]:
+        for beta in [1.0, 2.0, 3.0, 5.0, 10.0]:
+            logits = run_tip_adapter(
+                validation_features, text_features, support_features, support_labels,
+                logit_scale, alpha, beta,
+            )
+            accuracy = (logits.argmax(-1) == validation_labels).float().mean().item() * 100
+            if accuracy > best_accuracy:
+                best_accuracy, best_alpha, best_beta = accuracy, alpha, beta
+    return best_alpha, best_beta, best_accuracy
+
+
+class TipAdapterF(nn.Module):
+    def __init__(self, support_features, support_labels, text_features, logit_scale, alpha=1.0, beta=10.0):
+        super().__init__()
+        self.W_1 = nn.Parameter(support_features.clone())
+        self.register_buffer("W_2", F.one_hot(support_labels, num_classes=NUM_CLASSES).float())
+        self.register_buffer("W_text", text_features.clone())
+        self.register_buffer("K_avg", torch.tensor(len(support_features) / float(NUM_CLASSES)))
+        self.alpha = alpha
+        self.beta = beta
+        self.logit_scale = logit_scale
+
+    def forward(self, features):
+        zero_shot = (features @ self.W_text.t()) * self.logit_scale
+        support_norm = F.normalize(self.W_1, dim=-1)
+        affinity = torch.exp(-self.beta * (1.0 - features @ support_norm.t()))
+        cache = ((affinity @ self.W_2) / self.K_avg) * self.logit_scale
+        return zero_shot + self.alpha * cache
+
+
+def train_tip_adapter_f(
+    support_features, support_labels, validation_features, validation_labels,
+    text_features, logit_scale, device, alpha, beta,
+):
+    model = TipAdapterF(
+        support_features.to(device), support_labels.to(device), text_features.to(device),
+        logit_scale, alpha, beta,
+    ).to(device)
+    optimizer = torch.optim.SGD([model.W_1], lr=0.001, momentum=0.9, weight_decay=1e-4)
+    loader = DataLoader(
+        TensorDataset(support_features.to(device), support_labels.to(device)),
+        batch_size=256, shuffle=True,
+    )
+    best_accuracy, best_state = 0.0, None
+    for _ in tqdm(range(20), desc="Tip-Adapter-F"):
+        model.train()
+        for features, labels in loader:
+            optimizer.zero_grad()
+            F.cross_entropy(model(features), labels).backward()
+            optimizer.step()
+        if validation_features is not None:
+            model.eval()
+            with torch.no_grad():
+                logits = model(validation_features.to(device))
+                accuracy = (logits.argmax(-1) == validation_labels.to(device)).float().mean().item() * 100
+            if accuracy >= best_accuracy:
+                best_accuracy = accuracy
+                best_state = {key: value.detach().clone() for key, value in model.state_dict().items()}
+    if best_state is not None:
+        model.load_state_dict(best_state)
+    return model
+
+
+class CLIPAdapter(nn.Module):
+    def __init__(self, input_dim=512, bottleneck_dim=64, alpha=0.2):
+        super().__init__()
+        self.mlp = nn.Sequential(
+            nn.Linear(input_dim, bottleneck_dim), nn.ReLU(), nn.Linear(bottleneck_dim, input_dim)
+        )
+        self.alpha = alpha
+        nn.init.constant_(self.mlp[2].weight, 0.0)
+        nn.init.constant_(self.mlp[2].bias, 0.0)
+
+    def forward(self, features):
+        residual = self.mlp(features)
+        return F.normalize(self.alpha * residual + (1.0 - self.alpha) * features, dim=-1)
+
+
+class AdapterClassifier(nn.Module):
+    def __init__(self, adapter, text_features, logit_scale):
+        super().__init__()
+        self.adapter = adapter
+        self.register_buffer("text_features", text_features.clone())
+        self.logit_scale = logit_scale
+
+    def forward(self, features):
+        return (self.adapter(features) @ self.text_features.t()) * self.logit_scale
+
+
+def train_clip_adapter(
+    support_features, support_labels, validation_features, validation_labels,
+    text_features, logit_scale, device,
+):
+    model = AdapterClassifier(CLIPAdapter().to(device), text_features.to(device), logit_scale).to(device)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=0.001, weight_decay=1e-4)
+    loader = DataLoader(
+        TensorDataset(support_features.to(device), support_labels.to(device)),
+        batch_size=256, shuffle=True,
+    )
+    best_accuracy, best_state = 0.0, None
+    for _ in tqdm(range(50), desc="CLIP-Adapter"):
+        model.train()
+        for features, labels in loader:
+            optimizer.zero_grad()
+            F.cross_entropy(model(features), labels).backward()
+            optimizer.step()
+        if validation_features is not None:
+            model.eval()
+            with torch.no_grad():
+                logits = model(validation_features.to(device))
+                accuracy = (logits.argmax(-1) == validation_labels.to(device)).float().mean().item() * 100
+            if accuracy >= best_accuracy:
+                best_accuracy = accuracy
+                best_state = {key: value.detach().clone() for key, value in model.state_dict().items()}
+    if best_state is not None:
+        model.load_state_dict(best_state)
+    return model
+
+
+def construct_coop_input_ids(class_names, processor, num_ctx=4):
+    sequences = []
+    for name in class_names:
+        tokens = processor.tokenizer(name, return_tensors="pt")["input_ids"][0]
+        sequence = torch.cat([
+            tokens[:1], torch.tensor([49400 + index for index in range(num_ctx)]),
+            tokens[1:-1], tokens[-1:],
+        ])
+        if len(sequence) < 77:
+            sequence = torch.cat([sequence, torch.zeros(77 - len(sequence), dtype=torch.long)])
+        else:
+            sequence = sequence[:77]
+            sequence[-1] = tokens[-1]
+        sequences.append(sequence)
+    return torch.stack(sequences)
+
+
+class CoOpClassifier(nn.Module):
+    def __init__(self, clip_model, num_ctx=4):
+        super().__init__()
+        self.clip_model = clip_model
+        self.num_ctx = num_ctx
+        self.ctx = nn.Parameter(torch.randn(num_ctx, 512, device=next(clip_model.parameters()).device) * 0.02)
+        self._original_embedding_forward = clip_model.text_model.embeddings.token_embedding.forward
+        self._install_context()
+
+    def _install_context(self):
+        original = self._original_embedding_forward
+
+        def context_embedding(input_ids, *args, **kwargs):
+            embeddings = original(input_ids, *args, **kwargs).clone()
+            for index in range(self.num_ctx):
+                mask = input_ids == (49400 + index)
+                if mask.any():
+                    embeddings[mask] = self.ctx[index].to(embeddings.dtype)
+            return embeddings
+
+        self.clip_model.text_model.embeddings.token_embedding.forward = context_embedding
+
+    def restore_embedding(self):
+        self.clip_model.text_model.embeddings.token_embedding.forward = self._original_embedding_forward
+
+    def forward(self, image_features, input_ids):
+        output = self.clip_model.get_text_features(input_ids=input_ids)
+        text_features = F.normalize(projected_features(output), dim=-1)
+        return (image_features @ text_features.t()) * self.clip_model.logit_scale.exp()
+
+
+def train_coop(
+    clip_model, support_features, support_labels, validation_features,
+    validation_labels, input_ids, device,
+):
+    model = CoOpClassifier(clip_model).to(device)
+    optimizer = torch.optim.AdamW([model.ctx], lr=0.002, weight_decay=1e-4)
+    loader = DataLoader(
+        TensorDataset(support_features.to(device), support_labels.to(device)),
+        batch_size=256, shuffle=True,
+    )
+    best_accuracy, best_context = 0.0, None
+    for _ in tqdm(range(50), desc="CoOp"):
+        model.train()
+        for features, labels in loader:
+            optimizer.zero_grad()
+            F.cross_entropy(model(features, input_ids), labels).backward()
+            optimizer.step()
+        if validation_features is not None:
+            model.eval()
+            with torch.no_grad():
+                logits = model(validation_features.to(device), input_ids)
+                accuracy = (logits.argmax(-1) == validation_labels.to(device)).float().mean().item() * 100
+            if accuracy >= best_accuracy:
+                best_accuracy = accuracy
+                best_context = model.ctx.detach().clone()
+    if best_context is not None:
+        model.ctx.data.copy_(best_context)
+    return model
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as file_handle:
+        for chunk in iter(lambda: file_handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def default_kaggle_cache_dir() -> Path:
+    matches = sorted(Path("/kaggle/input").rglob("trainval_features.pt"))
+    if len(matches) == 1:
+        return matches[0].parent
+    return Path("/kaggle/input/clip-benchmark-cache")
+
+
+def parse_args():
+    script_file = globals().get("__file__")
+    repository_root = (
+        Path(script_file).resolve().parents[1]
+        if script_file
+        else Path("/kaggle/working") if Path("/kaggle/working").exists() else Path.cwd()
+    )
+    kaggle = Path("/kaggle/working").exists()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--dataset-root", type=Path,
+        default=Path("/kaggle/working/dataset") if kaggle else repository_root / "dataset",
+    )
+    parser.add_argument(
+        "--cache-dir", type=Path,
+        default=default_kaggle_cache_dir() if kaggle else repository_root / "dataset",
+    )
+    parser.add_argument(
+        "--weights-dir", type=Path,
+        default=Path("/kaggle/working/weights") if kaggle else repository_root / "backend" / "weights",
+    )
+    parser.add_argument("--device", default="auto")
+    parser.add_argument("--download", action="store_true")
+    parser.add_argument("--local-files-only", action="store_true")
+    if script_file is None:
+        # Jupyter injects its own command-line arguments and does not define
+        # __file__ when this source is pasted directly into a notebook cell.
+        return parser.parse_known_args()[0]
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
+    device = resolve_device(args.device)
+    args.weights_dir.mkdir(parents=True, exist_ok=True)
+    args.dataset_root.mkdir(parents=True, exist_ok=True)
+    set_seed()
+
+    print(f"Device: {device}")
+    print(f"Dataset: {args.dataset_root}")
+    print(f"Feature cache: {args.cache_dir}")
+    print(f"Weights: {args.weights_dir}")
+
+    model_kwargs = {
+        "revision": MODEL_REVISION,
+        "local_files_only": args.local_files_only,
+    }
+    if args.local_files_only:
+        model_kwargs["use_safetensors"] = False
+    clip_model = CLIPModel.from_pretrained(MODEL_ID, **model_kwargs).to(device)
+    processor = CLIPProcessor.from_pretrained(
+        MODEL_ID, revision=MODEL_REVISION, local_files_only=args.local_files_only
+    )
+    clip_model.eval()
+
+    text_inputs = processor(
+        text=[PROMPT_TEMPLATE.format(c=name) for name in OXFORD_CLASSES],
+        return_tensors="pt", padding=True,
+    ).to(device)
+    with torch.no_grad():
+        text_features = F.normalize(projected_features(clip_model.get_text_features(**text_inputs)), dim=-1)
+    torch.save(text_features.cpu(), args.weights_dir / "text_features_enr.pt")
+
+    features_path = args.cache_dir / "trainval_features.pt"
+    labels_path = args.cache_dir / "trainval_labels.pt"
+    if features_path.exists() and labels_path.exists():
+        trainval_features = torch.load(features_path, map_location="cpu", weights_only=False).float()
+        trainval_labels = torch.load(labels_path, map_location="cpu", weights_only=False).long()
+    else:
+        dataset = OxfordIIITPet(
+            root=str(args.dataset_root), split="trainval", download=args.download
+        )
+        if list(dataset.classes) != OXFORD_CLASSES:
+            raise RuntimeError("Oxford-IIIT Pet class order does not match the benchmark")
+        trainval_features, trainval_labels = extract_trainval_features(dataset, clip_model, processor, device)
+        torch.save(trainval_features, args.weights_dir / "trainval_features.pt")
+        torch.save(trainval_labels, args.weights_dir / "trainval_labels.pt")
+
+    if trainval_features.shape != (3680, 512) or trainval_labels.shape != (3680,):
+        raise RuntimeError("Unexpected Oxford-IIIT Pet trainval feature shape")
+    if not torch.isfinite(trainval_features).all():
+        raise RuntimeError("Trainval feature cache contains NaN or infinity")
+    max_norm_error = (trainval_features.norm(dim=-1) - 1.0).abs().max().item()
+    if max_norm_error > 1e-4:
+        raise RuntimeError(
+            f"Trainval features are not benchmark-normalized (max norm error {max_norm_error:.3g})"
+        )
+    if trainval_labels.min().item() != 0 or trainval_labels.max().item() != NUM_CLASSES - 1:
+        raise RuntimeError("Unexpected Oxford-IIIT Pet label range")
+
+    logit_scale = clip_model.logit_scale.exp().item()
+
+    (train_90, labels_90), (validation, validation_labels) = get_stratified_split(
+        trainval_features, trainval_labels
+    )
+    alpha, beta, validation_accuracy = grid_search_tip_adapter(
+        validation, validation_labels, text_features.cpu(), train_90, labels_90,
+        logit_scale,
+    )
+    print(f"Tip-Adapter grid search: alpha={alpha}, beta={beta}, val={validation_accuracy:.2f}%")
+
+    torch.save(
+        {"W_1": trainval_features, "labels": trainval_labels},
+        args.weights_dir / "tip_adapter_cache.pt",
+    )
+    # Mirror notebook order: train 9:1 first, then Full Trainval.
+    train_tip_adapter_f(
+        train_90, labels_90, validation, validation_labels,
+        text_features.cpu(), logit_scale, device, alpha, beta,
+    )
+    tip_full = train_tip_adapter_f(
+        trainval_features, trainval_labels, None, None,
+        text_features.cpu(), logit_scale, device, alpha, beta,
+    )
+    torch.save(tip_full.state_dict(), args.weights_dir / "tip_adapter_f_full.pt")
+
+    train_clip_adapter(
+        train_90, labels_90, validation, validation_labels,
+        text_features.cpu(), logit_scale, device,
+    )
+    adapter_full = train_clip_adapter(
+        trainval_features, trainval_labels, None, None,
+        text_features.cpu(), logit_scale, device,
+    )
+    torch.save(adapter_full.adapter.state_dict(), args.weights_dir / "clip_adapter_full.pt")
+
+    coop_ids = construct_coop_input_ids(OXFORD_CLASSES, processor).to(device)
+    coop_90 = train_coop(
+        clip_model, train_90, labels_90, validation, validation_labels, coop_ids, device
+    )
+    # Keep the first embedding patch installed while constructing the Full
+    # Trainval model, matching the notebook's execution order exactly.
+    coop_full = train_coop(
+        clip_model, trainval_features, trainval_labels, None, None, coop_ids, device
+    )
+    torch.save(coop_full.ctx.detach().cpu(), args.weights_dir / "coop_context_full.pt")
+    coop_full.restore_embedding()
+    coop_90.restore_embedding()
+
+    artifacts = [
+        "text_features_enr.pt", "tip_adapter_cache.pt", "tip_adapter_f_full.pt",
+        "clip_adapter_full.pt", "coop_context_full.pt",
+    ]
+    manifest = {
+        "seed": SEED,
+        "model_id": MODEL_ID,
+        "model_revision": MODEL_REVISION,
+        "scenario": "TTA 5-view (Full Trainval)",
+        "runtime": {
+            "python": platform.python_version(),
+            "torch": torch.__version__,
+            "torchvision": version("torchvision"),
+            "transformers": version("transformers"),
+            "numpy": np.__version__,
+            "device": str(device),
+        },
+        "expected_accuracy": EXPECTED_TTA_ACCURACY,
+        "artifacts": {name: sha256(args.weights_dir / name) for name in artifacts},
+    }
+    (args.weights_dir / "clip_benchmark_manifest.json").write_text(
+        json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
+    )
+    print("Export complete. Run scripts/verify_clip_parity.py before deployment.")
+
 
 if __name__ == "__main__":
-    print(f"Device: {DEVICE}")
-    print(f"Dataset root: {DATASET_ROOT}")
-    
-    print("\n[1] Loading dataset...")
-    pets_trainval = OxfordIIITPet(root=str(DATASET_ROOT), split="trainval", download=True)
-    
-    cached_clip_feats = KAGGLE_INPUT_DIR / "trainval_features.pt"
-    cached_clip_lbls = KAGGLE_INPUT_DIR / "trainval_labels.pt"
-    
-    # ---------------------------------------------------------
-    # BẮT BUỘC TẠO LẠI TEXT FEATURES ĐỂ TRÁNH LỖI CŨ (36 classes)
-    # ---------------------------------------------------------
-    print("Extracting CLIP Text Features (Forced rebuild)...")
-    clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32").to(DEVICE)
-    clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
-    clip_model.eval()
-    text_inputs = clip_processor(text=TEXT_PROMPTS, return_tensors="pt", padding=True).to(DEVICE)
-    with torch.no_grad():
-        out = clip_model.get_text_features(**text_inputs)
-        if isinstance(out, torch.Tensor):
-            text_features = out
-        else:
-            text_features = clip_model.text_projection(out.pooler_output)
-        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-        text_features_enr = text_features.cpu()
-        torch.save(text_features_enr, WEIGHTS_DIR / "text_features_enr.pt")
-        print(" -> Exported text_features_enr.pt with shape:", text_features_enr.shape)
-    
-    if cached_clip_feats.exists() and cached_clip_lbls.exists():
-        print("\n[2] Found cached CLIP features! Loading directly (Skipping extraction)...")
-        trainval_features_clip = torch.load(cached_clip_feats)
-        trainval_labels = torch.load(cached_clip_lbls)
-    else:
-        print("\n[2] Loading CLIP Image Encoder...")
-        class CLIPTransformDataset(Dataset):
-            def __init__(self, base_ds, processor):
-                self.base_ds = base_ds
-                self.processor = processor
-            def __len__(self): return len(self.base_ds)
-            def __getitem__(self, idx):
-                img, lbl = self.base_ds[idx]
-                pixel_values = self.processor(images=img, return_tensors="pt")["pixel_values"][0]
-                return pixel_values, lbl
-
-        clip_loader = DataLoader(CLIPTransformDataset(pets_trainval, clip_processor), batch_size=128, shuffle=False)
-        
-        print("Extracting CLIP Features (Raw Preprocessing)...")
-        clip_feats, clip_lbls = [], []
-        with torch.no_grad():
-            for x, y in tqdm(clip_loader, desc="CLIP Trainval"):
-                x = x.to(DEVICE)
-                out = clip_model.get_image_features(pixel_values=x)
-                if isinstance(out, torch.Tensor):
-                    f = out
-                else:
-                    f = clip_model.visual_projection(out.pooler_output)
-                f = f / f.norm(dim=-1, keepdim=True)
-                clip_feats.append(f.cpu())
-                clip_lbls.append(y)
-        trainval_features_clip = torch.cat(clip_feats, dim=0)
-        trainval_labels = torch.cat(clip_lbls, dim=0)
-        
-        torch.save(trainval_features_clip, WEIGHTS_DIR / "trainval_features.pt")
-        torch.save(trainval_labels, WEIGHTS_DIR / "trainval_labels.pt")
-
-    logit_scale_val = clip_model.logit_scale.exp().item()
-    print(f"Logit scale: {logit_scale_val}")
-
-    print("\n[3] Training CLIP Adapters...")
-    
-    # 3.1 Tip-Adapter (Free)
-    torch.save({"W_1": trainval_features_clip, "labels": trainval_labels}, WEIGHTS_DIR / "tip_adapter_cache.pt")
-    print("  -> Exported tip_adapter_cache.pt")
-    
-    class TipAdapterF(nn.Module):
-        def __init__(self, w1, labels, text_feats):
-            super().__init__()
-            self.W_1 = nn.Parameter(w1.clone())
-            self.register_buffer("W_2", F.one_hot(labels, num_classes=NUM_CLASSES).float())
-            self.register_buffer("W_text", text_feats.clone())
-            self.alpha = 1.0
-            self.beta = 10.0
-            self.register_buffer("K_avg", torch.tensor(len(w1) / float(NUM_CLASSES)))
-
-        def forward(self, x):
-            x_norm = F.normalize(x, dim=-1)
-            logits_zs = (x_norm @ self.W_text.t()) * logit_scale_val
-            w1_norm = self.W_1 / self.W_1.norm(dim=-1, keepdim=True)
-            sim_matrix = x_norm @ w1_norm.t()
-            A = torch.exp(-self.beta * (1.0 - sim_matrix))
-            logits_cache = ((A @ self.W_2) / self.K_avg) * logit_scale_val
-            return logits_zs + self.alpha * logits_cache
-            
-    tip_model = TipAdapterF(trainval_features_clip.to(DEVICE), trainval_labels.to(DEVICE), text_features_enr.to(DEVICE)).to(DEVICE)
-    opt = torch.optim.SGD([tip_model.W_1], lr=0.001, momentum=0.9, weight_decay=1e-4)
-    clip_dl = DataLoader(TensorDataset(trainval_features_clip.to(DEVICE), trainval_labels.to(DEVICE)), batch_size=256, shuffle=True)
-    for _ in range(20): # 20 epochs
-        for x, y in clip_dl:
-            opt.zero_grad()
-            loss = F.cross_entropy(tip_model(x), y)
-            loss.backward()
-            opt.step()
-    torch.save(tip_model.state_dict(), WEIGHTS_DIR / "tip_adapter_f_full.pt")
-    print("  -> Exported tip_adapter_f_full.pt")
-
-    class CLIPAdapter(nn.Module):
-        def __init__(self, input_dim=512, bottleneck_dim=64, alpha=0.2):
-            super().__init__()
-            self.mlp = nn.Sequential(
-                nn.Linear(input_dim, bottleneck_dim),
-                nn.ReLU(),
-                nn.Linear(bottleneck_dim, input_dim)
-            )
-            self.alpha = alpha
-            nn.init.constant_(self.mlp[2].weight, 0.0)
-            nn.init.constant_(self.mlp[2].bias, 0.0)
-            
-        def forward(self, x):
-            res = self.mlp(x)
-            x_adapted = self.alpha * res + (1.0 - self.alpha) * x
-            return x_adapted / x_adapted.norm(dim=-1, keepdim=True)
-            
-    class AdapterClassifier(nn.Module):
-        def __init__(self, adapter, text_features, logit_scale):
-            super().__init__()
-            self.adapter = adapter
-            self.register_buffer("text_features", text_features.clone())
-            self.logit_scale = logit_scale
-            
-        def forward(self, x):
-            x_adapted = self.adapter(x)
-            logits = (x_adapted @ self.text_features.t()) * self.logit_scale
-            return logits
-
-    ca_base = CLIPAdapter(input_dim=512, bottleneck_dim=64, alpha=0.2).to(DEVICE)
-    ca_model = AdapterClassifier(ca_base, text_features_enr.to(DEVICE), logit_scale=logit_scale_val).to(DEVICE)
-    
-    opt = torch.optim.AdamW(ca_model.parameters(), lr=1e-3, weight_decay=1e-4)
-    for _ in range(50): # 50 epochs
-        for x, y in clip_dl:
-            opt.zero_grad()
-            loss = F.cross_entropy(ca_model(x), y)
-            loss.backward()
-            opt.step()
-    torch.save(ca_base.state_dict(), WEIGHTS_DIR / "clip_adapter_full.pt")
-    print("  -> Exported clip_adapter_full.pt")
-    
-    print("\n✅ EXPORT CLIP COMPLETE! All weights saved to:", WEIGHTS_DIR)
+    main()

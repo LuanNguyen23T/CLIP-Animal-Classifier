@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { Cat, History, Zap, Moon, Sun } from 'lucide-react';
+import { BarChart3, Cat, History, Zap, Moon, Sun } from 'lucide-react';
 import { HomePage } from './pages/Home';
 import { HistoryPage } from './pages/History';
+import { StatisticsPage } from './pages/Statistics';
+import { PredictionSessionProvider } from './contexts/PredictionSessionContext';
 import './index.css';
 
 function NavBar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => void }) {
@@ -30,7 +32,7 @@ function NavBar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => v
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--color-border)',
     }}>
-      <div style={{
+      <div className="app-nav-inner" style={{
         maxWidth: 1100,
         margin: '0 auto',
         padding: '0 24px',
@@ -40,7 +42,7 @@ function NavBar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => v
         gap: 8,
       }}>
         {/* Logo */}
-        <div style={{
+        <div className="app-brand" style={{
           display: 'flex',
           alignItems: 'center',
           gap: 10,
@@ -70,7 +72,7 @@ function NavBar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => v
               </span>
               {' '}Classifier
             </div>
-            <div style={{ fontSize: 10, color: 'var(--color-text-faint)', lineHeight: 1, marginTop: 2 }}>
+            <div className="app-brand-subtitle" style={{ fontSize: 10, color: 'var(--color-text-faint)', lineHeight: 1, marginTop: 2 }}>
               Powered by CLIP
             </div>
           </div>
@@ -79,12 +81,17 @@ function NavBar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => v
         {/* Nav links */}
         <NavLink to="/" style={navLinkStyle} end id="nav-home">
           <Zap size={15} />
-          Classify
+          <span className="app-nav-label">Classify</span>
         </NavLink>
 
         <NavLink to="/history" style={navLinkStyle} id="nav-history">
           <History size={15} />
-          History
+          <span className="app-nav-label">History</span>
+        </NavLink>
+
+        <NavLink to="/statistics" style={navLinkStyle} id="nav-statistics">
+          <BarChart3 size={15} />
+          <span className="app-nav-label">Statistics</span>
         </NavLink>
         
         {/* Theme Toggle */}
@@ -136,13 +143,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar isDark={isDark} toggleTheme={toggleTheme} />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/history" element={<HistoryPage />} />
-        </Routes>
-      </main>
+      <PredictionSessionProvider>
+        <NavBar isDark={isDark} toggleTheme={toggleTheme} />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/history" element={<HistoryPage />} />
+            <Route path="/statistics" element={<StatisticsPage />} />
+          </Routes>
+        </main>
+      </PredictionSessionProvider>
     </BrowserRouter>
   );
 }

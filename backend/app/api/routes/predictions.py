@@ -43,6 +43,29 @@ async def create_prediction(
     
     return prediction
 
+@router.post("/predictions/batch", response_model=List[PredictionCreateResponse])
+async def create_prediction_batch(
+    background_tasks: BackgroundTasks,
+    file: UploadFile = File(...), 
+    db: Session = Depends(get_db)
+):
+    """Upload an image and start background classification for ALL models."""
+    if not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="File must be an image")
+        
+    # Read file content and upload to Cloudinary once
+    file_content = await file.read()
+    image_url = upload_image_to_cloudinary(file_content, file.filename)
+    
+    predictions = []
+    # Create DB record and start background task for each model method
+    for method in ModelMethod:
+        prediction = prediction_repo.create_prediction(db, image_key=image_url, method=method)
+        background_tasks.add_task(background_task_runner, prediction.id, method)
+        predictions.append(prediction)
+        
+    return predictions
+
 def background_task_runner(prediction_id: UUID, method: str):
     # Create a fresh DB session for the background thread
     from app.core.database import SessionLocal

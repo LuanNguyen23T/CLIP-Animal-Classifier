@@ -28,6 +28,18 @@ export const predictionApi = {
   },
 
   /**
+   * Upload an image and create multiple prediction records (one for each model).
+   */
+  createPredictionBatch: async (file: File): Promise<PredictionCreateResponse[]> => {
+    const formData = new FormData();
+    formData.append('file', file);
+    const { data } = await api.post<PredictionCreateResponse[]>('/predictions/batch', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return data;
+  },
+
+  /**
    * Get a single prediction by its UUID.
    */
   getPrediction: async (id: string): Promise<PredictionResponse> => {

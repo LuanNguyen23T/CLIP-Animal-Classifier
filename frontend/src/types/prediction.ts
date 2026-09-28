@@ -3,7 +3,7 @@
 export type PredictionStatus = 'UPLOADED' | 'PROCESSING' | 'COMPLETED' | 'FAILED';
 export type BackboneType = 'clip' | 'resnet50';
 export type ModelMethod = 
-  | 'zero-shot' | 'tip-adapter' | 'tip-adapter-f' | 'clip-adapter' | 'coop'
+  | 'all' | 'zero-shot' | 'tip-adapter' | 'tip-adapter-f' | 'clip-adapter' | 'coop'
   | 'resnet50-baseline' | 'resnet50-prototype' | 'resnet50-linear' | 'resnet50-adapter' | 'resnet50-cosine';
 
 export interface ModelInfo {

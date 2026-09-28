@@ -27,7 +27,8 @@ from PIL import Image as PILImage
 
 from app.ai.base import Classifier, ClassifierResult, PredictionResultItem
 from app.ai.shared_backbone import (
-    BREED_CATALOGUE, get_clip_backbone, get_text_features, get_logit_scale
+    BREED_CATALOGUE, get_clip_backbone, get_text_features, get_logit_scale,
+    projected_features,
 )
 
 logger = logging.getLogger(__name__)
@@ -83,6 +84,13 @@ class TipAdapterFClassifier(Classifier):
 
         # Load state dict to reconstruct model dimensions
         state = torch.load(WEIGHTS_FILE, map_location=self._device)
+        if not torch.allclose(
+            state["W_text"].to(text_feats.device), text_feats, atol=1e-5, rtol=1e-5
+        ):
+            raise ValueError(
+                "Tip-Adapter-F checkpoint was trained with different text features. "
+                "Re-export CLIP weights with scripts/export_clip_weights.py."
+            )
         w1_shape = state["W_1"].shape  # [n_support, 512]
         n_support = w1_shape[0]
         w2_shape = state["W_2"].shape  # [n_support, 37]
@@ -113,18 +121,7 @@ class TipAdapterFClassifier(Classifier):
         inputs = {k: v.to(self._device) for k, v in inputs.items()}
         with torch.no_grad():
             out = self._clip.get_image_features(**inputs)
-            if isinstance(out, torch.Tensor):
-                feats = out
-            else:
-                if hasattr(out, 'image_embeds') and out.image_embeds is not None:
-                    feats = out.image_embeds
-                elif hasattr(out, 'pooler_output'):
-                    if out.pooler_output.shape[-1] == self._clip.visual_projection.in_features:
-                        feats = self._clip.visual_projection(out.pooler_output)
-                    else:
-                        feats = out.pooler_output
-                else:
-                    raise ValueError(f"Unknown output type: {type(out)}")
+            feats = projected_features(out)
             return F.normalize(feats, dim=-1)
 
     def _encode_tta(self, img: PILImage.Image) -> torch.Tensor:

@@ -75,86 +75,120 @@ export const ConfigPanel: React.FC<ConfigPanelProps> = ({
       </h2>
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 24 }}>
-        {/* Model Backbone */}
+        {/* Classification Mode */}
         <div>
           <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--color-text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Model Backbone
+            Classification Mode
           </label>
           <div style={{ display: 'flex', gap: 12 }}>
             <button
-              onClick={() => handleBackboneChange('clip')}
-              className={`flex-1 px-4 py-3 border-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${activeBackbone === 'clip'
+              onClick={() => {
+                const available = models.filter(m => m.backbone === activeBackbone);
+                onSelectMethod(available.length > 0 ? available[0].id : (activeBackbone === 'clip' ? 'zero-shot' : 'resnet50-cosine'));
+              }}
+              className={`flex-1 px-4 py-3 border-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${selectedMethod !== 'all'
                   ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 text-indigo-700 dark:text-indigo-300'
                   : 'bg-slate-50 dark:bg-slate-800/50 border-transparent text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
             >
-              <Cpu size={16} /> CLIP
+              <Cpu size={16} /> Single Model
             </button>
             <button
-              onClick={() => handleBackboneChange('resnet50')}
-              className={`flex-1 px-4 py-3 border-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${activeBackbone === 'resnet50'
+              onClick={() => onSelectMethod('all')}
+              className={`flex-1 px-4 py-3 border-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${selectedMethod === 'all'
                   ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 text-indigo-700 dark:text-indigo-300'
                   : 'bg-slate-50 dark:bg-slate-800/50 border-transparent text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
             >
-              <Cpu size={16} /> ResNet-50
+              <Sparkles size={16} /> All Models
             </button>
           </div>
         </div>
 
-        {/* Adaptive Method */}
-        <div className="animate-fade-in">
-          <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--color-text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            {activeBackbone === 'clip' ? 'CLIP Adapter Method' : 'ResNet-50 Adapter Method'}
-          </label>
-          <div className="relative">
-            <select
-              value={selectedMethod}
-              onChange={(e) => onSelectMethod(e.target.value as ModelMethod)}
-              style={{
-                width: '100%',
-                appearance: 'none',
-                padding: '14px 16px',
-                background: 'var(--color-bg)',
-                border: '1px solid var(--color-border-strong)',
-                borderRadius: 12,
-                fontSize: 15,
-                fontWeight: 500,
-                color: 'var(--color-text)',
-                cursor: 'pointer',
-                outline: 'none',
-              }}
-              className="hover:border-indigo-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
-            >
-              {models.length > 0 ? (
-                models.filter(m => m.backbone === activeBackbone).map(m => (
-                  <option key={m.id} value={m.id}>
-                    {getModelDisplayName(m)}
-                  </option>
-                ))
-              ) : (
-                activeBackbone === 'clip' ? (
-                  <>
-                    <option value="zero-shot">Zero-Shot (Fastest ⚡)</option>
-                    <option value="tip-adapter">Tip-Adapter (Free)</option>
-                    <option value="tip-adapter-f">Tip-Adapter-F</option>
-                    <option value="clip-adapter">CLIP-Adapter</option>
-                    <option value="coop">CoOp (Recommended 🌟)</option>
-                  </>
-                ) : (
-                  <>
-                    <option value="resnet50-baseline">ResNet-50 Baseline</option>
-                    <option value="resnet50-prototype">ResNet-50 Prototype</option>
-                    <option value="resnet50-linear">ResNet-50 Linear Probe</option>
-                    <option value="resnet50-adapter">ResNet-50 Residual Adapter</option>
-                    <option value="resnet50-cosine">ResNet-50 Cosine Head (Recommended 🌟)</option>
-                  </>
-                )
-              )}
-            </select>
-            <ChevronDown size={18} style={{ position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: 'var(--color-text-muted)' }} />
-          </div>
-        </div>
+        {selectedMethod !== 'all' && (
+          <>
+            {/* Model Backbone */}
+            <div className="animate-fade-in">
+              <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--color-text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Model Backbone
+              </label>
+              <div style={{ display: 'flex', gap: 12 }}>
+                <button
+                  onClick={() => handleBackboneChange('clip')}
+                  className={`flex-1 px-4 py-3 border-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${activeBackbone === 'clip'
+                      ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 text-indigo-700 dark:text-indigo-300'
+                      : 'bg-slate-50 dark:bg-slate-800/50 border-transparent text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                >
+                  <Cpu size={16} /> CLIP
+                </button>
+                <button
+                  onClick={() => handleBackboneChange('resnet50')}
+                  className={`flex-1 px-4 py-3 border-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${activeBackbone === 'resnet50'
+                      ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 text-indigo-700 dark:text-indigo-300'
+                      : 'bg-slate-50 dark:bg-slate-800/50 border-transparent text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                >
+                  <Cpu size={16} /> ResNet-50
+                </button>
+              </div>
+            </div>
+
+            {/* Adaptive Method */}
+            <div className="animate-fade-in">
+              <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--color-text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                {activeBackbone === 'clip' ? 'CLIP Adapter Method' : 'ResNet-50 Adapter Method'}
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedMethod}
+                  onChange={(e) => onSelectMethod(e.target.value as ModelMethod)}
+                  style={{
+                    width: '100%',
+                    appearance: 'none',
+                    padding: '14px 16px',
+                    background: 'var(--color-bg)',
+                    border: '1px solid var(--color-border-strong)',
+                    borderRadius: 12,
+                    fontSize: 15,
+                    fontWeight: 500,
+                    color: 'var(--color-text)',
+                    cursor: 'pointer',
+                    outline: 'none',
+                  }}
+                  className="hover:border-indigo-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
+                >
+                  {models.length > 0 ? (
+                    models.filter(m => m.backbone === activeBackbone).map(m => (
+                      <option key={m.id} value={m.id}>
+                        {getModelDisplayName(m)}
+                      </option>
+                    ))
+                  ) : (
+                    activeBackbone === 'clip' ? (
+                      <>
+                        <option value="zero-shot">Zero-Shot (Fastest ⚡)</option>
+                        <option value="tip-adapter">Tip-Adapter (Free)</option>
+                        <option value="tip-adapter-f">Tip-Adapter-F</option>
+                        <option value="clip-adapter">CLIP-Adapter</option>
+                        <option value="coop">CoOp (Recommended 🌟)</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="resnet50-baseline">ResNet-50 Baseline</option>
+                        <option value="resnet50-prototype">ResNet-50 Prototype</option>
+                        <option value="resnet50-linear">ResNet-50 Linear Probe</option>
+                        <option value="resnet50-adapter">ResNet-50 Residual Adapter</option>
+                        <option value="resnet50-cosine">ResNet-50 Cosine Head (Recommended 🌟)</option>
+                      </>
+                    )
+                  )}
+                </select>
+                <ChevronDown size={18} style={{ position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: 'var(--color-text-muted)' }} />
+              </div>
+            </div>
+          </>
+        )}
 
         {/* Custom Prompt (Only for CoOp) */}
         {selectedMethod === 'coop' && (

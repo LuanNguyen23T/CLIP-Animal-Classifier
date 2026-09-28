@@ -24,7 +24,8 @@ from PIL import Image as PILImage
 
 from app.ai.base import Classifier, ClassifierResult, PredictionResultItem
 from app.ai.shared_backbone import (
-    BREED_CATALOGUE, get_clip_backbone, get_text_features, get_logit_scale
+    BREED_CATALOGUE, get_clip_backbone, get_text_features, get_logit_scale,
+    projected_features,
 )
 
 logger = logging.getLogger(__name__)
@@ -99,18 +100,7 @@ class CLIPAdapterClassifier(Classifier):
         inputs = {k: v.to(self._device) for k, v in inputs.items()}
         with torch.no_grad():
             out = self._clip.get_image_features(**inputs)
-            if isinstance(out, torch.Tensor):
-                feats = out
-            else:
-                if hasattr(out, 'image_embeds') and out.image_embeds is not None:
-                    feats = out.image_embeds
-                elif hasattr(out, 'pooler_output'):
-                    if out.pooler_output.shape[-1] == self._clip.visual_projection.in_features:
-                        feats = self._clip.visual_projection(out.pooler_output)
-                    else:
-                        feats = out.pooler_output
-                else:
-                    raise ValueError(f"Unknown output type: {type(out)}")
+            feats = projected_features(out)
             return F.normalize(feats, dim=-1)
 
     def _encode_tta(self, img: PILImage.Image) -> torch.Tensor:

@@ -24,7 +24,7 @@ from PIL import Image as PILImage
 
 from app.ai.base import Classifier, ClassifierResult, PredictionResultItem
 from app.ai.shared_backbone import (
-    BREED_CATALOGUE, OXFORD_CLASSES, get_clip_backbone, get_logit_scale
+    BREED_CATALOGUE, OXFORD_CLASSES, get_clip_backbone, projected_features
 )
 
 logger = logging.getLogger(__name__)
@@ -115,7 +115,7 @@ class CoOpClassifier(Classifier):
         """Compute CoOp text features with learned context vectors."""
         with torch.no_grad():
             tf = self._clip.get_text_features(input_ids=self._coop_input_ids)
-            tf = tf if isinstance(tf, torch.Tensor) else tf.pooler_output
+            tf = projected_features(tf)
             return F.normalize(tf, dim=-1)  # [37, 512]
 
     def _load_image(self, image: Union[str, bytes, PILImage.Image]) -> PILImage.Image:
@@ -130,18 +130,7 @@ class CoOpClassifier(Classifier):
         inputs = {k: v.to(self._device) for k, v in inputs.items()}
         with torch.no_grad():
             out = self._clip.get_image_features(**inputs)
-            if isinstance(out, torch.Tensor):
-                feats = out
-            else:
-                if hasattr(out, 'image_embeds') and out.image_embeds is not None:
-                    feats = out.image_embeds
-                elif hasattr(out, 'pooler_output'):
-                    if out.pooler_output.shape[-1] == self._clip.visual_projection.in_features:
-                        feats = self._clip.visual_projection(out.pooler_output)
-                    else:
-                        feats = out.pooler_output
-                else:
-                    raise ValueError(f"Unknown output type: {type(out)}")
+            feats = projected_features(out)
             return F.normalize(feats, dim=-1)
 
     def _encode_tta(self, img: PILImage.Image) -> torch.Tensor:

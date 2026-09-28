@@ -1,11 +1,11 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { Cat, Zap, Sparkles } from 'lucide-react';
 import { ImageUploader } from '../../components/ImageUploader';
 import { PredictionResult } from '../../components/PredictionResult';
 import { ConfigPanel } from '../../components/ConfigPanel';
 import { AnalyzingSpinner } from '../../components/AnalyzingSpinner';
 import { predictionApi } from '../../services/predictionApi';
-import { usePrediction } from '../../hooks/usePrediction';
+import { usePredictionSession } from '../../hooks/usePredictionSession';
 import type { ModelMethod } from '../../types/prediction';
 
 type Step = 'UPLOAD' | 'CONFIG' | 'ANALYZING' | 'RESULT';
@@ -18,15 +18,14 @@ export function HomePage() {
   
   const [selectedMethod, setSelectedMethod] = useState<ModelMethod>('zero-shot');
   const [customPrompt, setCustomPrompt] = useState<string>('');
+  const [selectedResultIndex, setSelectedResultIndex] = useState(0);
 
-  const { prediction, error: pollError, startPolling, reset } = usePrediction();
-
-  // Watch for prediction completion to transition from ANALYZING to RESULT
-  useEffect(() => {
-    if (step === 'ANALYZING' && prediction) {
-      setStep('RESULT');
-    }
-  }, [step, prediction]);
+  const { predictions, activeIds, error: pollError, startPolling, reset } = usePredictionSession();
+  const sessionStep: Step | null = activeIds.length > 0
+    ? (predictions.length > 0 ? 'RESULT' : 'ANALYZING')
+    : null;
+  const visibleStep = sessionStep ?? step;
+  const visiblePreviewUrl = previewUrl ?? predictions[0]?.image_key ?? null;
 
   const handleFileSelected = useCallback((file: File) => {
     const url = URL.createObjectURL(file);
@@ -41,11 +40,16 @@ export function HomePage() {
     
     setStep('ANALYZING');
     setUploadError(null);
+    setSelectedResultIndex(0);
 
     try {
-      // In future, customPrompt could be sent if backend supports it
-      const created = await predictionApi.createPrediction(selectedFile, selectedMethod);
-      startPolling(created.id);
+      if (selectedMethod === 'all') {
+        const createdBatch = await predictionApi.createPredictionBatch(selectedFile);
+        startPolling(createdBatch.map(p => p.id));
+      } else {
+        const created = await predictionApi.createPrediction(selectedFile, selectedMethod);
+        startPolling([created.id]);
+      }
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Upload failed';
       setUploadError(message);
@@ -58,6 +62,7 @@ export function HomePage() {
     setStep('UPLOAD');
     setSelectedFile(null);
     setUploadError(null);
+    setSelectedResultIndex(0);
     if (previewUrl) {
       URL.revokeObjectURL(previewUrl);
       setPreviewUrl(null);
@@ -76,7 +81,7 @@ export function HomePage() {
     }}>
 
       {/* Hero Header - Only show in UPLOAD step */}
-      {step === 'UPLOAD' && (
+      {visibleStep === 'UPLOAD' && (
         <header style={{ textAlign: 'center', padding: '60px 0 48px' }} className="animate-fade-in">
           <div style={{
             display: 'inline-flex',
@@ -146,14 +151,14 @@ export function HomePage() {
       )}
 
       {/* Main content */}
-      <div style={{ marginTop: step === 'UPLOAD' ? 0 : 40 }} className="animate-fade-in">
-        {step === 'UPLOAD' && (
+      <div style={{ marginTop: visibleStep === 'UPLOAD' ? 0 : 40 }} className="animate-fade-in">
+        {visibleStep === 'UPLOAD' && (
           <div style={{ maxWidth: 680, margin: '0 auto', width: '100%' }}>
             <ImageUploader onFileSelected={handleFileSelected} />
           </div>
         )}
 
-        {step !== 'UPLOAD' && (
+        {visibleStep !== 'UPLOAD' && (
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
@@ -188,23 +193,23 @@ export function HomePage() {
                 justifyContent: 'center',
                 position: 'relative'
               }}>
-                {previewUrl && (
+                {visiblePreviewUrl && (
                   <img
-                    src={previewUrl}
+                    src={visiblePreviewUrl}
                     alt="Uploaded Image"
                     style={{
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
                       display: 'block',
-                      opacity: step === 'ANALYZING' ? 0.7 : 1,
+                      opacity: visibleStep === 'ANALYZING' ? 0.7 : 1,
                       transition: 'opacity 0.3s'
                     }}
                   />
                 )}
                 
                 {/* Scan line effect during analyzing */}
-                {step === 'ANALYZING' && (
+                {visibleStep === 'ANALYZING' && (
                   <>
                     <style>
                       {`
@@ -249,12 +254,12 @@ export function HomePage() {
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
                 marginBottom: 16,
-                visibility: step === 'RESULT' ? 'visible' : 'hidden' // Only show title for result
+                visibility: visibleStep === 'RESULT' ? 'visible' : 'hidden' // Only show title for result
               }}>
-                {step === 'RESULT' ? 'Classification Result' : 'Placeholder'}
+                {visibleStep === 'RESULT' ? 'Classification Result' : 'Placeholder'}
               </h3>
 
-              {step === 'CONFIG' && (
+              {visibleStep === 'CONFIG' && (
                 <ConfigPanel 
                   selectedMethod={selectedMethod}
                   onSelectMethod={setSelectedMethod}
@@ -264,12 +269,50 @@ export function HomePage() {
                 />
               )}
 
-              {step === 'ANALYZING' && (
+              {visibleStep === 'ANALYZING' && (
                 <AnalyzingSpinner />
               )}
 
-              {step === 'RESULT' && prediction && (
-                <PredictionResult prediction={prediction} />
+              {visibleStep === 'RESULT' && predictions.length > 0 && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  {predictions.length > 1 && (
+                    <div style={{
+                      display: 'flex',
+                      gap: 8,
+                      overflowX: 'auto',
+                      paddingBottom: 8,
+                      scrollbarWidth: 'thin'
+                    }}>
+                      {predictions.map((p, idx) => (
+                        <button
+                          key={p.id}
+                          onClick={() => setSelectedResultIndex(idx)}
+                          style={{
+                            padding: '6px 12px',
+                            borderRadius: 20,
+                            border: '1px solid var(--color-border)',
+                            background: idx === selectedResultIndex ? 'var(--color-accent)' : 'var(--color-surface)',
+                            color: idx === selectedResultIndex ? 'white' : 'var(--color-text)',
+                            fontSize: 12,
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            whiteSpace: 'nowrap',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 6,
+                            transition: 'all 0.2s ease',
+                          }}
+                        >
+                          {p.method || 'Unknown'}
+                          {p.status === 'COMPLETED' ? ' ✓' : (p.status === 'FAILED' ? ' ✗' : ' ...')}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {predictions[selectedResultIndex] && (
+                    <PredictionResult prediction={predictions[selectedResultIndex]} />
+                  )}
+                </div>
               )}
 
               {/* Errors */}
@@ -292,7 +335,7 @@ export function HomePage() {
       </div>
       
       {/* Footer - Only show on Home */}
-      {step === 'UPLOAD' && (
+      {visibleStep === 'UPLOAD' && (
         <footer style={{
           marginTop: '80px',
           padding: '40px 0',

@@ -35,8 +35,9 @@ class ResNetAdapter(nn.Module):
         self.fc = nn.Linear(2048, NUM_CLASSES)
         self.alpha = 0.2
     def forward(self, x):
-        x = x + self.alpha * self.adapter(x)
-        return self.fc(x)
+        residual = self.adapter(x)
+        mixed = self.alpha * residual + (1.0 - self.alpha) * x
+        return self.fc(mixed)
 
 class ResNet50AdapterClassifier(Classifier):
     def __init__(self, top_k: int = 5):

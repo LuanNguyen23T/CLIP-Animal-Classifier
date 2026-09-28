@@ -19,7 +19,8 @@ from PIL import Image as PILImage
 
 from app.ai.base import Classifier, ClassifierResult, PredictionResultItem
 from app.ai.shared_backbone import (
-    BREED_CATALOGUE, get_clip_backbone, get_text_features
+    BREED_CATALOGUE, get_clip_backbone, get_text_features, get_logit_scale,
+    projected_features,
 )
 
 from app.services.image import (
@@ -41,6 +42,7 @@ class ZeroShotClassifier(Classifier):
         self.top_k = top_k
         self._model, self._processor, self._device = get_clip_backbone()
         self._text_features = get_text_features()  # [37, 512]
+        self._logit_scale = get_logit_scale()
         logger.info("[ZeroShot] Ready.")
 
     def _load_image(self, image: Union[str, bytes, PILImage.Image]) -> PILImage.Image:
@@ -58,18 +60,7 @@ class ZeroShotClassifier(Classifier):
         inputs = {k: v.to(self._device) for k, v in inputs.items()}
         with torch.no_grad():
             out = self._model.get_image_features(**inputs)
-            if isinstance(out, torch.Tensor):
-                img_feats = out
-            else:
-                if hasattr(out, 'image_embeds') and out.image_embeds is not None:
-                    img_feats = out.image_embeds
-                elif hasattr(out, 'pooler_output'):
-                    if out.pooler_output.shape[-1] == self._model.visual_projection.in_features:
-                        img_feats = self._model.visual_projection(out.pooler_output)
-                    else:
-                        img_feats = out.pooler_output
-                else:
-                    raise ValueError(f"Unknown output type: {type(out)}")
+            img_feats = projected_features(out)
             return F.normalize(img_feats, dim=-1)
 
     def _encode_tta(self, img: PILImage.Image) -> torch.Tensor:
@@ -90,7 +81,7 @@ class ZeroShotClassifier(Classifier):
         img_feat = self._encode_tta(pil)  # [1, 512]
 
         logits = (img_feat @ self._text_features.T).squeeze(0)  # [37]
-        probs = F.softmax(logits * 100.0, dim=0)
+        probs = F.softmax(logits * self._logit_scale, dim=0)
 
         k = min(self.top_k, len(BREED_CATALOGUE))
         top_probs, top_idx = torch.topk(probs, k=k)

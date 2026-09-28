@@ -175,8 +175,9 @@ if __name__ == "__main__":
             self.fc = nn.Linear(2048, NUM_CLASSES)
             self.alpha = 0.2
         def forward(self, x):
-            x = x + self.alpha * self.adapter(x)
-            return self.fc(x)
+            residual = self.adapter(x)
+            mixed = self.alpha * residual + (1.0 - self.alpha) * x
+            return self.fc(mixed)
             
     res_adapter = ResNetAdapter().to(DEVICE)
     opt = torch.optim.AdamW(res_adapter.parameters(), lr=1e-3, weight_decay=1e-4)
