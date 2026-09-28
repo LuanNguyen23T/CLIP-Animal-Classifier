@@ -16,6 +16,8 @@ import torch
 import torch.nn.functional as F
 from transformers import CLIPModel, CLIPProcessor
 
+from app.core.config import settings
+
 logger = logging.getLogger(__name__)
 
 MODEL_ID = "openai/clip-vit-base-patch32"
@@ -126,7 +128,22 @@ def verify_clip_artifacts() -> None:
 
 
 def get_device() -> torch.device:
-    """Auto-detect best available device."""
+    """Resolve the configured inference device, preferring MPS on macOS."""
+    requested = settings.AI_DEVICE.strip().lower()
+    if requested not in {"auto", "cpu", "mps", "cuda"}:
+        raise ValueError("AI_DEVICE must be one of: auto, cpu, mps, cuda")
+
+    if requested == "mps":
+        if not torch.backends.mps.is_available():
+            raise RuntimeError("AI_DEVICE=mps was requested, but MPS is not available")
+        return torch.device("mps")
+    if requested == "cuda":
+        if not torch.cuda.is_available():
+            raise RuntimeError("AI_DEVICE=cuda was requested, but CUDA is not available")
+        return torch.device("cuda")
+    if requested == "cpu":
+        return torch.device("cpu")
+
     if torch.backends.mps.is_available():
         return torch.device("mps")
     if torch.cuda.is_available():

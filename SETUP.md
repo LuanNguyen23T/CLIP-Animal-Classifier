@@ -4,8 +4,9 @@ Tài liệu hướng dẫn cài đặt và khởi chạy dự án tại local.
 
 ## Yêu cầu hệ thống
 - **Python** >= 3.10
-- **Node.js** >= 18
+- **Node.js** >= 20.19
 - **Docker Desktop** (chạy PostgreSQL)
+- **macOS 14+ on Apple Silicon** (required for the pinned MPS build)
 
 ---
 
@@ -46,6 +47,26 @@ python scripts/export_weights.py
 cd backend
 
 # Khởi chạy server
+uvicorn app.main:app --reload --port 8000
+```
+
+### Apple Silicon / MPS
+
+The backend automatically selects Apple MPS when it is available. You can set
+`AI_DEVICE=mps` in `backend/.env` to require MPS, or `AI_DEVICE=cpu` to force a
+CPU fallback while diagnosing a Metal issue.
+
+Verify the environment before starting the API:
+
+```bash
+python3 -c "import torch; print(torch.backends.mps.is_built(), torch.backends.mps.is_available())"
+```
+
+Both values should be `True` when MPS is required. Start the backend on macOS
+with the same application command after activating `backend/venv`:
+
+```bash
+source venv/bin/activate
 uvicorn app.main:app --reload --port 8000
 ```
 

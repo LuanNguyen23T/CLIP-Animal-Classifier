@@ -152,7 +152,7 @@ class TipAdapterFClassifier(Classifier):
         top_probs, top_idx = torch.topk(probs, k=k)
 
         top_k: List[PredictionResultItem] = []
-        for prob, idx in zip(top_probs.tolist(), top_idx.tolist()):
+        for prob, idx in zip(top_probs.detach().cpu().tolist(), top_idx.detach().cpu().tolist()):
             breed_id, breed_name, species, _ = BREED_CATALOGUE[idx]
             top_k.append(PredictionResultItem(
                 breed_id=breed_id, breed_name=breed_name,

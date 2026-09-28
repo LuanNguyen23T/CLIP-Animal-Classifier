@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     CLOUDINARY_API_KEY: str = ""
     CLOUDINARY_API_SECRET: str = ""
     CLOUDINARY_URL: str = ""
+    AI_DEVICE: str = "auto"
 
     class Config:
         env_file = ".env"

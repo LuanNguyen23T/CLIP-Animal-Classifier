@@ -23,11 +23,11 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torchvision.models as models
 from PIL import Image as PILImage
 
 from app.ai.base import Classifier, ClassifierResult, PredictionResultItem
 from app.ai.shared_backbone import BREED_CATALOGUE
+from app.ai.shared_resnet_backbone import get_resnet50_backbone
 
 logger = logging.getLogger(__name__)
 
@@ -51,14 +51,7 @@ class ResNet50CosineClassifier(Classifier):
 
     def __init__(self, top_k: int = 5):
         self.top_k = top_k
-        self._device = torch.device("mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"))
-        
-        # Initialize ResNet-50 backbone
-        res_weights = models.ResNet50_Weights.DEFAULT
-        self._preprocess = res_weights.transforms()
-        resnet_full = models.resnet50(weights=res_weights)
-        self._backbone = nn.Sequential(*list(resnet_full.children())[:-1]).to(self._device)
-        self._backbone.eval()
+        self._backbone, self._preprocess, self._device = get_resnet50_backbone()
 
         if not WEIGHTS_FILE.exists():
             raise FileNotFoundError(
@@ -110,7 +103,7 @@ class ResNet50CosineClassifier(Classifier):
         top_probs, top_idx = torch.topk(probs, k=k)
 
         top_k_results: List[PredictionResultItem] = []
-        for prob, idx in zip(top_probs.tolist(), top_idx.tolist()):
+        for prob, idx in zip(top_probs.detach().cpu().tolist(), top_idx.detach().cpu().tolist()):
             breed_id, breed_name, species, _ = BREED_CATALOGUE[idx]
             top_k_results.append(PredictionResultItem(
                 breed_id=breed_id, breed_name=breed_name,
