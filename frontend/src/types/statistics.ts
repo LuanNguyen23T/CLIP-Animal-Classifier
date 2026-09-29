@@ -33,17 +33,28 @@ export interface CategoryStatistics {
   count: number;
 }
 
+export interface BreedSpeciesStatistics extends CategoryStatistics {
+  species: string;
+}
+
 export interface StatisticsResponse {
   overview: StatisticsOverview;
   daily: DailyStatistics[];
   by_method: MethodStatistics[];
   by_species: CategoryStatistics[];
+  by_breed_species: BreedSpeciesStatistics[];
   top_breeds: CategoryStatistics[];
   recent_predictions: PredictionResponse[];
+  recent_total: number;
+  recent_page: number;
+  recent_limit: number;
 }
 
 export interface StatisticsFilters {
   date_from: string;
   date_to: string;
   method?: string;
+  backbone?: string;
+  recent_page?: number;
+  recent_limit?: number;
 }

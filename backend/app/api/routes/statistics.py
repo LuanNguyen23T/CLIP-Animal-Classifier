@@ -6,7 +6,7 @@ from sqlalchemy import case, func
 from sqlalchemy.orm import Session, joinedload
 
 from app.core.database import get_db
-from app.ai.registry import ModelMethod
+from app.ai.registry import MODEL_DISPLAY_INFO, ModelMethod
 from app.models.breed import Breed
 from app.models.prediction import Prediction, PredictionStatus
 from app.models.species import Species
@@ -24,7 +24,10 @@ def _round_optional(value: Optional[float], digits: int = 4) -> Optional[float]:
 def get_statistics(
     date_from: Optional[date] = Query(default=None),
     date_to: Optional[date] = Query(default=None),
+    backbone: Optional[str] = Query(default=None),
     method: Optional[ModelMethod] = Query(default=None),
+    recent_page: int = Query(default=1, ge=1),
+    recent_limit: int = Query(default=10, ge=1, le=100),
     db: Session = Depends(get_db),
 ):
     """Return aggregated prediction metrics for the statistics dashboard."""
@@ -41,6 +44,15 @@ def get_statistics(
     filters = [Prediction.created_at >= start_at, Prediction.created_at < end_at]
     if method:
         filters.append(Prediction.method == method.value)
+    elif backbone:
+        backbone_methods = [
+            model_method.value
+            for model_method, info in MODEL_DISPLAY_INFO.items()
+            if info["backbone"] == backbone
+        ]
+        if not backbone_methods:
+            raise HTTPException(status_code=422, detail="Unknown backbone")
+        filters.append(Prediction.method.in_(backbone_methods))
 
     total = db.query(func.count(Prediction.id)).filter(*filters).scalar() or 0
     completed = (
@@ -138,13 +150,27 @@ def get_statistics(
         .limit(8)
         .all()
     )
+    breed_species_rows = (
+        db.query(
+            Breed.name,
+            Species.name.label("species"),
+            func.count(Prediction.id).label("count"),
+        )
+        .join(Species, Breed.species_id == Species.id)
+        .join(Prediction, Prediction.predicted_breed_id == Breed.id)
+        .filter(*completed_filters)
+        .group_by(Breed.name, Species.name)
+        .order_by(func.count(Prediction.id).desc())
+        .all()
+    )
 
     recent_predictions = (
         db.query(Prediction)
         .options(joinedload(Prediction.predicted_breed).joinedload(Breed.species))
         .filter(*filters)
         .order_by(Prediction.created_at.desc())
-        .limit(8)
+        .offset((recent_page - 1) * recent_limit)
+        .limit(recent_limit)
         .all()
     )
 
@@ -161,6 +187,13 @@ def get_statistics(
         "daily": daily,
         "by_method": by_method,
         "by_species": [{"name": row.name, "count": row.count} for row in species_rows],
+        "by_breed_species": [
+            {"name": row.name, "species": row.species, "count": row.count}
+            for row in breed_species_rows
+        ],
         "top_breeds": [{"name": row.name, "count": row.count} for row in breed_rows],
         "recent_predictions": recent_predictions,
+        "recent_total": total,
+        "recent_page": recent_page,
+        "recent_limit": recent_limit,
     }

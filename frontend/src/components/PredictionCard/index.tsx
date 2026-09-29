@@ -4,6 +4,8 @@ import type { PredictionResponse } from '../../types/prediction';
 interface PredictionCardProps {
   prediction: PredictionResponse;
   onClick?: () => void;
+  batchSize?: number;
+  batchResults?: PredictionResponse[];
 }
 
 const STATUS_CONFIG = {
@@ -18,11 +20,29 @@ function formatDate(dateStr: string): string {
   return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
 }
 
-export function PredictionCard({ prediction, onClick }: PredictionCardProps) {
+function formatBreedName(name: string): string {
+  return name.replace(/_/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+export function PredictionCard({ prediction, onClick, batchSize = 1, batchResults = [] }: PredictionCardProps) {
   const { status, predicted_breed, score, created_at } = prediction;
   const cfg = STATUS_CONFIG[status] ?? STATUS_CONFIG.UPLOADED;
-  const breedName = predicted_breed?.name?.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) ?? '—';
+  const isBatch = batchSize > 1;
+  const breedName = predicted_breed?.name ? formatBreedName(predicted_breed.name) : '-';
   const speciesName = predicted_breed?.species?.name ?? '';
+  const batchBreeds = Array.from(batchResults.reduce((summary, result) => {
+    const breed = result.status === 'COMPLETED' ? result.predicted_breed : null;
+    if (!breed) return summary;
+    const current = summary.get(breed.name);
+    summary.set(breed.name, {
+      name: formatBreedName(breed.name),
+      species: breed.species.name,
+      count: (current?.count ?? 0) + 1,
+    });
+    return summary;
+  }, new Map<string, { name: string; species: string; count: number }>()).values())
+    .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name));
+  const primaryBatchBreed = batchBreeds[0];
 
   return (
     <div
@@ -78,12 +98,12 @@ export function PredictionCard({ prediction, onClick }: PredictionCardProps) {
         {/* Date, Method, Time */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', gap: 6 }}>
-            {prediction.method && (
+            {(isBatch || prediction.method) && (
               <span style={{ fontSize: 10, color: 'var(--color-text-faint)', background: 'var(--color-surface)', padding: '2px 6px', borderRadius: 4, border: '1px solid var(--color-border)' }}>
-                {prediction.method}
+                {isBatch ? `${batchSize} models` : prediction.method}
               </span>
             )}
-            {prediction.processing_time != null && (
+            {!isBatch && prediction.processing_time != null && (
               <span style={{ fontSize: 10, color: 'var(--color-text-faint)', background: 'var(--color-surface)', padding: '2px 6px', borderRadius: 4, border: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 3 }}>
                 <Clock size={9} />
                 {prediction.processing_time.toFixed(2)}s
@@ -97,6 +117,27 @@ export function PredictionCard({ prediction, onClick }: PredictionCardProps) {
 
 
       {/* Breed */}
+      {isBatch ? (
+        <div style={{ display: 'grid', gap: 7 }}>
+          {primaryBatchBreed ? (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                {primaryBatchBreed.species === 'Cat' ? <Cat size={16} color="var(--color-accent)" /> : <Dog size={16} color="#6366f1" />}
+                <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--color-text)' }}>{primaryBatchBreed.name}</span>
+                <span style={{ marginLeft: 'auto', fontSize: 11, color: 'var(--color-text-muted)' }}>{primaryBatchBreed.count} models</span>
+              </div>
+              {batchBreeds.slice(1).map((breed) => (
+                <div key={breed.name} style={{ display: 'flex', alignItems: 'center', gap: 6, paddingLeft: 24, color: 'var(--color-text-muted)', fontSize: 12 }}>
+                  <span>{breed.name}</span>
+                  <span style={{ marginLeft: 'auto', color: 'var(--color-text-faint)', fontSize: 10 }}>{breed.count} models</span>
+                </div>
+              ))}
+            </>
+          ) : (
+            <span style={{ color: 'var(--color-text-muted)', fontSize: 13 }}>Awaiting model results</span>
+          )}
+        </div>
+      ) : (
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           {speciesName === 'Cat' ? (
@@ -114,9 +155,10 @@ export function PredictionCard({ prediction, onClick }: PredictionCardProps) {
           </span>
         )}
       </div>
+      )}
 
       {/* Score bar */}
-      {score !== null && score !== undefined && status === 'COMPLETED' && (
+      {!isBatch && score !== null && score !== undefined && status === 'COMPLETED' && (
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
             <span style={{ fontSize: 11, color: 'var(--color-text-faint)' }}>Score</span>

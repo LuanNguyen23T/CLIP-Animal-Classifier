@@ -1,12 +1,13 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   Activity,
   BarChart3,
   CheckCircle2,
   Clock3,
+  ChevronLeft,
+  ChevronRight,
   Gauge,
   RefreshCw,
-  Search,
   X,
 } from 'lucide-react';
 import {
@@ -33,6 +34,9 @@ import './statistics.css';
 
 
 const CHART_COLORS = ['#2563eb', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+const CAT_COLORS = ['#bfdbfe', '#bae6fd', '#a7f3d0', '#fde68a', '#fecdd3'];
+const DOG_COLORS = ['#1e3a8a', '#075985', '#065f46', '#92400e', '#9f1239'];
+const RECENT_PAGE_SIZE = 10;
 
 function toInputDate(date: Date): string {
   const year = date.getFullYear();
@@ -164,7 +168,7 @@ function PredictionDetail({ prediction, modelName, onClose }: PredictionDetailPr
 export function StatisticsPage() {
   const initialFilters = useMemo(() => getInitialFilters(), []);
   const [filters, setFilters] = useState<StatisticsFilters>(initialFilters);
-  const [appliedFilters, setAppliedFilters] = useState<StatisticsFilters>(initialFilters);
+  const [recentPage, setRecentPage] = useState(1);
   const [data, setData] = useState<StatisticsResponse | null>(null);
   const [models, setModels] = useState<ModelInfo[]>([]);
   const [selectedPrediction, setSelectedPrediction] = useState<PredictionResponse | null>(null);
@@ -175,51 +179,43 @@ export function StatisticsPage() {
     () => new Map(models.map((model) => [model.id, model.name])),
     [models],
   );
+  const availableAdapters = useMemo(
+    () => models.filter((model) => !filters.backbone || model.backbone === filters.backbone),
+    [filters.backbone, models],
+  );
 
-  const fetchStatistics = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await statisticsApi.getStatistics(appliedFilters);
-      setData(response);
-    } catch (requestError: unknown) {
-      setError(requestError instanceof Error ? requestError.message : 'Unable to load statistics');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    predictionApi.listModels().then(setModels).catch(() => setModels([]));
-  }, []);
-
-  useEffect(() => {
-    let active = true;
-
-    statisticsApi.getStatistics(appliedFilters)
-      .then((response) => {
-        if (active) setData(response);
-      })
-      .catch((requestError: unknown) => {
-        if (active) setError(requestError instanceof Error ? requestError.message : 'Unable to load statistics');
-      })
-      .finally(() => {
-        if (active) setLoading(false);
-      });
-
-    return () => { active = false; };
-  }, [appliedFilters]);
-
-  const handleApply = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const fetchStatistics = useCallback(async () => {
     if (filters.date_from > filters.date_to) {
       setError('Start date must be on or before end date');
       return;
     }
     setLoading(true);
     setError(null);
-    setAppliedFilters({ ...filters, method: filters.method || undefined });
-  };
+    try {
+      const response = await statisticsApi.getStatistics({
+        ...filters,
+        method: filters.method || undefined,
+        backbone: filters.backbone || undefined,
+        recent_page: recentPage,
+        recent_limit: RECENT_PAGE_SIZE,
+      });
+      setData(response);
+    } catch (requestError: unknown) {
+      setError(requestError instanceof Error ? requestError.message : 'Unable to load statistics');
+    } finally {
+      setLoading(false);
+    }
+  }, [filters, recentPage]);
+
+  useEffect(() => {
+    predictionApi.listModels().then(setModels).catch(() => setModels([]));
+  }, []);
+
+  useEffect(() => {
+    // Synchronize the dashboard with the current server-side filters.
+    // oxlint-disable-next-line react/set-state-in-effect
+    fetchStatistics();
+  }, [fetchStatistics]);
 
   const tooltipStyle = {
     background: 'var(--color-surface)',
@@ -231,7 +227,9 @@ export function StatisticsPage() {
 
   const hasDailyData = data?.daily.some((item) => item.total > 0) ?? false;
   const hasSpeciesData = (data?.by_species.length ?? 0) > 0;
+  const hasBreedSpeciesData = (data?.by_breed_species.length ?? 0) > 0;
   const hasBreedData = (data?.top_breeds.length ?? 0) > 0;
+  const recentPageCount = data ? Math.max(1, Math.ceil(data.recent_total / data.recent_limit)) : 1;
 
   return (
     <div className="statistics-page">
@@ -249,14 +247,14 @@ export function StatisticsPage() {
         </button>
       </header>
 
-      <form className="statistics-filters" onSubmit={handleApply}>
+      <div className="statistics-filters">
         <label>
           <span>From</span>
           <input
             type="date"
             value={filters.date_from}
             max={filters.date_to}
-            onChange={(event) => setFilters((current) => ({ ...current, date_from: event.target.value }))}
+            onChange={(event) => { setRecentPage(1); setFilters((current) => ({ ...current, date_from: event.target.value })); }}
           />
         </label>
         <label>
@@ -265,24 +263,31 @@ export function StatisticsPage() {
             type="date"
             value={filters.date_to}
             min={filters.date_from}
-            onChange={(event) => setFilters((current) => ({ ...current, date_to: event.target.value }))}
+            onChange={(event) => { setRecentPage(1); setFilters((current) => ({ ...current, date_to: event.target.value })); }}
           />
         </label>
         <label className="statistics-model-filter">
           <span>Model</span>
-          <select
-            value={filters.method ?? ''}
-            onChange={(event) => setFilters((current) => ({ ...current, method: event.target.value || undefined }))}
-          >
+          <select value={filters.backbone ?? ''} onChange={(event) => {
+            setRecentPage(1);
+            setFilters((current) => ({ ...current, backbone: event.target.value || undefined, method: undefined }));
+          }}>
             <option value="">All models</option>
-            {models.map((model) => <option value={model.id} key={model.id}>{model.name}</option>)}
+            <option value="clip">CLIP</option>
+            <option value="resnet50">ResNet-50</option>
           </select>
         </label>
-        <button className="btn btn-primary" type="submit">
-          <Search size={15} />
-          Apply filters
-        </button>
-      </form>
+        <label className="statistics-model-filter">
+          <span>Adapter</span>
+          <select value={filters.method ?? ''} onChange={(event) => {
+            setRecentPage(1);
+            setFilters((current) => ({ ...current, method: event.target.value || undefined }));
+          }}>
+            <option value="">All adapters</option>
+            {availableAdapters.map((model) => <option value={model.id} key={model.id}>{model.name}</option>)}
+          </select>
+        </label>
+      </div>
 
       {error && (
         <div className="statistics-alert" role="alert">
@@ -341,9 +346,10 @@ export function StatisticsPage() {
               </div>
             </article>
 
-            <article className="statistics-panel">
+            <article className="statistics-panel statistics-panel-wide">
               <div className="statistics-panel-heading"><div><h2>Species distribution</h2><p>Completed model outputs by species</p></div></div>
-              <div className="statistics-chart">
+              <div className="statistics-species-layout">
+                <div className="statistics-chart statistics-species-total">
                 {!hasSpeciesData ? <ChartEmptyState /> : (
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
@@ -355,6 +361,35 @@ export function StatisticsPage() {
                     </PieChart>
                   </ResponsiveContainer>
                 )}
+                </div>
+                <div className="statistics-species-breakdown">
+                  <div className="statistics-breakdown-heading">
+                    <h3>Breed breakdown</h3>
+                    <div><span className="cat-key" />Cat <span className="dog-key" />Dog</div>
+                  </div>
+                  <div className="statistics-breakdown-scroll">
+                  <div className="statistics-breakdown-chart" style={{ height: Math.max(310, data.by_breed_species.length * 27) }}>
+                    {!hasBreedSpeciesData ? <ChartEmptyState /> : (
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={data.by_breed_species} layout="vertical" margin={{ top: 4, right: 18, left: 18, bottom: 4 }}>
+                          <CartesianGrid stroke="var(--color-border)" strokeDasharray="3 3" horizontal={false} />
+                          <XAxis type="number" allowDecimals={false} tick={{ fill: 'var(--color-text-muted)', fontSize: 11 }} axisLine={false} tickLine={false} />
+                          <YAxis type="category" dataKey="name" width={125} tick={{ fill: 'var(--color-text-muted)', fontSize: 10 }} axisLine={false} tickLine={false} />
+                          <Tooltip contentStyle={tooltipStyle} formatter={(value, _name, item) => [value, item.payload.species]} />
+                          <Bar dataKey="count" name="Predictions" radius={[0, 4, 4, 0]} maxBarSize={18}>
+                            {data.by_breed_species.map((entry, index) => (
+                              <Cell
+                                key={`${entry.species}-${entry.name}`}
+                                fill={(entry.species.toLowerCase() === 'cat' ? CAT_COLORS : DOG_COLORS)[index % 5]}
+                              />
+                            ))}
+                          </Bar>
+                        </BarChart>
+                      </ResponsiveContainer>
+                    )}
+                  </div>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -398,6 +433,14 @@ export function StatisticsPage() {
             {data.recent_predictions.length === 0 ? <ChartEmptyState /> : (
               <div className="statistics-table-wrap">
                 <table className="statistics-table">
+                  <colgroup>
+                    <col className="statistics-col-time" />
+                    <col className="statistics-col-model" />
+                    <col className="statistics-col-result" />
+                    <col className="statistics-col-confidence" />
+                    <col className="statistics-col-duration" />
+                    <col className="statistics-col-status" />
+                  </colgroup>
                   <thead><tr><th>Time</th><th>Model</th><th>Result</th><th>Confidence</th><th>Duration</th><th>Status</th></tr></thead>
                   <tbody>
                     {data.recent_predictions.map((prediction) => (
@@ -417,6 +460,13 @@ export function StatisticsPage() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            )}
+            {data.recent_total > data.recent_limit && (
+              <div className="statistics-pagination">
+                <button className="statistics-icon-button" onClick={() => setRecentPage((value) => Math.max(1, value - 1))} disabled={recentPage === 1} aria-label="Previous activity page"><ChevronLeft size={18} /></button>
+                <span>Page {recentPage} of {recentPageCount} · {data.recent_total.toLocaleString()} runs</span>
+                <button className="statistics-icon-button" onClick={() => setRecentPage((value) => Math.min(recentPageCount, value + 1))} disabled={recentPage >= recentPageCount} aria-label="Next activity page"><ChevronRight size={18} /></button>
               </div>
             )}
           </section>

@@ -39,10 +39,18 @@ class CategoryStatistics(BaseModel):
     count: int
 
 
+class BreedSpeciesStatistics(CategoryStatistics):
+    species: str
+
+
 class StatisticsResponse(BaseModel):
     overview: StatisticsOverview
     daily: List[DailyStatistics]
     by_method: List[MethodStatistics]
     by_species: List[CategoryStatistics]
+    by_breed_species: List[BreedSpeciesStatistics]
     top_breeds: List[CategoryStatistics]
     recent_predictions: List[PredictionResponse]
+    recent_total: int
+    recent_page: int
+    recent_limit: int

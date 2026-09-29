@@ -3,10 +3,16 @@ from uuid import UUID
 from sqlalchemy.orm import Session
 from app.models.prediction import Prediction, PredictionStatus
 
-def create_prediction(db: Session, image_key: str, method: Optional[str] = None) -> Prediction:
+def create_prediction(
+    db: Session,
+    image_key: str,
+    method: Optional[str] = None,
+    batch_id: Optional[UUID] = None,
+) -> Prediction:
     db_obj = Prediction(
         image_key=image_key,
         method=method,
+        batch_id=batch_id,
         status=PredictionStatus.UPLOADED
     )
     db.add(db_obj)
@@ -34,6 +40,7 @@ def get_predictions(
         query = query.filter(Prediction.method == method)
     
     return query.order_by(Prediction.created_at.desc()).offset(skip).limit(limit).all()
+
 
 def update_prediction_status(
     db: Session, 

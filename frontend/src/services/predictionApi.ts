@@ -6,6 +6,7 @@ import type {
   SpeciesResponse,
   ModelMethod,
   ModelInfo,
+  PredictionHistoryResponse,
 } from '../types/prediction';
 
 const api = axios.create({
@@ -59,6 +60,17 @@ export const predictionApi = {
     limit?: number;
   }): Promise<PredictionResponse[]> => {
     const { data } = await api.get<PredictionResponse[]>('/predictions', { params });
+    return data;
+  },
+
+  listPredictionHistory: async (params?: {
+    status?: string;
+    backbone?: string;
+    method?: string;
+    page?: number;
+    limit?: number;
+  }): Promise<PredictionHistoryResponse> => {
+    const { data } = await api.get<PredictionHistoryResponse>('/prediction-history', { params });
     return data;
   },
 

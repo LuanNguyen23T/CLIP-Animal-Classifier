@@ -16,6 +16,7 @@ class Prediction(Base):
     __tablename__ = "predictions"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
+    batch_id = Column(UUID(as_uuid=True), nullable=True, index=True)
     image_key = Column(String, nullable=False)
     predicted_breed_id = Column(Integer, ForeignKey("breeds.id"), nullable=True)
     score = Column(Float, nullable=True)
