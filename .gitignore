@@ -12,3 +12,6 @@ __pycache__/
 oxford-iiit-pet/
 **/oxford-iiit-pet/
 dataset/oxford-iiit-pet/
+
+enhanced/nature-skills
+
