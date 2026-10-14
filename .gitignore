@@ -7,11 +7,46 @@ __pycache__/
 *.py[cod]
 *$py.class
 .ipynb_checkpoints/
+venv/
+env/
+backend/venv/
+.pytest_cache/
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# User Uploads
+uploads/
 
 # Dataset heavy raw files
+dataset/
 oxford-iiit-pet/
 **/oxford-iiit-pet/
-dataset/oxford-iiit-pet/
+dataset_ZIP/
 
-enhanced/nature-skills
+# R&D and Temp Notes
+/R&D_TEST/
 
+# IDE / Editor
+.agent/
+.vscode/
+.idea/
+
+# Local report editing and Word review artifacts
+/document/final_fix/
+/document/report_work/
+/document/review_20261011/
+/document/review_343/
+/document/review_343_table/
+/document/review_ch123/
+/document/~$*.docx
+
+# NewDataset local benchmark outputs and Kaggle upload archive
+/artifacts/kaggle/
+/results/newdataset_audit/
+/results/newdataset_benchmark/
+
+# Local nested skill repository
+/NatureSkill/

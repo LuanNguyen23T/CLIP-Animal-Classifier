@@ -1,5 +1,7 @@
 # CLIP Pet Classifier — Setup Guide
 
+Huấn luyện benchmark **CLIP và ResNet-50 trên NewDataset** (Kaggle GPU / MacBook MPS): xem [hướng dẫn Kaggle và MacBook](notebooks/training/new_dataset/KAGGLE_GUIDE.md). Chỉ đưa `NewDataset.zip` vào Kaggle Input; import hai notebook benchmark mới riêng.
+
 Tài liệu hướng dẫn cài đặt và khởi chạy dự án tại local.
 
 ## Yêu cầu hệ thống
