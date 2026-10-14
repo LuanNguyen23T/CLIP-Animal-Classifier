@@ -25,7 +25,7 @@ def as_feature_tensor(value):
 DATA_ROOT = None  # e.g. "/kaggle/input/animal-newdataset/NewDataset"
 SEED = 42
 TEST_RATIO = 0.20
-BATCH_SIZE = 32  # reduce to 16/8 if GPU/MPS memory is limited
+BATCH_SIZE = 128  # original benchmark; reduce to 32/16/8 if memory is limited
 TIP_EPOCHS = 20
 ADAPTER_EPOCHS = 50
 COOP_EPOCHS = 50
@@ -40,10 +40,10 @@ set_seed(SEED)
 SPLIT = '''
 # Identical raw/TTA and CLIP/ResNet split indices; at least one validation sample/class.
 train_indices, val_indices = [], []
-generator = torch.Generator().manual_seed(SEED)
+set_seed(SEED)  # preserve the original global RNG sequence before fitting heads
 for c in range(num_classes):
     indices = (trainval_labels == c).nonzero(as_tuple=True)[0]
-    indices = indices[torch.randperm(len(indices), generator=generator)]
+    indices = indices[torch.randperm(len(indices))]
     n_train = min(len(indices) - 1, max(1, int(len(indices) * 0.9)))
     train_indices.append(indices[:n_train]); val_indices.append(indices[n_train:])
 train_idx, val_idx = torch.cat(train_indices), torch.cat(val_indices)
@@ -78,9 +78,57 @@ COOP_CLASS = '''class CoOpClassifier(nn.Module):
 '''
 
 
+def legacy_report_source(kind, original):
+    """Reuse original figure code, replacing stale measurements and fixed axes."""
+    plots = source(original['cells'][19])
+    # Data-dependent limits and epoch axes; preserve layout/colors/figure order.
+    plots = re.sub(r'^.*(?:plt\.(?:xlim|ylim)|\.set_(?:xlim|ylim))\([^\n]*\)\s*$', '', plots, flags=re.MULTILINE)
+    plots = plots.replace('range(1, 21)', 'range(1, len(hist_tip_90["loss"]) + 1)')
+    plots = plots.replace('range(1, 51), hist_ca_90', 'range(1, len(hist_ca_90["loss"]) + 1), hist_ca_90')
+    plots = plots.replace('range(1, 51), hist_coop_90', 'range(1, len(hist_coop_90["loss"]) + 1), hist_coop_90')
+    plots = plots.replace('TRÊN 37 GIỐNG PETS', 'TRÊN NEWDATASET')
+    plots = plots.replace('preds_base_raw[mask] == test_labels.to(device)[mask]', 'preds_base_raw.cpu()[mask] == test_labels[mask]')
+    plots = plots.replace('f"+{w:.2f}%"', 'f"{w:+.2f}%"')
+    plots = plots.replace('Độ trễ suy diễn đơn lẻ (ms / mẫu)', 'Độ trễ head trên cached features (ms / mẫu)')
+    plots = plots.replace('Độ trễ suy diễn (ms / mẫu)', 'Độ trễ head trên cached features (ms / mẫu)')
+    # Original Pareto line connected manually chosen methods; calculate dominance.
+    plots = re.sub(r'^pareto_x = .*\npareto_y = .*',
+        'pareto_x, pareto_y = pareto_frontier([(d["lat"], d["acc"]) for d in plot_data])' if kind == 'clip' else
+        'pareto_x, pareto_y = pareto_frontier(list(zip(lat_raw_plot + lat_tta_plot, acc_raw_plot + acc_tta_plot)))', plots, flags=re.MULTILINE)
+    if kind != 'clip':
+        plots = plots.replace('clip_coop_scores = {"Raw": 90.68, "TTA_90": 91.61, "TTA_Full": 91.61}',
+                              'clip_coop_scores = load_matching_clip_scores()')
+        plots = plots.replace('lat_raw_plot = [0.19, 0.19, 0.23, 0.21, 0.18]',
+                              'lat_raw_plot = [scenario_latency[m][0] for m in methods_full_names] + [matching_clip_latency("Raw Image (Full Trainval)")]')
+        plots = plots.replace('lat_tta_plot = [1.03, 1.03, 1.15, 1.08, 0.95]',
+                              'lat_tta_plot = [scenario_latency[m][2] for m in methods_full_names] + [matching_clip_latency("TTA 5-view (Full Trainval)")]')
+        plots = re.sub(r'^lat_fps_list = .*$', 'lat_fps_list = lat_raw_plot', plots, flags=re.MULTILINE)
+        plots = plots.replace('91.61%', 'NewDataset').replace('93.08%', 'NewDataset').replace('(Top 1)', '')
+        plots = plots.replace('throughputs = [1000.0 / l for l in lat_fps_list]', 'throughputs = [1000.0 / l if np.isfinite(l) else 0.0 for l in lat_fps_list]')
+        plots = plots.replace('f"{int(tp):,} FPS ({p_str})"', 'f"{int(tp):,} FPS ({p_str})" if tp > 0 else "Chưa có kết quả CLIP cùng split"')
+        plots = plots.replace('f"{h:.2f}%"', 'f"{h:.2f}%" if np.isfinite(h) else "Chưa chạy CLIP"')
+    return '''
+build_report(results, predictors, histories, encoder)
+# Original plotting code, with measured values and automatic data limits.
+_original_show = plt.show
+_figure_number = [0]
+def _save_original_figure(*args, **kwargs):
+    _figure_number[0] += 1
+    plt.savefig(output_dir / f'{_figure_number[0]:02d}_legacy_figure.png', dpi=160, bbox_inches='tight')
+    _original_show(*args, **kwargs)
+plt.show = _save_original_figure
+try:
+    with torch.no_grad():
+''' + '\n'.join('        ' + line for line in plots.splitlines()) + '''
+finally:
+    plt.show = _original_show
+'''
+
+
 def build(kind):
     original = 'benchmark_clip_animal_classifier.ipynb' if kind == 'clip' else 'benchmark_resnet50.ipynb'
-    book = copy.deepcopy(json.loads((DEST.parent / original).read_text(encoding='utf-8')))
+    original_book = json.loads((DEST.parent / original).read_text(encoding='utf-8'))
+    book = copy.deepcopy(original_book)
     cells = book['cells']
     for cell in cells:
         if cell['cell_type'] == 'code':
@@ -88,6 +136,8 @@ def build(kind):
         cell['metadata'] = {}
         text = source(cell).replace('Oxford-IIIT Pet Dataset (37 Classes)', 'NewDataset (số lớp tự động)')
         text = text.replace('OXFORD PETS', 'NEWDATASET').replace('37 giống', 'các giống').replace('37 lớp', 'các lớp')
+        if cell['cell_type'] == 'markdown':
+            text = text.replace('37', 'N').replace('Early Stopping', 'chọn checkpoint theo validation')
         text = text.replace('num_classes=37', 'num_classes=None')
         # Defaults must be dynamic for constructors invoked without arguments.
         text = text.replace('self.num_classes = num_classes', 'self.num_classes = num_classes')
@@ -95,7 +145,8 @@ def build(kind):
         text = text.replace('sample_idx = 10', 'sample_idx = min(10, len(pets_test) - 1)')
         if cell['cell_type'] == 'code':
             text = text.replace('epochs=20', 'epochs=TIP_EPOCHS').replace('epochs=50', 'epochs=ADAPTER_EPOCHS').replace('epochs=30', 'epochs=RESNET_EPOCHS')
-            text = text.replace('if val_acc > best_val_acc:', 'if val_acc >= best_val_acc:')
+            # Keep the original tie policy (> for ResNet; >= for CLIP).
+            text = text.replace('best_val_acc = 0.0', 'best_val_acc = -1.0')
             text = text.replace('return val_acc if val_feats is not None else None', 'return best_val_acc if val_feats is not None else None')
             for name in ('f', 'text_feats_enr', 'text_feats_raw'):
                 text = re.sub(rf'({name} = )(clip_model\.get_(?:image|text)_features\([^\n]+\))', r'\1as_feature_tensor(\2)', text)
@@ -115,11 +166,15 @@ Trainval chia 9:1 theo lớp. Full trainval dùng toàn bộ 80%, không dùng t
 Cache tách theo fingerprint dữ liệu và backbone; mọi output ghi vào thư mục có quyền ghi.
 Các số liệu và biểu đồ sẽ được tính khi chạy, không sao chép kết quả Oxford cũ.
 ''')
+    put(cells[0], source(original_book['cells'][0]).replace('Oxford-IIIT Pet Dataset (37 Classes)', 'NewDataset (N Classes)').replace('37', 'N').replace('Oxford-IIIT Pet', 'NewDataset') + '\n\n---\n\n' + source(cells[0]))
+    if kind == 'clip':
+        put(cells[3], source(cells[3]).replace('Original, Center Crop, Flip Horizontal, Mild Scale, Shift', 'Original, Denoise, CLAHE, Combined, Combined + Flip Horizontal + Rotate 15°'))
     put(cells[1], source(cells[1]) + f"\nRUN_NAME = '{kind}'\n" + CONFIG + (DEST / 'evaluate.py').read_text(encoding='utf-8'))
     loader = (DEST / 'data_utils.py').read_text(encoding='utf-8') + '''
 dataset_root = discover_dataset(DATA_ROOT)
 pets_trainval, pets_test, manifest = prepare_dataset(dataset_root, output_dir, SEED, TEST_RATIO)
 class_names = pets_trainval.classes
+prompt_class_names = [name.replace('_', ' ') for name in class_names]
 num_classes = len(class_names)
 trainval_labels = torch.tensor([r['label'] for r in pets_trainval.records], dtype=torch.long)
 test_labels = torch.tensor([r['label'] for r in pets_test.records], dtype=torch.long)
@@ -168,6 +223,7 @@ train_feats_full, train_lbls_full = trainval_features_raw, trainval_labels
 benchmark_12_results = {}
 '''
         coop = source(cells[15]).replace('epochs=ADAPTER_EPOCHS', 'epochs=COOP_EPOCHS')
+        coop = coop.replace('construct_coop_input_ids(class_names, clip_processor', 'construct_coop_input_ids(prompt_class_names, clip_processor')
         start = coop.index('class CoOpClassifier')
         stop = coop.index('def train_coop', start)
         coop = coop[:start] + COOP_CLASS + coop[stop:]
@@ -189,6 +245,23 @@ predictors = {
 histories = {'Tip-Adapter-F': hist_tip_90, 'CLIP-Adapter': hist_ca_90, 'CoOp': hist_coop_90}
 results = benchmark_12_results
 encoder = lambda x: clip_model.get_image_features(pixel_values=x)
+scenario_predictors = {
+    'CLIP (Baseline)': [predictors['CLIP (Baseline)']] * 3,
+    'CLIP + Tip-Adapter (Free)': [
+        lambda x: run_tip_adapter_free(x, text_feats_enr, train_feats_full.to(device), train_lbls_full.to(device), best_alpha_90, best_beta_90),
+        predictors['CLIP + Tip-Adapter (Free)'],
+        lambda x: run_tip_adapter_free(x, text_feats_enr, train_feats_full.to(device), train_lbls_full.to(device), best_alpha_90, best_beta_90)],
+    'CLIP + Tip-Adapter-F (Tuned)': [model_tip_full.eval(), model_tip_90.eval(), model_tip_full.eval()],
+    'CLIP + CLIP-Adapter': [model_ca_full.eval(), model_ca_90.eval(), model_ca_full.eval()],
+    'CLIP + Prompt Tuning': [lambda x: model_coop_full(x, coop_input_ids), predictors['CLIP + Prompt Tuning'], lambda x: model_coop_full(x, coop_input_ids)]}
+measure_scenarios(scenario_predictors)
+for method, stem in [('CLIP (Baseline)', 'base'), ('CLIP + Tip-Adapter (Free)', 'tip_free'),
+                     ('CLIP + Tip-Adapter-F (Tuned)', 'tip_tuned'), ('CLIP + CLIP-Adapter', 'clip_ad'),
+                     ('CLIP + Prompt Tuning', 'coop')]:
+    globals()[f'lat_{stem}_raw'] = scenario_latency[method][0]
+    globals()[f'lat_{stem}_tta'] = scenario_latency[method][1]
+    globals()[f'tp_{stem}_raw'] = 1000 / scenario_latency[method][0]
+    globals()[f'tp_{stem}_tta'] = 1000 / scenario_latency[method][1]
 '''
     else:
         feature_code = feature_code[:feature_code.index('cached_res_dir =')]
@@ -239,6 +312,14 @@ predictors = {'ResNet-50 (Prototype)': lambda x: F.normalize(x, dim=-1) @ protot
 histories = {'Linear Probe': hist_lp_90, 'Residual Adapter': hist_adp_90, 'Cosine Head': hist_cos_90}
 results = benchmark_resnet_results
 encoder = lambda x: backbone(x).flatten(1)
+prototype_raw = F.normalize(torch.stack([F.normalize(trainval_features_raw[trainval_labels == c], dim=-1).mean(0) for c in range(num_classes)]), dim=-1).to(device)
+prototype_full = F.normalize(torch.stack([F.normalize(trainval_features_tta[trainval_labels == c], dim=-1).mean(0) for c in range(num_classes)]), dim=-1).to(device)
+scenario_predictors = {
+    'ResNet-50 (Prototype)': [lambda x: F.normalize(x, dim=-1) @ prototype_raw.t(), predictors['ResNet-50 (Prototype)'], lambda x: F.normalize(x, dim=-1) @ prototype_full.t()],
+    'ResNet-50 (Linear Probe)': [model_lp_raw.eval(), model_lp_90.eval(), model_lp_full.eval()],
+    'ResNet-50 (Adapter)': [model_adp_raw.eval(), model_adp_90.eval(), model_adp_full.eval()],
+    'ResNet-50 (Cosine Head)': [model_cos_raw.eval(), model_cos_90.eval(), model_cos_full.eval()]}
+measure_scenarios(scenario_predictors)
 '''
     put(cells[4], feature_code)
     put(cells[6], '''## 2. CHIẾN LƯỢC PHÂN CHIA DỮ LIỆU: TRAIN:VAL (9:1) & FULL TRAINVAL
@@ -252,8 +333,8 @@ ResNet có cả raw và TTA train features như benchmark gốc.
     put(cells[7], split)
     put(cells[16], '## 7. ĐO ĐẠC ĐỘ TRỄ SUY DIỄN\n\nĐo trên thiết bị thực tế, đồng bộ CUDA/MPS. Tách head-only và encoder-only; không tính đọc ảnh/tiền xử lý.\n')
     put(cells[17], predict)
-    put(cells[18], '## 8. TỔNG HỢP KẾT QUẢ & TRỰC QUAN HÓA\n\nBảy hình: accuracy, loss, validation, latency, tham số, confusion matrix, TTA gain từng lớp. Confusion matrix chọn phương pháp theo validation.\n')
-    put(cells[19], 'build_report(results, predictors, histories, encoder)\n')
+    put(cells[18], source(original_book['cells'][18]).replace('37 giống', 'các giống NewDataset').replace('91.61%', 'kết quả NewDataset thực tế'))
+    put(cells[19], legacy_report_source(kind, original_book))
     put(cells[20], '## 9. BẢNG TỔNG KẾT & XUẤT ARTIFACT\n\nXem bảng được tạo phía trên và `benchmark_report.md`, CSV/JSON, checkpoints, split manifest, class mapping và PNG trong output. So sánh CLIP/ResNet chỉ khi fingerprint trùng khớp. Không dùng trực tiếp checkpoint mới với backend 37 lớp khi chưa cập nhật ánh xạ lớp và cấu hình inference.\n')
     install = {'cell_type': 'code', 'metadata': {}, 'execution_count': None, 'outputs': [],
                'source': ['%pip install "transformers>=4.45,<5" "opencv-python-headless>=4.8,<5" scikit-learn matplotlib seaborn pandas tabulate tqdm\n',

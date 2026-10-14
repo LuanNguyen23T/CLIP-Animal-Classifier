@@ -12,10 +12,43 @@ import nbformat
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def verify_method_parity(kind, book):
+    filename = 'benchmark_clip_animal_classifier.ipynb' if kind == 'clip' else 'benchmark_resnet50.ipynb'
+    original = nbformat.read(ROOT / 'notebooks/training' / filename, as_version=4)
+    def definitions(notebook):
+        result = {}
+        for cell in notebook.cells:
+            if cell.cell_type == 'code' and not cell.source.startswith('%'):
+                for node in ast.parse(cell.source.replace('Image.Transpose.FLIP_LEFT_RIGHT', 'Image.FLIP_LEFT_RIGHT')).body:
+                    if isinstance(node, (ast.FunctionDef, ast.ClassDef)):
+                        result[node.name] = node
+        return result
+    old, new = definitions(original), definitions(book)
+    exact = ['apply_denoise', 'apply_clahe', 'optimal_preprocessing_pipeline']
+    exact += ['run_tip_adapter_free', 'grid_search_tip_free', 'TipAdapterF', 'CLIPAdapter', 'AdapterClassifier', 'construct_coop_input_ids'] if kind == 'clip' else ['evaluate_prototype']
+    for name in exact:
+        assert ast.dump(old[name]) == ast.dump(new[name]), f'Method changed: {name}'
+    epochs = {'TIP_EPOCHS': 20, 'ADAPTER_EPOCHS': 50, 'COOP_EPOCHS': 50, 'RESNET_EPOCHS': 30}
+    for name in [n for n in old if n.startswith('train_')]:
+        for key in ('optimizer', 'scheduler', 'criterion', 'loader', 'train_loader'):
+            def assignments(node):
+                return [ast.dump(n.value) for n in ast.walk(node) if isinstance(n, ast.Assign)
+                        and any(isinstance(t, ast.Name) and t.id == key for t in n.targets)]
+            assert assignments(old[name]) == assignments(new[name]), f'{name}: changed {key}'
+        new_defaults = [ast.Constant(epochs[n.id]) if isinstance(n, ast.Name) and n.id in epochs else n for n in new[name].args.defaults]
+        assert [ast.dump(n) for n in old[name].args.defaults] == [ast.dump(n) for n in new_defaults], f'{name}: changed defaults'
+        old_ties = [ast.dump(n) for n in ast.walk(old[name]) if isinstance(n, ast.Compare) and ast.unparse(n.left) == 'val_acc']
+        new_ties = [ast.dump(n) for n in ast.walk(new[name]) if isinstance(n, ast.Compare) and ast.unparse(n.left) == 'val_acc']
+        assert old_ties == new_ties, f'{name}: changed checkpoint tie policy'
+    assert 'BATCH_SIZE = 128' in book.cells[2].source
+    print(f'PASS: {kind}, original formulas, optimizer/scheduler, LR/epochs, batches, checkpoint tie policies')
+
+
 def verify(kind, temporary):
     path = ROOT / f'notebooks/training/new_dataset/benchmark_{kind}_newdataset.ipynb'
     book = nbformat.read(path, as_version=4)
     nbformat.validate(book)
+    verify_method_parity(kind, book)
     for cell in book.cells:
         if cell.cell_type == 'code' and not cell.source.startswith('%'):
             ast.parse(cell.source)
@@ -31,6 +64,7 @@ TIP_EPOCHS = ADAPTER_EPOCHS = COOP_EPOCHS = RESNET_EPOCHS = 1
 SEED = 42
 num_classes = 3
 class_names = ['breed_a', 'breed_b', 'breed_c']
+prompt_class_names = [name.replace('_', ' ') for name in class_names]
 manifest = {'fingerprint': 'synthetic_smoke'}
 trainval_labels = torch.arange(num_classes).repeat_interleave(4)
 test_labels = torch.arange(num_classes)
@@ -91,6 +125,9 @@ text_feats_raw = text_feats_enr.clone()
 
 
 if __name__ == '__main__':
+    # A standalone ResNet run must render without stale Oxford/CLIP fallback values.
+    with tempfile.TemporaryDirectory(prefix='newdataset-resnet-alone-') as temporary:
+        verify('resnet50', temporary)
     with tempfile.TemporaryDirectory(prefix='newdataset-smoke-') as temporary:
         verify('clip', temporary)
         verify('resnet50', temporary)

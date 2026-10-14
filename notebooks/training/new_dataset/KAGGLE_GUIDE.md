@@ -41,7 +41,7 @@ Hai `.ipynb` dưới đây được **Import Notebook**, không phải upload c�
 2. Add Input bộ ảnh như bước 1.
 3. Trong Settings chọn **GPU**, bật **Internet** để cài dependencies và tải pretrained weights. Notebook tự dùng một GPU, không có huấn luyện phân tán hai GPU.
 4. Chạy cell cài dependencies. Nếu Kaggle yêu cầu restart kernel sau cài đặt, restart rồi chạy từ đầu.
-5. Trong cell cấu hình, đặt `DATA_ROOT` theo cây Input nếu tự tìm không được; mặc định `BATCH_SIZE=32`, seed 42, test 20%.
+5. Trong cell cấu hình, đặt `DATA_ROOT` theo cây Input nếu tự tìm không được; mặc định `BATCH_SIZE=128` như benchmark cũ, seed 42, test 20%. Giảm batch trích xuất xuống 32/16/8 nếu thiếu bộ nhớ; batch huấn luyện head giữ nguyên 256 (CLIP) hoặc 128 (ResNet).
 6. **Run All**, theo thứ tự: nạp ảnh và chia dữ liệu → tiền xử lý/TTA → train/val 9:1 → zero-shot → Tip-Adapter → Tip-Adapter-F → CLIP-Adapter → CoOp → latency → biểu đồ và bảng kết quả.
 7. **Save Version / Save & Run All**, tải artifacts từ Output sau khi phiên bản hoàn tất.
 
@@ -85,7 +85,19 @@ Trong mỗi thư mục có:
 - `benchmark_results.csv`, `benchmark_results.json`, `benchmark_report.md`.
 - `training_history.json`, `environment.json`, `classification_report.json` và 7 biểu đồ PNG.
 
-Latency đo riêng head đại diện của cấu hình 9:1 trên cached raw features và encoder trên tensor đã nằm trên thiết bị. Cột `Head_90split_Latency_ms` lặp lại phép đo đại diện này cho mỗi phương pháp, không phải đo từng head Full riêng. Không gọi các số này là latency end-to-end vì chưa tính đọc ảnh, OpenCV và processor. Không so trực tiếp latency giữa phần cứng khác nhau.
+Latency đo từng head đúng kịch bản Raw Full, TTA 9:1 và TTA Full trên cached features. Cột `Head_Latency_ms` và throughput trong các biểu đồ là **head-only**, chưa gồm encoder. Encoder raw/5-view được đo riêng trên tensor đã nằm trên thiết bị. Không gọi các số này là latency end-to-end vì chưa tính đọc ảnh, OpenCV và processor. Không so trực tiếp latency giữa phần cứng khác nhau.
+
+## Tính tương đồng với benchmark cũ và các sửa lỗi
+
+Công thức, kiến trúc, optimizer, learning rate, weight decay, scheduler, số epoch, batch huấn luyện, năm view TTA và ba kịch bản giữ nguyên. Batch trích xuất mặc định trở lại 128. Split train/validation dùng global RNG seed 42 như mã cũ. ResNet giữ điều kiện `>` khi chọn checkpoint (giữ checkpoint đầu khi hòa); CLIP giữ `>=` như mã cũ.
+
+Giữ mã vẽ gốc: CLIP có heatmap accuracy → grouped bars → loss/validation hai panel → throughput/tham số → confusion CoOp 9:1 → delta từng giống so với zero-shot raw → accuracy/latency Pareto. ResNet có grouped bars so với CoOp → loss/validation hai panel → trade-off → throughput/tham số → confusion Cosine 9:1 → delta TTA cùng Cosine head → đối chiếu Raw/TTA với CoOp. Màu sắc, bố cục và thứ tự kế thừa mã cũ; số lớp và giới hạn trục thích ứng dữ liệu mới.
+
+Các sửa lỗi: CoOp dùng context riêng cho mỗi classifier và đóng băng pretrained CLIP; tên lớp văn bản của zero-shot/CoOp cùng chuyển `_` thành khoảng trắng nhưng mapping checkpoint vẫn giữ tên thư mục. ResNet báo best validation accuracy của checkpoint đã phục hồi; khởi tạo best score -1 để vẫn lưu checkpoint nếu tất cả epoch có accuracy 0%. Bỏ số accuracy/latency ghi sẵn, sửa mask CPU/GPU khi vẽ delta CLIP, tính Pareto theo dominance thực tế và hiển thị dấu tăng/giảm đúng.
+
+Biểu đồ ResNet chỉ có số liệu CoOp khi output CLIP cùng fingerprint đã tồn tại. Nếu chưa chạy CLIP, đánh dấu thiếu kết quả thay vì dùng số Oxford cũ; sau khi chạy CLIP, chạy lại cell báo cáo ResNet để bổ sung.
+
+Phần thay dữ liệu bắt buộc khác: folder ảnh NewDataset, số lớp động, loại ảnh trùng và giữ riêng test 20% vì không có split test chính thức Oxford. Không tuyên bố tái lập accuracy Oxford hay sao chép nguyên các lỗi thực thi cũ.
 
 Để có bảng CLIP vs ResNet trong một lần chạy, dùng cùng Kaggle notebook: sau khi CLIP hoàn tất, chạy các cell ResNet bên dưới với cùng `OUTPUT_ROOT`. Các artifact CLIP đã được lưu trước đó. Hoặc tải output CLIP và đặt thư mục `clip/` bên cạnh `resnet50/` trong Working trước cell báo cáo ResNet. Notebook chỉ ghép khi fingerprint split giống nhau. Add Input output notebook trước không tự chép sang Working.
 

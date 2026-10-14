@@ -34,18 +34,70 @@ def save_checkpoint(name, model, **extra):
                 'logit_scale': globals().get('logit_scale_val'), **extra}, output_dir / f'{name}.pt')
 
 
+def measure_scenarios(scenario_predictors):
+    global scenario_latency
+    scenarios = ['Raw Image (Full Trainval)', 'TTA 5-view (9:1 Split)', 'TTA 5-view (Full Trainval)']
+    scenario_latency = {}
+    for method, heads in scenario_predictors.items():
+        scenario_latency[method] = []
+        for scenario, head in zip(scenarios, heads):
+            sample = (test_features_raw if scenario.startswith('Raw') else test_features_tta)[:1].to(device)
+            stats = measure_latency_ms(lambda: head(sample))
+            scenario_latency[method].append(stats['mean'])
+            for row in results.values():
+                if row['Method'] == method and row['Scenario'] == scenario:
+                    row['Head_Latency_ms'] = stats['mean']
+                    row['Head_Throughput_Samples_Sec'] = 1000 / stats['mean']
+                    row['Head_Latency_Stats'] = stats
+
+
+def pareto_frontier(points):
+    best, frontier = -float('inf'), []
+    for latency, accuracy in sorted((float(x), float(y)) for x, y in points if np.isfinite(x) and np.isfinite(y)):
+        if accuracy > best:
+            frontier.append((latency, accuracy)); best = accuracy
+    return ([p[0] for p in frontier], [p[1] for p in frontier])
+
+
+def matching_clip_results():
+    path = output_dir.parent / 'clip' / 'benchmark_results.json'
+    if not path.exists():
+        return None
+    data = json.loads(path.read_text(encoding='utf-8'))
+    return data if data['dataset'] == manifest['fingerprint'] else None
+
+
+def load_matching_clip_scores():
+    data = matching_clip_results()
+    values = {'Raw': float('nan'), 'TTA_90': float('nan'), 'TTA_Full': float('nan')}
+    scenarios = dict(zip(['Raw Image (Full Trainval)', 'TTA 5-view (9:1 Split)', 'TTA 5-view (Full Trainval)'], values))
+    if data:
+        for row in data['results']:
+            if row['Method'] == 'CLIP + Prompt Tuning':
+                values[scenarios[row['Scenario']]] = row['Test_Acc']
+    else:
+        print('CLIP comparison pending: run CLIP on the same dataset split and output root, then rerun this report cell.')
+    return values
+
+
+def matching_clip_latency(scenario):
+    data = matching_clip_results()
+    if data and data['device'] == str(device):
+        for row in data['results']:
+            if row['Method'] == 'CLIP + Prompt Tuning' and row['Scenario'] == scenario:
+                return row.get('Head_Latency_ms', float('nan'))
+    return float('nan')
+
+
 def build_report(results, predictors, histories, encoder):
     import pandas as pd
     from IPython.display import display
-    frame = pd.DataFrame(results.values())
+    frame = pd.DataFrame(results.values()).drop(columns=['Head_Latency_Stats'], errors='ignore')
+    frame.insert(0, 'STT', range(1, len(frame) + 1))
+    frame['Preprocessing'] = np.where(frame.Scenario.str.startswith('Raw'), 'Raw Images', 'TTA 5 Views')
     base = float(frame.iloc[0]['Test_Acc'])
     frame['Delta_vs_Baseline'] = frame['Test_Acc'] - base
-    frame['Head_90split_Latency_ms'] = None
-    latency = {}
-    for name, predictor in predictors.items():
-        stats = measure_latency_ms(lambda: predictor(test_features_raw[:1].to(device)))
-        latency[name] = stats
-        frame.loc[frame.Method == name, 'Head_90split_Latency_ms'] = stats['mean']
+    latency = {key: row['Head_Latency_Stats'] for key, row in results.items()}
     # Encoder timing uses synthetic pixels already on device; excludes PIL, OpenCV and IO.
     pixels = torch.zeros(1, 3, 224, 224, device=device)
     latency['encoder_raw'] = measure_latency_ms(lambda: encoder(pixels))
@@ -54,7 +106,7 @@ def build_report(results, predictors, histories, encoder):
     display(frame)
     summary = {'dataset': manifest['fingerprint'], 'classes': class_names,
                'device': str(device), 'backbone': MODEL_ID, 'seed': SEED,
-               'latency_scope': 'Representative 9:1 head on cached raw features, repeated per method in the table; encoder on device-resident synthetic pixels. Not end-to-end.',
+               'latency_scope': 'Each scenario head on cached raw/TTA features; encoder measured separately on device-resident synthetic pixels. Not end-to-end.',
                'latency_ms': latency, 'results': list(results.values())}
     (output_dir / 'benchmark_results.json').write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding='utf-8')
     (output_dir / 'training_history.json').write_text(json.dumps(histories, indent=2), encoding='utf-8')
@@ -63,55 +115,15 @@ def build_report(results, predictors, histories, encoder):
         'transformers': __import__('transformers').__version__, 'device': str(device),
         'gpu': torch.cuda.get_device_name() if device.type == 'cuda' else None}, indent=2), encoding='utf-8')
 
-    def finish(name):
-        plt.tight_layout()
-        plt.savefig(output_dir / f'{name}.png', dpi=160, bbox_inches='tight')
-        plt.show()
-
-    plt.figure(figsize=(13, 6))
-    sns.barplot(data=frame, x='Method', y='Test_Acc', hue='Scenario')
-    plt.xticks(rotation=18, ha='right'); plt.ylabel('Test Accuracy (%)')
-    finish('01_accuracy')
-    for metric, title, filename in [('loss', 'Training Loss', '02_loss'),
-                                     ('val_acc', 'Validation Accuracy (%)', '03_validation')]:
-        plt.figure(figsize=(10, 5))
-        for name, history in histories.items():
-            values = history[metric]
-            if any(v is not None for v in values):
-                plt.plot(range(1, len(values) + 1), values, label=name)
-        plt.xlabel('Epoch'); plt.ylabel(title); plt.legend()
-        finish(filename)
-    plt.figure(figsize=(11, 5))
-    plt.bar(latency.keys(), [v['mean'] for v in latency.values()])
-    plt.xticks(rotation=25, ha='right'); plt.ylabel('Measured latency (ms; scope in JSON)')
-    finish('04_latency')
-    plt.figure(figsize=(11, 5))
-    sns.barplot(data=frame, x='Method', y='Trainable_Params', hue='Scenario')
-    plt.xticks(rotation=20, ha='right'); plt.ylabel('Trainable parameters')
-    finish('05_parameters')
-    # Select only by validation accuracy; do not choose the winning method on test.
-    candidates = frame[frame['Val_Acc'].notna() & frame.Method.isin(predictors)]
-    selected = candidates.sort_values('Val_Acc', ascending=False, kind='stable').iloc[0]['Method']
+    # Match the original report: CLIP CoOp / ResNet Cosine, both 9:1 + TTA.
+    selected = 'CLIP + Prompt Tuning' if output_dir.name == 'clip' else 'ResNet-50 (Cosine Head)'
     with torch.no_grad():
-        predictor = predictors[selected]
-        preds = predictor(test_features_tta.to(device)).argmax(-1).cpu().numpy()
-        raw_preds = predictor(test_features_raw.to(device)).argmax(-1).cpu().numpy()
+        preds = predictors[selected](test_features_tta.to(device)).argmax(-1).cpu().numpy()
     truth = test_labels.cpu().numpy()
     matrix = confusion_matrix(truth, preds, labels=list(range(num_classes)))
-    plt.figure(figsize=(14, 12))
-    sns.heatmap(matrix, annot=True, fmt='d', cmap='Blues', xticklabels=class_names, yticklabels=class_names)
-    plt.title(f'{selected}: validation-selected, TTA, 9:1 support'); plt.xlabel('Predicted'); plt.ylabel('True')
-    finish('06_confusion_matrix')
-    gains = [(100 * (preds[truth == i] == i).mean() - 100 * (raw_preds[truth == i] == i).mean())
-             for i in range(num_classes)]
-    order = np.argsort(gains)[-10:]
-    plt.figure(figsize=(10, 6))
-    plt.barh([class_names[i] for i in order], np.array(gains)[order])
-    plt.xlabel('TTA gain vs raw (percentage points), same validation-selected head')
-    finish('07_per_class_tta_gain')
     report = classification_report(truth, preds, target_names=class_names, output_dict=True, zero_division=0)
     (output_dir / 'classification_report.json').write_text(json.dumps({
-        'selected_by_validation': selected, 'report': report,
+        'reported_method': selected, 'report': report,
         'confusion_matrix': matrix.tolist()}, indent=2), encoding='utf-8')
     rows = frame.fillna('—').astype(str)
     table = '| ' + ' | '.join(rows.columns) + ' |\n'
