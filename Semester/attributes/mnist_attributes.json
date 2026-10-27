@@ -1,0 +1,112 @@
+{
+  "0": {
+    "name": "0",
+    "traits": [
+      "typical shape and appearance of 0",
+      "characteristic color and texture of 0",
+      "surface patterns and details of 0",
+      "distinctive structural parts of 0",
+      "overall composition defining a 0"
+    ],
+    "compact_prompt": "a photo of a 0, recognized by typical shape and appearance of 0 and distinctive structural parts of 0."
+  },
+  "1": {
+    "name": "1",
+    "traits": [
+      "typical shape and appearance of 1",
+      "characteristic color and texture of 1",
+      "surface patterns and details of 1",
+      "distinctive structural parts of 1",
+      "overall composition defining a 1"
+    ],
+    "compact_prompt": "a photo of a 1, recognized by typical shape and appearance of 1 and distinctive structural parts of 1."
+  },
+  "2": {
+    "name": "2",
+    "traits": [
+      "typical shape and appearance of 2",
+      "characteristic color and texture of 2",
+      "surface patterns and details of 2",
+      "distinctive structural parts of 2",
+      "overall composition defining a 2"
+    ],
+    "compact_prompt": "a photo of a 2, recognized by typical shape and appearance of 2 and distinctive structural parts of 2."
+  },
+  "3": {
+    "name": "3",
+    "traits": [
+      "typical shape and appearance of 3",
+      "characteristic color and texture of 3",
+      "surface patterns and details of 3",
+      "distinctive structural parts of 3",
+      "overall composition defining a 3"
+    ],
+    "compact_prompt": "a photo of a 3, recognized by typical shape and appearance of 3 and distinctive structural parts of 3."
+  },
+  "4": {
+    "name": "4",
+    "traits": [
+      "typical shape and appearance of 4",
+      "characteristic color and texture of 4",
+      "surface patterns and details of 4",
+      "distinctive structural parts of 4",
+      "overall composition defining a 4"
+    ],
+    "compact_prompt": "a photo of a 4, recognized by typical shape and appearance of 4 and distinctive structural parts of 4."
+  },
+  "5": {
+    "name": "5",
+    "traits": [
+      "typical shape and appearance of 5",
+      "characteristic color and texture of 5",
+      "surface patterns and details of 5",
+      "distinctive structural parts of 5",
+      "overall composition defining a 5"
+    ],
+    "compact_prompt": "a photo of a 5, recognized by typical shape and appearance of 5 and distinctive structural parts of 5."
+  },
+  "6": {
+    "name": "6",
+    "traits": [
+      "typical shape and appearance of 6",
+      "characteristic color and texture of 6",
+      "surface patterns and details of 6",
+      "distinctive structural parts of 6",
+      "overall composition defining a 6"
+    ],
+    "compact_prompt": "a photo of a 6, recognized by typical shape and appearance of 6 and distinctive structural parts of 6."
+  },
+  "7": {
+    "name": "7",
+    "traits": [
+      "typical shape and appearance of 7",
+      "characteristic color and texture of 7",
+      "surface patterns and details of 7",
+      "distinctive structural parts of 7",
+      "overall composition defining a 7"
+    ],
+    "compact_prompt": "a photo of a 7, recognized by typical shape and appearance of 7 and distinctive structural parts of 7."
+  },
+  "8": {
+    "name": "8",
+    "traits": [
+      "typical shape and appearance of 8",
+      "characteristic color and texture of 8",
+      "surface patterns and details of 8",
+      "distinctive structural parts of 8",
+      "overall composition defining a 8"
+    ],
+    "compact_prompt": "a photo of a 8, recognized by typical shape and appearance of 8 and distinctive structural parts of 8."
+  },
+  "9": {
+    "name": "9",
+    "traits": [
+      "typical shape and appearance of 9",
+      "characteristic color and texture of 9",
+      "surface patterns and details of 9",
+      "distinctive structural parts of 9",
+      "overall composition defining a 9"
+    ],
+    "compact_prompt": "a photo of a 9, recognized by typical shape and appearance of 9 and distinctive structural parts of 9."
+  }
+}

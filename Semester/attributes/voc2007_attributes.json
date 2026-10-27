@@ -1,0 +1,222 @@
+{
+  "aeroplane": {
+    "name": "aeroplane",
+    "traits": [
+      "typical shape and appearance of aeroplane",
+      "characteristic color and texture of aeroplane",
+      "surface patterns and details of aeroplane",
+      "distinctive structural parts of aeroplane",
+      "overall composition defining a aeroplane"
+    ],
+    "compact_prompt": "a photo of a aeroplane, recognized by typical shape and appearance of aeroplane and distinctive structural parts of aeroplane."
+  },
+  "bicycle": {
+    "name": "bicycle",
+    "traits": [
+      "typical shape and appearance of bicycle",
+      "characteristic color and texture of bicycle",
+      "surface patterns and details of bicycle",
+      "distinctive structural parts of bicycle",
+      "overall composition defining a bicycle"
+    ],
+    "compact_prompt": "a photo of a bicycle, recognized by typical shape and appearance of bicycle and distinctive structural parts of bicycle."
+  },
+  "bird": {
+    "name": "bird",
+    "traits": [
+      "typical shape and appearance of bird",
+      "characteristic color and texture of bird",
+      "surface patterns and details of bird",
+      "distinctive structural parts of bird",
+      "overall composition defining a bird"
+    ],
+    "compact_prompt": "a photo of a bird, recognized by typical shape and appearance of bird and distinctive structural parts of bird."
+  },
+  "boat": {
+    "name": "boat",
+    "traits": [
+      "typical shape and appearance of boat",
+      "characteristic color and texture of boat",
+      "surface patterns and details of boat",
+      "distinctive structural parts of boat",
+      "overall composition defining a boat"
+    ],
+    "compact_prompt": "a photo of a boat, recognized by typical shape and appearance of boat and distinctive structural parts of boat."
+  },
+  "bottle": {
+    "name": "bottle",
+    "traits": [
+      "typical shape and appearance of bottle",
+      "characteristic color and texture of bottle",
+      "surface patterns and details of bottle",
+      "distinctive structural parts of bottle",
+      "overall composition defining a bottle"
+    ],
+    "compact_prompt": "a photo of a bottle, recognized by typical shape and appearance of bottle and distinctive structural parts of bottle."
+  },
+  "bus": {
+    "name": "bus",
+    "traits": [
+      "typical shape and appearance of bus",
+      "characteristic color and texture of bus",
+      "surface patterns and details of bus",
+      "distinctive structural parts of bus",
+      "overall composition defining a bus"
+    ],
+    "compact_prompt": "a photo of a bus, recognized by typical shape and appearance of bus and distinctive structural parts of bus."
+  },
+  "car": {
+    "name": "car",
+    "traits": [
+      "typical shape and appearance of car",
+      "characteristic color and texture of car",
+      "surface patterns and details of car",
+      "distinctive structural parts of car",
+      "overall composition defining a car"
+    ],
+    "compact_prompt": "a photo of a car, recognized by typical shape and appearance of car and distinctive structural parts of car."
+  },
+  "cat": {
+    "name": "cat",
+    "traits": [
+      "typical shape and appearance of cat",
+      "characteristic color and texture of cat",
+      "surface patterns and details of cat",
+      "distinctive structural parts of cat",
+      "overall composition defining a cat"
+    ],
+    "compact_prompt": "a photo of a cat, recognized by typical shape and appearance of cat and distinctive structural parts of cat."
+  },
+  "chair": {
+    "name": "chair",
+    "traits": [
+      "typical shape and appearance of chair",
+      "characteristic color and texture of chair",
+      "surface patterns and details of chair",
+      "distinctive structural parts of chair",
+      "overall composition defining a chair"
+    ],
+    "compact_prompt": "a photo of a chair, recognized by typical shape and appearance of chair and distinctive structural parts of chair."
+  },
+  "cow": {
+    "name": "cow",
+    "traits": [
+      "typical shape and appearance of cow",
+      "characteristic color and texture of cow",
+      "surface patterns and details of cow",
+      "distinctive structural parts of cow",
+      "overall composition defining a cow"
+    ],
+    "compact_prompt": "a photo of a cow, recognized by typical shape and appearance of cow and distinctive structural parts of cow."
+  },
+  "diningtable": {
+    "name": "diningtable",
+    "traits": [
+      "typical shape and appearance of diningtable",
+      "characteristic color and texture of diningtable",
+      "surface patterns and details of diningtable",
+      "distinctive structural parts of diningtable",
+      "overall composition defining a diningtable"
+    ],
+    "compact_prompt": "a photo of a diningtable, recognized by typical shape and appearance of diningtable and distinctive structural parts of diningtable."
+  },
+  "dog": {
+    "name": "dog",
+    "traits": [
+      "typical shape and appearance of dog",
+      "characteristic color and texture of dog",
+      "surface patterns and details of dog",
+      "distinctive structural parts of dog",
+      "overall composition defining a dog"
+    ],
+    "compact_prompt": "a photo of a dog, recognized by typical shape and appearance of dog and distinctive structural parts of dog."
+  },
+  "horse": {
+    "name": "horse",
+    "traits": [
+      "typical shape and appearance of horse",
+      "characteristic color and texture of horse",
+      "surface patterns and details of horse",
+      "distinctive structural parts of horse",
+      "overall composition defining a horse"
+    ],
+    "compact_prompt": "a photo of a horse, recognized by typical shape and appearance of horse and distinctive structural parts of horse."
+  },
+  "motorbike": {
+    "name": "motorbike",
+    "traits": [
+      "typical shape and appearance of motorbike",
+      "characteristic color and texture of motorbike",
+      "surface patterns and details of motorbike",
+      "distinctive structural parts of motorbike",
+      "overall composition defining a motorbike"
+    ],
+    "compact_prompt": "a photo of a motorbike, recognized by typical shape and appearance of motorbike and distinctive structural parts of motorbike."
+  },
+  "person": {
+    "name": "person",
+    "traits": [
+      "typical shape and appearance of person",
+      "characteristic color and texture of person",
+      "surface patterns and details of person",
+      "distinctive structural parts of person",
+      "overall composition defining a person"
+    ],
+    "compact_prompt": "a photo of a person, recognized by typical shape and appearance of person and distinctive structural parts of person."
+  },
+  "pottedplant": {
+    "name": "pottedplant",
+    "traits": [
+      "typical shape and appearance of pottedplant",
+      "characteristic color and texture of pottedplant",
+      "surface patterns and details of pottedplant",
+      "distinctive structural parts of pottedplant",
+      "overall composition defining a pottedplant"
+    ],
+    "compact_prompt": "a photo of a pottedplant, recognized by typical shape and appearance of pottedplant and distinctive structural parts of pottedplant."
+  },
+  "sheep": {
+    "name": "sheep",
+    "traits": [
+      "typical shape and appearance of sheep",
+      "characteristic color and texture of sheep",
+      "surface patterns and details of sheep",
+      "distinctive structural parts of sheep",
+      "overall composition defining a sheep"
+    ],
+    "compact_prompt": "a photo of a sheep, recognized by typical shape and appearance of sheep and distinctive structural parts of sheep."
+  },
+  "sofa": {
+    "name": "sofa",
+    "traits": [
+      "typical shape and appearance of sofa",
+      "characteristic color and texture of sofa",
+      "surface patterns and details of sofa",
+      "distinctive structural parts of sofa",
+      "overall composition defining a sofa"
+    ],
+    "compact_prompt": "a photo of a sofa, recognized by typical shape and appearance of sofa and distinctive structural parts of sofa."
+  },
+  "train": {
+    "name": "train",
+    "traits": [
+      "typical shape and appearance of train",
+      "characteristic color and texture of train",
+      "surface patterns and details of train",
+      "distinctive structural parts of train",
+      "overall composition defining a train"
+    ],
+    "compact_prompt": "a photo of a train, recognized by typical shape and appearance of train and distinctive structural parts of train."
+  },
+  "tvmonitor": {
+    "name": "tvmonitor",
+    "traits": [
+      "typical shape and appearance of tvmonitor",
+      "characteristic color and texture of tvmonitor",
+      "surface patterns and details of tvmonitor",
+      "distinctive structural parts of tvmonitor",
+      "overall composition defining a tvmonitor"
+    ],
+    "compact_prompt": "a photo of a tvmonitor, recognized by typical shape and appearance of tvmonitor and distinctive structural parts of tvmonitor."
+  }
+}

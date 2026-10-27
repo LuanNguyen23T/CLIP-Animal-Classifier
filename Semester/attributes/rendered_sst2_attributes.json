@@ -1,0 +1,24 @@
+{
+  "negative": {
+    "name": "negative",
+    "traits": [
+      "typical shape and appearance of negative",
+      "characteristic color and texture of negative",
+      "surface patterns and details of negative",
+      "distinctive structural parts of negative",
+      "overall composition defining a negative"
+    ],
+    "compact_prompt": "a photo of a negative, recognized by typical shape and appearance of negative and distinctive structural parts of negative."
+  },
+  "positive": {
+    "name": "positive",
+    "traits": [
+      "typical shape and appearance of positive",
+      "characteristic color and texture of positive",
+      "surface patterns and details of positive",
+      "distinctive structural parts of positive",
+      "overall composition defining a positive"
+    ],
+    "compact_prompt": "a photo of a positive, recognized by typical shape and appearance of positive and distinctive structural parts of positive."
+  }
+}

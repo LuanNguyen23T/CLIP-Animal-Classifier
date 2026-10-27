@@ -1,0 +1,79 @@
+{
+  "angry": {
+    "name": "angry",
+    "traits": [
+      "typical shape and appearance of angry",
+      "characteristic color and texture of angry",
+      "surface patterns and details of angry",
+      "distinctive structural parts of angry",
+      "overall composition defining a angry"
+    ],
+    "compact_prompt": "a photo of a angry, recognized by typical shape and appearance of angry and distinctive structural parts of angry."
+  },
+  "disgust": {
+    "name": "disgust",
+    "traits": [
+      "typical shape and appearance of disgust",
+      "characteristic color and texture of disgust",
+      "surface patterns and details of disgust",
+      "distinctive structural parts of disgust",
+      "overall composition defining a disgust"
+    ],
+    "compact_prompt": "a photo of a disgust, recognized by typical shape and appearance of disgust and distinctive structural parts of disgust."
+  },
+  "fear": {
+    "name": "fear",
+    "traits": [
+      "typical shape and appearance of fear",
+      "characteristic color and texture of fear",
+      "surface patterns and details of fear",
+      "distinctive structural parts of fear",
+      "overall composition defining a fear"
+    ],
+    "compact_prompt": "a photo of a fear, recognized by typical shape and appearance of fear and distinctive structural parts of fear."
+  },
+  "happy": {
+    "name": "happy",
+    "traits": [
+      "typical shape and appearance of happy",
+      "characteristic color and texture of happy",
+      "surface patterns and details of happy",
+      "distinctive structural parts of happy",
+      "overall composition defining a happy"
+    ],
+    "compact_prompt": "a photo of a happy, recognized by typical shape and appearance of happy and distinctive structural parts of happy."
+  },
+  "neutral": {
+    "name": "neutral",
+    "traits": [
+      "typical shape and appearance of neutral",
+      "characteristic color and texture of neutral",
+      "surface patterns and details of neutral",
+      "distinctive structural parts of neutral",
+      "overall composition defining a neutral"
+    ],
+    "compact_prompt": "a photo of a neutral, recognized by typical shape and appearance of neutral and distinctive structural parts of neutral."
+  },
+  "sad": {
+    "name": "sad",
+    "traits": [
+      "typical shape and appearance of sad",
+      "characteristic color and texture of sad",
+      "surface patterns and details of sad",
+      "distinctive structural parts of sad",
+      "overall composition defining a sad"
+    ],
+    "compact_prompt": "a photo of a sad, recognized by typical shape and appearance of sad and distinctive structural parts of sad."
+  },
+  "surprise": {
+    "name": "surprise",
+    "traits": [
+      "typical shape and appearance of surprise",
+      "characteristic color and texture of surprise",
+      "surface patterns and details of surprise",
+      "distinctive structural parts of surprise",
+      "overall composition defining a surprise"
+    ],
+    "compact_prompt": "a photo of a surprise, recognized by typical shape and appearance of surprise and distinctive structural parts of surprise."
+  }
+}

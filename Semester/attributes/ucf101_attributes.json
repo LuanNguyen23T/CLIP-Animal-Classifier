@@ -1,0 +1,1113 @@
+{
+  "Apply Eye Makeup": {
+    "name": "Apply Eye Makeup",
+    "traits": [
+      "typical shape and appearance of Apply Eye Makeup",
+      "characteristic color and texture of Apply Eye Makeup",
+      "surface patterns and details of Apply Eye Makeup",
+      "distinctive structural parts of Apply Eye Makeup",
+      "overall composition defining a Apply Eye Makeup"
+    ],
+    "compact_prompt": "a photo of a Apply Eye Makeup, recognized by typical shape and appearance of Apply Eye Makeup and distinctive structural parts of Apply Eye Makeup."
+  },
+  "Apply Lipstick": {
+    "name": "Apply Lipstick",
+    "traits": [
+      "typical shape and appearance of Apply Lipstick",
+      "characteristic color and texture of Apply Lipstick",
+      "surface patterns and details of Apply Lipstick",
+      "distinctive structural parts of Apply Lipstick",
+      "overall composition defining a Apply Lipstick"
+    ],
+    "compact_prompt": "a photo of a Apply Lipstick, recognized by typical shape and appearance of Apply Lipstick and distinctive structural parts of Apply Lipstick."
+  },
+  "Archery": {
+    "name": "Archery",
+    "traits": [
+      "typical shape and appearance of Archery",
+      "characteristic color and texture of Archery",
+      "surface patterns and details of Archery",
+      "distinctive structural parts of Archery",
+      "overall composition defining a Archery"
+    ],
+    "compact_prompt": "a photo of a Archery, recognized by typical shape and appearance of Archery and distinctive structural parts of Archery."
+  },
+  "Baby Crawling": {
+    "name": "Baby Crawling",
+    "traits": [
+      "typical shape and appearance of Baby Crawling",
+      "characteristic color and texture of Baby Crawling",
+      "surface patterns and details of Baby Crawling",
+      "distinctive structural parts of Baby Crawling",
+      "overall composition defining a Baby Crawling"
+    ],
+    "compact_prompt": "a photo of a Baby Crawling, recognized by typical shape and appearance of Baby Crawling and distinctive structural parts of Baby Crawling."
+  },
+  "Balance Beam": {
+    "name": "Balance Beam",
+    "traits": [
+      "typical shape and appearance of Balance Beam",
+      "characteristic color and texture of Balance Beam",
+      "surface patterns and details of Balance Beam",
+      "distinctive structural parts of Balance Beam",
+      "overall composition defining a Balance Beam"
+    ],
+    "compact_prompt": "a photo of a Balance Beam, recognized by typical shape and appearance of Balance Beam and distinctive structural parts of Balance Beam."
+  },
+  "Band Marching": {
+    "name": "Band Marching",
+    "traits": [
+      "typical shape and appearance of Band Marching",
+      "characteristic color and texture of Band Marching",
+      "surface patterns and details of Band Marching",
+      "distinctive structural parts of Band Marching",
+      "overall composition defining a Band Marching"
+    ],
+    "compact_prompt": "a photo of a Band Marching, recognized by typical shape and appearance of Band Marching and distinctive structural parts of Band Marching."
+  },
+  "Baseball Pitch": {
+    "name": "Baseball Pitch",
+    "traits": [
+      "typical shape and appearance of Baseball Pitch",
+      "characteristic color and texture of Baseball Pitch",
+      "surface patterns and details of Baseball Pitch",
+      "distinctive structural parts of Baseball Pitch",
+      "overall composition defining a Baseball Pitch"
+    ],
+    "compact_prompt": "a photo of a Baseball Pitch, recognized by typical shape and appearance of Baseball Pitch and distinctive structural parts of Baseball Pitch."
+  },
+  "Basketball": {
+    "name": "Basketball",
+    "traits": [
+      "typical shape and appearance of Basketball",
+      "characteristic color and texture of Basketball",
+      "surface patterns and details of Basketball",
+      "distinctive structural parts of Basketball",
+      "overall composition defining a Basketball"
+    ],
+    "compact_prompt": "a photo of a Basketball, recognized by typical shape and appearance of Basketball and distinctive structural parts of Basketball."
+  },
+  "Basketball Dunk": {
+    "name": "Basketball Dunk",
+    "traits": [
+      "typical shape and appearance of Basketball Dunk",
+      "characteristic color and texture of Basketball Dunk",
+      "surface patterns and details of Basketball Dunk",
+      "distinctive structural parts of Basketball Dunk",
+      "overall composition defining a Basketball Dunk"
+    ],
+    "compact_prompt": "a photo of a Basketball Dunk, recognized by typical shape and appearance of Basketball Dunk and distinctive structural parts of Basketball Dunk."
+  },
+  "Bench Press": {
+    "name": "Bench Press",
+    "traits": [
+      "typical shape and appearance of Bench Press",
+      "characteristic color and texture of Bench Press",
+      "surface patterns and details of Bench Press",
+      "distinctive structural parts of Bench Press",
+      "overall composition defining a Bench Press"
+    ],
+    "compact_prompt": "a photo of a Bench Press, recognized by typical shape and appearance of Bench Press and distinctive structural parts of Bench Press."
+  },
+  "Biking": {
+    "name": "Biking",
+    "traits": [
+      "typical shape and appearance of Biking",
+      "characteristic color and texture of Biking",
+      "surface patterns and details of Biking",
+      "distinctive structural parts of Biking",
+      "overall composition defining a Biking"
+    ],
+    "compact_prompt": "a photo of a Biking, recognized by typical shape and appearance of Biking and distinctive structural parts of Biking."
+  },
+  "Billiards": {
+    "name": "Billiards",
+    "traits": [
+      "typical shape and appearance of Billiards",
+      "characteristic color and texture of Billiards",
+      "surface patterns and details of Billiards",
+      "distinctive structural parts of Billiards",
+      "overall composition defining a Billiards"
+    ],
+    "compact_prompt": "a photo of a Billiards, recognized by typical shape and appearance of Billiards and distinctive structural parts of Billiards."
+  },
+  "Blow Dry Hair": {
+    "name": "Blow Dry Hair",
+    "traits": [
+      "typical shape and appearance of Blow Dry Hair",
+      "characteristic color and texture of Blow Dry Hair",
+      "surface patterns and details of Blow Dry Hair",
+      "distinctive structural parts of Blow Dry Hair",
+      "overall composition defining a Blow Dry Hair"
+    ],
+    "compact_prompt": "a photo of a Blow Dry Hair, recognized by typical shape and appearance of Blow Dry Hair and distinctive structural parts of Blow Dry Hair."
+  },
+  "Blowing Candles": {
+    "name": "Blowing Candles",
+    "traits": [
+      "typical shape and appearance of Blowing Candles",
+      "characteristic color and texture of Blowing Candles",
+      "surface patterns and details of Blowing Candles",
+      "distinctive structural parts of Blowing Candles",
+      "overall composition defining a Blowing Candles"
+    ],
+    "compact_prompt": "a photo of a Blowing Candles, recognized by typical shape and appearance of Blowing Candles and distinctive structural parts of Blowing Candles."
+  },
+  "Body Weight Squats": {
+    "name": "Body Weight Squats",
+    "traits": [
+      "typical shape and appearance of Body Weight Squats",
+      "characteristic color and texture of Body Weight Squats",
+      "surface patterns and details of Body Weight Squats",
+      "distinctive structural parts of Body Weight Squats",
+      "overall composition defining a Body Weight Squats"
+    ],
+    "compact_prompt": "a photo of a Body Weight Squats, recognized by typical shape and appearance of Body Weight Squats and distinctive structural parts of Body Weight Squats."
+  },
+  "Bowling": {
+    "name": "Bowling",
+    "traits": [
+      "typical shape and appearance of Bowling",
+      "characteristic color and texture of Bowling",
+      "surface patterns and details of Bowling",
+      "distinctive structural parts of Bowling",
+      "overall composition defining a Bowling"
+    ],
+    "compact_prompt": "a photo of a Bowling, recognized by typical shape and appearance of Bowling and distinctive structural parts of Bowling."
+  },
+  "Boxing Punching Bag": {
+    "name": "Boxing Punching Bag",
+    "traits": [
+      "typical shape and appearance of Boxing Punching Bag",
+      "characteristic color and texture of Boxing Punching Bag",
+      "surface patterns and details of Boxing Punching Bag",
+      "distinctive structural parts of Boxing Punching Bag",
+      "overall composition defining a Boxing Punching Bag"
+    ],
+    "compact_prompt": "a photo of a Boxing Punching Bag, recognized by typical shape and appearance of Boxing Punching Bag and distinctive structural parts of Boxing Punching Bag."
+  },
+  "Boxing Speed Bag": {
+    "name": "Boxing Speed Bag",
+    "traits": [
+      "typical shape and appearance of Boxing Speed Bag",
+      "characteristic color and texture of Boxing Speed Bag",
+      "surface patterns and details of Boxing Speed Bag",
+      "distinctive structural parts of Boxing Speed Bag",
+      "overall composition defining a Boxing Speed Bag"
+    ],
+    "compact_prompt": "a photo of a Boxing Speed Bag, recognized by typical shape and appearance of Boxing Speed Bag and distinctive structural parts of Boxing Speed Bag."
+  },
+  "Breast Stroke": {
+    "name": "Breast Stroke",
+    "traits": [
+      "typical shape and appearance of Breast Stroke",
+      "characteristic color and texture of Breast Stroke",
+      "surface patterns and details of Breast Stroke",
+      "distinctive structural parts of Breast Stroke",
+      "overall composition defining a Breast Stroke"
+    ],
+    "compact_prompt": "a photo of a Breast Stroke, recognized by typical shape and appearance of Breast Stroke and distinctive structural parts of Breast Stroke."
+  },
+  "Brushing Teeth": {
+    "name": "Brushing Teeth",
+    "traits": [
+      "typical shape and appearance of Brushing Teeth",
+      "characteristic color and texture of Brushing Teeth",
+      "surface patterns and details of Brushing Teeth",
+      "distinctive structural parts of Brushing Teeth",
+      "overall composition defining a Brushing Teeth"
+    ],
+    "compact_prompt": "a photo of a Brushing Teeth, recognized by typical shape and appearance of Brushing Teeth and distinctive structural parts of Brushing Teeth."
+  },
+  "Clean And Jerk": {
+    "name": "Clean And Jerk",
+    "traits": [
+      "typical shape and appearance of Clean And Jerk",
+      "characteristic color and texture of Clean And Jerk",
+      "surface patterns and details of Clean And Jerk",
+      "distinctive structural parts of Clean And Jerk",
+      "overall composition defining a Clean And Jerk"
+    ],
+    "compact_prompt": "a photo of a Clean And Jerk, recognized by typical shape and appearance of Clean And Jerk and distinctive structural parts of Clean And Jerk."
+  },
+  "Cliff Diving": {
+    "name": "Cliff Diving",
+    "traits": [
+      "typical shape and appearance of Cliff Diving",
+      "characteristic color and texture of Cliff Diving",
+      "surface patterns and details of Cliff Diving",
+      "distinctive structural parts of Cliff Diving",
+      "overall composition defining a Cliff Diving"
+    ],
+    "compact_prompt": "a photo of a Cliff Diving, recognized by typical shape and appearance of Cliff Diving and distinctive structural parts of Cliff Diving."
+  },
+  "Cricket Bowling": {
+    "name": "Cricket Bowling",
+    "traits": [
+      "typical shape and appearance of Cricket Bowling",
+      "characteristic color and texture of Cricket Bowling",
+      "surface patterns and details of Cricket Bowling",
+      "distinctive structural parts of Cricket Bowling",
+      "overall composition defining a Cricket Bowling"
+    ],
+    "compact_prompt": "a photo of a Cricket Bowling, recognized by typical shape and appearance of Cricket Bowling and distinctive structural parts of Cricket Bowling."
+  },
+  "Cricket Shot": {
+    "name": "Cricket Shot",
+    "traits": [
+      "typical shape and appearance of Cricket Shot",
+      "characteristic color and texture of Cricket Shot",
+      "surface patterns and details of Cricket Shot",
+      "distinctive structural parts of Cricket Shot",
+      "overall composition defining a Cricket Shot"
+    ],
+    "compact_prompt": "a photo of a Cricket Shot, recognized by typical shape and appearance of Cricket Shot and distinctive structural parts of Cricket Shot."
+  },
+  "Cutting In Kitchen": {
+    "name": "Cutting In Kitchen",
+    "traits": [
+      "typical shape and appearance of Cutting In Kitchen",
+      "characteristic color and texture of Cutting In Kitchen",
+      "surface patterns and details of Cutting In Kitchen",
+      "distinctive structural parts of Cutting In Kitchen",
+      "overall composition defining a Cutting In Kitchen"
+    ],
+    "compact_prompt": "a photo of a Cutting In Kitchen, recognized by typical shape and appearance of Cutting In Kitchen and distinctive structural parts of Cutting In Kitchen."
+  },
+  "Diving": {
+    "name": "Diving",
+    "traits": [
+      "typical shape and appearance of Diving",
+      "characteristic color and texture of Diving",
+      "surface patterns and details of Diving",
+      "distinctive structural parts of Diving",
+      "overall composition defining a Diving"
+    ],
+    "compact_prompt": "a photo of a Diving, recognized by typical shape and appearance of Diving and distinctive structural parts of Diving."
+  },
+  "Drumming": {
+    "name": "Drumming",
+    "traits": [
+      "typical shape and appearance of Drumming",
+      "characteristic color and texture of Drumming",
+      "surface patterns and details of Drumming",
+      "distinctive structural parts of Drumming",
+      "overall composition defining a Drumming"
+    ],
+    "compact_prompt": "a photo of a Drumming, recognized by typical shape and appearance of Drumming and distinctive structural parts of Drumming."
+  },
+  "Fencing": {
+    "name": "Fencing",
+    "traits": [
+      "typical shape and appearance of Fencing",
+      "characteristic color and texture of Fencing",
+      "surface patterns and details of Fencing",
+      "distinctive structural parts of Fencing",
+      "overall composition defining a Fencing"
+    ],
+    "compact_prompt": "a photo of a Fencing, recognized by typical shape and appearance of Fencing and distinctive structural parts of Fencing."
+  },
+  "Field Hockey Penalty": {
+    "name": "Field Hockey Penalty",
+    "traits": [
+      "typical shape and appearance of Field Hockey Penalty",
+      "characteristic color and texture of Field Hockey Penalty",
+      "surface patterns and details of Field Hockey Penalty",
+      "distinctive structural parts of Field Hockey Penalty",
+      "overall composition defining a Field Hockey Penalty"
+    ],
+    "compact_prompt": "a photo of a Field Hockey Penalty, recognized by typical shape and appearance of Field Hockey Penalty and distinctive structural parts of Field Hockey Penalty."
+  },
+  "Floor Gymnastics": {
+    "name": "Floor Gymnastics",
+    "traits": [
+      "typical shape and appearance of Floor Gymnastics",
+      "characteristic color and texture of Floor Gymnastics",
+      "surface patterns and details of Floor Gymnastics",
+      "distinctive structural parts of Floor Gymnastics",
+      "overall composition defining a Floor Gymnastics"
+    ],
+    "compact_prompt": "a photo of a Floor Gymnastics, recognized by typical shape and appearance of Floor Gymnastics and distinctive structural parts of Floor Gymnastics."
+  },
+  "Frisbee Catch": {
+    "name": "Frisbee Catch",
+    "traits": [
+      "typical shape and appearance of Frisbee Catch",
+      "characteristic color and texture of Frisbee Catch",
+      "surface patterns and details of Frisbee Catch",
+      "distinctive structural parts of Frisbee Catch",
+      "overall composition defining a Frisbee Catch"
+    ],
+    "compact_prompt": "a photo of a Frisbee Catch, recognized by typical shape and appearance of Frisbee Catch and distinctive structural parts of Frisbee Catch."
+  },
+  "Front Crawl": {
+    "name": "Front Crawl",
+    "traits": [
+      "typical shape and appearance of Front Crawl",
+      "characteristic color and texture of Front Crawl",
+      "surface patterns and details of Front Crawl",
+      "distinctive structural parts of Front Crawl",
+      "overall composition defining a Front Crawl"
+    ],
+    "compact_prompt": "a photo of a Front Crawl, recognized by typical shape and appearance of Front Crawl and distinctive structural parts of Front Crawl."
+  },
+  "Golf Swing": {
+    "name": "Golf Swing",
+    "traits": [
+      "typical shape and appearance of Golf Swing",
+      "characteristic color and texture of Golf Swing",
+      "surface patterns and details of Golf Swing",
+      "distinctive structural parts of Golf Swing",
+      "overall composition defining a Golf Swing"
+    ],
+    "compact_prompt": "a photo of a Golf Swing, recognized by typical shape and appearance of Golf Swing and distinctive structural parts of Golf Swing."
+  },
+  "Haircut": {
+    "name": "Haircut",
+    "traits": [
+      "typical shape and appearance of Haircut",
+      "characteristic color and texture of Haircut",
+      "surface patterns and details of Haircut",
+      "distinctive structural parts of Haircut",
+      "overall composition defining a Haircut"
+    ],
+    "compact_prompt": "a photo of a Haircut, recognized by typical shape and appearance of Haircut and distinctive structural parts of Haircut."
+  },
+  "Hammer Throw": {
+    "name": "Hammer Throw",
+    "traits": [
+      "typical shape and appearance of Hammer Throw",
+      "characteristic color and texture of Hammer Throw",
+      "surface patterns and details of Hammer Throw",
+      "distinctive structural parts of Hammer Throw",
+      "overall composition defining a Hammer Throw"
+    ],
+    "compact_prompt": "a photo of a Hammer Throw, recognized by typical shape and appearance of Hammer Throw and distinctive structural parts of Hammer Throw."
+  },
+  "Hammering": {
+    "name": "Hammering",
+    "traits": [
+      "typical shape and appearance of Hammering",
+      "characteristic color and texture of Hammering",
+      "surface patterns and details of Hammering",
+      "distinctive structural parts of Hammering",
+      "overall composition defining a Hammering"
+    ],
+    "compact_prompt": "a photo of a Hammering, recognized by typical shape and appearance of Hammering and distinctive structural parts of Hammering."
+  },
+  "Handstand Pushups": {
+    "name": "Handstand Pushups",
+    "traits": [
+      "typical shape and appearance of Handstand Pushups",
+      "characteristic color and texture of Handstand Pushups",
+      "surface patterns and details of Handstand Pushups",
+      "distinctive structural parts of Handstand Pushups",
+      "overall composition defining a Handstand Pushups"
+    ],
+    "compact_prompt": "a photo of a Handstand Pushups, recognized by typical shape and appearance of Handstand Pushups and distinctive structural parts of Handstand Pushups."
+  },
+  "Handstand Walking": {
+    "name": "Handstand Walking",
+    "traits": [
+      "typical shape and appearance of Handstand Walking",
+      "characteristic color and texture of Handstand Walking",
+      "surface patterns and details of Handstand Walking",
+      "distinctive structural parts of Handstand Walking",
+      "overall composition defining a Handstand Walking"
+    ],
+    "compact_prompt": "a photo of a Handstand Walking, recognized by typical shape and appearance of Handstand Walking and distinctive structural parts of Handstand Walking."
+  },
+  "Head Massage": {
+    "name": "Head Massage",
+    "traits": [
+      "typical shape and appearance of Head Massage",
+      "characteristic color and texture of Head Massage",
+      "surface patterns and details of Head Massage",
+      "distinctive structural parts of Head Massage",
+      "overall composition defining a Head Massage"
+    ],
+    "compact_prompt": "a photo of a Head Massage, recognized by typical shape and appearance of Head Massage and distinctive structural parts of Head Massage."
+  },
+  "High Jump": {
+    "name": "High Jump",
+    "traits": [
+      "typical shape and appearance of High Jump",
+      "characteristic color and texture of High Jump",
+      "surface patterns and details of High Jump",
+      "distinctive structural parts of High Jump",
+      "overall composition defining a High Jump"
+    ],
+    "compact_prompt": "a photo of a High Jump, recognized by typical shape and appearance of High Jump and distinctive structural parts of High Jump."
+  },
+  "Horse Race": {
+    "name": "Horse Race",
+    "traits": [
+      "typical shape and appearance of Horse Race",
+      "characteristic color and texture of Horse Race",
+      "surface patterns and details of Horse Race",
+      "distinctive structural parts of Horse Race",
+      "overall composition defining a Horse Race"
+    ],
+    "compact_prompt": "a photo of a Horse Race, recognized by typical shape and appearance of Horse Race and distinctive structural parts of Horse Race."
+  },
+  "Horse Riding": {
+    "name": "Horse Riding",
+    "traits": [
+      "typical shape and appearance of Horse Riding",
+      "characteristic color and texture of Horse Riding",
+      "surface patterns and details of Horse Riding",
+      "distinctive structural parts of Horse Riding",
+      "overall composition defining a Horse Riding"
+    ],
+    "compact_prompt": "a photo of a Horse Riding, recognized by typical shape and appearance of Horse Riding and distinctive structural parts of Horse Riding."
+  },
+  "Hula Hoop": {
+    "name": "Hula Hoop",
+    "traits": [
+      "typical shape and appearance of Hula Hoop",
+      "characteristic color and texture of Hula Hoop",
+      "surface patterns and details of Hula Hoop",
+      "distinctive structural parts of Hula Hoop",
+      "overall composition defining a Hula Hoop"
+    ],
+    "compact_prompt": "a photo of a Hula Hoop, recognized by typical shape and appearance of Hula Hoop and distinctive structural parts of Hula Hoop."
+  },
+  "Ice Dancing": {
+    "name": "Ice Dancing",
+    "traits": [
+      "typical shape and appearance of Ice Dancing",
+      "characteristic color and texture of Ice Dancing",
+      "surface patterns and details of Ice Dancing",
+      "distinctive structural parts of Ice Dancing",
+      "overall composition defining a Ice Dancing"
+    ],
+    "compact_prompt": "a photo of a Ice Dancing, recognized by typical shape and appearance of Ice Dancing and distinctive structural parts of Ice Dancing."
+  },
+  "Javelin Throw": {
+    "name": "Javelin Throw",
+    "traits": [
+      "typical shape and appearance of Javelin Throw",
+      "characteristic color and texture of Javelin Throw",
+      "surface patterns and details of Javelin Throw",
+      "distinctive structural parts of Javelin Throw",
+      "overall composition defining a Javelin Throw"
+    ],
+    "compact_prompt": "a photo of a Javelin Throw, recognized by typical shape and appearance of Javelin Throw and distinctive structural parts of Javelin Throw."
+  },
+  "Juggling Balls": {
+    "name": "Juggling Balls",
+    "traits": [
+      "typical shape and appearance of Juggling Balls",
+      "characteristic color and texture of Juggling Balls",
+      "surface patterns and details of Juggling Balls",
+      "distinctive structural parts of Juggling Balls",
+      "overall composition defining a Juggling Balls"
+    ],
+    "compact_prompt": "a photo of a Juggling Balls, recognized by typical shape and appearance of Juggling Balls and distinctive structural parts of Juggling Balls."
+  },
+  "Jump Rope": {
+    "name": "Jump Rope",
+    "traits": [
+      "typical shape and appearance of Jump Rope",
+      "characteristic color and texture of Jump Rope",
+      "surface patterns and details of Jump Rope",
+      "distinctive structural parts of Jump Rope",
+      "overall composition defining a Jump Rope"
+    ],
+    "compact_prompt": "a photo of a Jump Rope, recognized by typical shape and appearance of Jump Rope and distinctive structural parts of Jump Rope."
+  },
+  "Jumping Jack": {
+    "name": "Jumping Jack",
+    "traits": [
+      "typical shape and appearance of Jumping Jack",
+      "characteristic color and texture of Jumping Jack",
+      "surface patterns and details of Jumping Jack",
+      "distinctive structural parts of Jumping Jack",
+      "overall composition defining a Jumping Jack"
+    ],
+    "compact_prompt": "a photo of a Jumping Jack, recognized by typical shape and appearance of Jumping Jack and distinctive structural parts of Jumping Jack."
+  },
+  "Kayaking": {
+    "name": "Kayaking",
+    "traits": [
+      "typical shape and appearance of Kayaking",
+      "characteristic color and texture of Kayaking",
+      "surface patterns and details of Kayaking",
+      "distinctive structural parts of Kayaking",
+      "overall composition defining a Kayaking"
+    ],
+    "compact_prompt": "a photo of a Kayaking, recognized by typical shape and appearance of Kayaking and distinctive structural parts of Kayaking."
+  },
+  "Knitting": {
+    "name": "Knitting",
+    "traits": [
+      "typical shape and appearance of Knitting",
+      "characteristic color and texture of Knitting",
+      "surface patterns and details of Knitting",
+      "distinctive structural parts of Knitting",
+      "overall composition defining a Knitting"
+    ],
+    "compact_prompt": "a photo of a Knitting, recognized by typical shape and appearance of Knitting and distinctive structural parts of Knitting."
+  },
+  "Long Jump": {
+    "name": "Long Jump",
+    "traits": [
+      "typical shape and appearance of Long Jump",
+      "characteristic color and texture of Long Jump",
+      "surface patterns and details of Long Jump",
+      "distinctive structural parts of Long Jump",
+      "overall composition defining a Long Jump"
+    ],
+    "compact_prompt": "a photo of a Long Jump, recognized by typical shape and appearance of Long Jump and distinctive structural parts of Long Jump."
+  },
+  "Lunges": {
+    "name": "Lunges",
+    "traits": [
+      "typical shape and appearance of Lunges",
+      "characteristic color and texture of Lunges",
+      "surface patterns and details of Lunges",
+      "distinctive structural parts of Lunges",
+      "overall composition defining a Lunges"
+    ],
+    "compact_prompt": "a photo of a Lunges, recognized by typical shape and appearance of Lunges and distinctive structural parts of Lunges."
+  },
+  "Military Parade": {
+    "name": "Military Parade",
+    "traits": [
+      "typical shape and appearance of Military Parade",
+      "characteristic color and texture of Military Parade",
+      "surface patterns and details of Military Parade",
+      "distinctive structural parts of Military Parade",
+      "overall composition defining a Military Parade"
+    ],
+    "compact_prompt": "a photo of a Military Parade, recognized by typical shape and appearance of Military Parade and distinctive structural parts of Military Parade."
+  },
+  "Mixing": {
+    "name": "Mixing",
+    "traits": [
+      "typical shape and appearance of Mixing",
+      "characteristic color and texture of Mixing",
+      "surface patterns and details of Mixing",
+      "distinctive structural parts of Mixing",
+      "overall composition defining a Mixing"
+    ],
+    "compact_prompt": "a photo of a Mixing, recognized by typical shape and appearance of Mixing and distinctive structural parts of Mixing."
+  },
+  "Mopping Floor": {
+    "name": "Mopping Floor",
+    "traits": [
+      "typical shape and appearance of Mopping Floor",
+      "characteristic color and texture of Mopping Floor",
+      "surface patterns and details of Mopping Floor",
+      "distinctive structural parts of Mopping Floor",
+      "overall composition defining a Mopping Floor"
+    ],
+    "compact_prompt": "a photo of a Mopping Floor, recognized by typical shape and appearance of Mopping Floor and distinctive structural parts of Mopping Floor."
+  },
+  "Nunchucks": {
+    "name": "Nunchucks",
+    "traits": [
+      "typical shape and appearance of Nunchucks",
+      "characteristic color and texture of Nunchucks",
+      "surface patterns and details of Nunchucks",
+      "distinctive structural parts of Nunchucks",
+      "overall composition defining a Nunchucks"
+    ],
+    "compact_prompt": "a photo of a Nunchucks, recognized by typical shape and appearance of Nunchucks and distinctive structural parts of Nunchucks."
+  },
+  "Parallel Bars": {
+    "name": "Parallel Bars",
+    "traits": [
+      "typical shape and appearance of Parallel Bars",
+      "characteristic color and texture of Parallel Bars",
+      "surface patterns and details of Parallel Bars",
+      "distinctive structural parts of Parallel Bars",
+      "overall composition defining a Parallel Bars"
+    ],
+    "compact_prompt": "a photo of a Parallel Bars, recognized by typical shape and appearance of Parallel Bars and distinctive structural parts of Parallel Bars."
+  },
+  "Pizza Tossing": {
+    "name": "Pizza Tossing",
+    "traits": [
+      "typical shape and appearance of Pizza Tossing",
+      "characteristic color and texture of Pizza Tossing",
+      "surface patterns and details of Pizza Tossing",
+      "distinctive structural parts of Pizza Tossing",
+      "overall composition defining a Pizza Tossing"
+    ],
+    "compact_prompt": "a photo of a Pizza Tossing, recognized by typical shape and appearance of Pizza Tossing and distinctive structural parts of Pizza Tossing."
+  },
+  "Playing Cello": {
+    "name": "Playing Cello",
+    "traits": [
+      "typical shape and appearance of Playing Cello",
+      "characteristic color and texture of Playing Cello",
+      "surface patterns and details of Playing Cello",
+      "distinctive structural parts of Playing Cello",
+      "overall composition defining a Playing Cello"
+    ],
+    "compact_prompt": "a photo of a Playing Cello, recognized by typical shape and appearance of Playing Cello and distinctive structural parts of Playing Cello."
+  },
+  "Playing Daf": {
+    "name": "Playing Daf",
+    "traits": [
+      "typical shape and appearance of Playing Daf",
+      "characteristic color and texture of Playing Daf",
+      "surface patterns and details of Playing Daf",
+      "distinctive structural parts of Playing Daf",
+      "overall composition defining a Playing Daf"
+    ],
+    "compact_prompt": "a photo of a Playing Daf, recognized by typical shape and appearance of Playing Daf and distinctive structural parts of Playing Daf."
+  },
+  "Playing Dhol": {
+    "name": "Playing Dhol",
+    "traits": [
+      "typical shape and appearance of Playing Dhol",
+      "characteristic color and texture of Playing Dhol",
+      "surface patterns and details of Playing Dhol",
+      "distinctive structural parts of Playing Dhol",
+      "overall composition defining a Playing Dhol"
+    ],
+    "compact_prompt": "a photo of a Playing Dhol, recognized by typical shape and appearance of Playing Dhol and distinctive structural parts of Playing Dhol."
+  },
+  "Playing Flute": {
+    "name": "Playing Flute",
+    "traits": [
+      "typical shape and appearance of Playing Flute",
+      "characteristic color and texture of Playing Flute",
+      "surface patterns and details of Playing Flute",
+      "distinctive structural parts of Playing Flute",
+      "overall composition defining a Playing Flute"
+    ],
+    "compact_prompt": "a photo of a Playing Flute, recognized by typical shape and appearance of Playing Flute and distinctive structural parts of Playing Flute."
+  },
+  "Playing Guitar": {
+    "name": "Playing Guitar",
+    "traits": [
+      "typical shape and appearance of Playing Guitar",
+      "characteristic color and texture of Playing Guitar",
+      "surface patterns and details of Playing Guitar",
+      "distinctive structural parts of Playing Guitar",
+      "overall composition defining a Playing Guitar"
+    ],
+    "compact_prompt": "a photo of a Playing Guitar, recognized by typical shape and appearance of Playing Guitar and distinctive structural parts of Playing Guitar."
+  },
+  "Playing Piano": {
+    "name": "Playing Piano",
+    "traits": [
+      "typical shape and appearance of Playing Piano",
+      "characteristic color and texture of Playing Piano",
+      "surface patterns and details of Playing Piano",
+      "distinctive structural parts of Playing Piano",
+      "overall composition defining a Playing Piano"
+    ],
+    "compact_prompt": "a photo of a Playing Piano, recognized by typical shape and appearance of Playing Piano and distinctive structural parts of Playing Piano."
+  },
+  "Playing Sitar": {
+    "name": "Playing Sitar",
+    "traits": [
+      "typical shape and appearance of Playing Sitar",
+      "characteristic color and texture of Playing Sitar",
+      "surface patterns and details of Playing Sitar",
+      "distinctive structural parts of Playing Sitar",
+      "overall composition defining a Playing Sitar"
+    ],
+    "compact_prompt": "a photo of a Playing Sitar, recognized by typical shape and appearance of Playing Sitar and distinctive structural parts of Playing Sitar."
+  },
+  "Playing Tabla": {
+    "name": "Playing Tabla",
+    "traits": [
+      "typical shape and appearance of Playing Tabla",
+      "characteristic color and texture of Playing Tabla",
+      "surface patterns and details of Playing Tabla",
+      "distinctive structural parts of Playing Tabla",
+      "overall composition defining a Playing Tabla"
+    ],
+    "compact_prompt": "a photo of a Playing Tabla, recognized by typical shape and appearance of Playing Tabla and distinctive structural parts of Playing Tabla."
+  },
+  "Playing Violin": {
+    "name": "Playing Violin",
+    "traits": [
+      "typical shape and appearance of Playing Violin",
+      "characteristic color and texture of Playing Violin",
+      "surface patterns and details of Playing Violin",
+      "distinctive structural parts of Playing Violin",
+      "overall composition defining a Playing Violin"
+    ],
+    "compact_prompt": "a photo of a Playing Violin, recognized by typical shape and appearance of Playing Violin and distinctive structural parts of Playing Violin."
+  },
+  "Pole Vault": {
+    "name": "Pole Vault",
+    "traits": [
+      "typical shape and appearance of Pole Vault",
+      "characteristic color and texture of Pole Vault",
+      "surface patterns and details of Pole Vault",
+      "distinctive structural parts of Pole Vault",
+      "overall composition defining a Pole Vault"
+    ],
+    "compact_prompt": "a photo of a Pole Vault, recognized by typical shape and appearance of Pole Vault and distinctive structural parts of Pole Vault."
+  },
+  "Pommel Horse": {
+    "name": "Pommel Horse",
+    "traits": [
+      "typical shape and appearance of Pommel Horse",
+      "characteristic color and texture of Pommel Horse",
+      "surface patterns and details of Pommel Horse",
+      "distinctive structural parts of Pommel Horse",
+      "overall composition defining a Pommel Horse"
+    ],
+    "compact_prompt": "a photo of a Pommel Horse, recognized by typical shape and appearance of Pommel Horse and distinctive structural parts of Pommel Horse."
+  },
+  "Pull Ups": {
+    "name": "Pull Ups",
+    "traits": [
+      "typical shape and appearance of Pull Ups",
+      "characteristic color and texture of Pull Ups",
+      "surface patterns and details of Pull Ups",
+      "distinctive structural parts of Pull Ups",
+      "overall composition defining a Pull Ups"
+    ],
+    "compact_prompt": "a photo of a Pull Ups, recognized by typical shape and appearance of Pull Ups and distinctive structural parts of Pull Ups."
+  },
+  "Punch": {
+    "name": "Punch",
+    "traits": [
+      "typical shape and appearance of Punch",
+      "characteristic color and texture of Punch",
+      "surface patterns and details of Punch",
+      "distinctive structural parts of Punch",
+      "overall composition defining a Punch"
+    ],
+    "compact_prompt": "a photo of a Punch, recognized by typical shape and appearance of Punch and distinctive structural parts of Punch."
+  },
+  "Push Ups": {
+    "name": "Push Ups",
+    "traits": [
+      "typical shape and appearance of Push Ups",
+      "characteristic color and texture of Push Ups",
+      "surface patterns and details of Push Ups",
+      "distinctive structural parts of Push Ups",
+      "overall composition defining a Push Ups"
+    ],
+    "compact_prompt": "a photo of a Push Ups, recognized by typical shape and appearance of Push Ups and distinctive structural parts of Push Ups."
+  },
+  "Rafting": {
+    "name": "Rafting",
+    "traits": [
+      "typical shape and appearance of Rafting",
+      "characteristic color and texture of Rafting",
+      "surface patterns and details of Rafting",
+      "distinctive structural parts of Rafting",
+      "overall composition defining a Rafting"
+    ],
+    "compact_prompt": "a photo of a Rafting, recognized by typical shape and appearance of Rafting and distinctive structural parts of Rafting."
+  },
+  "Rock Climbing Indoor": {
+    "name": "Rock Climbing Indoor",
+    "traits": [
+      "typical shape and appearance of Rock Climbing Indoor",
+      "characteristic color and texture of Rock Climbing Indoor",
+      "surface patterns and details of Rock Climbing Indoor",
+      "distinctive structural parts of Rock Climbing Indoor",
+      "overall composition defining a Rock Climbing Indoor"
+    ],
+    "compact_prompt": "a photo of a Rock Climbing Indoor, recognized by typical shape and appearance of Rock Climbing Indoor and distinctive structural parts of Rock Climbing Indoor."
+  },
+  "Rope Climbing": {
+    "name": "Rope Climbing",
+    "traits": [
+      "typical shape and appearance of Rope Climbing",
+      "characteristic color and texture of Rope Climbing",
+      "surface patterns and details of Rope Climbing",
+      "distinctive structural parts of Rope Climbing",
+      "overall composition defining a Rope Climbing"
+    ],
+    "compact_prompt": "a photo of a Rope Climbing, recognized by typical shape and appearance of Rope Climbing and distinctive structural parts of Rope Climbing."
+  },
+  "Rowing": {
+    "name": "Rowing",
+    "traits": [
+      "typical shape and appearance of Rowing",
+      "characteristic color and texture of Rowing",
+      "surface patterns and details of Rowing",
+      "distinctive structural parts of Rowing",
+      "overall composition defining a Rowing"
+    ],
+    "compact_prompt": "a photo of a Rowing, recognized by typical shape and appearance of Rowing and distinctive structural parts of Rowing."
+  },
+  "Salsa Spin": {
+    "name": "Salsa Spin",
+    "traits": [
+      "typical shape and appearance of Salsa Spin",
+      "characteristic color and texture of Salsa Spin",
+      "surface patterns and details of Salsa Spin",
+      "distinctive structural parts of Salsa Spin",
+      "overall composition defining a Salsa Spin"
+    ],
+    "compact_prompt": "a photo of a Salsa Spin, recognized by typical shape and appearance of Salsa Spin and distinctive structural parts of Salsa Spin."
+  },
+  "Shaving Beard": {
+    "name": "Shaving Beard",
+    "traits": [
+      "typical shape and appearance of Shaving Beard",
+      "characteristic color and texture of Shaving Beard",
+      "surface patterns and details of Shaving Beard",
+      "distinctive structural parts of Shaving Beard",
+      "overall composition defining a Shaving Beard"
+    ],
+    "compact_prompt": "a photo of a Shaving Beard, recognized by typical shape and appearance of Shaving Beard and distinctive structural parts of Shaving Beard."
+  },
+  "Shotput": {
+    "name": "Shotput",
+    "traits": [
+      "typical shape and appearance of Shotput",
+      "characteristic color and texture of Shotput",
+      "surface patterns and details of Shotput",
+      "distinctive structural parts of Shotput",
+      "overall composition defining a Shotput"
+    ],
+    "compact_prompt": "a photo of a Shotput, recognized by typical shape and appearance of Shotput and distinctive structural parts of Shotput."
+  },
+  "Skate Boarding": {
+    "name": "Skate Boarding",
+    "traits": [
+      "typical shape and appearance of Skate Boarding",
+      "characteristic color and texture of Skate Boarding",
+      "surface patterns and details of Skate Boarding",
+      "distinctive structural parts of Skate Boarding",
+      "overall composition defining a Skate Boarding"
+    ],
+    "compact_prompt": "a photo of a Skate Boarding, recognized by typical shape and appearance of Skate Boarding and distinctive structural parts of Skate Boarding."
+  },
+  "Skiing": {
+    "name": "Skiing",
+    "traits": [
+      "typical shape and appearance of Skiing",
+      "characteristic color and texture of Skiing",
+      "surface patterns and details of Skiing",
+      "distinctive structural parts of Skiing",
+      "overall composition defining a Skiing"
+    ],
+    "compact_prompt": "a photo of a Skiing, recognized by typical shape and appearance of Skiing and distinctive structural parts of Skiing."
+  },
+  "Skijet": {
+    "name": "Skijet",
+    "traits": [
+      "typical shape and appearance of Skijet",
+      "characteristic color and texture of Skijet",
+      "surface patterns and details of Skijet",
+      "distinctive structural parts of Skijet",
+      "overall composition defining a Skijet"
+    ],
+    "compact_prompt": "a photo of a Skijet, recognized by typical shape and appearance of Skijet and distinctive structural parts of Skijet."
+  },
+  "Sky Diving": {
+    "name": "Sky Diving",
+    "traits": [
+      "typical shape and appearance of Sky Diving",
+      "characteristic color and texture of Sky Diving",
+      "surface patterns and details of Sky Diving",
+      "distinctive structural parts of Sky Diving",
+      "overall composition defining a Sky Diving"
+    ],
+    "compact_prompt": "a photo of a Sky Diving, recognized by typical shape and appearance of Sky Diving and distinctive structural parts of Sky Diving."
+  },
+  "Soccer Juggling": {
+    "name": "Soccer Juggling",
+    "traits": [
+      "typical shape and appearance of Soccer Juggling",
+      "characteristic color and texture of Soccer Juggling",
+      "surface patterns and details of Soccer Juggling",
+      "distinctive structural parts of Soccer Juggling",
+      "overall composition defining a Soccer Juggling"
+    ],
+    "compact_prompt": "a photo of a Soccer Juggling, recognized by typical shape and appearance of Soccer Juggling and distinctive structural parts of Soccer Juggling."
+  },
+  "Soccer Penalty": {
+    "name": "Soccer Penalty",
+    "traits": [
+      "typical shape and appearance of Soccer Penalty",
+      "characteristic color and texture of Soccer Penalty",
+      "surface patterns and details of Soccer Penalty",
+      "distinctive structural parts of Soccer Penalty",
+      "overall composition defining a Soccer Penalty"
+    ],
+    "compact_prompt": "a photo of a Soccer Penalty, recognized by typical shape and appearance of Soccer Penalty and distinctive structural parts of Soccer Penalty."
+  },
+  "Still Rings": {
+    "name": "Still Rings",
+    "traits": [
+      "typical shape and appearance of Still Rings",
+      "characteristic color and texture of Still Rings",
+      "surface patterns and details of Still Rings",
+      "distinctive structural parts of Still Rings",
+      "overall composition defining a Still Rings"
+    ],
+    "compact_prompt": "a photo of a Still Rings, recognized by typical shape and appearance of Still Rings and distinctive structural parts of Still Rings."
+  },
+  "Sumo Wrestling": {
+    "name": "Sumo Wrestling",
+    "traits": [
+      "typical shape and appearance of Sumo Wrestling",
+      "characteristic color and texture of Sumo Wrestling",
+      "surface patterns and details of Sumo Wrestling",
+      "distinctive structural parts of Sumo Wrestling",
+      "overall composition defining a Sumo Wrestling"
+    ],
+    "compact_prompt": "a photo of a Sumo Wrestling, recognized by typical shape and appearance of Sumo Wrestling and distinctive structural parts of Sumo Wrestling."
+  },
+  "Surfing": {
+    "name": "Surfing",
+    "traits": [
+      "typical shape and appearance of Surfing",
+      "characteristic color and texture of Surfing",
+      "surface patterns and details of Surfing",
+      "distinctive structural parts of Surfing",
+      "overall composition defining a Surfing"
+    ],
+    "compact_prompt": "a photo of a Surfing, recognized by typical shape and appearance of Surfing and distinctive structural parts of Surfing."
+  },
+  "Swing": {
+    "name": "Swing",
+    "traits": [
+      "typical shape and appearance of Swing",
+      "characteristic color and texture of Swing",
+      "surface patterns and details of Swing",
+      "distinctive structural parts of Swing",
+      "overall composition defining a Swing"
+    ],
+    "compact_prompt": "a photo of a Swing, recognized by typical shape and appearance of Swing and distinctive structural parts of Swing."
+  },
+  "Table Tennis Shot": {
+    "name": "Table Tennis Shot",
+    "traits": [
+      "typical shape and appearance of Table Tennis Shot",
+      "characteristic color and texture of Table Tennis Shot",
+      "surface patterns and details of Table Tennis Shot",
+      "distinctive structural parts of Table Tennis Shot",
+      "overall composition defining a Table Tennis Shot"
+    ],
+    "compact_prompt": "a photo of a Table Tennis Shot, recognized by typical shape and appearance of Table Tennis Shot and distinctive structural parts of Table Tennis Shot."
+  },
+  "Tai Chi": {
+    "name": "Tai Chi",
+    "traits": [
+      "typical shape and appearance of Tai Chi",
+      "characteristic color and texture of Tai Chi",
+      "surface patterns and details of Tai Chi",
+      "distinctive structural parts of Tai Chi",
+      "overall composition defining a Tai Chi"
+    ],
+    "compact_prompt": "a photo of a Tai Chi, recognized by typical shape and appearance of Tai Chi and distinctive structural parts of Tai Chi."
+  },
+  "Tennis Swing": {
+    "name": "Tennis Swing",
+    "traits": [
+      "typical shape and appearance of Tennis Swing",
+      "characteristic color and texture of Tennis Swing",
+      "surface patterns and details of Tennis Swing",
+      "distinctive structural parts of Tennis Swing",
+      "overall composition defining a Tennis Swing"
+    ],
+    "compact_prompt": "a photo of a Tennis Swing, recognized by typical shape and appearance of Tennis Swing and distinctive structural parts of Tennis Swing."
+  },
+  "Throw Discus": {
+    "name": "Throw Discus",
+    "traits": [
+      "typical shape and appearance of Throw Discus",
+      "characteristic color and texture of Throw Discus",
+      "surface patterns and details of Throw Discus",
+      "distinctive structural parts of Throw Discus",
+      "overall composition defining a Throw Discus"
+    ],
+    "compact_prompt": "a photo of a Throw Discus, recognized by typical shape and appearance of Throw Discus and distinctive structural parts of Throw Discus."
+  },
+  "Trampoline Jumping": {
+    "name": "Trampoline Jumping",
+    "traits": [
+      "typical shape and appearance of Trampoline Jumping",
+      "characteristic color and texture of Trampoline Jumping",
+      "surface patterns and details of Trampoline Jumping",
+      "distinctive structural parts of Trampoline Jumping",
+      "overall composition defining a Trampoline Jumping"
+    ],
+    "compact_prompt": "a photo of a Trampoline Jumping, recognized by typical shape and appearance of Trampoline Jumping and distinctive structural parts of Trampoline Jumping."
+  },
+  "Typing": {
+    "name": "Typing",
+    "traits": [
+      "typical shape and appearance of Typing",
+      "characteristic color and texture of Typing",
+      "surface patterns and details of Typing",
+      "distinctive structural parts of Typing",
+      "overall composition defining a Typing"
+    ],
+    "compact_prompt": "a photo of a Typing, recognized by typical shape and appearance of Typing and distinctive structural parts of Typing."
+  },
+  "Uneven Bars": {
+    "name": "Uneven Bars",
+    "traits": [
+      "typical shape and appearance of Uneven Bars",
+      "characteristic color and texture of Uneven Bars",
+      "surface patterns and details of Uneven Bars",
+      "distinctive structural parts of Uneven Bars",
+      "overall composition defining a Uneven Bars"
+    ],
+    "compact_prompt": "a photo of a Uneven Bars, recognized by typical shape and appearance of Uneven Bars and distinctive structural parts of Uneven Bars."
+  },
+  "Volleyball Spiking": {
+    "name": "Volleyball Spiking",
+    "traits": [
+      "typical shape and appearance of Volleyball Spiking",
+      "characteristic color and texture of Volleyball Spiking",
+      "surface patterns and details of Volleyball Spiking",
+      "distinctive structural parts of Volleyball Spiking",
+      "overall composition defining a Volleyball Spiking"
+    ],
+    "compact_prompt": "a photo of a Volleyball Spiking, recognized by typical shape and appearance of Volleyball Spiking and distinctive structural parts of Volleyball Spiking."
+  },
+  "Walking With Dog": {
+    "name": "Walking With Dog",
+    "traits": [
+      "typical shape and appearance of Walking With Dog",
+      "characteristic color and texture of Walking With Dog",
+      "surface patterns and details of Walking With Dog",
+      "distinctive structural parts of Walking With Dog",
+      "overall composition defining a Walking With Dog"
+    ],
+    "compact_prompt": "a photo of a Walking With Dog, recognized by typical shape and appearance of Walking With Dog and distinctive structural parts of Walking With Dog."
+  },
+  "Wall Pushups": {
+    "name": "Wall Pushups",
+    "traits": [
+      "typical shape and appearance of Wall Pushups",
+      "characteristic color and texture of Wall Pushups",
+      "surface patterns and details of Wall Pushups",
+      "distinctive structural parts of Wall Pushups",
+      "overall composition defining a Wall Pushups"
+    ],
+    "compact_prompt": "a photo of a Wall Pushups, recognized by typical shape and appearance of Wall Pushups and distinctive structural parts of Wall Pushups."
+  },
+  "Writing On Board": {
+    "name": "Writing On Board",
+    "traits": [
+      "typical shape and appearance of Writing On Board",
+      "characteristic color and texture of Writing On Board",
+      "surface patterns and details of Writing On Board",
+      "distinctive structural parts of Writing On Board",
+      "overall composition defining a Writing On Board"
+    ],
+    "compact_prompt": "a photo of a Writing On Board, recognized by typical shape and appearance of Writing On Board and distinctive structural parts of Writing On Board."
+  },
+  "Yo Yo": {
+    "name": "Yo Yo",
+    "traits": [
+      "typical shape and appearance of Yo Yo",
+      "characteristic color and texture of Yo Yo",
+      "surface patterns and details of Yo Yo",
+      "distinctive structural parts of Yo Yo",
+      "overall composition defining a Yo Yo"
+    ],
+    "compact_prompt": "a photo of a Yo Yo, recognized by typical shape and appearance of Yo Yo and distinctive structural parts of Yo Yo."
+  }
+}

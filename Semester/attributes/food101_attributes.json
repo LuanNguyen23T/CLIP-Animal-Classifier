@@ -1,0 +1,1113 @@
+{
+  "apple pie": {
+    "name": "apple pie",
+    "traits": [
+      "typical shape and appearance of apple pie",
+      "characteristic color and texture of apple pie",
+      "surface patterns and details of apple pie",
+      "distinctive structural parts of apple pie",
+      "overall composition defining a apple pie"
+    ],
+    "compact_prompt": "a photo of a apple pie, recognized by typical shape and appearance of apple pie and distinctive structural parts of apple pie."
+  },
+  "baby back ribs": {
+    "name": "baby back ribs",
+    "traits": [
+      "typical shape and appearance of baby back ribs",
+      "characteristic color and texture of baby back ribs",
+      "surface patterns and details of baby back ribs",
+      "distinctive structural parts of baby back ribs",
+      "overall composition defining a baby back ribs"
+    ],
+    "compact_prompt": "a photo of a baby back ribs, recognized by typical shape and appearance of baby back ribs and distinctive structural parts of baby back ribs."
+  },
+  "baklava": {
+    "name": "baklava",
+    "traits": [
+      "typical shape and appearance of baklava",
+      "characteristic color and texture of baklava",
+      "surface patterns and details of baklava",
+      "distinctive structural parts of baklava",
+      "overall composition defining a baklava"
+    ],
+    "compact_prompt": "a photo of a baklava, recognized by typical shape and appearance of baklava and distinctive structural parts of baklava."
+  },
+  "beef carpaccio": {
+    "name": "beef carpaccio",
+    "traits": [
+      "typical shape and appearance of beef carpaccio",
+      "characteristic color and texture of beef carpaccio",
+      "surface patterns and details of beef carpaccio",
+      "distinctive structural parts of beef carpaccio",
+      "overall composition defining a beef carpaccio"
+    ],
+    "compact_prompt": "a photo of a beef carpaccio, recognized by typical shape and appearance of beef carpaccio and distinctive structural parts of beef carpaccio."
+  },
+  "beef tartare": {
+    "name": "beef tartare",
+    "traits": [
+      "typical shape and appearance of beef tartare",
+      "characteristic color and texture of beef tartare",
+      "surface patterns and details of beef tartare",
+      "distinctive structural parts of beef tartare",
+      "overall composition defining a beef tartare"
+    ],
+    "compact_prompt": "a photo of a beef tartare, recognized by typical shape and appearance of beef tartare and distinctive structural parts of beef tartare."
+  },
+  "beet salad": {
+    "name": "beet salad",
+    "traits": [
+      "typical shape and appearance of beet salad",
+      "characteristic color and texture of beet salad",
+      "surface patterns and details of beet salad",
+      "distinctive structural parts of beet salad",
+      "overall composition defining a beet salad"
+    ],
+    "compact_prompt": "a photo of a beet salad, recognized by typical shape and appearance of beet salad and distinctive structural parts of beet salad."
+  },
+  "beignets": {
+    "name": "beignets",
+    "traits": [
+      "typical shape and appearance of beignets",
+      "characteristic color and texture of beignets",
+      "surface patterns and details of beignets",
+      "distinctive structural parts of beignets",
+      "overall composition defining a beignets"
+    ],
+    "compact_prompt": "a photo of a beignets, recognized by typical shape and appearance of beignets and distinctive structural parts of beignets."
+  },
+  "bibimbap": {
+    "name": "bibimbap",
+    "traits": [
+      "typical shape and appearance of bibimbap",
+      "characteristic color and texture of bibimbap",
+      "surface patterns and details of bibimbap",
+      "distinctive structural parts of bibimbap",
+      "overall composition defining a bibimbap"
+    ],
+    "compact_prompt": "a photo of a bibimbap, recognized by typical shape and appearance of bibimbap and distinctive structural parts of bibimbap."
+  },
+  "bread pudding": {
+    "name": "bread pudding",
+    "traits": [
+      "typical shape and appearance of bread pudding",
+      "characteristic color and texture of bread pudding",
+      "surface patterns and details of bread pudding",
+      "distinctive structural parts of bread pudding",
+      "overall composition defining a bread pudding"
+    ],
+    "compact_prompt": "a photo of a bread pudding, recognized by typical shape and appearance of bread pudding and distinctive structural parts of bread pudding."
+  },
+  "breakfast burrito": {
+    "name": "breakfast burrito",
+    "traits": [
+      "typical shape and appearance of breakfast burrito",
+      "characteristic color and texture of breakfast burrito",
+      "surface patterns and details of breakfast burrito",
+      "distinctive structural parts of breakfast burrito",
+      "overall composition defining a breakfast burrito"
+    ],
+    "compact_prompt": "a photo of a breakfast burrito, recognized by typical shape and appearance of breakfast burrito and distinctive structural parts of breakfast burrito."
+  },
+  "bruschetta": {
+    "name": "bruschetta",
+    "traits": [
+      "typical shape and appearance of bruschetta",
+      "characteristic color and texture of bruschetta",
+      "surface patterns and details of bruschetta",
+      "distinctive structural parts of bruschetta",
+      "overall composition defining a bruschetta"
+    ],
+    "compact_prompt": "a photo of a bruschetta, recognized by typical shape and appearance of bruschetta and distinctive structural parts of bruschetta."
+  },
+  "caesar salad": {
+    "name": "caesar salad",
+    "traits": [
+      "typical shape and appearance of caesar salad",
+      "characteristic color and texture of caesar salad",
+      "surface patterns and details of caesar salad",
+      "distinctive structural parts of caesar salad",
+      "overall composition defining a caesar salad"
+    ],
+    "compact_prompt": "a photo of a caesar salad, recognized by typical shape and appearance of caesar salad and distinctive structural parts of caesar salad."
+  },
+  "cannoli": {
+    "name": "cannoli",
+    "traits": [
+      "typical shape and appearance of cannoli",
+      "characteristic color and texture of cannoli",
+      "surface patterns and details of cannoli",
+      "distinctive structural parts of cannoli",
+      "overall composition defining a cannoli"
+    ],
+    "compact_prompt": "a photo of a cannoli, recognized by typical shape and appearance of cannoli and distinctive structural parts of cannoli."
+  },
+  "caprese salad": {
+    "name": "caprese salad",
+    "traits": [
+      "typical shape and appearance of caprese salad",
+      "characteristic color and texture of caprese salad",
+      "surface patterns and details of caprese salad",
+      "distinctive structural parts of caprese salad",
+      "overall composition defining a caprese salad"
+    ],
+    "compact_prompt": "a photo of a caprese salad, recognized by typical shape and appearance of caprese salad and distinctive structural parts of caprese salad."
+  },
+  "carrot cake": {
+    "name": "carrot cake",
+    "traits": [
+      "typical shape and appearance of carrot cake",
+      "characteristic color and texture of carrot cake",
+      "surface patterns and details of carrot cake",
+      "distinctive structural parts of carrot cake",
+      "overall composition defining a carrot cake"
+    ],
+    "compact_prompt": "a photo of a carrot cake, recognized by typical shape and appearance of carrot cake and distinctive structural parts of carrot cake."
+  },
+  "ceviche": {
+    "name": "ceviche",
+    "traits": [
+      "typical shape and appearance of ceviche",
+      "characteristic color and texture of ceviche",
+      "surface patterns and details of ceviche",
+      "distinctive structural parts of ceviche",
+      "overall composition defining a ceviche"
+    ],
+    "compact_prompt": "a photo of a ceviche, recognized by typical shape and appearance of ceviche and distinctive structural parts of ceviche."
+  },
+  "cheese plate": {
+    "name": "cheese plate",
+    "traits": [
+      "typical shape and appearance of cheese plate",
+      "characteristic color and texture of cheese plate",
+      "surface patterns and details of cheese plate",
+      "distinctive structural parts of cheese plate",
+      "overall composition defining a cheese plate"
+    ],
+    "compact_prompt": "a photo of a cheese plate, recognized by typical shape and appearance of cheese plate and distinctive structural parts of cheese plate."
+  },
+  "cheesecake": {
+    "name": "cheesecake",
+    "traits": [
+      "typical shape and appearance of cheesecake",
+      "characteristic color and texture of cheesecake",
+      "surface patterns and details of cheesecake",
+      "distinctive structural parts of cheesecake",
+      "overall composition defining a cheesecake"
+    ],
+    "compact_prompt": "a photo of a cheesecake, recognized by typical shape and appearance of cheesecake and distinctive structural parts of cheesecake."
+  },
+  "chicken curry": {
+    "name": "chicken curry",
+    "traits": [
+      "typical shape and appearance of chicken curry",
+      "characteristic color and texture of chicken curry",
+      "surface patterns and details of chicken curry",
+      "distinctive structural parts of chicken curry",
+      "overall composition defining a chicken curry"
+    ],
+    "compact_prompt": "a photo of a chicken curry, recognized by typical shape and appearance of chicken curry and distinctive structural parts of chicken curry."
+  },
+  "chicken quesadilla": {
+    "name": "chicken quesadilla",
+    "traits": [
+      "typical shape and appearance of chicken quesadilla",
+      "characteristic color and texture of chicken quesadilla",
+      "surface patterns and details of chicken quesadilla",
+      "distinctive structural parts of chicken quesadilla",
+      "overall composition defining a chicken quesadilla"
+    ],
+    "compact_prompt": "a photo of a chicken quesadilla, recognized by typical shape and appearance of chicken quesadilla and distinctive structural parts of chicken quesadilla."
+  },
+  "chicken wings": {
+    "name": "chicken wings",
+    "traits": [
+      "typical shape and appearance of chicken wings",
+      "characteristic color and texture of chicken wings",
+      "surface patterns and details of chicken wings",
+      "distinctive structural parts of chicken wings",
+      "overall composition defining a chicken wings"
+    ],
+    "compact_prompt": "a photo of a chicken wings, recognized by typical shape and appearance of chicken wings and distinctive structural parts of chicken wings."
+  },
+  "chocolate cake": {
+    "name": "chocolate cake",
+    "traits": [
+      "typical shape and appearance of chocolate cake",
+      "characteristic color and texture of chocolate cake",
+      "surface patterns and details of chocolate cake",
+      "distinctive structural parts of chocolate cake",
+      "overall composition defining a chocolate cake"
+    ],
+    "compact_prompt": "a photo of a chocolate cake, recognized by typical shape and appearance of chocolate cake and distinctive structural parts of chocolate cake."
+  },
+  "chocolate mousse": {
+    "name": "chocolate mousse",
+    "traits": [
+      "typical shape and appearance of chocolate mousse",
+      "characteristic color and texture of chocolate mousse",
+      "surface patterns and details of chocolate mousse",
+      "distinctive structural parts of chocolate mousse",
+      "overall composition defining a chocolate mousse"
+    ],
+    "compact_prompt": "a photo of a chocolate mousse, recognized by typical shape and appearance of chocolate mousse and distinctive structural parts of chocolate mousse."
+  },
+  "churros": {
+    "name": "churros",
+    "traits": [
+      "typical shape and appearance of churros",
+      "characteristic color and texture of churros",
+      "surface patterns and details of churros",
+      "distinctive structural parts of churros",
+      "overall composition defining a churros"
+    ],
+    "compact_prompt": "a photo of a churros, recognized by typical shape and appearance of churros and distinctive structural parts of churros."
+  },
+  "clam chowder": {
+    "name": "clam chowder",
+    "traits": [
+      "typical shape and appearance of clam chowder",
+      "characteristic color and texture of clam chowder",
+      "surface patterns and details of clam chowder",
+      "distinctive structural parts of clam chowder",
+      "overall composition defining a clam chowder"
+    ],
+    "compact_prompt": "a photo of a clam chowder, recognized by typical shape and appearance of clam chowder and distinctive structural parts of clam chowder."
+  },
+  "club sandwich": {
+    "name": "club sandwich",
+    "traits": [
+      "typical shape and appearance of club sandwich",
+      "characteristic color and texture of club sandwich",
+      "surface patterns and details of club sandwich",
+      "distinctive structural parts of club sandwich",
+      "overall composition defining a club sandwich"
+    ],
+    "compact_prompt": "a photo of a club sandwich, recognized by typical shape and appearance of club sandwich and distinctive structural parts of club sandwich."
+  },
+  "crab cakes": {
+    "name": "crab cakes",
+    "traits": [
+      "typical shape and appearance of crab cakes",
+      "characteristic color and texture of crab cakes",
+      "surface patterns and details of crab cakes",
+      "distinctive structural parts of crab cakes",
+      "overall composition defining a crab cakes"
+    ],
+    "compact_prompt": "a photo of a crab cakes, recognized by typical shape and appearance of crab cakes and distinctive structural parts of crab cakes."
+  },
+  "creme brulee": {
+    "name": "creme brulee",
+    "traits": [
+      "typical shape and appearance of creme brulee",
+      "characteristic color and texture of creme brulee",
+      "surface patterns and details of creme brulee",
+      "distinctive structural parts of creme brulee",
+      "overall composition defining a creme brulee"
+    ],
+    "compact_prompt": "a photo of a creme brulee, recognized by typical shape and appearance of creme brulee and distinctive structural parts of creme brulee."
+  },
+  "croque madame": {
+    "name": "croque madame",
+    "traits": [
+      "typical shape and appearance of croque madame",
+      "characteristic color and texture of croque madame",
+      "surface patterns and details of croque madame",
+      "distinctive structural parts of croque madame",
+      "overall composition defining a croque madame"
+    ],
+    "compact_prompt": "a photo of a croque madame, recognized by typical shape and appearance of croque madame and distinctive structural parts of croque madame."
+  },
+  "cup cakes": {
+    "name": "cup cakes",
+    "traits": [
+      "typical shape and appearance of cup cakes",
+      "characteristic color and texture of cup cakes",
+      "surface patterns and details of cup cakes",
+      "distinctive structural parts of cup cakes",
+      "overall composition defining a cup cakes"
+    ],
+    "compact_prompt": "a photo of a cup cakes, recognized by typical shape and appearance of cup cakes and distinctive structural parts of cup cakes."
+  },
+  "deviled eggs": {
+    "name": "deviled eggs",
+    "traits": [
+      "typical shape and appearance of deviled eggs",
+      "characteristic color and texture of deviled eggs",
+      "surface patterns and details of deviled eggs",
+      "distinctive structural parts of deviled eggs",
+      "overall composition defining a deviled eggs"
+    ],
+    "compact_prompt": "a photo of a deviled eggs, recognized by typical shape and appearance of deviled eggs and distinctive structural parts of deviled eggs."
+  },
+  "donuts": {
+    "name": "donuts",
+    "traits": [
+      "typical shape and appearance of donuts",
+      "characteristic color and texture of donuts",
+      "surface patterns and details of donuts",
+      "distinctive structural parts of donuts",
+      "overall composition defining a donuts"
+    ],
+    "compact_prompt": "a photo of a donuts, recognized by typical shape and appearance of donuts and distinctive structural parts of donuts."
+  },
+  "dumplings": {
+    "name": "dumplings",
+    "traits": [
+      "typical shape and appearance of dumplings",
+      "characteristic color and texture of dumplings",
+      "surface patterns and details of dumplings",
+      "distinctive structural parts of dumplings",
+      "overall composition defining a dumplings"
+    ],
+    "compact_prompt": "a photo of a dumplings, recognized by typical shape and appearance of dumplings and distinctive structural parts of dumplings."
+  },
+  "edamame": {
+    "name": "edamame",
+    "traits": [
+      "typical shape and appearance of edamame",
+      "characteristic color and texture of edamame",
+      "surface patterns and details of edamame",
+      "distinctive structural parts of edamame",
+      "overall composition defining a edamame"
+    ],
+    "compact_prompt": "a photo of a edamame, recognized by typical shape and appearance of edamame and distinctive structural parts of edamame."
+  },
+  "eggs benedict": {
+    "name": "eggs benedict",
+    "traits": [
+      "typical shape and appearance of eggs benedict",
+      "characteristic color and texture of eggs benedict",
+      "surface patterns and details of eggs benedict",
+      "distinctive structural parts of eggs benedict",
+      "overall composition defining a eggs benedict"
+    ],
+    "compact_prompt": "a photo of a eggs benedict, recognized by typical shape and appearance of eggs benedict and distinctive structural parts of eggs benedict."
+  },
+  "escargots": {
+    "name": "escargots",
+    "traits": [
+      "typical shape and appearance of escargots",
+      "characteristic color and texture of escargots",
+      "surface patterns and details of escargots",
+      "distinctive structural parts of escargots",
+      "overall composition defining a escargots"
+    ],
+    "compact_prompt": "a photo of a escargots, recognized by typical shape and appearance of escargots and distinctive structural parts of escargots."
+  },
+  "falafel": {
+    "name": "falafel",
+    "traits": [
+      "typical shape and appearance of falafel",
+      "characteristic color and texture of falafel",
+      "surface patterns and details of falafel",
+      "distinctive structural parts of falafel",
+      "overall composition defining a falafel"
+    ],
+    "compact_prompt": "a photo of a falafel, recognized by typical shape and appearance of falafel and distinctive structural parts of falafel."
+  },
+  "filet mignon": {
+    "name": "filet mignon",
+    "traits": [
+      "typical shape and appearance of filet mignon",
+      "characteristic color and texture of filet mignon",
+      "surface patterns and details of filet mignon",
+      "distinctive structural parts of filet mignon",
+      "overall composition defining a filet mignon"
+    ],
+    "compact_prompt": "a photo of a filet mignon, recognized by typical shape and appearance of filet mignon and distinctive structural parts of filet mignon."
+  },
+  "fish and chips": {
+    "name": "fish and chips",
+    "traits": [
+      "typical shape and appearance of fish and chips",
+      "characteristic color and texture of fish and chips",
+      "surface patterns and details of fish and chips",
+      "distinctive structural parts of fish and chips",
+      "overall composition defining a fish and chips"
+    ],
+    "compact_prompt": "a photo of a fish and chips, recognized by typical shape and appearance of fish and chips and distinctive structural parts of fish and chips."
+  },
+  "foie gras": {
+    "name": "foie gras",
+    "traits": [
+      "typical shape and appearance of foie gras",
+      "characteristic color and texture of foie gras",
+      "surface patterns and details of foie gras",
+      "distinctive structural parts of foie gras",
+      "overall composition defining a foie gras"
+    ],
+    "compact_prompt": "a photo of a foie gras, recognized by typical shape and appearance of foie gras and distinctive structural parts of foie gras."
+  },
+  "french fries": {
+    "name": "french fries",
+    "traits": [
+      "typical shape and appearance of french fries",
+      "characteristic color and texture of french fries",
+      "surface patterns and details of french fries",
+      "distinctive structural parts of french fries",
+      "overall composition defining a french fries"
+    ],
+    "compact_prompt": "a photo of a french fries, recognized by typical shape and appearance of french fries and distinctive structural parts of french fries."
+  },
+  "french onion soup": {
+    "name": "french onion soup",
+    "traits": [
+      "typical shape and appearance of french onion soup",
+      "characteristic color and texture of french onion soup",
+      "surface patterns and details of french onion soup",
+      "distinctive structural parts of french onion soup",
+      "overall composition defining a french onion soup"
+    ],
+    "compact_prompt": "a photo of a french onion soup, recognized by typical shape and appearance of french onion soup and distinctive structural parts of french onion soup."
+  },
+  "french toast": {
+    "name": "french toast",
+    "traits": [
+      "typical shape and appearance of french toast",
+      "characteristic color and texture of french toast",
+      "surface patterns and details of french toast",
+      "distinctive structural parts of french toast",
+      "overall composition defining a french toast"
+    ],
+    "compact_prompt": "a photo of a french toast, recognized by typical shape and appearance of french toast and distinctive structural parts of french toast."
+  },
+  "fried calamari": {
+    "name": "fried calamari",
+    "traits": [
+      "typical shape and appearance of fried calamari",
+      "characteristic color and texture of fried calamari",
+      "surface patterns and details of fried calamari",
+      "distinctive structural parts of fried calamari",
+      "overall composition defining a fried calamari"
+    ],
+    "compact_prompt": "a photo of a fried calamari, recognized by typical shape and appearance of fried calamari and distinctive structural parts of fried calamari."
+  },
+  "fried rice": {
+    "name": "fried rice",
+    "traits": [
+      "typical shape and appearance of fried rice",
+      "characteristic color and texture of fried rice",
+      "surface patterns and details of fried rice",
+      "distinctive structural parts of fried rice",
+      "overall composition defining a fried rice"
+    ],
+    "compact_prompt": "a photo of a fried rice, recognized by typical shape and appearance of fried rice and distinctive structural parts of fried rice."
+  },
+  "frozen yogurt": {
+    "name": "frozen yogurt",
+    "traits": [
+      "typical shape and appearance of frozen yogurt",
+      "characteristic color and texture of frozen yogurt",
+      "surface patterns and details of frozen yogurt",
+      "distinctive structural parts of frozen yogurt",
+      "overall composition defining a frozen yogurt"
+    ],
+    "compact_prompt": "a photo of a frozen yogurt, recognized by typical shape and appearance of frozen yogurt and distinctive structural parts of frozen yogurt."
+  },
+  "garlic bread": {
+    "name": "garlic bread",
+    "traits": [
+      "typical shape and appearance of garlic bread",
+      "characteristic color and texture of garlic bread",
+      "surface patterns and details of garlic bread",
+      "distinctive structural parts of garlic bread",
+      "overall composition defining a garlic bread"
+    ],
+    "compact_prompt": "a photo of a garlic bread, recognized by typical shape and appearance of garlic bread and distinctive structural parts of garlic bread."
+  },
+  "gnocchi": {
+    "name": "gnocchi",
+    "traits": [
+      "typical shape and appearance of gnocchi",
+      "characteristic color and texture of gnocchi",
+      "surface patterns and details of gnocchi",
+      "distinctive structural parts of gnocchi",
+      "overall composition defining a gnocchi"
+    ],
+    "compact_prompt": "a photo of a gnocchi, recognized by typical shape and appearance of gnocchi and distinctive structural parts of gnocchi."
+  },
+  "greek salad": {
+    "name": "greek salad",
+    "traits": [
+      "typical shape and appearance of greek salad",
+      "characteristic color and texture of greek salad",
+      "surface patterns and details of greek salad",
+      "distinctive structural parts of greek salad",
+      "overall composition defining a greek salad"
+    ],
+    "compact_prompt": "a photo of a greek salad, recognized by typical shape and appearance of greek salad and distinctive structural parts of greek salad."
+  },
+  "grilled cheese sandwich": {
+    "name": "grilled cheese sandwich",
+    "traits": [
+      "typical shape and appearance of grilled cheese sandwich",
+      "characteristic color and texture of grilled cheese sandwich",
+      "surface patterns and details of grilled cheese sandwich",
+      "distinctive structural parts of grilled cheese sandwich",
+      "overall composition defining a grilled cheese sandwich"
+    ],
+    "compact_prompt": "a photo of a grilled cheese sandwich, recognized by typical shape and appearance of grilled cheese sandwich and distinctive structural parts of grilled cheese sandwich."
+  },
+  "grilled salmon": {
+    "name": "grilled salmon",
+    "traits": [
+      "typical shape and appearance of grilled salmon",
+      "characteristic color and texture of grilled salmon",
+      "surface patterns and details of grilled salmon",
+      "distinctive structural parts of grilled salmon",
+      "overall composition defining a grilled salmon"
+    ],
+    "compact_prompt": "a photo of a grilled salmon, recognized by typical shape and appearance of grilled salmon and distinctive structural parts of grilled salmon."
+  },
+  "guacamole": {
+    "name": "guacamole",
+    "traits": [
+      "typical shape and appearance of guacamole",
+      "characteristic color and texture of guacamole",
+      "surface patterns and details of guacamole",
+      "distinctive structural parts of guacamole",
+      "overall composition defining a guacamole"
+    ],
+    "compact_prompt": "a photo of a guacamole, recognized by typical shape and appearance of guacamole and distinctive structural parts of guacamole."
+  },
+  "gyoza": {
+    "name": "gyoza",
+    "traits": [
+      "typical shape and appearance of gyoza",
+      "characteristic color and texture of gyoza",
+      "surface patterns and details of gyoza",
+      "distinctive structural parts of gyoza",
+      "overall composition defining a gyoza"
+    ],
+    "compact_prompt": "a photo of a gyoza, recognized by typical shape and appearance of gyoza and distinctive structural parts of gyoza."
+  },
+  "hamburger": {
+    "name": "hamburger",
+    "traits": [
+      "typical shape and appearance of hamburger",
+      "characteristic color and texture of hamburger",
+      "surface patterns and details of hamburger",
+      "distinctive structural parts of hamburger",
+      "overall composition defining a hamburger"
+    ],
+    "compact_prompt": "a photo of a hamburger, recognized by typical shape and appearance of hamburger and distinctive structural parts of hamburger."
+  },
+  "hot and sour soup": {
+    "name": "hot and sour soup",
+    "traits": [
+      "typical shape and appearance of hot and sour soup",
+      "characteristic color and texture of hot and sour soup",
+      "surface patterns and details of hot and sour soup",
+      "distinctive structural parts of hot and sour soup",
+      "overall composition defining a hot and sour soup"
+    ],
+    "compact_prompt": "a photo of a hot and sour soup, recognized by typical shape and appearance of hot and sour soup and distinctive structural parts of hot and sour soup."
+  },
+  "hot dog": {
+    "name": "hot dog",
+    "traits": [
+      "typical shape and appearance of hot dog",
+      "characteristic color and texture of hot dog",
+      "surface patterns and details of hot dog",
+      "distinctive structural parts of hot dog",
+      "overall composition defining a hot dog"
+    ],
+    "compact_prompt": "a photo of a hot dog, recognized by typical shape and appearance of hot dog and distinctive structural parts of hot dog."
+  },
+  "huevos rancheros": {
+    "name": "huevos rancheros",
+    "traits": [
+      "typical shape and appearance of huevos rancheros",
+      "characteristic color and texture of huevos rancheros",
+      "surface patterns and details of huevos rancheros",
+      "distinctive structural parts of huevos rancheros",
+      "overall composition defining a huevos rancheros"
+    ],
+    "compact_prompt": "a photo of a huevos rancheros, recognized by typical shape and appearance of huevos rancheros and distinctive structural parts of huevos rancheros."
+  },
+  "hummus": {
+    "name": "hummus",
+    "traits": [
+      "typical shape and appearance of hummus",
+      "characteristic color and texture of hummus",
+      "surface patterns and details of hummus",
+      "distinctive structural parts of hummus",
+      "overall composition defining a hummus"
+    ],
+    "compact_prompt": "a photo of a hummus, recognized by typical shape and appearance of hummus and distinctive structural parts of hummus."
+  },
+  "ice cream": {
+    "name": "ice cream",
+    "traits": [
+      "typical shape and appearance of ice cream",
+      "characteristic color and texture of ice cream",
+      "surface patterns and details of ice cream",
+      "distinctive structural parts of ice cream",
+      "overall composition defining a ice cream"
+    ],
+    "compact_prompt": "a photo of a ice cream, recognized by typical shape and appearance of ice cream and distinctive structural parts of ice cream."
+  },
+  "lasagna": {
+    "name": "lasagna",
+    "traits": [
+      "typical shape and appearance of lasagna",
+      "characteristic color and texture of lasagna",
+      "surface patterns and details of lasagna",
+      "distinctive structural parts of lasagna",
+      "overall composition defining a lasagna"
+    ],
+    "compact_prompt": "a photo of a lasagna, recognized by typical shape and appearance of lasagna and distinctive structural parts of lasagna."
+  },
+  "lobster bisque": {
+    "name": "lobster bisque",
+    "traits": [
+      "typical shape and appearance of lobster bisque",
+      "characteristic color and texture of lobster bisque",
+      "surface patterns and details of lobster bisque",
+      "distinctive structural parts of lobster bisque",
+      "overall composition defining a lobster bisque"
+    ],
+    "compact_prompt": "a photo of a lobster bisque, recognized by typical shape and appearance of lobster bisque and distinctive structural parts of lobster bisque."
+  },
+  "lobster roll sandwich": {
+    "name": "lobster roll sandwich",
+    "traits": [
+      "typical shape and appearance of lobster roll sandwich",
+      "characteristic color and texture of lobster roll sandwich",
+      "surface patterns and details of lobster roll sandwich",
+      "distinctive structural parts of lobster roll sandwich",
+      "overall composition defining a lobster roll sandwich"
+    ],
+    "compact_prompt": "a photo of a lobster roll sandwich, recognized by typical shape and appearance of lobster roll sandwich and distinctive structural parts of lobster roll sandwich."
+  },
+  "macaroni and cheese": {
+    "name": "macaroni and cheese",
+    "traits": [
+      "typical shape and appearance of macaroni and cheese",
+      "characteristic color and texture of macaroni and cheese",
+      "surface patterns and details of macaroni and cheese",
+      "distinctive structural parts of macaroni and cheese",
+      "overall composition defining a macaroni and cheese"
+    ],
+    "compact_prompt": "a photo of a macaroni and cheese, recognized by typical shape and appearance of macaroni and cheese and distinctive structural parts of macaroni and cheese."
+  },
+  "macarons": {
+    "name": "macarons",
+    "traits": [
+      "typical shape and appearance of macarons",
+      "characteristic color and texture of macarons",
+      "surface patterns and details of macarons",
+      "distinctive structural parts of macarons",
+      "overall composition defining a macarons"
+    ],
+    "compact_prompt": "a photo of a macarons, recognized by typical shape and appearance of macarons and distinctive structural parts of macarons."
+  },
+  "miso soup": {
+    "name": "miso soup",
+    "traits": [
+      "typical shape and appearance of miso soup",
+      "characteristic color and texture of miso soup",
+      "surface patterns and details of miso soup",
+      "distinctive structural parts of miso soup",
+      "overall composition defining a miso soup"
+    ],
+    "compact_prompt": "a photo of a miso soup, recognized by typical shape and appearance of miso soup and distinctive structural parts of miso soup."
+  },
+  "mussels": {
+    "name": "mussels",
+    "traits": [
+      "typical shape and appearance of mussels",
+      "characteristic color and texture of mussels",
+      "surface patterns and details of mussels",
+      "distinctive structural parts of mussels",
+      "overall composition defining a mussels"
+    ],
+    "compact_prompt": "a photo of a mussels, recognized by typical shape and appearance of mussels and distinctive structural parts of mussels."
+  },
+  "nachos": {
+    "name": "nachos",
+    "traits": [
+      "typical shape and appearance of nachos",
+      "characteristic color and texture of nachos",
+      "surface patterns and details of nachos",
+      "distinctive structural parts of nachos",
+      "overall composition defining a nachos"
+    ],
+    "compact_prompt": "a photo of a nachos, recognized by typical shape and appearance of nachos and distinctive structural parts of nachos."
+  },
+  "omelette": {
+    "name": "omelette",
+    "traits": [
+      "typical shape and appearance of omelette",
+      "characteristic color and texture of omelette",
+      "surface patterns and details of omelette",
+      "distinctive structural parts of omelette",
+      "overall composition defining a omelette"
+    ],
+    "compact_prompt": "a photo of a omelette, recognized by typical shape and appearance of omelette and distinctive structural parts of omelette."
+  },
+  "onion rings": {
+    "name": "onion rings",
+    "traits": [
+      "typical shape and appearance of onion rings",
+      "characteristic color and texture of onion rings",
+      "surface patterns and details of onion rings",
+      "distinctive structural parts of onion rings",
+      "overall composition defining a onion rings"
+    ],
+    "compact_prompt": "a photo of a onion rings, recognized by typical shape and appearance of onion rings and distinctive structural parts of onion rings."
+  },
+  "oysters": {
+    "name": "oysters",
+    "traits": [
+      "typical shape and appearance of oysters",
+      "characteristic color and texture of oysters",
+      "surface patterns and details of oysters",
+      "distinctive structural parts of oysters",
+      "overall composition defining a oysters"
+    ],
+    "compact_prompt": "a photo of a oysters, recognized by typical shape and appearance of oysters and distinctive structural parts of oysters."
+  },
+  "pad thai": {
+    "name": "pad thai",
+    "traits": [
+      "typical shape and appearance of pad thai",
+      "characteristic color and texture of pad thai",
+      "surface patterns and details of pad thai",
+      "distinctive structural parts of pad thai",
+      "overall composition defining a pad thai"
+    ],
+    "compact_prompt": "a photo of a pad thai, recognized by typical shape and appearance of pad thai and distinctive structural parts of pad thai."
+  },
+  "paella": {
+    "name": "paella",
+    "traits": [
+      "typical shape and appearance of paella",
+      "characteristic color and texture of paella",
+      "surface patterns and details of paella",
+      "distinctive structural parts of paella",
+      "overall composition defining a paella"
+    ],
+    "compact_prompt": "a photo of a paella, recognized by typical shape and appearance of paella and distinctive structural parts of paella."
+  },
+  "pancakes": {
+    "name": "pancakes",
+    "traits": [
+      "typical shape and appearance of pancakes",
+      "characteristic color and texture of pancakes",
+      "surface patterns and details of pancakes",
+      "distinctive structural parts of pancakes",
+      "overall composition defining a pancakes"
+    ],
+    "compact_prompt": "a photo of a pancakes, recognized by typical shape and appearance of pancakes and distinctive structural parts of pancakes."
+  },
+  "panna cotta": {
+    "name": "panna cotta",
+    "traits": [
+      "typical shape and appearance of panna cotta",
+      "characteristic color and texture of panna cotta",
+      "surface patterns and details of panna cotta",
+      "distinctive structural parts of panna cotta",
+      "overall composition defining a panna cotta"
+    ],
+    "compact_prompt": "a photo of a panna cotta, recognized by typical shape and appearance of panna cotta and distinctive structural parts of panna cotta."
+  },
+  "peking duck": {
+    "name": "peking duck",
+    "traits": [
+      "typical shape and appearance of peking duck",
+      "characteristic color and texture of peking duck",
+      "surface patterns and details of peking duck",
+      "distinctive structural parts of peking duck",
+      "overall composition defining a peking duck"
+    ],
+    "compact_prompt": "a photo of a peking duck, recognized by typical shape and appearance of peking duck and distinctive structural parts of peking duck."
+  },
+  "pho": {
+    "name": "pho",
+    "traits": [
+      "typical shape and appearance of pho",
+      "characteristic color and texture of pho",
+      "surface patterns and details of pho",
+      "distinctive structural parts of pho",
+      "overall composition defining a pho"
+    ],
+    "compact_prompt": "a photo of a pho, recognized by typical shape and appearance of pho and distinctive structural parts of pho."
+  },
+  "pizza": {
+    "name": "pizza",
+    "traits": [
+      "typical shape and appearance of pizza",
+      "characteristic color and texture of pizza",
+      "surface patterns and details of pizza",
+      "distinctive structural parts of pizza",
+      "overall composition defining a pizza"
+    ],
+    "compact_prompt": "a photo of a pizza, recognized by typical shape and appearance of pizza and distinctive structural parts of pizza."
+  },
+  "pork chop": {
+    "name": "pork chop",
+    "traits": [
+      "typical shape and appearance of pork chop",
+      "characteristic color and texture of pork chop",
+      "surface patterns and details of pork chop",
+      "distinctive structural parts of pork chop",
+      "overall composition defining a pork chop"
+    ],
+    "compact_prompt": "a photo of a pork chop, recognized by typical shape and appearance of pork chop and distinctive structural parts of pork chop."
+  },
+  "poutine": {
+    "name": "poutine",
+    "traits": [
+      "typical shape and appearance of poutine",
+      "characteristic color and texture of poutine",
+      "surface patterns and details of poutine",
+      "distinctive structural parts of poutine",
+      "overall composition defining a poutine"
+    ],
+    "compact_prompt": "a photo of a poutine, recognized by typical shape and appearance of poutine and distinctive structural parts of poutine."
+  },
+  "prime rib": {
+    "name": "prime rib",
+    "traits": [
+      "typical shape and appearance of prime rib",
+      "characteristic color and texture of prime rib",
+      "surface patterns and details of prime rib",
+      "distinctive structural parts of prime rib",
+      "overall composition defining a prime rib"
+    ],
+    "compact_prompt": "a photo of a prime rib, recognized by typical shape and appearance of prime rib and distinctive structural parts of prime rib."
+  },
+  "pulled pork sandwich": {
+    "name": "pulled pork sandwich",
+    "traits": [
+      "typical shape and appearance of pulled pork sandwich",
+      "characteristic color and texture of pulled pork sandwich",
+      "surface patterns and details of pulled pork sandwich",
+      "distinctive structural parts of pulled pork sandwich",
+      "overall composition defining a pulled pork sandwich"
+    ],
+    "compact_prompt": "a photo of a pulled pork sandwich, recognized by typical shape and appearance of pulled pork sandwich and distinctive structural parts of pulled pork sandwich."
+  },
+  "ramen": {
+    "name": "ramen",
+    "traits": [
+      "typical shape and appearance of ramen",
+      "characteristic color and texture of ramen",
+      "surface patterns and details of ramen",
+      "distinctive structural parts of ramen",
+      "overall composition defining a ramen"
+    ],
+    "compact_prompt": "a photo of a ramen, recognized by typical shape and appearance of ramen and distinctive structural parts of ramen."
+  },
+  "ravioli": {
+    "name": "ravioli",
+    "traits": [
+      "typical shape and appearance of ravioli",
+      "characteristic color and texture of ravioli",
+      "surface patterns and details of ravioli",
+      "distinctive structural parts of ravioli",
+      "overall composition defining a ravioli"
+    ],
+    "compact_prompt": "a photo of a ravioli, recognized by typical shape and appearance of ravioli and distinctive structural parts of ravioli."
+  },
+  "red velvet cake": {
+    "name": "red velvet cake",
+    "traits": [
+      "typical shape and appearance of red velvet cake",
+      "characteristic color and texture of red velvet cake",
+      "surface patterns and details of red velvet cake",
+      "distinctive structural parts of red velvet cake",
+      "overall composition defining a red velvet cake"
+    ],
+    "compact_prompt": "a photo of a red velvet cake, recognized by typical shape and appearance of red velvet cake and distinctive structural parts of red velvet cake."
+  },
+  "risotto": {
+    "name": "risotto",
+    "traits": [
+      "typical shape and appearance of risotto",
+      "characteristic color and texture of risotto",
+      "surface patterns and details of risotto",
+      "distinctive structural parts of risotto",
+      "overall composition defining a risotto"
+    ],
+    "compact_prompt": "a photo of a risotto, recognized by typical shape and appearance of risotto and distinctive structural parts of risotto."
+  },
+  "samosa": {
+    "name": "samosa",
+    "traits": [
+      "typical shape and appearance of samosa",
+      "characteristic color and texture of samosa",
+      "surface patterns and details of samosa",
+      "distinctive structural parts of samosa",
+      "overall composition defining a samosa"
+    ],
+    "compact_prompt": "a photo of a samosa, recognized by typical shape and appearance of samosa and distinctive structural parts of samosa."
+  },
+  "sashimi": {
+    "name": "sashimi",
+    "traits": [
+      "typical shape and appearance of sashimi",
+      "characteristic color and texture of sashimi",
+      "surface patterns and details of sashimi",
+      "distinctive structural parts of sashimi",
+      "overall composition defining a sashimi"
+    ],
+    "compact_prompt": "a photo of a sashimi, recognized by typical shape and appearance of sashimi and distinctive structural parts of sashimi."
+  },
+  "scallops": {
+    "name": "scallops",
+    "traits": [
+      "typical shape and appearance of scallops",
+      "characteristic color and texture of scallops",
+      "surface patterns and details of scallops",
+      "distinctive structural parts of scallops",
+      "overall composition defining a scallops"
+    ],
+    "compact_prompt": "a photo of a scallops, recognized by typical shape and appearance of scallops and distinctive structural parts of scallops."
+  },
+  "seaweed salad": {
+    "name": "seaweed salad",
+    "traits": [
+      "typical shape and appearance of seaweed salad",
+      "characteristic color and texture of seaweed salad",
+      "surface patterns and details of seaweed salad",
+      "distinctive structural parts of seaweed salad",
+      "overall composition defining a seaweed salad"
+    ],
+    "compact_prompt": "a photo of a seaweed salad, recognized by typical shape and appearance of seaweed salad and distinctive structural parts of seaweed salad."
+  },
+  "shrimp and grits": {
+    "name": "shrimp and grits",
+    "traits": [
+      "typical shape and appearance of shrimp and grits",
+      "characteristic color and texture of shrimp and grits",
+      "surface patterns and details of shrimp and grits",
+      "distinctive structural parts of shrimp and grits",
+      "overall composition defining a shrimp and grits"
+    ],
+    "compact_prompt": "a photo of a shrimp and grits, recognized by typical shape and appearance of shrimp and grits and distinctive structural parts of shrimp and grits."
+  },
+  "spaghetti bolognese": {
+    "name": "spaghetti bolognese",
+    "traits": [
+      "typical shape and appearance of spaghetti bolognese",
+      "characteristic color and texture of spaghetti bolognese",
+      "surface patterns and details of spaghetti bolognese",
+      "distinctive structural parts of spaghetti bolognese",
+      "overall composition defining a spaghetti bolognese"
+    ],
+    "compact_prompt": "a photo of a spaghetti bolognese, recognized by typical shape and appearance of spaghetti bolognese and distinctive structural parts of spaghetti bolognese."
+  },
+  "spaghetti carbonara": {
+    "name": "spaghetti carbonara",
+    "traits": [
+      "typical shape and appearance of spaghetti carbonara",
+      "characteristic color and texture of spaghetti carbonara",
+      "surface patterns and details of spaghetti carbonara",
+      "distinctive structural parts of spaghetti carbonara",
+      "overall composition defining a spaghetti carbonara"
+    ],
+    "compact_prompt": "a photo of a spaghetti carbonara, recognized by typical shape and appearance of spaghetti carbonara and distinctive structural parts of spaghetti carbonara."
+  },
+  "spring rolls": {
+    "name": "spring rolls",
+    "traits": [
+      "typical shape and appearance of spring rolls",
+      "characteristic color and texture of spring rolls",
+      "surface patterns and details of spring rolls",
+      "distinctive structural parts of spring rolls",
+      "overall composition defining a spring rolls"
+    ],
+    "compact_prompt": "a photo of a spring rolls, recognized by typical shape and appearance of spring rolls and distinctive structural parts of spring rolls."
+  },
+  "steak": {
+    "name": "steak",
+    "traits": [
+      "typical shape and appearance of steak",
+      "characteristic color and texture of steak",
+      "surface patterns and details of steak",
+      "distinctive structural parts of steak",
+      "overall composition defining a steak"
+    ],
+    "compact_prompt": "a photo of a steak, recognized by typical shape and appearance of steak and distinctive structural parts of steak."
+  },
+  "strawberry shortcake": {
+    "name": "strawberry shortcake",
+    "traits": [
+      "typical shape and appearance of strawberry shortcake",
+      "characteristic color and texture of strawberry shortcake",
+      "surface patterns and details of strawberry shortcake",
+      "distinctive structural parts of strawberry shortcake",
+      "overall composition defining a strawberry shortcake"
+    ],
+    "compact_prompt": "a photo of a strawberry shortcake, recognized by typical shape and appearance of strawberry shortcake and distinctive structural parts of strawberry shortcake."
+  },
+  "sushi": {
+    "name": "sushi",
+    "traits": [
+      "typical shape and appearance of sushi",
+      "characteristic color and texture of sushi",
+      "surface patterns and details of sushi",
+      "distinctive structural parts of sushi",
+      "overall composition defining a sushi"
+    ],
+    "compact_prompt": "a photo of a sushi, recognized by typical shape and appearance of sushi and distinctive structural parts of sushi."
+  },
+  "tacos": {
+    "name": "tacos",
+    "traits": [
+      "typical shape and appearance of tacos",
+      "characteristic color and texture of tacos",
+      "surface patterns and details of tacos",
+      "distinctive structural parts of tacos",
+      "overall composition defining a tacos"
+    ],
+    "compact_prompt": "a photo of a tacos, recognized by typical shape and appearance of tacos and distinctive structural parts of tacos."
+  },
+  "takoyaki": {
+    "name": "takoyaki",
+    "traits": [
+      "typical shape and appearance of takoyaki",
+      "characteristic color and texture of takoyaki",
+      "surface patterns and details of takoyaki",
+      "distinctive structural parts of takoyaki",
+      "overall composition defining a takoyaki"
+    ],
+    "compact_prompt": "a photo of a takoyaki, recognized by typical shape and appearance of takoyaki and distinctive structural parts of takoyaki."
+  },
+  "tiramisu": {
+    "name": "tiramisu",
+    "traits": [
+      "typical shape and appearance of tiramisu",
+      "characteristic color and texture of tiramisu",
+      "surface patterns and details of tiramisu",
+      "distinctive structural parts of tiramisu",
+      "overall composition defining a tiramisu"
+    ],
+    "compact_prompt": "a photo of a tiramisu, recognized by typical shape and appearance of tiramisu and distinctive structural parts of tiramisu."
+  },
+  "tuna tartare": {
+    "name": "tuna tartare",
+    "traits": [
+      "typical shape and appearance of tuna tartare",
+      "characteristic color and texture of tuna tartare",
+      "surface patterns and details of tuna tartare",
+      "distinctive structural parts of tuna tartare",
+      "overall composition defining a tuna tartare"
+    ],
+    "compact_prompt": "a photo of a tuna tartare, recognized by typical shape and appearance of tuna tartare and distinctive structural parts of tuna tartare."
+  },
+  "waffles": {
+    "name": "waffles",
+    "traits": [
+      "typical shape and appearance of waffles",
+      "characteristic color and texture of waffles",
+      "surface patterns and details of waffles",
+      "distinctive structural parts of waffles",
+      "overall composition defining a waffles"
+    ],
+    "compact_prompt": "a photo of a waffles, recognized by typical shape and appearance of waffles and distinctive structural parts of waffles."
+  }
+}

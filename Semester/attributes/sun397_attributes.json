@@ -1,0 +1,3357 @@
+{
+  "abbey": {
+    "name": "abbey",
+    "traits": [
+      "typical shape and appearance of abbey",
+      "characteristic color and texture of abbey",
+      "surface patterns and details of abbey",
+      "distinctive structural parts of abbey",
+      "overall composition defining a abbey"
+    ],
+    "compact_prompt": "a photo of a abbey, recognized by typical shape and appearance of abbey and distinctive structural parts of abbey."
+  },
+  "airplane cabin": {
+    "name": "airplane cabin",
+    "traits": [
+      "typical shape and appearance of airplane cabin",
+      "characteristic color and texture of airplane cabin",
+      "surface patterns and details of airplane cabin",
+      "distinctive structural parts of airplane cabin",
+      "overall composition defining a airplane cabin"
+    ],
+    "compact_prompt": "a photo of a airplane cabin, recognized by typical shape and appearance of airplane cabin and distinctive structural parts of airplane cabin."
+  },
+  "airport terminal": {
+    "name": "airport terminal",
+    "traits": [
+      "typical shape and appearance of airport terminal",
+      "characteristic color and texture of airport terminal",
+      "surface patterns and details of airport terminal",
+      "distinctive structural parts of airport terminal",
+      "overall composition defining a airport terminal"
+    ],
+    "compact_prompt": "a photo of a airport terminal, recognized by typical shape and appearance of airport terminal and distinctive structural parts of airport terminal."
+  },
+  "alley": {
+    "name": "alley",
+    "traits": [
+      "typical shape and appearance of alley",
+      "characteristic color and texture of alley",
+      "surface patterns and details of alley",
+      "distinctive structural parts of alley",
+      "overall composition defining a alley"
+    ],
+    "compact_prompt": "a photo of a alley, recognized by typical shape and appearance of alley and distinctive structural parts of alley."
+  },
+  "amphitheater": {
+    "name": "amphitheater",
+    "traits": [
+      "typical shape and appearance of amphitheater",
+      "characteristic color and texture of amphitheater",
+      "surface patterns and details of amphitheater",
+      "distinctive structural parts of amphitheater",
+      "overall composition defining a amphitheater"
+    ],
+    "compact_prompt": "a photo of a amphitheater, recognized by typical shape and appearance of amphitheater and distinctive structural parts of amphitheater."
+  },
+  "amusement arcade": {
+    "name": "amusement arcade",
+    "traits": [
+      "typical shape and appearance of amusement arcade",
+      "characteristic color and texture of amusement arcade",
+      "surface patterns and details of amusement arcade",
+      "distinctive structural parts of amusement arcade",
+      "overall composition defining a amusement arcade"
+    ],
+    "compact_prompt": "a photo of a amusement arcade, recognized by typical shape and appearance of amusement arcade and distinctive structural parts of amusement arcade."
+  },
+  "amusement park": {
+    "name": "amusement park",
+    "traits": [
+      "typical shape and appearance of amusement park",
+      "characteristic color and texture of amusement park",
+      "surface patterns and details of amusement park",
+      "distinctive structural parts of amusement park",
+      "overall composition defining a amusement park"
+    ],
+    "compact_prompt": "a photo of a amusement park, recognized by typical shape and appearance of amusement park and distinctive structural parts of amusement park."
+  },
+  "anechoic chamber": {
+    "name": "anechoic chamber",
+    "traits": [
+      "typical shape and appearance of anechoic chamber",
+      "characteristic color and texture of anechoic chamber",
+      "surface patterns and details of anechoic chamber",
+      "distinctive structural parts of anechoic chamber",
+      "overall composition defining a anechoic chamber"
+    ],
+    "compact_prompt": "a photo of a anechoic chamber, recognized by typical shape and appearance of anechoic chamber and distinctive structural parts of anechoic chamber."
+  },
+  "outdoor": {
+    "name": "outdoor",
+    "traits": [
+      "typical shape and appearance of outdoor",
+      "characteristic color and texture of outdoor",
+      "surface patterns and details of outdoor",
+      "distinctive structural parts of outdoor",
+      "overall composition defining a outdoor"
+    ],
+    "compact_prompt": "a photo of a outdoor, recognized by typical shape and appearance of outdoor and distinctive structural parts of outdoor."
+  },
+  "indoor": {
+    "name": "indoor",
+    "traits": [
+      "typical shape and appearance of indoor",
+      "characteristic color and texture of indoor",
+      "surface patterns and details of indoor",
+      "distinctive structural parts of indoor",
+      "overall composition defining a indoor"
+    ],
+    "compact_prompt": "a photo of a indoor, recognized by typical shape and appearance of indoor and distinctive structural parts of indoor."
+  },
+  "aquarium": {
+    "name": "aquarium",
+    "traits": [
+      "typical shape and appearance of aquarium",
+      "characteristic color and texture of aquarium",
+      "surface patterns and details of aquarium",
+      "distinctive structural parts of aquarium",
+      "overall composition defining a aquarium"
+    ],
+    "compact_prompt": "a photo of a aquarium, recognized by typical shape and appearance of aquarium and distinctive structural parts of aquarium."
+  },
+  "aqueduct": {
+    "name": "aqueduct",
+    "traits": [
+      "typical shape and appearance of aqueduct",
+      "characteristic color and texture of aqueduct",
+      "surface patterns and details of aqueduct",
+      "distinctive structural parts of aqueduct",
+      "overall composition defining a aqueduct"
+    ],
+    "compact_prompt": "a photo of a aqueduct, recognized by typical shape and appearance of aqueduct and distinctive structural parts of aqueduct."
+  },
+  "arch": {
+    "name": "arch",
+    "traits": [
+      "typical shape and appearance of arch",
+      "characteristic color and texture of arch",
+      "surface patterns and details of arch",
+      "distinctive structural parts of arch",
+      "overall composition defining a arch"
+    ],
+    "compact_prompt": "a photo of a arch, recognized by typical shape and appearance of arch and distinctive structural parts of arch."
+  },
+  "archive": {
+    "name": "archive",
+    "traits": [
+      "typical shape and appearance of archive",
+      "characteristic color and texture of archive",
+      "surface patterns and details of archive",
+      "distinctive structural parts of archive",
+      "overall composition defining a archive"
+    ],
+    "compact_prompt": "a photo of a archive, recognized by typical shape and appearance of archive and distinctive structural parts of archive."
+  },
+  "art gallery": {
+    "name": "art gallery",
+    "traits": [
+      "typical shape and appearance of art gallery",
+      "characteristic color and texture of art gallery",
+      "surface patterns and details of art gallery",
+      "distinctive structural parts of art gallery",
+      "overall composition defining a art gallery"
+    ],
+    "compact_prompt": "a photo of a art gallery, recognized by typical shape and appearance of art gallery and distinctive structural parts of art gallery."
+  },
+  "art school": {
+    "name": "art school",
+    "traits": [
+      "typical shape and appearance of art school",
+      "characteristic color and texture of art school",
+      "surface patterns and details of art school",
+      "distinctive structural parts of art school",
+      "overall composition defining a art school"
+    ],
+    "compact_prompt": "a photo of a art school, recognized by typical shape and appearance of art school and distinctive structural parts of art school."
+  },
+  "art studio": {
+    "name": "art studio",
+    "traits": [
+      "typical shape and appearance of art studio",
+      "characteristic color and texture of art studio",
+      "surface patterns and details of art studio",
+      "distinctive structural parts of art studio",
+      "overall composition defining a art studio"
+    ],
+    "compact_prompt": "a photo of a art studio, recognized by typical shape and appearance of art studio and distinctive structural parts of art studio."
+  },
+  "assembly line": {
+    "name": "assembly line",
+    "traits": [
+      "typical shape and appearance of assembly line",
+      "characteristic color and texture of assembly line",
+      "surface patterns and details of assembly line",
+      "distinctive structural parts of assembly line",
+      "overall composition defining a assembly line"
+    ],
+    "compact_prompt": "a photo of a assembly line, recognized by typical shape and appearance of assembly line and distinctive structural parts of assembly line."
+  },
+  "public": {
+    "name": "public",
+    "traits": [
+      "typical shape and appearance of public",
+      "characteristic color and texture of public",
+      "surface patterns and details of public",
+      "distinctive structural parts of public",
+      "overall composition defining a public"
+    ],
+    "compact_prompt": "a photo of a public, recognized by typical shape and appearance of public and distinctive structural parts of public."
+  },
+  "attic": {
+    "name": "attic",
+    "traits": [
+      "typical shape and appearance of attic",
+      "characteristic color and texture of attic",
+      "surface patterns and details of attic",
+      "distinctive structural parts of attic",
+      "overall composition defining a attic"
+    ],
+    "compact_prompt": "a photo of a attic, recognized by typical shape and appearance of attic and distinctive structural parts of attic."
+  },
+  "auditorium": {
+    "name": "auditorium",
+    "traits": [
+      "typical shape and appearance of auditorium",
+      "characteristic color and texture of auditorium",
+      "surface patterns and details of auditorium",
+      "distinctive structural parts of auditorium",
+      "overall composition defining a auditorium"
+    ],
+    "compact_prompt": "a photo of a auditorium, recognized by typical shape and appearance of auditorium and distinctive structural parts of auditorium."
+  },
+  "auto factory": {
+    "name": "auto factory",
+    "traits": [
+      "typical shape and appearance of auto factory",
+      "characteristic color and texture of auto factory",
+      "surface patterns and details of auto factory",
+      "distinctive structural parts of auto factory",
+      "overall composition defining a auto factory"
+    ],
+    "compact_prompt": "a photo of a auto factory, recognized by typical shape and appearance of auto factory and distinctive structural parts of auto factory."
+  },
+  "badlands": {
+    "name": "badlands",
+    "traits": [
+      "typical shape and appearance of badlands",
+      "characteristic color and texture of badlands",
+      "surface patterns and details of badlands",
+      "distinctive structural parts of badlands",
+      "overall composition defining a badlands"
+    ],
+    "compact_prompt": "a photo of a badlands, recognized by typical shape and appearance of badlands and distinctive structural parts of badlands."
+  },
+  "baggage claim": {
+    "name": "baggage claim",
+    "traits": [
+      "typical shape and appearance of baggage claim",
+      "characteristic color and texture of baggage claim",
+      "surface patterns and details of baggage claim",
+      "distinctive structural parts of baggage claim",
+      "overall composition defining a baggage claim"
+    ],
+    "compact_prompt": "a photo of a baggage claim, recognized by typical shape and appearance of baggage claim and distinctive structural parts of baggage claim."
+  },
+  "shop": {
+    "name": "shop",
+    "traits": [
+      "typical shape and appearance of shop",
+      "characteristic color and texture of shop",
+      "surface patterns and details of shop",
+      "distinctive structural parts of shop",
+      "overall composition defining a shop"
+    ],
+    "compact_prompt": "a photo of a shop, recognized by typical shape and appearance of shop and distinctive structural parts of shop."
+  },
+  "exterior": {
+    "name": "exterior",
+    "traits": [
+      "typical shape and appearance of exterior",
+      "characteristic color and texture of exterior",
+      "surface patterns and details of exterior",
+      "distinctive structural parts of exterior",
+      "overall composition defining a exterior"
+    ],
+    "compact_prompt": "a photo of a exterior, recognized by typical shape and appearance of exterior and distinctive structural parts of exterior."
+  },
+  "interior": {
+    "name": "interior",
+    "traits": [
+      "typical shape and appearance of interior",
+      "characteristic color and texture of interior",
+      "surface patterns and details of interior",
+      "distinctive structural parts of interior",
+      "overall composition defining a interior"
+    ],
+    "compact_prompt": "a photo of a interior, recognized by typical shape and appearance of interior and distinctive structural parts of interior."
+  },
+  "ball pit": {
+    "name": "ball pit",
+    "traits": [
+      "typical shape and appearance of ball pit",
+      "characteristic color and texture of ball pit",
+      "surface patterns and details of ball pit",
+      "distinctive structural parts of ball pit",
+      "overall composition defining a ball pit"
+    ],
+    "compact_prompt": "a photo of a ball pit, recognized by typical shape and appearance of ball pit and distinctive structural parts of ball pit."
+  },
+  "ballroom": {
+    "name": "ballroom",
+    "traits": [
+      "typical shape and appearance of ballroom",
+      "characteristic color and texture of ballroom",
+      "surface patterns and details of ballroom",
+      "distinctive structural parts of ballroom",
+      "overall composition defining a ballroom"
+    ],
+    "compact_prompt": "a photo of a ballroom, recognized by typical shape and appearance of ballroom and distinctive structural parts of ballroom."
+  },
+  "bamboo forest": {
+    "name": "bamboo forest",
+    "traits": [
+      "typical shape and appearance of bamboo forest",
+      "characteristic color and texture of bamboo forest",
+      "surface patterns and details of bamboo forest",
+      "distinctive structural parts of bamboo forest",
+      "overall composition defining a bamboo forest"
+    ],
+    "compact_prompt": "a photo of a bamboo forest, recognized by typical shape and appearance of bamboo forest and distinctive structural parts of bamboo forest."
+  },
+  "banquet hall": {
+    "name": "banquet hall",
+    "traits": [
+      "typical shape and appearance of banquet hall",
+      "characteristic color and texture of banquet hall",
+      "surface patterns and details of banquet hall",
+      "distinctive structural parts of banquet hall",
+      "overall composition defining a banquet hall"
+    ],
+    "compact_prompt": "a photo of a banquet hall, recognized by typical shape and appearance of banquet hall and distinctive structural parts of banquet hall."
+  },
+  "bar": {
+    "name": "bar",
+    "traits": [
+      "typical shape and appearance of bar",
+      "characteristic color and texture of bar",
+      "surface patterns and details of bar",
+      "distinctive structural parts of bar",
+      "overall composition defining a bar"
+    ],
+    "compact_prompt": "a photo of a bar, recognized by typical shape and appearance of bar and distinctive structural parts of bar."
+  },
+  "barn": {
+    "name": "barn",
+    "traits": [
+      "typical shape and appearance of barn",
+      "characteristic color and texture of barn",
+      "surface patterns and details of barn",
+      "distinctive structural parts of barn",
+      "overall composition defining a barn"
+    ],
+    "compact_prompt": "a photo of a barn, recognized by typical shape and appearance of barn and distinctive structural parts of barn."
+  },
+  "barndoor": {
+    "name": "barndoor",
+    "traits": [
+      "typical shape and appearance of barndoor",
+      "characteristic color and texture of barndoor",
+      "surface patterns and details of barndoor",
+      "distinctive structural parts of barndoor",
+      "overall composition defining a barndoor"
+    ],
+    "compact_prompt": "a photo of a barndoor, recognized by typical shape and appearance of barndoor and distinctive structural parts of barndoor."
+  },
+  "baseball field": {
+    "name": "baseball field",
+    "traits": [
+      "typical shape and appearance of baseball field",
+      "characteristic color and texture of baseball field",
+      "surface patterns and details of baseball field",
+      "distinctive structural parts of baseball field",
+      "overall composition defining a baseball field"
+    ],
+    "compact_prompt": "a photo of a baseball field, recognized by typical shape and appearance of baseball field and distinctive structural parts of baseball field."
+  },
+  "basement": {
+    "name": "basement",
+    "traits": [
+      "typical shape and appearance of basement",
+      "characteristic color and texture of basement",
+      "surface patterns and details of basement",
+      "distinctive structural parts of basement",
+      "overall composition defining a basement"
+    ],
+    "compact_prompt": "a photo of a basement, recognized by typical shape and appearance of basement and distinctive structural parts of basement."
+  },
+  "basilica": {
+    "name": "basilica",
+    "traits": [
+      "typical shape and appearance of basilica",
+      "characteristic color and texture of basilica",
+      "surface patterns and details of basilica",
+      "distinctive structural parts of basilica",
+      "overall composition defining a basilica"
+    ],
+    "compact_prompt": "a photo of a basilica, recognized by typical shape and appearance of basilica and distinctive structural parts of basilica."
+  },
+  "bathroom": {
+    "name": "bathroom",
+    "traits": [
+      "typical shape and appearance of bathroom",
+      "characteristic color and texture of bathroom",
+      "surface patterns and details of bathroom",
+      "distinctive structural parts of bathroom",
+      "overall composition defining a bathroom"
+    ],
+    "compact_prompt": "a photo of a bathroom, recognized by typical shape and appearance of bathroom and distinctive structural parts of bathroom."
+  },
+  "batters box": {
+    "name": "batters box",
+    "traits": [
+      "typical shape and appearance of batters box",
+      "characteristic color and texture of batters box",
+      "surface patterns and details of batters box",
+      "distinctive structural parts of batters box",
+      "overall composition defining a batters box"
+    ],
+    "compact_prompt": "a photo of a batters box, recognized by typical shape and appearance of batters box and distinctive structural parts of batters box."
+  },
+  "bayou": {
+    "name": "bayou",
+    "traits": [
+      "typical shape and appearance of bayou",
+      "characteristic color and texture of bayou",
+      "surface patterns and details of bayou",
+      "distinctive structural parts of bayou",
+      "overall composition defining a bayou"
+    ],
+    "compact_prompt": "a photo of a bayou, recognized by typical shape and appearance of bayou and distinctive structural parts of bayou."
+  },
+  "beach": {
+    "name": "beach",
+    "traits": [
+      "typical shape and appearance of beach",
+      "characteristic color and texture of beach",
+      "surface patterns and details of beach",
+      "distinctive structural parts of beach",
+      "overall composition defining a beach"
+    ],
+    "compact_prompt": "a photo of a beach, recognized by typical shape and appearance of beach and distinctive structural parts of beach."
+  },
+  "beauty salon": {
+    "name": "beauty salon",
+    "traits": [
+      "typical shape and appearance of beauty salon",
+      "characteristic color and texture of beauty salon",
+      "surface patterns and details of beauty salon",
+      "distinctive structural parts of beauty salon",
+      "overall composition defining a beauty salon"
+    ],
+    "compact_prompt": "a photo of a beauty salon, recognized by typical shape and appearance of beauty salon and distinctive structural parts of beauty salon."
+  },
+  "bedroom": {
+    "name": "bedroom",
+    "traits": [
+      "typical shape and appearance of bedroom",
+      "characteristic color and texture of bedroom",
+      "surface patterns and details of bedroom",
+      "distinctive structural parts of bedroom",
+      "overall composition defining a bedroom"
+    ],
+    "compact_prompt": "a photo of a bedroom, recognized by typical shape and appearance of bedroom and distinctive structural parts of bedroom."
+  },
+  "berth": {
+    "name": "berth",
+    "traits": [
+      "typical shape and appearance of berth",
+      "characteristic color and texture of berth",
+      "surface patterns and details of berth",
+      "distinctive structural parts of berth",
+      "overall composition defining a berth"
+    ],
+    "compact_prompt": "a photo of a berth, recognized by typical shape and appearance of berth and distinctive structural parts of berth."
+  },
+  "biology laboratory": {
+    "name": "biology laboratory",
+    "traits": [
+      "typical shape and appearance of biology laboratory",
+      "characteristic color and texture of biology laboratory",
+      "surface patterns and details of biology laboratory",
+      "distinctive structural parts of biology laboratory",
+      "overall composition defining a biology laboratory"
+    ],
+    "compact_prompt": "a photo of a biology laboratory, recognized by typical shape and appearance of biology laboratory and distinctive structural parts of biology laboratory."
+  },
+  "boardwalk": {
+    "name": "boardwalk",
+    "traits": [
+      "typical shape and appearance of boardwalk",
+      "characteristic color and texture of boardwalk",
+      "surface patterns and details of boardwalk",
+      "distinctive structural parts of boardwalk",
+      "overall composition defining a boardwalk"
+    ],
+    "compact_prompt": "a photo of a boardwalk, recognized by typical shape and appearance of boardwalk and distinctive structural parts of boardwalk."
+  },
+  "boat deck": {
+    "name": "boat deck",
+    "traits": [
+      "typical shape and appearance of boat deck",
+      "characteristic color and texture of boat deck",
+      "surface patterns and details of boat deck",
+      "distinctive structural parts of boat deck",
+      "overall composition defining a boat deck"
+    ],
+    "compact_prompt": "a photo of a boat deck, recognized by typical shape and appearance of boat deck and distinctive structural parts of boat deck."
+  },
+  "boathouse": {
+    "name": "boathouse",
+    "traits": [
+      "typical shape and appearance of boathouse",
+      "characteristic color and texture of boathouse",
+      "surface patterns and details of boathouse",
+      "distinctive structural parts of boathouse",
+      "overall composition defining a boathouse"
+    ],
+    "compact_prompt": "a photo of a boathouse, recognized by typical shape and appearance of boathouse and distinctive structural parts of boathouse."
+  },
+  "bookstore": {
+    "name": "bookstore",
+    "traits": [
+      "typical shape and appearance of bookstore",
+      "characteristic color and texture of bookstore",
+      "surface patterns and details of bookstore",
+      "distinctive structural parts of bookstore",
+      "overall composition defining a bookstore"
+    ],
+    "compact_prompt": "a photo of a bookstore, recognized by typical shape and appearance of bookstore and distinctive structural parts of bookstore."
+  },
+  "botanical garden": {
+    "name": "botanical garden",
+    "traits": [
+      "typical shape and appearance of botanical garden",
+      "characteristic color and texture of botanical garden",
+      "surface patterns and details of botanical garden",
+      "distinctive structural parts of botanical garden",
+      "overall composition defining a botanical garden"
+    ],
+    "compact_prompt": "a photo of a botanical garden, recognized by typical shape and appearance of botanical garden and distinctive structural parts of botanical garden."
+  },
+  "bowling alley": {
+    "name": "bowling alley",
+    "traits": [
+      "typical shape and appearance of bowling alley",
+      "characteristic color and texture of bowling alley",
+      "surface patterns and details of bowling alley",
+      "distinctive structural parts of bowling alley",
+      "overall composition defining a bowling alley"
+    ],
+    "compact_prompt": "a photo of a bowling alley, recognized by typical shape and appearance of bowling alley and distinctive structural parts of bowling alley."
+  },
+  "boxing ring": {
+    "name": "boxing ring",
+    "traits": [
+      "typical shape and appearance of boxing ring",
+      "characteristic color and texture of boxing ring",
+      "surface patterns and details of boxing ring",
+      "distinctive structural parts of boxing ring",
+      "overall composition defining a boxing ring"
+    ],
+    "compact_prompt": "a photo of a boxing ring, recognized by typical shape and appearance of boxing ring and distinctive structural parts of boxing ring."
+  },
+  "bridge": {
+    "name": "bridge",
+    "traits": [
+      "typical shape and appearance of bridge",
+      "characteristic color and texture of bridge",
+      "surface patterns and details of bridge",
+      "distinctive structural parts of bridge",
+      "overall composition defining a bridge"
+    ],
+    "compact_prompt": "a photo of a bridge, recognized by typical shape and appearance of bridge and distinctive structural parts of bridge."
+  },
+  "building facade": {
+    "name": "building facade",
+    "traits": [
+      "typical shape and appearance of building facade",
+      "characteristic color and texture of building facade",
+      "surface patterns and details of building facade",
+      "distinctive structural parts of building facade",
+      "overall composition defining a building facade"
+    ],
+    "compact_prompt": "a photo of a building facade, recognized by typical shape and appearance of building facade and distinctive structural parts of building facade."
+  },
+  "bullring": {
+    "name": "bullring",
+    "traits": [
+      "typical shape and appearance of bullring",
+      "characteristic color and texture of bullring",
+      "surface patterns and details of bullring",
+      "distinctive structural parts of bullring",
+      "overall composition defining a bullring"
+    ],
+    "compact_prompt": "a photo of a bullring, recognized by typical shape and appearance of bullring and distinctive structural parts of bullring."
+  },
+  "burial chamber": {
+    "name": "burial chamber",
+    "traits": [
+      "typical shape and appearance of burial chamber",
+      "characteristic color and texture of burial chamber",
+      "surface patterns and details of burial chamber",
+      "distinctive structural parts of burial chamber",
+      "overall composition defining a burial chamber"
+    ],
+    "compact_prompt": "a photo of a burial chamber, recognized by typical shape and appearance of burial chamber and distinctive structural parts of burial chamber."
+  },
+  "bus interior": {
+    "name": "bus interior",
+    "traits": [
+      "typical shape and appearance of bus interior",
+      "characteristic color and texture of bus interior",
+      "surface patterns and details of bus interior",
+      "distinctive structural parts of bus interior",
+      "overall composition defining a bus interior"
+    ],
+    "compact_prompt": "a photo of a bus interior, recognized by typical shape and appearance of bus interior and distinctive structural parts of bus interior."
+  },
+  "butchers shop": {
+    "name": "butchers shop",
+    "traits": [
+      "typical shape and appearance of butchers shop",
+      "characteristic color and texture of butchers shop",
+      "surface patterns and details of butchers shop",
+      "distinctive structural parts of butchers shop",
+      "overall composition defining a butchers shop"
+    ],
+    "compact_prompt": "a photo of a butchers shop, recognized by typical shape and appearance of butchers shop and distinctive structural parts of butchers shop."
+  },
+  "butte": {
+    "name": "butte",
+    "traits": [
+      "typical shape and appearance of butte",
+      "characteristic color and texture of butte",
+      "surface patterns and details of butte",
+      "distinctive structural parts of butte",
+      "overall composition defining a butte"
+    ],
+    "compact_prompt": "a photo of a butte, recognized by typical shape and appearance of butte and distinctive structural parts of butte."
+  },
+  "cafeteria": {
+    "name": "cafeteria",
+    "traits": [
+      "typical shape and appearance of cafeteria",
+      "characteristic color and texture of cafeteria",
+      "surface patterns and details of cafeteria",
+      "distinctive structural parts of cafeteria",
+      "overall composition defining a cafeteria"
+    ],
+    "compact_prompt": "a photo of a cafeteria, recognized by typical shape and appearance of cafeteria and distinctive structural parts of cafeteria."
+  },
+  "campsite": {
+    "name": "campsite",
+    "traits": [
+      "typical shape and appearance of campsite",
+      "characteristic color and texture of campsite",
+      "surface patterns and details of campsite",
+      "distinctive structural parts of campsite",
+      "overall composition defining a campsite"
+    ],
+    "compact_prompt": "a photo of a campsite, recognized by typical shape and appearance of campsite and distinctive structural parts of campsite."
+  },
+  "campus": {
+    "name": "campus",
+    "traits": [
+      "typical shape and appearance of campus",
+      "characteristic color and texture of campus",
+      "surface patterns and details of campus",
+      "distinctive structural parts of campus",
+      "overall composition defining a campus"
+    ],
+    "compact_prompt": "a photo of a campus, recognized by typical shape and appearance of campus and distinctive structural parts of campus."
+  },
+  "natural": {
+    "name": "natural",
+    "traits": [
+      "typical shape and appearance of natural",
+      "characteristic color and texture of natural",
+      "surface patterns and details of natural",
+      "distinctive structural parts of natural",
+      "overall composition defining a natural"
+    ],
+    "compact_prompt": "a photo of a natural, recognized by typical shape and appearance of natural and distinctive structural parts of natural."
+  },
+  "urban": {
+    "name": "urban",
+    "traits": [
+      "typical shape and appearance of urban",
+      "characteristic color and texture of urban",
+      "surface patterns and details of urban",
+      "distinctive structural parts of urban",
+      "overall composition defining a urban"
+    ],
+    "compact_prompt": "a photo of a urban, recognized by typical shape and appearance of urban and distinctive structural parts of urban."
+  },
+  "candy store": {
+    "name": "candy store",
+    "traits": [
+      "typical shape and appearance of candy store",
+      "characteristic color and texture of candy store",
+      "surface patterns and details of candy store",
+      "distinctive structural parts of candy store",
+      "overall composition defining a candy store"
+    ],
+    "compact_prompt": "a photo of a candy store, recognized by typical shape and appearance of candy store and distinctive structural parts of candy store."
+  },
+  "canyon": {
+    "name": "canyon",
+    "traits": [
+      "typical shape and appearance of canyon",
+      "characteristic color and texture of canyon",
+      "surface patterns and details of canyon",
+      "distinctive structural parts of canyon",
+      "overall composition defining a canyon"
+    ],
+    "compact_prompt": "a photo of a canyon, recognized by typical shape and appearance of canyon and distinctive structural parts of canyon."
+  },
+  "backseat": {
+    "name": "backseat",
+    "traits": [
+      "typical shape and appearance of backseat",
+      "characteristic color and texture of backseat",
+      "surface patterns and details of backseat",
+      "distinctive structural parts of backseat",
+      "overall composition defining a backseat"
+    ],
+    "compact_prompt": "a photo of a backseat, recognized by typical shape and appearance of backseat and distinctive structural parts of backseat."
+  },
+  "frontseat": {
+    "name": "frontseat",
+    "traits": [
+      "typical shape and appearance of frontseat",
+      "characteristic color and texture of frontseat",
+      "surface patterns and details of frontseat",
+      "distinctive structural parts of frontseat",
+      "overall composition defining a frontseat"
+    ],
+    "compact_prompt": "a photo of a frontseat, recognized by typical shape and appearance of frontseat and distinctive structural parts of frontseat."
+  },
+  "carrousel": {
+    "name": "carrousel",
+    "traits": [
+      "typical shape and appearance of carrousel",
+      "characteristic color and texture of carrousel",
+      "surface patterns and details of carrousel",
+      "distinctive structural parts of carrousel",
+      "overall composition defining a carrousel"
+    ],
+    "compact_prompt": "a photo of a carrousel, recognized by typical shape and appearance of carrousel and distinctive structural parts of carrousel."
+  },
+  "castle": {
+    "name": "castle",
+    "traits": [
+      "typical shape and appearance of castle",
+      "characteristic color and texture of castle",
+      "surface patterns and details of castle",
+      "distinctive structural parts of castle",
+      "overall composition defining a castle"
+    ],
+    "compact_prompt": "a photo of a castle, recognized by typical shape and appearance of castle and distinctive structural parts of castle."
+  },
+  "catacomb": {
+    "name": "catacomb",
+    "traits": [
+      "typical shape and appearance of catacomb",
+      "characteristic color and texture of catacomb",
+      "surface patterns and details of catacomb",
+      "distinctive structural parts of catacomb",
+      "overall composition defining a catacomb"
+    ],
+    "compact_prompt": "a photo of a catacomb, recognized by typical shape and appearance of catacomb and distinctive structural parts of catacomb."
+  },
+  "cemetery": {
+    "name": "cemetery",
+    "traits": [
+      "typical shape and appearance of cemetery",
+      "characteristic color and texture of cemetery",
+      "surface patterns and details of cemetery",
+      "distinctive structural parts of cemetery",
+      "overall composition defining a cemetery"
+    ],
+    "compact_prompt": "a photo of a cemetery, recognized by typical shape and appearance of cemetery and distinctive structural parts of cemetery."
+  },
+  "chalet": {
+    "name": "chalet",
+    "traits": [
+      "typical shape and appearance of chalet",
+      "characteristic color and texture of chalet",
+      "surface patterns and details of chalet",
+      "distinctive structural parts of chalet",
+      "overall composition defining a chalet"
+    ],
+    "compact_prompt": "a photo of a chalet, recognized by typical shape and appearance of chalet and distinctive structural parts of chalet."
+  },
+  "cheese factory": {
+    "name": "cheese factory",
+    "traits": [
+      "typical shape and appearance of cheese factory",
+      "characteristic color and texture of cheese factory",
+      "surface patterns and details of cheese factory",
+      "distinctive structural parts of cheese factory",
+      "overall composition defining a cheese factory"
+    ],
+    "compact_prompt": "a photo of a cheese factory, recognized by typical shape and appearance of cheese factory and distinctive structural parts of cheese factory."
+  },
+  "chemistry lab": {
+    "name": "chemistry lab",
+    "traits": [
+      "typical shape and appearance of chemistry lab",
+      "characteristic color and texture of chemistry lab",
+      "surface patterns and details of chemistry lab",
+      "distinctive structural parts of chemistry lab",
+      "overall composition defining a chemistry lab"
+    ],
+    "compact_prompt": "a photo of a chemistry lab, recognized by typical shape and appearance of chemistry lab and distinctive structural parts of chemistry lab."
+  },
+  "childs room": {
+    "name": "childs room",
+    "traits": [
+      "typical shape and appearance of childs room",
+      "characteristic color and texture of childs room",
+      "surface patterns and details of childs room",
+      "distinctive structural parts of childs room",
+      "overall composition defining a childs room"
+    ],
+    "compact_prompt": "a photo of a childs room, recognized by typical shape and appearance of childs room and distinctive structural parts of childs room."
+  },
+  "classroom": {
+    "name": "classroom",
+    "traits": [
+      "typical shape and appearance of classroom",
+      "characteristic color and texture of classroom",
+      "surface patterns and details of classroom",
+      "distinctive structural parts of classroom",
+      "overall composition defining a classroom"
+    ],
+    "compact_prompt": "a photo of a classroom, recognized by typical shape and appearance of classroom and distinctive structural parts of classroom."
+  },
+  "clean room": {
+    "name": "clean room",
+    "traits": [
+      "typical shape and appearance of clean room",
+      "characteristic color and texture of clean room",
+      "surface patterns and details of clean room",
+      "distinctive structural parts of clean room",
+      "overall composition defining a clean room"
+    ],
+    "compact_prompt": "a photo of a clean room, recognized by typical shape and appearance of clean room and distinctive structural parts of clean room."
+  },
+  "cliff": {
+    "name": "cliff",
+    "traits": [
+      "typical shape and appearance of cliff",
+      "characteristic color and texture of cliff",
+      "surface patterns and details of cliff",
+      "distinctive structural parts of cliff",
+      "overall composition defining a cliff"
+    ],
+    "compact_prompt": "a photo of a cliff, recognized by typical shape and appearance of cliff and distinctive structural parts of cliff."
+  },
+  "closet": {
+    "name": "closet",
+    "traits": [
+      "typical shape and appearance of closet",
+      "characteristic color and texture of closet",
+      "surface patterns and details of closet",
+      "distinctive structural parts of closet",
+      "overall composition defining a closet"
+    ],
+    "compact_prompt": "a photo of a closet, recognized by typical shape and appearance of closet and distinctive structural parts of closet."
+  },
+  "clothing store": {
+    "name": "clothing store",
+    "traits": [
+      "typical shape and appearance of clothing store",
+      "characteristic color and texture of clothing store",
+      "surface patterns and details of clothing store",
+      "distinctive structural parts of clothing store",
+      "overall composition defining a clothing store"
+    ],
+    "compact_prompt": "a photo of a clothing store, recognized by typical shape and appearance of clothing store and distinctive structural parts of clothing store."
+  },
+  "coast": {
+    "name": "coast",
+    "traits": [
+      "typical shape and appearance of coast",
+      "characteristic color and texture of coast",
+      "surface patterns and details of coast",
+      "distinctive structural parts of coast",
+      "overall composition defining a coast"
+    ],
+    "compact_prompt": "a photo of a coast, recognized by typical shape and appearance of coast and distinctive structural parts of coast."
+  },
+  "cockpit": {
+    "name": "cockpit",
+    "traits": [
+      "typical shape and appearance of cockpit",
+      "characteristic color and texture of cockpit",
+      "surface patterns and details of cockpit",
+      "distinctive structural parts of cockpit",
+      "overall composition defining a cockpit"
+    ],
+    "compact_prompt": "a photo of a cockpit, recognized by typical shape and appearance of cockpit and distinctive structural parts of cockpit."
+  },
+  "coffee shop": {
+    "name": "coffee shop",
+    "traits": [
+      "typical shape and appearance of coffee shop",
+      "characteristic color and texture of coffee shop",
+      "surface patterns and details of coffee shop",
+      "distinctive structural parts of coffee shop",
+      "overall composition defining a coffee shop"
+    ],
+    "compact_prompt": "a photo of a coffee shop, recognized by typical shape and appearance of coffee shop and distinctive structural parts of coffee shop."
+  },
+  "computer room": {
+    "name": "computer room",
+    "traits": [
+      "typical shape and appearance of computer room",
+      "characteristic color and texture of computer room",
+      "surface patterns and details of computer room",
+      "distinctive structural parts of computer room",
+      "overall composition defining a computer room"
+    ],
+    "compact_prompt": "a photo of a computer room, recognized by typical shape and appearance of computer room and distinctive structural parts of computer room."
+  },
+  "conference center": {
+    "name": "conference center",
+    "traits": [
+      "typical shape and appearance of conference center",
+      "characteristic color and texture of conference center",
+      "surface patterns and details of conference center",
+      "distinctive structural parts of conference center",
+      "overall composition defining a conference center"
+    ],
+    "compact_prompt": "a photo of a conference center, recognized by typical shape and appearance of conference center and distinctive structural parts of conference center."
+  },
+  "conference room": {
+    "name": "conference room",
+    "traits": [
+      "typical shape and appearance of conference room",
+      "characteristic color and texture of conference room",
+      "surface patterns and details of conference room",
+      "distinctive structural parts of conference room",
+      "overall composition defining a conference room"
+    ],
+    "compact_prompt": "a photo of a conference room, recognized by typical shape and appearance of conference room and distinctive structural parts of conference room."
+  },
+  "construction site": {
+    "name": "construction site",
+    "traits": [
+      "typical shape and appearance of construction site",
+      "characteristic color and texture of construction site",
+      "surface patterns and details of construction site",
+      "distinctive structural parts of construction site",
+      "overall composition defining a construction site"
+    ],
+    "compact_prompt": "a photo of a construction site, recognized by typical shape and appearance of construction site and distinctive structural parts of construction site."
+  },
+  "control room": {
+    "name": "control room",
+    "traits": [
+      "typical shape and appearance of control room",
+      "characteristic color and texture of control room",
+      "surface patterns and details of control room",
+      "distinctive structural parts of control room",
+      "overall composition defining a control room"
+    ],
+    "compact_prompt": "a photo of a control room, recognized by typical shape and appearance of control room and distinctive structural parts of control room."
+  },
+  "corn field": {
+    "name": "corn field",
+    "traits": [
+      "typical shape and appearance of corn field",
+      "characteristic color and texture of corn field",
+      "surface patterns and details of corn field",
+      "distinctive structural parts of corn field",
+      "overall composition defining a corn field"
+    ],
+    "compact_prompt": "a photo of a corn field, recognized by typical shape and appearance of corn field and distinctive structural parts of corn field."
+  },
+  "corral": {
+    "name": "corral",
+    "traits": [
+      "typical shape and appearance of corral",
+      "characteristic color and texture of corral",
+      "surface patterns and details of corral",
+      "distinctive structural parts of corral",
+      "overall composition defining a corral"
+    ],
+    "compact_prompt": "a photo of a corral, recognized by typical shape and appearance of corral and distinctive structural parts of corral."
+  },
+  "corridor": {
+    "name": "corridor",
+    "traits": [
+      "typical shape and appearance of corridor",
+      "characteristic color and texture of corridor",
+      "surface patterns and details of corridor",
+      "distinctive structural parts of corridor",
+      "overall composition defining a corridor"
+    ],
+    "compact_prompt": "a photo of a corridor, recognized by typical shape and appearance of corridor and distinctive structural parts of corridor."
+  },
+  "cottage garden": {
+    "name": "cottage garden",
+    "traits": [
+      "typical shape and appearance of cottage garden",
+      "characteristic color and texture of cottage garden",
+      "surface patterns and details of cottage garden",
+      "distinctive structural parts of cottage garden",
+      "overall composition defining a cottage garden"
+    ],
+    "compact_prompt": "a photo of a cottage garden, recognized by typical shape and appearance of cottage garden and distinctive structural parts of cottage garden."
+  },
+  "courthouse": {
+    "name": "courthouse",
+    "traits": [
+      "typical shape and appearance of courthouse",
+      "characteristic color and texture of courthouse",
+      "surface patterns and details of courthouse",
+      "distinctive structural parts of courthouse",
+      "overall composition defining a courthouse"
+    ],
+    "compact_prompt": "a photo of a courthouse, recognized by typical shape and appearance of courthouse and distinctive structural parts of courthouse."
+  },
+  "courtroom": {
+    "name": "courtroom",
+    "traits": [
+      "typical shape and appearance of courtroom",
+      "characteristic color and texture of courtroom",
+      "surface patterns and details of courtroom",
+      "distinctive structural parts of courtroom",
+      "overall composition defining a courtroom"
+    ],
+    "compact_prompt": "a photo of a courtroom, recognized by typical shape and appearance of courtroom and distinctive structural parts of courtroom."
+  },
+  "courtyard": {
+    "name": "courtyard",
+    "traits": [
+      "typical shape and appearance of courtyard",
+      "characteristic color and texture of courtyard",
+      "surface patterns and details of courtyard",
+      "distinctive structural parts of courtyard",
+      "overall composition defining a courtyard"
+    ],
+    "compact_prompt": "a photo of a courtyard, recognized by typical shape and appearance of courtyard and distinctive structural parts of courtyard."
+  },
+  "creek": {
+    "name": "creek",
+    "traits": [
+      "typical shape and appearance of creek",
+      "characteristic color and texture of creek",
+      "surface patterns and details of creek",
+      "distinctive structural parts of creek",
+      "overall composition defining a creek"
+    ],
+    "compact_prompt": "a photo of a creek, recognized by typical shape and appearance of creek and distinctive structural parts of creek."
+  },
+  "crevasse": {
+    "name": "crevasse",
+    "traits": [
+      "typical shape and appearance of crevasse",
+      "characteristic color and texture of crevasse",
+      "surface patterns and details of crevasse",
+      "distinctive structural parts of crevasse",
+      "overall composition defining a crevasse"
+    ],
+    "compact_prompt": "a photo of a crevasse, recognized by typical shape and appearance of crevasse and distinctive structural parts of crevasse."
+  },
+  "crosswalk": {
+    "name": "crosswalk",
+    "traits": [
+      "typical shape and appearance of crosswalk",
+      "characteristic color and texture of crosswalk",
+      "surface patterns and details of crosswalk",
+      "distinctive structural parts of crosswalk",
+      "overall composition defining a crosswalk"
+    ],
+    "compact_prompt": "a photo of a crosswalk, recognized by typical shape and appearance of crosswalk and distinctive structural parts of crosswalk."
+  },
+  "office": {
+    "name": "office",
+    "traits": [
+      "typical shape and appearance of office",
+      "characteristic color and texture of office",
+      "surface patterns and details of office",
+      "distinctive structural parts of office",
+      "overall composition defining a office"
+    ],
+    "compact_prompt": "a photo of a office, recognized by typical shape and appearance of office and distinctive structural parts of office."
+  },
+  "dam": {
+    "name": "dam",
+    "traits": [
+      "typical shape and appearance of dam",
+      "characteristic color and texture of dam",
+      "surface patterns and details of dam",
+      "distinctive structural parts of dam",
+      "overall composition defining a dam"
+    ],
+    "compact_prompt": "a photo of a dam, recognized by typical shape and appearance of dam and distinctive structural parts of dam."
+  },
+  "delicatessen": {
+    "name": "delicatessen",
+    "traits": [
+      "typical shape and appearance of delicatessen",
+      "characteristic color and texture of delicatessen",
+      "surface patterns and details of delicatessen",
+      "distinctive structural parts of delicatessen",
+      "overall composition defining a delicatessen"
+    ],
+    "compact_prompt": "a photo of a delicatessen, recognized by typical shape and appearance of delicatessen and distinctive structural parts of delicatessen."
+  },
+  "dentists office": {
+    "name": "dentists office",
+    "traits": [
+      "typical shape and appearance of dentists office",
+      "characteristic color and texture of dentists office",
+      "surface patterns and details of dentists office",
+      "distinctive structural parts of dentists office",
+      "overall composition defining a dentists office"
+    ],
+    "compact_prompt": "a photo of a dentists office, recognized by typical shape and appearance of dentists office and distinctive structural parts of dentists office."
+  },
+  "sand": {
+    "name": "sand",
+    "traits": [
+      "typical shape and appearance of sand",
+      "characteristic color and texture of sand",
+      "surface patterns and details of sand",
+      "distinctive structural parts of sand",
+      "overall composition defining a sand"
+    ],
+    "compact_prompt": "a photo of a sand, recognized by typical shape and appearance of sand and distinctive structural parts of sand."
+  },
+  "vegetation": {
+    "name": "vegetation",
+    "traits": [
+      "typical shape and appearance of vegetation",
+      "characteristic color and texture of vegetation",
+      "surface patterns and details of vegetation",
+      "distinctive structural parts of vegetation",
+      "overall composition defining a vegetation"
+    ],
+    "compact_prompt": "a photo of a vegetation, recognized by typical shape and appearance of vegetation and distinctive structural parts of vegetation."
+  },
+  "home": {
+    "name": "home",
+    "traits": [
+      "typical shape and appearance of home",
+      "characteristic color and texture of home",
+      "surface patterns and details of home",
+      "distinctive structural parts of home",
+      "overall composition defining a home"
+    ],
+    "compact_prompt": "a photo of a home, recognized by typical shape and appearance of home and distinctive structural parts of home."
+  },
+  "vehicle": {
+    "name": "vehicle",
+    "traits": [
+      "typical shape and appearance of vehicle",
+      "characteristic color and texture of vehicle",
+      "surface patterns and details of vehicle",
+      "distinctive structural parts of vehicle",
+      "overall composition defining a vehicle"
+    ],
+    "compact_prompt": "a photo of a vehicle, recognized by typical shape and appearance of vehicle and distinctive structural parts of vehicle."
+  },
+  "dining car": {
+    "name": "dining car",
+    "traits": [
+      "typical shape and appearance of dining car",
+      "characteristic color and texture of dining car",
+      "surface patterns and details of dining car",
+      "distinctive structural parts of dining car",
+      "overall composition defining a dining car"
+    ],
+    "compact_prompt": "a photo of a dining car, recognized by typical shape and appearance of dining car and distinctive structural parts of dining car."
+  },
+  "dining room": {
+    "name": "dining room",
+    "traits": [
+      "typical shape and appearance of dining room",
+      "characteristic color and texture of dining room",
+      "surface patterns and details of dining room",
+      "distinctive structural parts of dining room",
+      "overall composition defining a dining room"
+    ],
+    "compact_prompt": "a photo of a dining room, recognized by typical shape and appearance of dining room and distinctive structural parts of dining room."
+  },
+  "discotheque": {
+    "name": "discotheque",
+    "traits": [
+      "typical shape and appearance of discotheque",
+      "characteristic color and texture of discotheque",
+      "surface patterns and details of discotheque",
+      "distinctive structural parts of discotheque",
+      "overall composition defining a discotheque"
+    ],
+    "compact_prompt": "a photo of a discotheque, recognized by typical shape and appearance of discotheque and distinctive structural parts of discotheque."
+  },
+  "dock": {
+    "name": "dock",
+    "traits": [
+      "typical shape and appearance of dock",
+      "characteristic color and texture of dock",
+      "surface patterns and details of dock",
+      "distinctive structural parts of dock",
+      "overall composition defining a dock"
+    ],
+    "compact_prompt": "a photo of a dock, recognized by typical shape and appearance of dock and distinctive structural parts of dock."
+  },
+  "dorm room": {
+    "name": "dorm room",
+    "traits": [
+      "typical shape and appearance of dorm room",
+      "characteristic color and texture of dorm room",
+      "surface patterns and details of dorm room",
+      "distinctive structural parts of dorm room",
+      "overall composition defining a dorm room"
+    ],
+    "compact_prompt": "a photo of a dorm room, recognized by typical shape and appearance of dorm room and distinctive structural parts of dorm room."
+  },
+  "driveway": {
+    "name": "driveway",
+    "traits": [
+      "typical shape and appearance of driveway",
+      "characteristic color and texture of driveway",
+      "surface patterns and details of driveway",
+      "distinctive structural parts of driveway",
+      "overall composition defining a driveway"
+    ],
+    "compact_prompt": "a photo of a driveway, recognized by typical shape and appearance of driveway and distinctive structural parts of driveway."
+  },
+  "drugstore": {
+    "name": "drugstore",
+    "traits": [
+      "typical shape and appearance of drugstore",
+      "characteristic color and texture of drugstore",
+      "surface patterns and details of drugstore",
+      "distinctive structural parts of drugstore",
+      "overall composition defining a drugstore"
+    ],
+    "compact_prompt": "a photo of a drugstore, recognized by typical shape and appearance of drugstore and distinctive structural parts of drugstore."
+  },
+  "electrical substation": {
+    "name": "electrical substation",
+    "traits": [
+      "typical shape and appearance of electrical substation",
+      "characteristic color and texture of electrical substation",
+      "surface patterns and details of electrical substation",
+      "distinctive structural parts of electrical substation",
+      "overall composition defining a electrical substation"
+    ],
+    "compact_prompt": "a photo of a electrical substation, recognized by typical shape and appearance of electrical substation and distinctive structural parts of electrical substation."
+  },
+  "door": {
+    "name": "door",
+    "traits": [
+      "typical shape and appearance of door",
+      "characteristic color and texture of door",
+      "surface patterns and details of door",
+      "distinctive structural parts of door",
+      "overall composition defining a door"
+    ],
+    "compact_prompt": "a photo of a door, recognized by typical shape and appearance of door and distinctive structural parts of door."
+  },
+  "elevator shaft": {
+    "name": "elevator shaft",
+    "traits": [
+      "typical shape and appearance of elevator shaft",
+      "characteristic color and texture of elevator shaft",
+      "surface patterns and details of elevator shaft",
+      "distinctive structural parts of elevator shaft",
+      "overall composition defining a elevator shaft"
+    ],
+    "compact_prompt": "a photo of a elevator shaft, recognized by typical shape and appearance of elevator shaft and distinctive structural parts of elevator shaft."
+  },
+  "engine room": {
+    "name": "engine room",
+    "traits": [
+      "typical shape and appearance of engine room",
+      "characteristic color and texture of engine room",
+      "surface patterns and details of engine room",
+      "distinctive structural parts of engine room",
+      "overall composition defining a engine room"
+    ],
+    "compact_prompt": "a photo of a engine room, recognized by typical shape and appearance of engine room and distinctive structural parts of engine room."
+  },
+  "excavation": {
+    "name": "excavation",
+    "traits": [
+      "typical shape and appearance of excavation",
+      "characteristic color and texture of excavation",
+      "surface patterns and details of excavation",
+      "distinctive structural parts of excavation",
+      "overall composition defining a excavation"
+    ],
+    "compact_prompt": "a photo of a excavation, recognized by typical shape and appearance of excavation and distinctive structural parts of excavation."
+  },
+  "fairway": {
+    "name": "fairway",
+    "traits": [
+      "typical shape and appearance of fairway",
+      "characteristic color and texture of fairway",
+      "surface patterns and details of fairway",
+      "distinctive structural parts of fairway",
+      "overall composition defining a fairway"
+    ],
+    "compact_prompt": "a photo of a fairway, recognized by typical shape and appearance of fairway and distinctive structural parts of fairway."
+  },
+  "fastfood restaurant": {
+    "name": "fastfood restaurant",
+    "traits": [
+      "typical shape and appearance of fastfood restaurant",
+      "characteristic color and texture of fastfood restaurant",
+      "surface patterns and details of fastfood restaurant",
+      "distinctive structural parts of fastfood restaurant",
+      "overall composition defining a fastfood restaurant"
+    ],
+    "compact_prompt": "a photo of a fastfood restaurant, recognized by typical shape and appearance of fastfood restaurant and distinctive structural parts of fastfood restaurant."
+  },
+  "cultivated": {
+    "name": "cultivated",
+    "traits": [
+      "typical shape and appearance of cultivated",
+      "characteristic color and texture of cultivated",
+      "surface patterns and details of cultivated",
+      "distinctive structural parts of cultivated",
+      "overall composition defining a cultivated"
+    ],
+    "compact_prompt": "a photo of a cultivated, recognized by typical shape and appearance of cultivated and distinctive structural parts of cultivated."
+  },
+  "wild": {
+    "name": "wild",
+    "traits": [
+      "typical shape and appearance of wild",
+      "characteristic color and texture of wild",
+      "surface patterns and details of wild",
+      "distinctive structural parts of wild",
+      "overall composition defining a wild"
+    ],
+    "compact_prompt": "a photo of a wild, recognized by typical shape and appearance of wild and distinctive structural parts of wild."
+  },
+  "fire escape": {
+    "name": "fire escape",
+    "traits": [
+      "typical shape and appearance of fire escape",
+      "characteristic color and texture of fire escape",
+      "surface patterns and details of fire escape",
+      "distinctive structural parts of fire escape",
+      "overall composition defining a fire escape"
+    ],
+    "compact_prompt": "a photo of a fire escape, recognized by typical shape and appearance of fire escape and distinctive structural parts of fire escape."
+  },
+  "fire station": {
+    "name": "fire station",
+    "traits": [
+      "typical shape and appearance of fire station",
+      "characteristic color and texture of fire station",
+      "surface patterns and details of fire station",
+      "distinctive structural parts of fire station",
+      "overall composition defining a fire station"
+    ],
+    "compact_prompt": "a photo of a fire station, recognized by typical shape and appearance of fire station and distinctive structural parts of fire station."
+  },
+  "fishpond": {
+    "name": "fishpond",
+    "traits": [
+      "typical shape and appearance of fishpond",
+      "characteristic color and texture of fishpond",
+      "surface patterns and details of fishpond",
+      "distinctive structural parts of fishpond",
+      "overall composition defining a fishpond"
+    ],
+    "compact_prompt": "a photo of a fishpond, recognized by typical shape and appearance of fishpond and distinctive structural parts of fishpond."
+  },
+  "food court": {
+    "name": "food court",
+    "traits": [
+      "typical shape and appearance of food court",
+      "characteristic color and texture of food court",
+      "surface patterns and details of food court",
+      "distinctive structural parts of food court",
+      "overall composition defining a food court"
+    ],
+    "compact_prompt": "a photo of a food court, recognized by typical shape and appearance of food court and distinctive structural parts of food court."
+  },
+  "broadleaf": {
+    "name": "broadleaf",
+    "traits": [
+      "typical shape and appearance of broadleaf",
+      "characteristic color and texture of broadleaf",
+      "surface patterns and details of broadleaf",
+      "distinctive structural parts of broadleaf",
+      "overall composition defining a broadleaf"
+    ],
+    "compact_prompt": "a photo of a broadleaf, recognized by typical shape and appearance of broadleaf and distinctive structural parts of broadleaf."
+  },
+  "needleleaf": {
+    "name": "needleleaf",
+    "traits": [
+      "typical shape and appearance of needleleaf",
+      "characteristic color and texture of needleleaf",
+      "surface patterns and details of needleleaf",
+      "distinctive structural parts of needleleaf",
+      "overall composition defining a needleleaf"
+    ],
+    "compact_prompt": "a photo of a needleleaf, recognized by typical shape and appearance of needleleaf and distinctive structural parts of needleleaf."
+  },
+  "forest path": {
+    "name": "forest path",
+    "traits": [
+      "typical shape and appearance of forest path",
+      "characteristic color and texture of forest path",
+      "surface patterns and details of forest path",
+      "distinctive structural parts of forest path",
+      "overall composition defining a forest path"
+    ],
+    "compact_prompt": "a photo of a forest path, recognized by typical shape and appearance of forest path and distinctive structural parts of forest path."
+  },
+  "forest road": {
+    "name": "forest road",
+    "traits": [
+      "typical shape and appearance of forest road",
+      "characteristic color and texture of forest road",
+      "surface patterns and details of forest road",
+      "distinctive structural parts of forest road",
+      "overall composition defining a forest road"
+    ],
+    "compact_prompt": "a photo of a forest road, recognized by typical shape and appearance of forest road and distinctive structural parts of forest road."
+  },
+  "formal garden": {
+    "name": "formal garden",
+    "traits": [
+      "typical shape and appearance of formal garden",
+      "characteristic color and texture of formal garden",
+      "surface patterns and details of formal garden",
+      "distinctive structural parts of formal garden",
+      "overall composition defining a formal garden"
+    ],
+    "compact_prompt": "a photo of a formal garden, recognized by typical shape and appearance of formal garden and distinctive structural parts of formal garden."
+  },
+  "fountain": {
+    "name": "fountain",
+    "traits": [
+      "typical shape and appearance of fountain",
+      "characteristic color and texture of fountain",
+      "surface patterns and details of fountain",
+      "distinctive structural parts of fountain",
+      "overall composition defining a fountain"
+    ],
+    "compact_prompt": "a photo of a fountain, recognized by typical shape and appearance of fountain and distinctive structural parts of fountain."
+  },
+  "galley": {
+    "name": "galley",
+    "traits": [
+      "typical shape and appearance of galley",
+      "characteristic color and texture of galley",
+      "surface patterns and details of galley",
+      "distinctive structural parts of galley",
+      "overall composition defining a galley"
+    ],
+    "compact_prompt": "a photo of a galley, recognized by typical shape and appearance of galley and distinctive structural parts of galley."
+  },
+  "game room": {
+    "name": "game room",
+    "traits": [
+      "typical shape and appearance of game room",
+      "characteristic color and texture of game room",
+      "surface patterns and details of game room",
+      "distinctive structural parts of game room",
+      "overall composition defining a game room"
+    ],
+    "compact_prompt": "a photo of a game room, recognized by typical shape and appearance of game room and distinctive structural parts of game room."
+  },
+  "garbage dump": {
+    "name": "garbage dump",
+    "traits": [
+      "typical shape and appearance of garbage dump",
+      "characteristic color and texture of garbage dump",
+      "surface patterns and details of garbage dump",
+      "distinctive structural parts of garbage dump",
+      "overall composition defining a garbage dump"
+    ],
+    "compact_prompt": "a photo of a garbage dump, recognized by typical shape and appearance of garbage dump and distinctive structural parts of garbage dump."
+  },
+  "gas station": {
+    "name": "gas station",
+    "traits": [
+      "typical shape and appearance of gas station",
+      "characteristic color and texture of gas station",
+      "surface patterns and details of gas station",
+      "distinctive structural parts of gas station",
+      "overall composition defining a gas station"
+    ],
+    "compact_prompt": "a photo of a gas station, recognized by typical shape and appearance of gas station and distinctive structural parts of gas station."
+  },
+  "gift shop": {
+    "name": "gift shop",
+    "traits": [
+      "typical shape and appearance of gift shop",
+      "characteristic color and texture of gift shop",
+      "surface patterns and details of gift shop",
+      "distinctive structural parts of gift shop",
+      "overall composition defining a gift shop"
+    ],
+    "compact_prompt": "a photo of a gift shop, recognized by typical shape and appearance of gift shop and distinctive structural parts of gift shop."
+  },
+  "golf course": {
+    "name": "golf course",
+    "traits": [
+      "typical shape and appearance of golf course",
+      "characteristic color and texture of golf course",
+      "surface patterns and details of golf course",
+      "distinctive structural parts of golf course",
+      "overall composition defining a golf course"
+    ],
+    "compact_prompt": "a photo of a golf course, recognized by typical shape and appearance of golf course and distinctive structural parts of golf course."
+  },
+  "harbor": {
+    "name": "harbor",
+    "traits": [
+      "typical shape and appearance of harbor",
+      "characteristic color and texture of harbor",
+      "surface patterns and details of harbor",
+      "distinctive structural parts of harbor",
+      "overall composition defining a harbor"
+    ],
+    "compact_prompt": "a photo of a harbor, recognized by typical shape and appearance of harbor and distinctive structural parts of harbor."
+  },
+  "hayfield": {
+    "name": "hayfield",
+    "traits": [
+      "typical shape and appearance of hayfield",
+      "characteristic color and texture of hayfield",
+      "surface patterns and details of hayfield",
+      "distinctive structural parts of hayfield",
+      "overall composition defining a hayfield"
+    ],
+    "compact_prompt": "a photo of a hayfield, recognized by typical shape and appearance of hayfield and distinctive structural parts of hayfield."
+  },
+  "heliport": {
+    "name": "heliport",
+    "traits": [
+      "typical shape and appearance of heliport",
+      "characteristic color and texture of heliport",
+      "surface patterns and details of heliport",
+      "distinctive structural parts of heliport",
+      "overall composition defining a heliport"
+    ],
+    "compact_prompt": "a photo of a heliport, recognized by typical shape and appearance of heliport and distinctive structural parts of heliport."
+  },
+  "herb garden": {
+    "name": "herb garden",
+    "traits": [
+      "typical shape and appearance of herb garden",
+      "characteristic color and texture of herb garden",
+      "surface patterns and details of herb garden",
+      "distinctive structural parts of herb garden",
+      "overall composition defining a herb garden"
+    ],
+    "compact_prompt": "a photo of a herb garden, recognized by typical shape and appearance of herb garden and distinctive structural parts of herb garden."
+  },
+  "highway": {
+    "name": "highway",
+    "traits": [
+      "typical shape and appearance of highway",
+      "characteristic color and texture of highway",
+      "surface patterns and details of highway",
+      "distinctive structural parts of highway",
+      "overall composition defining a highway"
+    ],
+    "compact_prompt": "a photo of a highway, recognized by typical shape and appearance of highway and distinctive structural parts of highway."
+  },
+  "hill": {
+    "name": "hill",
+    "traits": [
+      "typical shape and appearance of hill",
+      "characteristic color and texture of hill",
+      "surface patterns and details of hill",
+      "distinctive structural parts of hill",
+      "overall composition defining a hill"
+    ],
+    "compact_prompt": "a photo of a hill, recognized by typical shape and appearance of hill and distinctive structural parts of hill."
+  },
+  "home office": {
+    "name": "home office",
+    "traits": [
+      "typical shape and appearance of home office",
+      "characteristic color and texture of home office",
+      "surface patterns and details of home office",
+      "distinctive structural parts of home office",
+      "overall composition defining a home office"
+    ],
+    "compact_prompt": "a photo of a home office, recognized by typical shape and appearance of home office and distinctive structural parts of home office."
+  },
+  "hospital": {
+    "name": "hospital",
+    "traits": [
+      "typical shape and appearance of hospital",
+      "characteristic color and texture of hospital",
+      "surface patterns and details of hospital",
+      "distinctive structural parts of hospital",
+      "overall composition defining a hospital"
+    ],
+    "compact_prompt": "a photo of a hospital, recognized by typical shape and appearance of hospital and distinctive structural parts of hospital."
+  },
+  "hospital room": {
+    "name": "hospital room",
+    "traits": [
+      "typical shape and appearance of hospital room",
+      "characteristic color and texture of hospital room",
+      "surface patterns and details of hospital room",
+      "distinctive structural parts of hospital room",
+      "overall composition defining a hospital room"
+    ],
+    "compact_prompt": "a photo of a hospital room, recognized by typical shape and appearance of hospital room and distinctive structural parts of hospital room."
+  },
+  "hot spring": {
+    "name": "hot spring",
+    "traits": [
+      "typical shape and appearance of hot spring",
+      "characteristic color and texture of hot spring",
+      "surface patterns and details of hot spring",
+      "distinctive structural parts of hot spring",
+      "overall composition defining a hot spring"
+    ],
+    "compact_prompt": "a photo of a hot spring, recognized by typical shape and appearance of hot spring and distinctive structural parts of hot spring."
+  },
+  "hotel room": {
+    "name": "hotel room",
+    "traits": [
+      "typical shape and appearance of hotel room",
+      "characteristic color and texture of hotel room",
+      "surface patterns and details of hotel room",
+      "distinctive structural parts of hotel room",
+      "overall composition defining a hotel room"
+    ],
+    "compact_prompt": "a photo of a hotel room, recognized by typical shape and appearance of hotel room and distinctive structural parts of hotel room."
+  },
+  "house": {
+    "name": "house",
+    "traits": [
+      "typical shape and appearance of house",
+      "characteristic color and texture of house",
+      "surface patterns and details of house",
+      "distinctive structural parts of house",
+      "overall composition defining a house"
+    ],
+    "compact_prompt": "a photo of a house, recognized by typical shape and appearance of house and distinctive structural parts of house."
+  },
+  "ice cream parlor": {
+    "name": "ice cream parlor",
+    "traits": [
+      "typical shape and appearance of ice cream parlor",
+      "characteristic color and texture of ice cream parlor",
+      "surface patterns and details of ice cream parlor",
+      "distinctive structural parts of ice cream parlor",
+      "overall composition defining a ice cream parlor"
+    ],
+    "compact_prompt": "a photo of a ice cream parlor, recognized by typical shape and appearance of ice cream parlor and distinctive structural parts of ice cream parlor."
+  },
+  "ice floe": {
+    "name": "ice floe",
+    "traits": [
+      "typical shape and appearance of ice floe",
+      "characteristic color and texture of ice floe",
+      "surface patterns and details of ice floe",
+      "distinctive structural parts of ice floe",
+      "overall composition defining a ice floe"
+    ],
+    "compact_prompt": "a photo of a ice floe, recognized by typical shape and appearance of ice floe and distinctive structural parts of ice floe."
+  },
+  "ice shelf": {
+    "name": "ice shelf",
+    "traits": [
+      "typical shape and appearance of ice shelf",
+      "characteristic color and texture of ice shelf",
+      "surface patterns and details of ice shelf",
+      "distinctive structural parts of ice shelf",
+      "overall composition defining a ice shelf"
+    ],
+    "compact_prompt": "a photo of a ice shelf, recognized by typical shape and appearance of ice shelf and distinctive structural parts of ice shelf."
+  },
+  "iceberg": {
+    "name": "iceberg",
+    "traits": [
+      "typical shape and appearance of iceberg",
+      "characteristic color and texture of iceberg",
+      "surface patterns and details of iceberg",
+      "distinctive structural parts of iceberg",
+      "overall composition defining a iceberg"
+    ],
+    "compact_prompt": "a photo of a iceberg, recognized by typical shape and appearance of iceberg and distinctive structural parts of iceberg."
+  },
+  "igloo": {
+    "name": "igloo",
+    "traits": [
+      "typical shape and appearance of igloo",
+      "characteristic color and texture of igloo",
+      "surface patterns and details of igloo",
+      "distinctive structural parts of igloo",
+      "overall composition defining a igloo"
+    ],
+    "compact_prompt": "a photo of a igloo, recognized by typical shape and appearance of igloo and distinctive structural parts of igloo."
+  },
+  "industrial area": {
+    "name": "industrial area",
+    "traits": [
+      "typical shape and appearance of industrial area",
+      "characteristic color and texture of industrial area",
+      "surface patterns and details of industrial area",
+      "distinctive structural parts of industrial area",
+      "overall composition defining a industrial area"
+    ],
+    "compact_prompt": "a photo of a industrial area, recognized by typical shape and appearance of industrial area and distinctive structural parts of industrial area."
+  },
+  "islet": {
+    "name": "islet",
+    "traits": [
+      "typical shape and appearance of islet",
+      "characteristic color and texture of islet",
+      "surface patterns and details of islet",
+      "distinctive structural parts of islet",
+      "overall composition defining a islet"
+    ],
+    "compact_prompt": "a photo of a islet, recognized by typical shape and appearance of islet and distinctive structural parts of islet."
+  },
+  "jail cell": {
+    "name": "jail cell",
+    "traits": [
+      "typical shape and appearance of jail cell",
+      "characteristic color and texture of jail cell",
+      "surface patterns and details of jail cell",
+      "distinctive structural parts of jail cell",
+      "overall composition defining a jail cell"
+    ],
+    "compact_prompt": "a photo of a jail cell, recognized by typical shape and appearance of jail cell and distinctive structural parts of jail cell."
+  },
+  "jewelry shop": {
+    "name": "jewelry shop",
+    "traits": [
+      "typical shape and appearance of jewelry shop",
+      "characteristic color and texture of jewelry shop",
+      "surface patterns and details of jewelry shop",
+      "distinctive structural parts of jewelry shop",
+      "overall composition defining a jewelry shop"
+    ],
+    "compact_prompt": "a photo of a jewelry shop, recognized by typical shape and appearance of jewelry shop and distinctive structural parts of jewelry shop."
+  },
+  "kasbah": {
+    "name": "kasbah",
+    "traits": [
+      "typical shape and appearance of kasbah",
+      "characteristic color and texture of kasbah",
+      "surface patterns and details of kasbah",
+      "distinctive structural parts of kasbah",
+      "overall composition defining a kasbah"
+    ],
+    "compact_prompt": "a photo of a kasbah, recognized by typical shape and appearance of kasbah and distinctive structural parts of kasbah."
+  },
+  "kindergarden classroom": {
+    "name": "kindergarden classroom",
+    "traits": [
+      "typical shape and appearance of kindergarden classroom",
+      "characteristic color and texture of kindergarden classroom",
+      "surface patterns and details of kindergarden classroom",
+      "distinctive structural parts of kindergarden classroom",
+      "overall composition defining a kindergarden classroom"
+    ],
+    "compact_prompt": "a photo of a kindergarden classroom, recognized by typical shape and appearance of kindergarden classroom and distinctive structural parts of kindergarden classroom."
+  },
+  "kitchen": {
+    "name": "kitchen",
+    "traits": [
+      "typical shape and appearance of kitchen",
+      "characteristic color and texture of kitchen",
+      "surface patterns and details of kitchen",
+      "distinctive structural parts of kitchen",
+      "overall composition defining a kitchen"
+    ],
+    "compact_prompt": "a photo of a kitchen, recognized by typical shape and appearance of kitchen and distinctive structural parts of kitchen."
+  },
+  "kitchenette": {
+    "name": "kitchenette",
+    "traits": [
+      "typical shape and appearance of kitchenette",
+      "characteristic color and texture of kitchenette",
+      "surface patterns and details of kitchenette",
+      "distinctive structural parts of kitchenette",
+      "overall composition defining a kitchenette"
+    ],
+    "compact_prompt": "a photo of a kitchenette, recognized by typical shape and appearance of kitchenette and distinctive structural parts of kitchenette."
+  },
+  "landfill": {
+    "name": "landfill",
+    "traits": [
+      "typical shape and appearance of landfill",
+      "characteristic color and texture of landfill",
+      "surface patterns and details of landfill",
+      "distinctive structural parts of landfill",
+      "overall composition defining a landfill"
+    ],
+    "compact_prompt": "a photo of a landfill, recognized by typical shape and appearance of landfill and distinctive structural parts of landfill."
+  },
+  "landing deck": {
+    "name": "landing deck",
+    "traits": [
+      "typical shape and appearance of landing deck",
+      "characteristic color and texture of landing deck",
+      "surface patterns and details of landing deck",
+      "distinctive structural parts of landing deck",
+      "overall composition defining a landing deck"
+    ],
+    "compact_prompt": "a photo of a landing deck, recognized by typical shape and appearance of landing deck and distinctive structural parts of landing deck."
+  },
+  "laundromat": {
+    "name": "laundromat",
+    "traits": [
+      "typical shape and appearance of laundromat",
+      "characteristic color and texture of laundromat",
+      "surface patterns and details of laundromat",
+      "distinctive structural parts of laundromat",
+      "overall composition defining a laundromat"
+    ],
+    "compact_prompt": "a photo of a laundromat, recognized by typical shape and appearance of laundromat and distinctive structural parts of laundromat."
+  },
+  "lecture room": {
+    "name": "lecture room",
+    "traits": [
+      "typical shape and appearance of lecture room",
+      "characteristic color and texture of lecture room",
+      "surface patterns and details of lecture room",
+      "distinctive structural parts of lecture room",
+      "overall composition defining a lecture room"
+    ],
+    "compact_prompt": "a photo of a lecture room, recognized by typical shape and appearance of lecture room and distinctive structural parts of lecture room."
+  },
+  "lift bridge": {
+    "name": "lift bridge",
+    "traits": [
+      "typical shape and appearance of lift bridge",
+      "characteristic color and texture of lift bridge",
+      "surface patterns and details of lift bridge",
+      "distinctive structural parts of lift bridge",
+      "overall composition defining a lift bridge"
+    ],
+    "compact_prompt": "a photo of a lift bridge, recognized by typical shape and appearance of lift bridge and distinctive structural parts of lift bridge."
+  },
+  "lighthouse": {
+    "name": "lighthouse",
+    "traits": [
+      "typical shape and appearance of lighthouse",
+      "characteristic color and texture of lighthouse",
+      "surface patterns and details of lighthouse",
+      "distinctive structural parts of lighthouse",
+      "overall composition defining a lighthouse"
+    ],
+    "compact_prompt": "a photo of a lighthouse, recognized by typical shape and appearance of lighthouse and distinctive structural parts of lighthouse."
+  },
+  "limousine interior": {
+    "name": "limousine interior",
+    "traits": [
+      "typical shape and appearance of limousine interior",
+      "characteristic color and texture of limousine interior",
+      "surface patterns and details of limousine interior",
+      "distinctive structural parts of limousine interior",
+      "overall composition defining a limousine interior"
+    ],
+    "compact_prompt": "a photo of a limousine interior, recognized by typical shape and appearance of limousine interior and distinctive structural parts of limousine interior."
+  },
+  "living room": {
+    "name": "living room",
+    "traits": [
+      "typical shape and appearance of living room",
+      "characteristic color and texture of living room",
+      "surface patterns and details of living room",
+      "distinctive structural parts of living room",
+      "overall composition defining a living room"
+    ],
+    "compact_prompt": "a photo of a living room, recognized by typical shape and appearance of living room and distinctive structural parts of living room."
+  },
+  "lobby": {
+    "name": "lobby",
+    "traits": [
+      "typical shape and appearance of lobby",
+      "characteristic color and texture of lobby",
+      "surface patterns and details of lobby",
+      "distinctive structural parts of lobby",
+      "overall composition defining a lobby"
+    ],
+    "compact_prompt": "a photo of a lobby, recognized by typical shape and appearance of lobby and distinctive structural parts of lobby."
+  },
+  "lock chamber": {
+    "name": "lock chamber",
+    "traits": [
+      "typical shape and appearance of lock chamber",
+      "characteristic color and texture of lock chamber",
+      "surface patterns and details of lock chamber",
+      "distinctive structural parts of lock chamber",
+      "overall composition defining a lock chamber"
+    ],
+    "compact_prompt": "a photo of a lock chamber, recognized by typical shape and appearance of lock chamber and distinctive structural parts of lock chamber."
+  },
+  "locker room": {
+    "name": "locker room",
+    "traits": [
+      "typical shape and appearance of locker room",
+      "characteristic color and texture of locker room",
+      "surface patterns and details of locker room",
+      "distinctive structural parts of locker room",
+      "overall composition defining a locker room"
+    ],
+    "compact_prompt": "a photo of a locker room, recognized by typical shape and appearance of locker room and distinctive structural parts of locker room."
+  },
+  "mansion": {
+    "name": "mansion",
+    "traits": [
+      "typical shape and appearance of mansion",
+      "characteristic color and texture of mansion",
+      "surface patterns and details of mansion",
+      "distinctive structural parts of mansion",
+      "overall composition defining a mansion"
+    ],
+    "compact_prompt": "a photo of a mansion, recognized by typical shape and appearance of mansion and distinctive structural parts of mansion."
+  },
+  "manufactured home": {
+    "name": "manufactured home",
+    "traits": [
+      "typical shape and appearance of manufactured home",
+      "characteristic color and texture of manufactured home",
+      "surface patterns and details of manufactured home",
+      "distinctive structural parts of manufactured home",
+      "overall composition defining a manufactured home"
+    ],
+    "compact_prompt": "a photo of a manufactured home, recognized by typical shape and appearance of manufactured home and distinctive structural parts of manufactured home."
+  },
+  "marsh": {
+    "name": "marsh",
+    "traits": [
+      "typical shape and appearance of marsh",
+      "characteristic color and texture of marsh",
+      "surface patterns and details of marsh",
+      "distinctive structural parts of marsh",
+      "overall composition defining a marsh"
+    ],
+    "compact_prompt": "a photo of a marsh, recognized by typical shape and appearance of marsh and distinctive structural parts of marsh."
+  },
+  "martial arts gym": {
+    "name": "martial arts gym",
+    "traits": [
+      "typical shape and appearance of martial arts gym",
+      "characteristic color and texture of martial arts gym",
+      "surface patterns and details of martial arts gym",
+      "distinctive structural parts of martial arts gym",
+      "overall composition defining a martial arts gym"
+    ],
+    "compact_prompt": "a photo of a martial arts gym, recognized by typical shape and appearance of martial arts gym and distinctive structural parts of martial arts gym."
+  },
+  "mausoleum": {
+    "name": "mausoleum",
+    "traits": [
+      "typical shape and appearance of mausoleum",
+      "characteristic color and texture of mausoleum",
+      "surface patterns and details of mausoleum",
+      "distinctive structural parts of mausoleum",
+      "overall composition defining a mausoleum"
+    ],
+    "compact_prompt": "a photo of a mausoleum, recognized by typical shape and appearance of mausoleum and distinctive structural parts of mausoleum."
+  },
+  "medina": {
+    "name": "medina",
+    "traits": [
+      "typical shape and appearance of medina",
+      "characteristic color and texture of medina",
+      "surface patterns and details of medina",
+      "distinctive structural parts of medina",
+      "overall composition defining a medina"
+    ],
+    "compact_prompt": "a photo of a medina, recognized by typical shape and appearance of medina and distinctive structural parts of medina."
+  },
+  "water": {
+    "name": "water",
+    "traits": [
+      "typical shape and appearance of water",
+      "characteristic color and texture of water",
+      "surface patterns and details of water",
+      "distinctive structural parts of water",
+      "overall composition defining a water"
+    ],
+    "compact_prompt": "a photo of a water, recognized by typical shape and appearance of water and distinctive structural parts of water."
+  },
+  "motel": {
+    "name": "motel",
+    "traits": [
+      "typical shape and appearance of motel",
+      "characteristic color and texture of motel",
+      "surface patterns and details of motel",
+      "distinctive structural parts of motel",
+      "overall composition defining a motel"
+    ],
+    "compact_prompt": "a photo of a motel, recognized by typical shape and appearance of motel and distinctive structural parts of motel."
+  },
+  "mountain": {
+    "name": "mountain",
+    "traits": [
+      "typical shape and appearance of mountain",
+      "characteristic color and texture of mountain",
+      "surface patterns and details of mountain",
+      "distinctive structural parts of mountain",
+      "overall composition defining a mountain"
+    ],
+    "compact_prompt": "a photo of a mountain, recognized by typical shape and appearance of mountain and distinctive structural parts of mountain."
+  },
+  "mountain snowy": {
+    "name": "mountain snowy",
+    "traits": [
+      "typical shape and appearance of mountain snowy",
+      "characteristic color and texture of mountain snowy",
+      "surface patterns and details of mountain snowy",
+      "distinctive structural parts of mountain snowy",
+      "overall composition defining a mountain snowy"
+    ],
+    "compact_prompt": "a photo of a mountain snowy, recognized by typical shape and appearance of mountain snowy and distinctive structural parts of mountain snowy."
+  },
+  "music store": {
+    "name": "music store",
+    "traits": [
+      "typical shape and appearance of music store",
+      "characteristic color and texture of music store",
+      "surface patterns and details of music store",
+      "distinctive structural parts of music store",
+      "overall composition defining a music store"
+    ],
+    "compact_prompt": "a photo of a music store, recognized by typical shape and appearance of music store and distinctive structural parts of music store."
+  },
+  "music studio": {
+    "name": "music studio",
+    "traits": [
+      "typical shape and appearance of music studio",
+      "characteristic color and texture of music studio",
+      "surface patterns and details of music studio",
+      "distinctive structural parts of music studio",
+      "overall composition defining a music studio"
+    ],
+    "compact_prompt": "a photo of a music studio, recognized by typical shape and appearance of music studio and distinctive structural parts of music studio."
+  },
+  "nursery": {
+    "name": "nursery",
+    "traits": [
+      "typical shape and appearance of nursery",
+      "characteristic color and texture of nursery",
+      "surface patterns and details of nursery",
+      "distinctive structural parts of nursery",
+      "overall composition defining a nursery"
+    ],
+    "compact_prompt": "a photo of a nursery, recognized by typical shape and appearance of nursery and distinctive structural parts of nursery."
+  },
+  "oast house": {
+    "name": "oast house",
+    "traits": [
+      "typical shape and appearance of oast house",
+      "characteristic color and texture of oast house",
+      "surface patterns and details of oast house",
+      "distinctive structural parts of oast house",
+      "overall composition defining a oast house"
+    ],
+    "compact_prompt": "a photo of a oast house, recognized by typical shape and appearance of oast house and distinctive structural parts of oast house."
+  },
+  "ocean": {
+    "name": "ocean",
+    "traits": [
+      "typical shape and appearance of ocean",
+      "characteristic color and texture of ocean",
+      "surface patterns and details of ocean",
+      "distinctive structural parts of ocean",
+      "overall composition defining a ocean"
+    ],
+    "compact_prompt": "a photo of a ocean, recognized by typical shape and appearance of ocean and distinctive structural parts of ocean."
+  },
+  "office building": {
+    "name": "office building",
+    "traits": [
+      "typical shape and appearance of office building",
+      "characteristic color and texture of office building",
+      "surface patterns and details of office building",
+      "distinctive structural parts of office building",
+      "overall composition defining a office building"
+    ],
+    "compact_prompt": "a photo of a office building, recognized by typical shape and appearance of office building and distinctive structural parts of office building."
+  },
+  "oilrig": {
+    "name": "oilrig",
+    "traits": [
+      "typical shape and appearance of oilrig",
+      "characteristic color and texture of oilrig",
+      "surface patterns and details of oilrig",
+      "distinctive structural parts of oilrig",
+      "overall composition defining a oilrig"
+    ],
+    "compact_prompt": "a photo of a oilrig, recognized by typical shape and appearance of oilrig and distinctive structural parts of oilrig."
+  },
+  "operating room": {
+    "name": "operating room",
+    "traits": [
+      "typical shape and appearance of operating room",
+      "characteristic color and texture of operating room",
+      "surface patterns and details of operating room",
+      "distinctive structural parts of operating room",
+      "overall composition defining a operating room"
+    ],
+    "compact_prompt": "a photo of a operating room, recognized by typical shape and appearance of operating room and distinctive structural parts of operating room."
+  },
+  "orchard": {
+    "name": "orchard",
+    "traits": [
+      "typical shape and appearance of orchard",
+      "characteristic color and texture of orchard",
+      "surface patterns and details of orchard",
+      "distinctive structural parts of orchard",
+      "overall composition defining a orchard"
+    ],
+    "compact_prompt": "a photo of a orchard, recognized by typical shape and appearance of orchard and distinctive structural parts of orchard."
+  },
+  "pagoda": {
+    "name": "pagoda",
+    "traits": [
+      "typical shape and appearance of pagoda",
+      "characteristic color and texture of pagoda",
+      "surface patterns and details of pagoda",
+      "distinctive structural parts of pagoda",
+      "overall composition defining a pagoda"
+    ],
+    "compact_prompt": "a photo of a pagoda, recognized by typical shape and appearance of pagoda and distinctive structural parts of pagoda."
+  },
+  "palace": {
+    "name": "palace",
+    "traits": [
+      "typical shape and appearance of palace",
+      "characteristic color and texture of palace",
+      "surface patterns and details of palace",
+      "distinctive structural parts of palace",
+      "overall composition defining a palace"
+    ],
+    "compact_prompt": "a photo of a palace, recognized by typical shape and appearance of palace and distinctive structural parts of palace."
+  },
+  "pantry": {
+    "name": "pantry",
+    "traits": [
+      "typical shape and appearance of pantry",
+      "characteristic color and texture of pantry",
+      "surface patterns and details of pantry",
+      "distinctive structural parts of pantry",
+      "overall composition defining a pantry"
+    ],
+    "compact_prompt": "a photo of a pantry, recognized by typical shape and appearance of pantry and distinctive structural parts of pantry."
+  },
+  "park": {
+    "name": "park",
+    "traits": [
+      "typical shape and appearance of park",
+      "characteristic color and texture of park",
+      "surface patterns and details of park",
+      "distinctive structural parts of park",
+      "overall composition defining a park"
+    ],
+    "compact_prompt": "a photo of a park, recognized by typical shape and appearance of park and distinctive structural parts of park."
+  },
+  "parking lot": {
+    "name": "parking lot",
+    "traits": [
+      "typical shape and appearance of parking lot",
+      "characteristic color and texture of parking lot",
+      "surface patterns and details of parking lot",
+      "distinctive structural parts of parking lot",
+      "overall composition defining a parking lot"
+    ],
+    "compact_prompt": "a photo of a parking lot, recognized by typical shape and appearance of parking lot and distinctive structural parts of parking lot."
+  },
+  "parlor": {
+    "name": "parlor",
+    "traits": [
+      "typical shape and appearance of parlor",
+      "characteristic color and texture of parlor",
+      "surface patterns and details of parlor",
+      "distinctive structural parts of parlor",
+      "overall composition defining a parlor"
+    ],
+    "compact_prompt": "a photo of a parlor, recognized by typical shape and appearance of parlor and distinctive structural parts of parlor."
+  },
+  "pasture": {
+    "name": "pasture",
+    "traits": [
+      "typical shape and appearance of pasture",
+      "characteristic color and texture of pasture",
+      "surface patterns and details of pasture",
+      "distinctive structural parts of pasture",
+      "overall composition defining a pasture"
+    ],
+    "compact_prompt": "a photo of a pasture, recognized by typical shape and appearance of pasture and distinctive structural parts of pasture."
+  },
+  "patio": {
+    "name": "patio",
+    "traits": [
+      "typical shape and appearance of patio",
+      "characteristic color and texture of patio",
+      "surface patterns and details of patio",
+      "distinctive structural parts of patio",
+      "overall composition defining a patio"
+    ],
+    "compact_prompt": "a photo of a patio, recognized by typical shape and appearance of patio and distinctive structural parts of patio."
+  },
+  "pavilion": {
+    "name": "pavilion",
+    "traits": [
+      "typical shape and appearance of pavilion",
+      "characteristic color and texture of pavilion",
+      "surface patterns and details of pavilion",
+      "distinctive structural parts of pavilion",
+      "overall composition defining a pavilion"
+    ],
+    "compact_prompt": "a photo of a pavilion, recognized by typical shape and appearance of pavilion and distinctive structural parts of pavilion."
+  },
+  "pharmacy": {
+    "name": "pharmacy",
+    "traits": [
+      "typical shape and appearance of pharmacy",
+      "characteristic color and texture of pharmacy",
+      "surface patterns and details of pharmacy",
+      "distinctive structural parts of pharmacy",
+      "overall composition defining a pharmacy"
+    ],
+    "compact_prompt": "a photo of a pharmacy, recognized by typical shape and appearance of pharmacy and distinctive structural parts of pharmacy."
+  },
+  "phone booth": {
+    "name": "phone booth",
+    "traits": [
+      "typical shape and appearance of phone booth",
+      "characteristic color and texture of phone booth",
+      "surface patterns and details of phone booth",
+      "distinctive structural parts of phone booth",
+      "overall composition defining a phone booth"
+    ],
+    "compact_prompt": "a photo of a phone booth, recognized by typical shape and appearance of phone booth and distinctive structural parts of phone booth."
+  },
+  "physics laboratory": {
+    "name": "physics laboratory",
+    "traits": [
+      "typical shape and appearance of physics laboratory",
+      "characteristic color and texture of physics laboratory",
+      "surface patterns and details of physics laboratory",
+      "distinctive structural parts of physics laboratory",
+      "overall composition defining a physics laboratory"
+    ],
+    "compact_prompt": "a photo of a physics laboratory, recognized by typical shape and appearance of physics laboratory and distinctive structural parts of physics laboratory."
+  },
+  "picnic area": {
+    "name": "picnic area",
+    "traits": [
+      "typical shape and appearance of picnic area",
+      "characteristic color and texture of picnic area",
+      "surface patterns and details of picnic area",
+      "distinctive structural parts of picnic area",
+      "overall composition defining a picnic area"
+    ],
+    "compact_prompt": "a photo of a picnic area, recognized by typical shape and appearance of picnic area and distinctive structural parts of picnic area."
+  },
+  "playground": {
+    "name": "playground",
+    "traits": [
+      "typical shape and appearance of playground",
+      "characteristic color and texture of playground",
+      "surface patterns and details of playground",
+      "distinctive structural parts of playground",
+      "overall composition defining a playground"
+    ],
+    "compact_prompt": "a photo of a playground, recognized by typical shape and appearance of playground and distinctive structural parts of playground."
+  },
+  "playroom": {
+    "name": "playroom",
+    "traits": [
+      "typical shape and appearance of playroom",
+      "characteristic color and texture of playroom",
+      "surface patterns and details of playroom",
+      "distinctive structural parts of playroom",
+      "overall composition defining a playroom"
+    ],
+    "compact_prompt": "a photo of a playroom, recognized by typical shape and appearance of playroom and distinctive structural parts of playroom."
+  },
+  "plaza": {
+    "name": "plaza",
+    "traits": [
+      "typical shape and appearance of plaza",
+      "characteristic color and texture of plaza",
+      "surface patterns and details of plaza",
+      "distinctive structural parts of plaza",
+      "overall composition defining a plaza"
+    ],
+    "compact_prompt": "a photo of a plaza, recognized by typical shape and appearance of plaza and distinctive structural parts of plaza."
+  },
+  "pond": {
+    "name": "pond",
+    "traits": [
+      "typical shape and appearance of pond",
+      "characteristic color and texture of pond",
+      "surface patterns and details of pond",
+      "distinctive structural parts of pond",
+      "overall composition defining a pond"
+    ],
+    "compact_prompt": "a photo of a pond, recognized by typical shape and appearance of pond and distinctive structural parts of pond."
+  },
+  "establishment": {
+    "name": "establishment",
+    "traits": [
+      "typical shape and appearance of establishment",
+      "characteristic color and texture of establishment",
+      "surface patterns and details of establishment",
+      "distinctive structural parts of establishment",
+      "overall composition defining a establishment"
+    ],
+    "compact_prompt": "a photo of a establishment, recognized by typical shape and appearance of establishment and distinctive structural parts of establishment."
+  },
+  "promenade deck": {
+    "name": "promenade deck",
+    "traits": [
+      "typical shape and appearance of promenade deck",
+      "characteristic color and texture of promenade deck",
+      "surface patterns and details of promenade deck",
+      "distinctive structural parts of promenade deck",
+      "overall composition defining a promenade deck"
+    ],
+    "compact_prompt": "a photo of a promenade deck, recognized by typical shape and appearance of promenade deck and distinctive structural parts of promenade deck."
+  },
+  "pulpit": {
+    "name": "pulpit",
+    "traits": [
+      "typical shape and appearance of pulpit",
+      "characteristic color and texture of pulpit",
+      "surface patterns and details of pulpit",
+      "distinctive structural parts of pulpit",
+      "overall composition defining a pulpit"
+    ],
+    "compact_prompt": "a photo of a pulpit, recognized by typical shape and appearance of pulpit and distinctive structural parts of pulpit."
+  },
+  "putting green": {
+    "name": "putting green",
+    "traits": [
+      "typical shape and appearance of putting green",
+      "characteristic color and texture of putting green",
+      "surface patterns and details of putting green",
+      "distinctive structural parts of putting green",
+      "overall composition defining a putting green"
+    ],
+    "compact_prompt": "a photo of a putting green, recognized by typical shape and appearance of putting green and distinctive structural parts of putting green."
+  },
+  "racecourse": {
+    "name": "racecourse",
+    "traits": [
+      "typical shape and appearance of racecourse",
+      "characteristic color and texture of racecourse",
+      "surface patterns and details of racecourse",
+      "distinctive structural parts of racecourse",
+      "overall composition defining a racecourse"
+    ],
+    "compact_prompt": "a photo of a racecourse, recognized by typical shape and appearance of racecourse and distinctive structural parts of racecourse."
+  },
+  "raceway": {
+    "name": "raceway",
+    "traits": [
+      "typical shape and appearance of raceway",
+      "characteristic color and texture of raceway",
+      "surface patterns and details of raceway",
+      "distinctive structural parts of raceway",
+      "overall composition defining a raceway"
+    ],
+    "compact_prompt": "a photo of a raceway, recognized by typical shape and appearance of raceway and distinctive structural parts of raceway."
+  },
+  "raft": {
+    "name": "raft",
+    "traits": [
+      "typical shape and appearance of raft",
+      "characteristic color and texture of raft",
+      "surface patterns and details of raft",
+      "distinctive structural parts of raft",
+      "overall composition defining a raft"
+    ],
+    "compact_prompt": "a photo of a raft, recognized by typical shape and appearance of raft and distinctive structural parts of raft."
+  },
+  "railroad track": {
+    "name": "railroad track",
+    "traits": [
+      "typical shape and appearance of railroad track",
+      "characteristic color and texture of railroad track",
+      "surface patterns and details of railroad track",
+      "distinctive structural parts of railroad track",
+      "overall composition defining a railroad track"
+    ],
+    "compact_prompt": "a photo of a railroad track, recognized by typical shape and appearance of railroad track and distinctive structural parts of railroad track."
+  },
+  "rainforest": {
+    "name": "rainforest",
+    "traits": [
+      "typical shape and appearance of rainforest",
+      "characteristic color and texture of rainforest",
+      "surface patterns and details of rainforest",
+      "distinctive structural parts of rainforest",
+      "overall composition defining a rainforest"
+    ],
+    "compact_prompt": "a photo of a rainforest, recognized by typical shape and appearance of rainforest and distinctive structural parts of rainforest."
+  },
+  "reception": {
+    "name": "reception",
+    "traits": [
+      "typical shape and appearance of reception",
+      "characteristic color and texture of reception",
+      "surface patterns and details of reception",
+      "distinctive structural parts of reception",
+      "overall composition defining a reception"
+    ],
+    "compact_prompt": "a photo of a reception, recognized by typical shape and appearance of reception and distinctive structural parts of reception."
+  },
+  "recreation room": {
+    "name": "recreation room",
+    "traits": [
+      "typical shape and appearance of recreation room",
+      "characteristic color and texture of recreation room",
+      "surface patterns and details of recreation room",
+      "distinctive structural parts of recreation room",
+      "overall composition defining a recreation room"
+    ],
+    "compact_prompt": "a photo of a recreation room, recognized by typical shape and appearance of recreation room and distinctive structural parts of recreation room."
+  },
+  "residential neighborhood": {
+    "name": "residential neighborhood",
+    "traits": [
+      "typical shape and appearance of residential neighborhood",
+      "characteristic color and texture of residential neighborhood",
+      "surface patterns and details of residential neighborhood",
+      "distinctive structural parts of residential neighborhood",
+      "overall composition defining a residential neighborhood"
+    ],
+    "compact_prompt": "a photo of a residential neighborhood, recognized by typical shape and appearance of residential neighborhood and distinctive structural parts of residential neighborhood."
+  },
+  "restaurant": {
+    "name": "restaurant",
+    "traits": [
+      "typical shape and appearance of restaurant",
+      "characteristic color and texture of restaurant",
+      "surface patterns and details of restaurant",
+      "distinctive structural parts of restaurant",
+      "overall composition defining a restaurant"
+    ],
+    "compact_prompt": "a photo of a restaurant, recognized by typical shape and appearance of restaurant and distinctive structural parts of restaurant."
+  },
+  "restaurant kitchen": {
+    "name": "restaurant kitchen",
+    "traits": [
+      "typical shape and appearance of restaurant kitchen",
+      "characteristic color and texture of restaurant kitchen",
+      "surface patterns and details of restaurant kitchen",
+      "distinctive structural parts of restaurant kitchen",
+      "overall composition defining a restaurant kitchen"
+    ],
+    "compact_prompt": "a photo of a restaurant kitchen, recognized by typical shape and appearance of restaurant kitchen and distinctive structural parts of restaurant kitchen."
+  },
+  "restaurant patio": {
+    "name": "restaurant patio",
+    "traits": [
+      "typical shape and appearance of restaurant patio",
+      "characteristic color and texture of restaurant patio",
+      "surface patterns and details of restaurant patio",
+      "distinctive structural parts of restaurant patio",
+      "overall composition defining a restaurant patio"
+    ],
+    "compact_prompt": "a photo of a restaurant patio, recognized by typical shape and appearance of restaurant patio and distinctive structural parts of restaurant patio."
+  },
+  "rice paddy": {
+    "name": "rice paddy",
+    "traits": [
+      "typical shape and appearance of rice paddy",
+      "characteristic color and texture of rice paddy",
+      "surface patterns and details of rice paddy",
+      "distinctive structural parts of rice paddy",
+      "overall composition defining a rice paddy"
+    ],
+    "compact_prompt": "a photo of a rice paddy, recognized by typical shape and appearance of rice paddy and distinctive structural parts of rice paddy."
+  },
+  "riding arena": {
+    "name": "riding arena",
+    "traits": [
+      "typical shape and appearance of riding arena",
+      "characteristic color and texture of riding arena",
+      "surface patterns and details of riding arena",
+      "distinctive structural parts of riding arena",
+      "overall composition defining a riding arena"
+    ],
+    "compact_prompt": "a photo of a riding arena, recognized by typical shape and appearance of riding arena and distinctive structural parts of riding arena."
+  },
+  "river": {
+    "name": "river",
+    "traits": [
+      "typical shape and appearance of river",
+      "characteristic color and texture of river",
+      "surface patterns and details of river",
+      "distinctive structural parts of river",
+      "overall composition defining a river"
+    ],
+    "compact_prompt": "a photo of a river, recognized by typical shape and appearance of river and distinctive structural parts of river."
+  },
+  "rock arch": {
+    "name": "rock arch",
+    "traits": [
+      "typical shape and appearance of rock arch",
+      "characteristic color and texture of rock arch",
+      "surface patterns and details of rock arch",
+      "distinctive structural parts of rock arch",
+      "overall composition defining a rock arch"
+    ],
+    "compact_prompt": "a photo of a rock arch, recognized by typical shape and appearance of rock arch and distinctive structural parts of rock arch."
+  },
+  "rope bridge": {
+    "name": "rope bridge",
+    "traits": [
+      "typical shape and appearance of rope bridge",
+      "characteristic color and texture of rope bridge",
+      "surface patterns and details of rope bridge",
+      "distinctive structural parts of rope bridge",
+      "overall composition defining a rope bridge"
+    ],
+    "compact_prompt": "a photo of a rope bridge, recognized by typical shape and appearance of rope bridge and distinctive structural parts of rope bridge."
+  },
+  "ruin": {
+    "name": "ruin",
+    "traits": [
+      "typical shape and appearance of ruin",
+      "characteristic color and texture of ruin",
+      "surface patterns and details of ruin",
+      "distinctive structural parts of ruin",
+      "overall composition defining a ruin"
+    ],
+    "compact_prompt": "a photo of a ruin, recognized by typical shape and appearance of ruin and distinctive structural parts of ruin."
+  },
+  "runway": {
+    "name": "runway",
+    "traits": [
+      "typical shape and appearance of runway",
+      "characteristic color and texture of runway",
+      "surface patterns and details of runway",
+      "distinctive structural parts of runway",
+      "overall composition defining a runway"
+    ],
+    "compact_prompt": "a photo of a runway, recognized by typical shape and appearance of runway and distinctive structural parts of runway."
+  },
+  "sandbar": {
+    "name": "sandbar",
+    "traits": [
+      "typical shape and appearance of sandbar",
+      "characteristic color and texture of sandbar",
+      "surface patterns and details of sandbar",
+      "distinctive structural parts of sandbar",
+      "overall composition defining a sandbar"
+    ],
+    "compact_prompt": "a photo of a sandbar, recognized by typical shape and appearance of sandbar and distinctive structural parts of sandbar."
+  },
+  "sandbox": {
+    "name": "sandbox",
+    "traits": [
+      "typical shape and appearance of sandbox",
+      "characteristic color and texture of sandbox",
+      "surface patterns and details of sandbox",
+      "distinctive structural parts of sandbox",
+      "overall composition defining a sandbox"
+    ],
+    "compact_prompt": "a photo of a sandbox, recognized by typical shape and appearance of sandbox and distinctive structural parts of sandbox."
+  },
+  "sauna": {
+    "name": "sauna",
+    "traits": [
+      "typical shape and appearance of sauna",
+      "characteristic color and texture of sauna",
+      "surface patterns and details of sauna",
+      "distinctive structural parts of sauna",
+      "overall composition defining a sauna"
+    ],
+    "compact_prompt": "a photo of a sauna, recognized by typical shape and appearance of sauna and distinctive structural parts of sauna."
+  },
+  "schoolhouse": {
+    "name": "schoolhouse",
+    "traits": [
+      "typical shape and appearance of schoolhouse",
+      "characteristic color and texture of schoolhouse",
+      "surface patterns and details of schoolhouse",
+      "distinctive structural parts of schoolhouse",
+      "overall composition defining a schoolhouse"
+    ],
+    "compact_prompt": "a photo of a schoolhouse, recognized by typical shape and appearance of schoolhouse and distinctive structural parts of schoolhouse."
+  },
+  "sea cliff": {
+    "name": "sea cliff",
+    "traits": [
+      "typical shape and appearance of sea cliff",
+      "characteristic color and texture of sea cliff",
+      "surface patterns and details of sea cliff",
+      "distinctive structural parts of sea cliff",
+      "overall composition defining a sea cliff"
+    ],
+    "compact_prompt": "a photo of a sea cliff, recognized by typical shape and appearance of sea cliff and distinctive structural parts of sea cliff."
+  },
+  "server room": {
+    "name": "server room",
+    "traits": [
+      "typical shape and appearance of server room",
+      "characteristic color and texture of server room",
+      "surface patterns and details of server room",
+      "distinctive structural parts of server room",
+      "overall composition defining a server room"
+    ],
+    "compact_prompt": "a photo of a server room, recognized by typical shape and appearance of server room and distinctive structural parts of server room."
+  },
+  "shed": {
+    "name": "shed",
+    "traits": [
+      "typical shape and appearance of shed",
+      "characteristic color and texture of shed",
+      "surface patterns and details of shed",
+      "distinctive structural parts of shed",
+      "overall composition defining a shed"
+    ],
+    "compact_prompt": "a photo of a shed, recognized by typical shape and appearance of shed and distinctive structural parts of shed."
+  },
+  "shoe shop": {
+    "name": "shoe shop",
+    "traits": [
+      "typical shape and appearance of shoe shop",
+      "characteristic color and texture of shoe shop",
+      "surface patterns and details of shoe shop",
+      "distinctive structural parts of shoe shop",
+      "overall composition defining a shoe shop"
+    ],
+    "compact_prompt": "a photo of a shoe shop, recognized by typical shape and appearance of shoe shop and distinctive structural parts of shoe shop."
+  },
+  "shopfront": {
+    "name": "shopfront",
+    "traits": [
+      "typical shape and appearance of shopfront",
+      "characteristic color and texture of shopfront",
+      "surface patterns and details of shopfront",
+      "distinctive structural parts of shopfront",
+      "overall composition defining a shopfront"
+    ],
+    "compact_prompt": "a photo of a shopfront, recognized by typical shape and appearance of shopfront and distinctive structural parts of shopfront."
+  },
+  "shower": {
+    "name": "shower",
+    "traits": [
+      "typical shape and appearance of shower",
+      "characteristic color and texture of shower",
+      "surface patterns and details of shower",
+      "distinctive structural parts of shower",
+      "overall composition defining a shower"
+    ],
+    "compact_prompt": "a photo of a shower, recognized by typical shape and appearance of shower and distinctive structural parts of shower."
+  },
+  "skatepark": {
+    "name": "skatepark",
+    "traits": [
+      "typical shape and appearance of skatepark",
+      "characteristic color and texture of skatepark",
+      "surface patterns and details of skatepark",
+      "distinctive structural parts of skatepark",
+      "overall composition defining a skatepark"
+    ],
+    "compact_prompt": "a photo of a skatepark, recognized by typical shape and appearance of skatepark and distinctive structural parts of skatepark."
+  },
+  "ski lodge": {
+    "name": "ski lodge",
+    "traits": [
+      "typical shape and appearance of ski lodge",
+      "characteristic color and texture of ski lodge",
+      "surface patterns and details of ski lodge",
+      "distinctive structural parts of ski lodge",
+      "overall composition defining a ski lodge"
+    ],
+    "compact_prompt": "a photo of a ski lodge, recognized by typical shape and appearance of ski lodge and distinctive structural parts of ski lodge."
+  },
+  "ski resort": {
+    "name": "ski resort",
+    "traits": [
+      "typical shape and appearance of ski resort",
+      "characteristic color and texture of ski resort",
+      "surface patterns and details of ski resort",
+      "distinctive structural parts of ski resort",
+      "overall composition defining a ski resort"
+    ],
+    "compact_prompt": "a photo of a ski resort, recognized by typical shape and appearance of ski resort and distinctive structural parts of ski resort."
+  },
+  "ski slope": {
+    "name": "ski slope",
+    "traits": [
+      "typical shape and appearance of ski slope",
+      "characteristic color and texture of ski slope",
+      "surface patterns and details of ski slope",
+      "distinctive structural parts of ski slope",
+      "overall composition defining a ski slope"
+    ],
+    "compact_prompt": "a photo of a ski slope, recognized by typical shape and appearance of ski slope and distinctive structural parts of ski slope."
+  },
+  "sky": {
+    "name": "sky",
+    "traits": [
+      "typical shape and appearance of sky",
+      "characteristic color and texture of sky",
+      "surface patterns and details of sky",
+      "distinctive structural parts of sky",
+      "overall composition defining a sky"
+    ],
+    "compact_prompt": "a photo of a sky, recognized by typical shape and appearance of sky and distinctive structural parts of sky."
+  },
+  "skyscraper": {
+    "name": "skyscraper",
+    "traits": [
+      "typical shape and appearance of skyscraper",
+      "characteristic color and texture of skyscraper",
+      "surface patterns and details of skyscraper",
+      "distinctive structural parts of skyscraper",
+      "overall composition defining a skyscraper"
+    ],
+    "compact_prompt": "a photo of a skyscraper, recognized by typical shape and appearance of skyscraper and distinctive structural parts of skyscraper."
+  },
+  "slum": {
+    "name": "slum",
+    "traits": [
+      "typical shape and appearance of slum",
+      "characteristic color and texture of slum",
+      "surface patterns and details of slum",
+      "distinctive structural parts of slum",
+      "overall composition defining a slum"
+    ],
+    "compact_prompt": "a photo of a slum, recognized by typical shape and appearance of slum and distinctive structural parts of slum."
+  },
+  "snowfield": {
+    "name": "snowfield",
+    "traits": [
+      "typical shape and appearance of snowfield",
+      "characteristic color and texture of snowfield",
+      "surface patterns and details of snowfield",
+      "distinctive structural parts of snowfield",
+      "overall composition defining a snowfield"
+    ],
+    "compact_prompt": "a photo of a snowfield, recognized by typical shape and appearance of snowfield and distinctive structural parts of snowfield."
+  },
+  "squash court": {
+    "name": "squash court",
+    "traits": [
+      "typical shape and appearance of squash court",
+      "characteristic color and texture of squash court",
+      "surface patterns and details of squash court",
+      "distinctive structural parts of squash court",
+      "overall composition defining a squash court"
+    ],
+    "compact_prompt": "a photo of a squash court, recognized by typical shape and appearance of squash court and distinctive structural parts of squash court."
+  },
+  "stable": {
+    "name": "stable",
+    "traits": [
+      "typical shape and appearance of stable",
+      "characteristic color and texture of stable",
+      "surface patterns and details of stable",
+      "distinctive structural parts of stable",
+      "overall composition defining a stable"
+    ],
+    "compact_prompt": "a photo of a stable, recognized by typical shape and appearance of stable and distinctive structural parts of stable."
+  },
+  "baseball": {
+    "name": "baseball",
+    "traits": [
+      "typical shape and appearance of baseball",
+      "characteristic color and texture of baseball",
+      "surface patterns and details of baseball",
+      "distinctive structural parts of baseball",
+      "overall composition defining a baseball"
+    ],
+    "compact_prompt": "a photo of a baseball, recognized by typical shape and appearance of baseball and distinctive structural parts of baseball."
+  },
+  "football": {
+    "name": "football",
+    "traits": [
+      "typical shape and appearance of football",
+      "characteristic color and texture of football",
+      "surface patterns and details of football",
+      "distinctive structural parts of football",
+      "overall composition defining a football"
+    ],
+    "compact_prompt": "a photo of a football, recognized by typical shape and appearance of football and distinctive structural parts of football."
+  },
+  "staircase": {
+    "name": "staircase",
+    "traits": [
+      "typical shape and appearance of staircase",
+      "characteristic color and texture of staircase",
+      "surface patterns and details of staircase",
+      "distinctive structural parts of staircase",
+      "overall composition defining a staircase"
+    ],
+    "compact_prompt": "a photo of a staircase, recognized by typical shape and appearance of staircase and distinctive structural parts of staircase."
+  },
+  "street": {
+    "name": "street",
+    "traits": [
+      "typical shape and appearance of street",
+      "characteristic color and texture of street",
+      "surface patterns and details of street",
+      "distinctive structural parts of street",
+      "overall composition defining a street"
+    ],
+    "compact_prompt": "a photo of a street, recognized by typical shape and appearance of street and distinctive structural parts of street."
+  },
+  "subway interior": {
+    "name": "subway interior",
+    "traits": [
+      "typical shape and appearance of subway interior",
+      "characteristic color and texture of subway interior",
+      "surface patterns and details of subway interior",
+      "distinctive structural parts of subway interior",
+      "overall composition defining a subway interior"
+    ],
+    "compact_prompt": "a photo of a subway interior, recognized by typical shape and appearance of subway interior and distinctive structural parts of subway interior."
+  },
+  "platform": {
+    "name": "platform",
+    "traits": [
+      "typical shape and appearance of platform",
+      "characteristic color and texture of platform",
+      "surface patterns and details of platform",
+      "distinctive structural parts of platform",
+      "overall composition defining a platform"
+    ],
+    "compact_prompt": "a photo of a platform, recognized by typical shape and appearance of platform and distinctive structural parts of platform."
+  },
+  "supermarket": {
+    "name": "supermarket",
+    "traits": [
+      "typical shape and appearance of supermarket",
+      "characteristic color and texture of supermarket",
+      "surface patterns and details of supermarket",
+      "distinctive structural parts of supermarket",
+      "overall composition defining a supermarket"
+    ],
+    "compact_prompt": "a photo of a supermarket, recognized by typical shape and appearance of supermarket and distinctive structural parts of supermarket."
+  },
+  "sushi bar": {
+    "name": "sushi bar",
+    "traits": [
+      "typical shape and appearance of sushi bar",
+      "characteristic color and texture of sushi bar",
+      "surface patterns and details of sushi bar",
+      "distinctive structural parts of sushi bar",
+      "overall composition defining a sushi bar"
+    ],
+    "compact_prompt": "a photo of a sushi bar, recognized by typical shape and appearance of sushi bar and distinctive structural parts of sushi bar."
+  },
+  "swamp": {
+    "name": "swamp",
+    "traits": [
+      "typical shape and appearance of swamp",
+      "characteristic color and texture of swamp",
+      "surface patterns and details of swamp",
+      "distinctive structural parts of swamp",
+      "overall composition defining a swamp"
+    ],
+    "compact_prompt": "a photo of a swamp, recognized by typical shape and appearance of swamp and distinctive structural parts of swamp."
+  },
+  "television studio": {
+    "name": "television studio",
+    "traits": [
+      "typical shape and appearance of television studio",
+      "characteristic color and texture of television studio",
+      "surface patterns and details of television studio",
+      "distinctive structural parts of television studio",
+      "overall composition defining a television studio"
+    ],
+    "compact_prompt": "a photo of a television studio, recognized by typical shape and appearance of television studio and distinctive structural parts of television studio."
+  },
+  "east asia": {
+    "name": "east asia",
+    "traits": [
+      "typical shape and appearance of east asia",
+      "characteristic color and texture of east asia",
+      "surface patterns and details of east asia",
+      "distinctive structural parts of east asia",
+      "overall composition defining a east asia"
+    ],
+    "compact_prompt": "a photo of a east asia, recognized by typical shape and appearance of east asia and distinctive structural parts of east asia."
+  },
+  "south asia": {
+    "name": "south asia",
+    "traits": [
+      "typical shape and appearance of south asia",
+      "characteristic color and texture of south asia",
+      "surface patterns and details of south asia",
+      "distinctive structural parts of south asia",
+      "overall composition defining a south asia"
+    ],
+    "compact_prompt": "a photo of a south asia, recognized by typical shape and appearance of south asia and distinctive structural parts of south asia."
+  },
+  "indoor procenium": {
+    "name": "indoor procenium",
+    "traits": [
+      "typical shape and appearance of indoor procenium",
+      "characteristic color and texture of indoor procenium",
+      "surface patterns and details of indoor procenium",
+      "distinctive structural parts of indoor procenium",
+      "overall composition defining a indoor procenium"
+    ],
+    "compact_prompt": "a photo of a indoor procenium, recognized by typical shape and appearance of indoor procenium and distinctive structural parts of indoor procenium."
+  },
+  "indoor seats": {
+    "name": "indoor seats",
+    "traits": [
+      "typical shape and appearance of indoor seats",
+      "characteristic color and texture of indoor seats",
+      "surface patterns and details of indoor seats",
+      "distinctive structural parts of indoor seats",
+      "overall composition defining a indoor seats"
+    ],
+    "compact_prompt": "a photo of a indoor seats, recognized by typical shape and appearance of indoor seats and distinctive structural parts of indoor seats."
+  },
+  "thriftshop": {
+    "name": "thriftshop",
+    "traits": [
+      "typical shape and appearance of thriftshop",
+      "characteristic color and texture of thriftshop",
+      "surface patterns and details of thriftshop",
+      "distinctive structural parts of thriftshop",
+      "overall composition defining a thriftshop"
+    ],
+    "compact_prompt": "a photo of a thriftshop, recognized by typical shape and appearance of thriftshop and distinctive structural parts of thriftshop."
+  },
+  "throne room": {
+    "name": "throne room",
+    "traits": [
+      "typical shape and appearance of throne room",
+      "characteristic color and texture of throne room",
+      "surface patterns and details of throne room",
+      "distinctive structural parts of throne room",
+      "overall composition defining a throne room"
+    ],
+    "compact_prompt": "a photo of a throne room, recognized by typical shape and appearance of throne room and distinctive structural parts of throne room."
+  },
+  "ticket booth": {
+    "name": "ticket booth",
+    "traits": [
+      "typical shape and appearance of ticket booth",
+      "characteristic color and texture of ticket booth",
+      "surface patterns and details of ticket booth",
+      "distinctive structural parts of ticket booth",
+      "overall composition defining a ticket booth"
+    ],
+    "compact_prompt": "a photo of a ticket booth, recognized by typical shape and appearance of ticket booth and distinctive structural parts of ticket booth."
+  },
+  "toll plaza": {
+    "name": "toll plaza",
+    "traits": [
+      "typical shape and appearance of toll plaza",
+      "characteristic color and texture of toll plaza",
+      "surface patterns and details of toll plaza",
+      "distinctive structural parts of toll plaza",
+      "overall composition defining a toll plaza"
+    ],
+    "compact_prompt": "a photo of a toll plaza, recognized by typical shape and appearance of toll plaza and distinctive structural parts of toll plaza."
+  },
+  "topiary garden": {
+    "name": "topiary garden",
+    "traits": [
+      "typical shape and appearance of topiary garden",
+      "characteristic color and texture of topiary garden",
+      "surface patterns and details of topiary garden",
+      "distinctive structural parts of topiary garden",
+      "overall composition defining a topiary garden"
+    ],
+    "compact_prompt": "a photo of a topiary garden, recognized by typical shape and appearance of topiary garden and distinctive structural parts of topiary garden."
+  },
+  "tower": {
+    "name": "tower",
+    "traits": [
+      "typical shape and appearance of tower",
+      "characteristic color and texture of tower",
+      "surface patterns and details of tower",
+      "distinctive structural parts of tower",
+      "overall composition defining a tower"
+    ],
+    "compact_prompt": "a photo of a tower, recognized by typical shape and appearance of tower and distinctive structural parts of tower."
+  },
+  "toyshop": {
+    "name": "toyshop",
+    "traits": [
+      "typical shape and appearance of toyshop",
+      "characteristic color and texture of toyshop",
+      "surface patterns and details of toyshop",
+      "distinctive structural parts of toyshop",
+      "overall composition defining a toyshop"
+    ],
+    "compact_prompt": "a photo of a toyshop, recognized by typical shape and appearance of toyshop and distinctive structural parts of toyshop."
+  },
+  "train railway": {
+    "name": "train railway",
+    "traits": [
+      "typical shape and appearance of train railway",
+      "characteristic color and texture of train railway",
+      "surface patterns and details of train railway",
+      "distinctive structural parts of train railway",
+      "overall composition defining a train railway"
+    ],
+    "compact_prompt": "a photo of a train railway, recognized by typical shape and appearance of train railway and distinctive structural parts of train railway."
+  },
+  "tree farm": {
+    "name": "tree farm",
+    "traits": [
+      "typical shape and appearance of tree farm",
+      "characteristic color and texture of tree farm",
+      "surface patterns and details of tree farm",
+      "distinctive structural parts of tree farm",
+      "overall composition defining a tree farm"
+    ],
+    "compact_prompt": "a photo of a tree farm, recognized by typical shape and appearance of tree farm and distinctive structural parts of tree farm."
+  },
+  "tree house": {
+    "name": "tree house",
+    "traits": [
+      "typical shape and appearance of tree house",
+      "characteristic color and texture of tree house",
+      "surface patterns and details of tree house",
+      "distinctive structural parts of tree house",
+      "overall composition defining a tree house"
+    ],
+    "compact_prompt": "a photo of a tree house, recognized by typical shape and appearance of tree house and distinctive structural parts of tree house."
+  },
+  "trench": {
+    "name": "trench",
+    "traits": [
+      "typical shape and appearance of trench",
+      "characteristic color and texture of trench",
+      "surface patterns and details of trench",
+      "distinctive structural parts of trench",
+      "overall composition defining a trench"
+    ],
+    "compact_prompt": "a photo of a trench, recognized by typical shape and appearance of trench and distinctive structural parts of trench."
+  },
+  "coral reef": {
+    "name": "coral reef",
+    "traits": [
+      "typical shape and appearance of coral reef",
+      "characteristic color and texture of coral reef",
+      "surface patterns and details of coral reef",
+      "distinctive structural parts of coral reef",
+      "overall composition defining a coral reef"
+    ],
+    "compact_prompt": "a photo of a coral reef, recognized by typical shape and appearance of coral reef and distinctive structural parts of coral reef."
+  },
+  "utility room": {
+    "name": "utility room",
+    "traits": [
+      "typical shape and appearance of utility room",
+      "characteristic color and texture of utility room",
+      "surface patterns and details of utility room",
+      "distinctive structural parts of utility room",
+      "overall composition defining a utility room"
+    ],
+    "compact_prompt": "a photo of a utility room, recognized by typical shape and appearance of utility room and distinctive structural parts of utility room."
+  },
+  "valley": {
+    "name": "valley",
+    "traits": [
+      "typical shape and appearance of valley",
+      "characteristic color and texture of valley",
+      "surface patterns and details of valley",
+      "distinctive structural parts of valley",
+      "overall composition defining a valley"
+    ],
+    "compact_prompt": "a photo of a valley, recognized by typical shape and appearance of valley and distinctive structural parts of valley."
+  },
+  "van interior": {
+    "name": "van interior",
+    "traits": [
+      "typical shape and appearance of van interior",
+      "characteristic color and texture of van interior",
+      "surface patterns and details of van interior",
+      "distinctive structural parts of van interior",
+      "overall composition defining a van interior"
+    ],
+    "compact_prompt": "a photo of a van interior, recognized by typical shape and appearance of van interior and distinctive structural parts of van interior."
+  },
+  "vegetable garden": {
+    "name": "vegetable garden",
+    "traits": [
+      "typical shape and appearance of vegetable garden",
+      "characteristic color and texture of vegetable garden",
+      "surface patterns and details of vegetable garden",
+      "distinctive structural parts of vegetable garden",
+      "overall composition defining a vegetable garden"
+    ],
+    "compact_prompt": "a photo of a vegetable garden, recognized by typical shape and appearance of vegetable garden and distinctive structural parts of vegetable garden."
+  },
+  "veranda": {
+    "name": "veranda",
+    "traits": [
+      "typical shape and appearance of veranda",
+      "characteristic color and texture of veranda",
+      "surface patterns and details of veranda",
+      "distinctive structural parts of veranda",
+      "overall composition defining a veranda"
+    ],
+    "compact_prompt": "a photo of a veranda, recognized by typical shape and appearance of veranda and distinctive structural parts of veranda."
+  },
+  "veterinarians office": {
+    "name": "veterinarians office",
+    "traits": [
+      "typical shape and appearance of veterinarians office",
+      "characteristic color and texture of veterinarians office",
+      "surface patterns and details of veterinarians office",
+      "distinctive structural parts of veterinarians office",
+      "overall composition defining a veterinarians office"
+    ],
+    "compact_prompt": "a photo of a veterinarians office, recognized by typical shape and appearance of veterinarians office and distinctive structural parts of veterinarians office."
+  },
+  "viaduct": {
+    "name": "viaduct",
+    "traits": [
+      "typical shape and appearance of viaduct",
+      "characteristic color and texture of viaduct",
+      "surface patterns and details of viaduct",
+      "distinctive structural parts of viaduct",
+      "overall composition defining a viaduct"
+    ],
+    "compact_prompt": "a photo of a viaduct, recognized by typical shape and appearance of viaduct and distinctive structural parts of viaduct."
+  },
+  "videostore": {
+    "name": "videostore",
+    "traits": [
+      "typical shape and appearance of videostore",
+      "characteristic color and texture of videostore",
+      "surface patterns and details of videostore",
+      "distinctive structural parts of videostore",
+      "overall composition defining a videostore"
+    ],
+    "compact_prompt": "a photo of a videostore, recognized by typical shape and appearance of videostore and distinctive structural parts of videostore."
+  },
+  "village": {
+    "name": "village",
+    "traits": [
+      "typical shape and appearance of village",
+      "characteristic color and texture of village",
+      "surface patterns and details of village",
+      "distinctive structural parts of village",
+      "overall composition defining a village"
+    ],
+    "compact_prompt": "a photo of a village, recognized by typical shape and appearance of village and distinctive structural parts of village."
+  },
+  "vineyard": {
+    "name": "vineyard",
+    "traits": [
+      "typical shape and appearance of vineyard",
+      "characteristic color and texture of vineyard",
+      "surface patterns and details of vineyard",
+      "distinctive structural parts of vineyard",
+      "overall composition defining a vineyard"
+    ],
+    "compact_prompt": "a photo of a vineyard, recognized by typical shape and appearance of vineyard and distinctive structural parts of vineyard."
+  },
+  "volcano": {
+    "name": "volcano",
+    "traits": [
+      "typical shape and appearance of volcano",
+      "characteristic color and texture of volcano",
+      "surface patterns and details of volcano",
+      "distinctive structural parts of volcano",
+      "overall composition defining a volcano"
+    ],
+    "compact_prompt": "a photo of a volcano, recognized by typical shape and appearance of volcano and distinctive structural parts of volcano."
+  },
+  "waiting room": {
+    "name": "waiting room",
+    "traits": [
+      "typical shape and appearance of waiting room",
+      "characteristic color and texture of waiting room",
+      "surface patterns and details of waiting room",
+      "distinctive structural parts of waiting room",
+      "overall composition defining a waiting room"
+    ],
+    "compact_prompt": "a photo of a waiting room, recognized by typical shape and appearance of waiting room and distinctive structural parts of waiting room."
+  },
+  "water tower": {
+    "name": "water tower",
+    "traits": [
+      "typical shape and appearance of water tower",
+      "characteristic color and texture of water tower",
+      "surface patterns and details of water tower",
+      "distinctive structural parts of water tower",
+      "overall composition defining a water tower"
+    ],
+    "compact_prompt": "a photo of a water tower, recognized by typical shape and appearance of water tower and distinctive structural parts of water tower."
+  },
+  "block": {
+    "name": "block",
+    "traits": [
+      "typical shape and appearance of block",
+      "characteristic color and texture of block",
+      "surface patterns and details of block",
+      "distinctive structural parts of block",
+      "overall composition defining a block"
+    ],
+    "compact_prompt": "a photo of a block, recognized by typical shape and appearance of block and distinctive structural parts of block."
+  },
+  "fan": {
+    "name": "fan",
+    "traits": [
+      "typical shape and appearance of fan",
+      "characteristic color and texture of fan",
+      "surface patterns and details of fan",
+      "distinctive structural parts of fan",
+      "overall composition defining a fan"
+    ],
+    "compact_prompt": "a photo of a fan, recognized by typical shape and appearance of fan and distinctive structural parts of fan."
+  },
+  "plunge": {
+    "name": "plunge",
+    "traits": [
+      "typical shape and appearance of plunge",
+      "characteristic color and texture of plunge",
+      "surface patterns and details of plunge",
+      "distinctive structural parts of plunge",
+      "overall composition defining a plunge"
+    ],
+    "compact_prompt": "a photo of a plunge, recognized by typical shape and appearance of plunge and distinctive structural parts of plunge."
+  },
+  "watering hole": {
+    "name": "watering hole",
+    "traits": [
+      "typical shape and appearance of watering hole",
+      "characteristic color and texture of watering hole",
+      "surface patterns and details of watering hole",
+      "distinctive structural parts of watering hole",
+      "overall composition defining a watering hole"
+    ],
+    "compact_prompt": "a photo of a watering hole, recognized by typical shape and appearance of watering hole and distinctive structural parts of watering hole."
+  },
+  "wave": {
+    "name": "wave",
+    "traits": [
+      "typical shape and appearance of wave",
+      "characteristic color and texture of wave",
+      "surface patterns and details of wave",
+      "distinctive structural parts of wave",
+      "overall composition defining a wave"
+    ],
+    "compact_prompt": "a photo of a wave, recognized by typical shape and appearance of wave and distinctive structural parts of wave."
+  },
+  "wet bar": {
+    "name": "wet bar",
+    "traits": [
+      "typical shape and appearance of wet bar",
+      "characteristic color and texture of wet bar",
+      "surface patterns and details of wet bar",
+      "distinctive structural parts of wet bar",
+      "overall composition defining a wet bar"
+    ],
+    "compact_prompt": "a photo of a wet bar, recognized by typical shape and appearance of wet bar and distinctive structural parts of wet bar."
+  },
+  "wheat field": {
+    "name": "wheat field",
+    "traits": [
+      "typical shape and appearance of wheat field",
+      "characteristic color and texture of wheat field",
+      "surface patterns and details of wheat field",
+      "distinctive structural parts of wheat field",
+      "overall composition defining a wheat field"
+    ],
+    "compact_prompt": "a photo of a wheat field, recognized by typical shape and appearance of wheat field and distinctive structural parts of wheat field."
+  },
+  "wind farm": {
+    "name": "wind farm",
+    "traits": [
+      "typical shape and appearance of wind farm",
+      "characteristic color and texture of wind farm",
+      "surface patterns and details of wind farm",
+      "distinctive structural parts of wind farm",
+      "overall composition defining a wind farm"
+    ],
+    "compact_prompt": "a photo of a wind farm, recognized by typical shape and appearance of wind farm and distinctive structural parts of wind farm."
+  },
+  "windmill": {
+    "name": "windmill",
+    "traits": [
+      "typical shape and appearance of windmill",
+      "characteristic color and texture of windmill",
+      "surface patterns and details of windmill",
+      "distinctive structural parts of windmill",
+      "overall composition defining a windmill"
+    ],
+    "compact_prompt": "a photo of a windmill, recognized by typical shape and appearance of windmill and distinctive structural parts of windmill."
+  },
+  "barrel storage": {
+    "name": "barrel storage",
+    "traits": [
+      "typical shape and appearance of barrel storage",
+      "characteristic color and texture of barrel storage",
+      "surface patterns and details of barrel storage",
+      "distinctive structural parts of barrel storage",
+      "overall composition defining a barrel storage"
+    ],
+    "compact_prompt": "a photo of a barrel storage, recognized by typical shape and appearance of barrel storage and distinctive structural parts of barrel storage."
+  },
+  "bottle storage": {
+    "name": "bottle storage",
+    "traits": [
+      "typical shape and appearance of bottle storage",
+      "characteristic color and texture of bottle storage",
+      "surface patterns and details of bottle storage",
+      "distinctive structural parts of bottle storage",
+      "overall composition defining a bottle storage"
+    ],
+    "compact_prompt": "a photo of a bottle storage, recognized by typical shape and appearance of bottle storage and distinctive structural parts of bottle storage."
+  },
+  "yard": {
+    "name": "yard",
+    "traits": [
+      "typical shape and appearance of yard",
+      "characteristic color and texture of yard",
+      "surface patterns and details of yard",
+      "distinctive structural parts of yard",
+      "overall composition defining a yard"
+    ],
+    "compact_prompt": "a photo of a yard, recognized by typical shape and appearance of yard and distinctive structural parts of yard."
+  },
+  "youth hostel": {
+    "name": "youth hostel",
+    "traits": [
+      "typical shape and appearance of youth hostel",
+      "characteristic color and texture of youth hostel",
+      "surface patterns and details of youth hostel",
+      "distinctive structural parts of youth hostel",
+      "overall composition defining a youth hostel"
+    ],
+    "compact_prompt": "a photo of a youth hostel, recognized by typical shape and appearance of youth hostel and distinctive structural parts of youth hostel."
+  }
+}

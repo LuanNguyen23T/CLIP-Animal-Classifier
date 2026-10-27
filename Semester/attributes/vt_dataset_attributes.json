@@ -1,0 +1,178 @@
+{
+  "Airedale": {
+    "name": "Airedale",
+    "traits": [
+      "typical shape and appearance of Airedale",
+      "characteristic color and texture of Airedale",
+      "surface patterns and details of Airedale",
+      "distinctive structural parts of Airedale",
+      "overall composition defining a Airedale"
+    ],
+    "compact_prompt": "a photo of a Airedale, recognized by typical shape and appearance of Airedale and distinctive structural parts of Airedale."
+  },
+  "Bernese mountain dog": {
+    "name": "Bernese mountain dog",
+    "traits": [
+      "typical shape and appearance of Bernese mountain dog",
+      "characteristic color and texture of Bernese mountain dog",
+      "surface patterns and details of Bernese mountain dog",
+      "distinctive structural parts of Bernese mountain dog",
+      "overall composition defining a Bernese mountain dog"
+    ],
+    "compact_prompt": "a photo of a Bernese mountain dog, recognized by typical shape and appearance of Bernese mountain dog and distinctive structural parts of Bernese mountain dog."
+  },
+  "Boston bull": {
+    "name": "Boston bull",
+    "traits": [
+      "typical shape and appearance of Boston bull",
+      "characteristic color and texture of Boston bull",
+      "surface patterns and details of Boston bull",
+      "distinctive structural parts of Boston bull",
+      "overall composition defining a Boston bull"
+    ],
+    "compact_prompt": "a photo of a Boston bull, recognized by typical shape and appearance of Boston bull and distinctive structural parts of Boston bull."
+  },
+  "Great Dane": {
+    "name": "Great Dane",
+    "traits": [
+      "typical shape and appearance of Great Dane",
+      "characteristic color and texture of Great Dane",
+      "surface patterns and details of Great Dane",
+      "distinctive structural parts of Great Dane",
+      "overall composition defining a Great Dane"
+    ],
+    "compact_prompt": "a photo of a Great Dane, recognized by typical shape and appearance of Great Dane and distinctive structural parts of Great Dane."
+  },
+  "Labrador retriever": {
+    "name": "Labrador retriever",
+    "traits": [
+      "typical shape and appearance of Labrador retriever",
+      "characteristic color and texture of Labrador retriever",
+      "surface patterns and details of Labrador retriever",
+      "distinctive structural parts of Labrador retriever",
+      "overall composition defining a Labrador retriever"
+    ],
+    "compact_prompt": "a photo of a Labrador retriever, recognized by typical shape and appearance of Labrador retriever and distinctive structural parts of Labrador retriever."
+  },
+  "Pembroke": {
+    "name": "Pembroke",
+    "traits": [
+      "typical shape and appearance of Pembroke",
+      "characteristic color and texture of Pembroke",
+      "surface patterns and details of Pembroke",
+      "distinctive structural parts of Pembroke",
+      "overall composition defining a Pembroke"
+    ],
+    "compact_prompt": "a photo of a Pembroke, recognized by typical shape and appearance of Pembroke and distinctive structural parts of Pembroke."
+  },
+  "Saluki": {
+    "name": "Saluki",
+    "traits": [
+      "typical shape and appearance of Saluki",
+      "characteristic color and texture of Saluki",
+      "surface patterns and details of Saluki",
+      "distinctive structural parts of Saluki",
+      "overall composition defining a Saluki"
+    ],
+    "compact_prompt": "a photo of a Saluki, recognized by typical shape and appearance of Saluki and distinctive structural parts of Saluki."
+  },
+  "Scottish deerhound": {
+    "name": "Scottish deerhound",
+    "traits": [
+      "typical shape and appearance of Scottish deerhound",
+      "characteristic color and texture of Scottish deerhound",
+      "surface patterns and details of Scottish deerhound",
+      "distinctive structural parts of Scottish deerhound",
+      "overall composition defining a Scottish deerhound"
+    ],
+    "compact_prompt": "a photo of a Scottish deerhound, recognized by typical shape and appearance of Scottish deerhound and distinctive structural parts of Scottish deerhound."
+  },
+  "West Highland white terrier": {
+    "name": "West Highland white terrier",
+    "traits": [
+      "typical shape and appearance of West Highland white terrier",
+      "characteristic color and texture of West Highland white terrier",
+      "surface patterns and details of West Highland white terrier",
+      "distinctive structural parts of West Highland white terrier",
+      "overall composition defining a West Highland white terrier"
+    ],
+    "compact_prompt": "a photo of a West Highland white terrier, recognized by typical shape and appearance of West Highland white terrier and distinctive structural parts of West Highland white terrier."
+  },
+  "basenji": {
+    "name": "basenji",
+    "traits": [
+      "typical shape and appearance of basenji",
+      "characteristic color and texture of basenji",
+      "surface patterns and details of basenji",
+      "distinctive structural parts of basenji",
+      "overall composition defining a basenji"
+    ],
+    "compact_prompt": "a photo of a basenji, recognized by typical shape and appearance of basenji and distinctive structural parts of basenji."
+  },
+  "borzoi": {
+    "name": "borzoi",
+    "traits": [
+      "typical shape and appearance of borzoi",
+      "characteristic color and texture of borzoi",
+      "surface patterns and details of borzoi",
+      "distinctive structural parts of borzoi",
+      "overall composition defining a borzoi"
+    ],
+    "compact_prompt": "a photo of a borzoi, recognized by typical shape and appearance of borzoi and distinctive structural parts of borzoi."
+  },
+  "cairn": {
+    "name": "cairn",
+    "traits": [
+      "typical shape and appearance of cairn",
+      "characteristic color and texture of cairn",
+      "surface patterns and details of cairn",
+      "distinctive structural parts of cairn",
+      "overall composition defining a cairn"
+    ],
+    "compact_prompt": "a photo of a cairn, recognized by typical shape and appearance of cairn and distinctive structural parts of cairn."
+  },
+  "chow": {
+    "name": "chow",
+    "traits": [
+      "typical shape and appearance of chow",
+      "characteristic color and texture of chow",
+      "surface patterns and details of chow",
+      "distinctive structural parts of chow",
+      "overall composition defining a chow"
+    ],
+    "compact_prompt": "a photo of a chow, recognized by typical shape and appearance of chow and distinctive structural parts of chow."
+  },
+  "collie": {
+    "name": "collie",
+    "traits": [
+      "typical shape and appearance of collie",
+      "characteristic color and texture of collie",
+      "surface patterns and details of collie",
+      "distinctive structural parts of collie",
+      "overall composition defining a collie"
+    ],
+    "compact_prompt": "a photo of a collie, recognized by typical shape and appearance of collie and distinctive structural parts of collie."
+  },
+  "miniature schnauzer": {
+    "name": "miniature schnauzer",
+    "traits": [
+      "typical shape and appearance of miniature schnauzer",
+      "characteristic color and texture of miniature schnauzer",
+      "surface patterns and details of miniature schnauzer",
+      "distinctive structural parts of miniature schnauzer",
+      "overall composition defining a miniature schnauzer"
+    ],
+    "compact_prompt": "a photo of a miniature schnauzer, recognized by typical shape and appearance of miniature schnauzer and distinctive structural parts of miniature schnauzer."
+  },
+  "redbone": {
+    "name": "redbone",
+    "traits": [
+      "typical shape and appearance of redbone",
+      "characteristic color and texture of redbone",
+      "surface patterns and details of redbone",
+      "distinctive structural parts of redbone",
+      "overall composition defining a redbone"
+    ],
+    "compact_prompt": "a photo of a redbone, recognized by typical shape and appearance of redbone and distinctive structural parts of redbone."
+  }
+}

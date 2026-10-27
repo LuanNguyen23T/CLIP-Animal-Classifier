@@ -1,0 +1,24 @@
+{
+  "lymph node negative": {
+    "name": "lymph node negative",
+    "traits": [
+      "typical shape and appearance of lymph node negative",
+      "characteristic color and texture of lymph node negative",
+      "surface patterns and details of lymph node negative",
+      "distinctive structural parts of lymph node negative",
+      "overall composition defining a lymph node negative"
+    ],
+    "compact_prompt": "a photo of a lymph node negative, recognized by typical shape and appearance of lymph node negative and distinctive structural parts of lymph node negative."
+  },
+  "lymph node tumor positive": {
+    "name": "lymph node tumor positive",
+    "traits": [
+      "typical shape and appearance of lymph node tumor positive",
+      "characteristic color and texture of lymph node tumor positive",
+      "surface patterns and details of lymph node tumor positive",
+      "distinctive structural parts of lymph node tumor positive",
+      "overall composition defining a lymph node tumor positive"
+    ],
+    "compact_prompt": "a photo of a lymph node tumor positive, recognized by typical shape and appearance of lymph node tumor positive and distinctive structural parts of lymph node tumor positive."
+  }
+}

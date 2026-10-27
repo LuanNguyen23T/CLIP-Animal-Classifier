@@ -1,0 +1,112 @@
+{
+  "AnnualCrop": {
+    "name": "AnnualCrop",
+    "traits": [
+      "typical shape and appearance of AnnualCrop",
+      "characteristic color and texture of AnnualCrop",
+      "surface patterns and details of AnnualCrop",
+      "distinctive structural parts of AnnualCrop",
+      "overall composition defining a AnnualCrop"
+    ],
+    "compact_prompt": "a photo of a AnnualCrop, recognized by typical shape and appearance of AnnualCrop and distinctive structural parts of AnnualCrop."
+  },
+  "Forest": {
+    "name": "Forest",
+    "traits": [
+      "typical shape and appearance of Forest",
+      "characteristic color and texture of Forest",
+      "surface patterns and details of Forest",
+      "distinctive structural parts of Forest",
+      "overall composition defining a Forest"
+    ],
+    "compact_prompt": "a photo of a Forest, recognized by typical shape and appearance of Forest and distinctive structural parts of Forest."
+  },
+  "HerbaceousVegetation": {
+    "name": "HerbaceousVegetation",
+    "traits": [
+      "typical shape and appearance of HerbaceousVegetation",
+      "characteristic color and texture of HerbaceousVegetation",
+      "surface patterns and details of HerbaceousVegetation",
+      "distinctive structural parts of HerbaceousVegetation",
+      "overall composition defining a HerbaceousVegetation"
+    ],
+    "compact_prompt": "a photo of a HerbaceousVegetation, recognized by typical shape and appearance of HerbaceousVegetation and distinctive structural parts of HerbaceousVegetation."
+  },
+  "Highway": {
+    "name": "Highway",
+    "traits": [
+      "typical shape and appearance of Highway",
+      "characteristic color and texture of Highway",
+      "surface patterns and details of Highway",
+      "distinctive structural parts of Highway",
+      "overall composition defining a Highway"
+    ],
+    "compact_prompt": "a photo of a Highway, recognized by typical shape and appearance of Highway and distinctive structural parts of Highway."
+  },
+  "Industrial": {
+    "name": "Industrial",
+    "traits": [
+      "typical shape and appearance of Industrial",
+      "characteristic color and texture of Industrial",
+      "surface patterns and details of Industrial",
+      "distinctive structural parts of Industrial",
+      "overall composition defining a Industrial"
+    ],
+    "compact_prompt": "a photo of a Industrial, recognized by typical shape and appearance of Industrial and distinctive structural parts of Industrial."
+  },
+  "Pasture": {
+    "name": "Pasture",
+    "traits": [
+      "typical shape and appearance of Pasture",
+      "characteristic color and texture of Pasture",
+      "surface patterns and details of Pasture",
+      "distinctive structural parts of Pasture",
+      "overall composition defining a Pasture"
+    ],
+    "compact_prompt": "a photo of a Pasture, recognized by typical shape and appearance of Pasture and distinctive structural parts of Pasture."
+  },
+  "PermanentCrop": {
+    "name": "PermanentCrop",
+    "traits": [
+      "typical shape and appearance of PermanentCrop",
+      "characteristic color and texture of PermanentCrop",
+      "surface patterns and details of PermanentCrop",
+      "distinctive structural parts of PermanentCrop",
+      "overall composition defining a PermanentCrop"
+    ],
+    "compact_prompt": "a photo of a PermanentCrop, recognized by typical shape and appearance of PermanentCrop and distinctive structural parts of PermanentCrop."
+  },
+  "Residential": {
+    "name": "Residential",
+    "traits": [
+      "typical shape and appearance of Residential",
+      "characteristic color and texture of Residential",
+      "surface patterns and details of Residential",
+      "distinctive structural parts of Residential",
+      "overall composition defining a Residential"
+    ],
+    "compact_prompt": "a photo of a Residential, recognized by typical shape and appearance of Residential and distinctive structural parts of Residential."
+  },
+  "River": {
+    "name": "River",
+    "traits": [
+      "typical shape and appearance of River",
+      "characteristic color and texture of River",
+      "surface patterns and details of River",
+      "distinctive structural parts of River",
+      "overall composition defining a River"
+    ],
+    "compact_prompt": "a photo of a River, recognized by typical shape and appearance of River and distinctive structural parts of River."
+  },
+  "SeaLake": {
+    "name": "SeaLake",
+    "traits": [
+      "typical shape and appearance of SeaLake",
+      "characteristic color and texture of SeaLake",
+      "surface patterns and details of SeaLake",
+      "distinctive structural parts of SeaLake",
+      "overall composition defining a SeaLake"
+    ],
+    "compact_prompt": "a photo of a SeaLake, recognized by typical shape and appearance of SeaLake and distinctive structural parts of SeaLake."
+  }
+}

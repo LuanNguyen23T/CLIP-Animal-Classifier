@@ -1,0 +1,409 @@
+{
+  "Abyssinian": {
+    "name": "Abyssinian",
+    "traits": [
+      "typical shape and appearance of Abyssinian",
+      "characteristic color and texture of Abyssinian",
+      "surface patterns and details of Abyssinian",
+      "distinctive structural parts of Abyssinian",
+      "overall composition defining a Abyssinian"
+    ],
+    "compact_prompt": "a photo of a Abyssinian, recognized by typical shape and appearance of Abyssinian and distinctive structural parts of Abyssinian."
+  },
+  "American Bulldog": {
+    "name": "American Bulldog",
+    "traits": [
+      "typical shape and appearance of American Bulldog",
+      "characteristic color and texture of American Bulldog",
+      "surface patterns and details of American Bulldog",
+      "distinctive structural parts of American Bulldog",
+      "overall composition defining a American Bulldog"
+    ],
+    "compact_prompt": "a photo of a American Bulldog, recognized by typical shape and appearance of American Bulldog and distinctive structural parts of American Bulldog."
+  },
+  "American Pit Bull Terrier": {
+    "name": "American Pit Bull Terrier",
+    "traits": [
+      "typical shape and appearance of American Pit Bull Terrier",
+      "characteristic color and texture of American Pit Bull Terrier",
+      "surface patterns and details of American Pit Bull Terrier",
+      "distinctive structural parts of American Pit Bull Terrier",
+      "overall composition defining a American Pit Bull Terrier"
+    ],
+    "compact_prompt": "a photo of a American Pit Bull Terrier, recognized by typical shape and appearance of American Pit Bull Terrier and distinctive structural parts of American Pit Bull Terrier."
+  },
+  "Basset Hound": {
+    "name": "Basset Hound",
+    "traits": [
+      "typical shape and appearance of Basset Hound",
+      "characteristic color and texture of Basset Hound",
+      "surface patterns and details of Basset Hound",
+      "distinctive structural parts of Basset Hound",
+      "overall composition defining a Basset Hound"
+    ],
+    "compact_prompt": "a photo of a Basset Hound, recognized by typical shape and appearance of Basset Hound and distinctive structural parts of Basset Hound."
+  },
+  "Beagle": {
+    "name": "Beagle",
+    "traits": [
+      "typical shape and appearance of Beagle",
+      "characteristic color and texture of Beagle",
+      "surface patterns and details of Beagle",
+      "distinctive structural parts of Beagle",
+      "overall composition defining a Beagle"
+    ],
+    "compact_prompt": "a photo of a Beagle, recognized by typical shape and appearance of Beagle and distinctive structural parts of Beagle."
+  },
+  "Bengal": {
+    "name": "Bengal",
+    "traits": [
+      "typical shape and appearance of Bengal",
+      "characteristic color and texture of Bengal",
+      "surface patterns and details of Bengal",
+      "distinctive structural parts of Bengal",
+      "overall composition defining a Bengal"
+    ],
+    "compact_prompt": "a photo of a Bengal, recognized by typical shape and appearance of Bengal and distinctive structural parts of Bengal."
+  },
+  "Birman": {
+    "name": "Birman",
+    "traits": [
+      "typical shape and appearance of Birman",
+      "characteristic color and texture of Birman",
+      "surface patterns and details of Birman",
+      "distinctive structural parts of Birman",
+      "overall composition defining a Birman"
+    ],
+    "compact_prompt": "a photo of a Birman, recognized by typical shape and appearance of Birman and distinctive structural parts of Birman."
+  },
+  "Bombay": {
+    "name": "Bombay",
+    "traits": [
+      "typical shape and appearance of Bombay",
+      "characteristic color and texture of Bombay",
+      "surface patterns and details of Bombay",
+      "distinctive structural parts of Bombay",
+      "overall composition defining a Bombay"
+    ],
+    "compact_prompt": "a photo of a Bombay, recognized by typical shape and appearance of Bombay and distinctive structural parts of Bombay."
+  },
+  "Boxer": {
+    "name": "Boxer",
+    "traits": [
+      "typical shape and appearance of Boxer",
+      "characteristic color and texture of Boxer",
+      "surface patterns and details of Boxer",
+      "distinctive structural parts of Boxer",
+      "overall composition defining a Boxer"
+    ],
+    "compact_prompt": "a photo of a Boxer, recognized by typical shape and appearance of Boxer and distinctive structural parts of Boxer."
+  },
+  "British Shorthair": {
+    "name": "British Shorthair",
+    "traits": [
+      "typical shape and appearance of British Shorthair",
+      "characteristic color and texture of British Shorthair",
+      "surface patterns and details of British Shorthair",
+      "distinctive structural parts of British Shorthair",
+      "overall composition defining a British Shorthair"
+    ],
+    "compact_prompt": "a photo of a British Shorthair, recognized by typical shape and appearance of British Shorthair and distinctive structural parts of British Shorthair."
+  },
+  "Chihuahua": {
+    "name": "Chihuahua",
+    "traits": [
+      "typical shape and appearance of Chihuahua",
+      "characteristic color and texture of Chihuahua",
+      "surface patterns and details of Chihuahua",
+      "distinctive structural parts of Chihuahua",
+      "overall composition defining a Chihuahua"
+    ],
+    "compact_prompt": "a photo of a Chihuahua, recognized by typical shape and appearance of Chihuahua and distinctive structural parts of Chihuahua."
+  },
+  "Egyptian Mau": {
+    "name": "Egyptian Mau",
+    "traits": [
+      "typical shape and appearance of Egyptian Mau",
+      "characteristic color and texture of Egyptian Mau",
+      "surface patterns and details of Egyptian Mau",
+      "distinctive structural parts of Egyptian Mau",
+      "overall composition defining a Egyptian Mau"
+    ],
+    "compact_prompt": "a photo of a Egyptian Mau, recognized by typical shape and appearance of Egyptian Mau and distinctive structural parts of Egyptian Mau."
+  },
+  "English Cocker Spaniel": {
+    "name": "English Cocker Spaniel",
+    "traits": [
+      "typical shape and appearance of English Cocker Spaniel",
+      "characteristic color and texture of English Cocker Spaniel",
+      "surface patterns and details of English Cocker Spaniel",
+      "distinctive structural parts of English Cocker Spaniel",
+      "overall composition defining a English Cocker Spaniel"
+    ],
+    "compact_prompt": "a photo of a English Cocker Spaniel, recognized by typical shape and appearance of English Cocker Spaniel and distinctive structural parts of English Cocker Spaniel."
+  },
+  "English Setter": {
+    "name": "English Setter",
+    "traits": [
+      "typical shape and appearance of English Setter",
+      "characteristic color and texture of English Setter",
+      "surface patterns and details of English Setter",
+      "distinctive structural parts of English Setter",
+      "overall composition defining a English Setter"
+    ],
+    "compact_prompt": "a photo of a English Setter, recognized by typical shape and appearance of English Setter and distinctive structural parts of English Setter."
+  },
+  "German Shorthaired": {
+    "name": "German Shorthaired",
+    "traits": [
+      "typical shape and appearance of German Shorthaired",
+      "characteristic color and texture of German Shorthaired",
+      "surface patterns and details of German Shorthaired",
+      "distinctive structural parts of German Shorthaired",
+      "overall composition defining a German Shorthaired"
+    ],
+    "compact_prompt": "a photo of a German Shorthaired, recognized by typical shape and appearance of German Shorthaired and distinctive structural parts of German Shorthaired."
+  },
+  "Great Pyrenees": {
+    "name": "Great Pyrenees",
+    "traits": [
+      "typical shape and appearance of Great Pyrenees",
+      "characteristic color and texture of Great Pyrenees",
+      "surface patterns and details of Great Pyrenees",
+      "distinctive structural parts of Great Pyrenees",
+      "overall composition defining a Great Pyrenees"
+    ],
+    "compact_prompt": "a photo of a Great Pyrenees, recognized by typical shape and appearance of Great Pyrenees and distinctive structural parts of Great Pyrenees."
+  },
+  "Havanese": {
+    "name": "Havanese",
+    "traits": [
+      "typical shape and appearance of Havanese",
+      "characteristic color and texture of Havanese",
+      "surface patterns and details of Havanese",
+      "distinctive structural parts of Havanese",
+      "overall composition defining a Havanese"
+    ],
+    "compact_prompt": "a photo of a Havanese, recognized by typical shape and appearance of Havanese and distinctive structural parts of Havanese."
+  },
+  "Japanese Chin": {
+    "name": "Japanese Chin",
+    "traits": [
+      "typical shape and appearance of Japanese Chin",
+      "characteristic color and texture of Japanese Chin",
+      "surface patterns and details of Japanese Chin",
+      "distinctive structural parts of Japanese Chin",
+      "overall composition defining a Japanese Chin"
+    ],
+    "compact_prompt": "a photo of a Japanese Chin, recognized by typical shape and appearance of Japanese Chin and distinctive structural parts of Japanese Chin."
+  },
+  "Keeshond": {
+    "name": "Keeshond",
+    "traits": [
+      "typical shape and appearance of Keeshond",
+      "characteristic color and texture of Keeshond",
+      "surface patterns and details of Keeshond",
+      "distinctive structural parts of Keeshond",
+      "overall composition defining a Keeshond"
+    ],
+    "compact_prompt": "a photo of a Keeshond, recognized by typical shape and appearance of Keeshond and distinctive structural parts of Keeshond."
+  },
+  "Leonberger": {
+    "name": "Leonberger",
+    "traits": [
+      "typical shape and appearance of Leonberger",
+      "characteristic color and texture of Leonberger",
+      "surface patterns and details of Leonberger",
+      "distinctive structural parts of Leonberger",
+      "overall composition defining a Leonberger"
+    ],
+    "compact_prompt": "a photo of a Leonberger, recognized by typical shape and appearance of Leonberger and distinctive structural parts of Leonberger."
+  },
+  "Maine Coon": {
+    "name": "Maine Coon",
+    "traits": [
+      "typical shape and appearance of Maine Coon",
+      "characteristic color and texture of Maine Coon",
+      "surface patterns and details of Maine Coon",
+      "distinctive structural parts of Maine Coon",
+      "overall composition defining a Maine Coon"
+    ],
+    "compact_prompt": "a photo of a Maine Coon, recognized by typical shape and appearance of Maine Coon and distinctive structural parts of Maine Coon."
+  },
+  "Miniature Pinscher": {
+    "name": "Miniature Pinscher",
+    "traits": [
+      "typical shape and appearance of Miniature Pinscher",
+      "characteristic color and texture of Miniature Pinscher",
+      "surface patterns and details of Miniature Pinscher",
+      "distinctive structural parts of Miniature Pinscher",
+      "overall composition defining a Miniature Pinscher"
+    ],
+    "compact_prompt": "a photo of a Miniature Pinscher, recognized by typical shape and appearance of Miniature Pinscher and distinctive structural parts of Miniature Pinscher."
+  },
+  "Newfoundland": {
+    "name": "Newfoundland",
+    "traits": [
+      "typical shape and appearance of Newfoundland",
+      "characteristic color and texture of Newfoundland",
+      "surface patterns and details of Newfoundland",
+      "distinctive structural parts of Newfoundland",
+      "overall composition defining a Newfoundland"
+    ],
+    "compact_prompt": "a photo of a Newfoundland, recognized by typical shape and appearance of Newfoundland and distinctive structural parts of Newfoundland."
+  },
+  "Persian": {
+    "name": "Persian",
+    "traits": [
+      "typical shape and appearance of Persian",
+      "characteristic color and texture of Persian",
+      "surface patterns and details of Persian",
+      "distinctive structural parts of Persian",
+      "overall composition defining a Persian"
+    ],
+    "compact_prompt": "a photo of a Persian, recognized by typical shape and appearance of Persian and distinctive structural parts of Persian."
+  },
+  "Pomeranian": {
+    "name": "Pomeranian",
+    "traits": [
+      "typical shape and appearance of Pomeranian",
+      "characteristic color and texture of Pomeranian",
+      "surface patterns and details of Pomeranian",
+      "distinctive structural parts of Pomeranian",
+      "overall composition defining a Pomeranian"
+    ],
+    "compact_prompt": "a photo of a Pomeranian, recognized by typical shape and appearance of Pomeranian and distinctive structural parts of Pomeranian."
+  },
+  "Pug": {
+    "name": "Pug",
+    "traits": [
+      "typical shape and appearance of Pug",
+      "characteristic color and texture of Pug",
+      "surface patterns and details of Pug",
+      "distinctive structural parts of Pug",
+      "overall composition defining a Pug"
+    ],
+    "compact_prompt": "a photo of a Pug, recognized by typical shape and appearance of Pug and distinctive structural parts of Pug."
+  },
+  "Ragdoll": {
+    "name": "Ragdoll",
+    "traits": [
+      "typical shape and appearance of Ragdoll",
+      "characteristic color and texture of Ragdoll",
+      "surface patterns and details of Ragdoll",
+      "distinctive structural parts of Ragdoll",
+      "overall composition defining a Ragdoll"
+    ],
+    "compact_prompt": "a photo of a Ragdoll, recognized by typical shape and appearance of Ragdoll and distinctive structural parts of Ragdoll."
+  },
+  "Russian Blue": {
+    "name": "Russian Blue",
+    "traits": [
+      "typical shape and appearance of Russian Blue",
+      "characteristic color and texture of Russian Blue",
+      "surface patterns and details of Russian Blue",
+      "distinctive structural parts of Russian Blue",
+      "overall composition defining a Russian Blue"
+    ],
+    "compact_prompt": "a photo of a Russian Blue, recognized by typical shape and appearance of Russian Blue and distinctive structural parts of Russian Blue."
+  },
+  "Saint Bernard": {
+    "name": "Saint Bernard",
+    "traits": [
+      "typical shape and appearance of Saint Bernard",
+      "characteristic color and texture of Saint Bernard",
+      "surface patterns and details of Saint Bernard",
+      "distinctive structural parts of Saint Bernard",
+      "overall composition defining a Saint Bernard"
+    ],
+    "compact_prompt": "a photo of a Saint Bernard, recognized by typical shape and appearance of Saint Bernard and distinctive structural parts of Saint Bernard."
+  },
+  "Samoyed": {
+    "name": "Samoyed",
+    "traits": [
+      "typical shape and appearance of Samoyed",
+      "characteristic color and texture of Samoyed",
+      "surface patterns and details of Samoyed",
+      "distinctive structural parts of Samoyed",
+      "overall composition defining a Samoyed"
+    ],
+    "compact_prompt": "a photo of a Samoyed, recognized by typical shape and appearance of Samoyed and distinctive structural parts of Samoyed."
+  },
+  "Scottish Terrier": {
+    "name": "Scottish Terrier",
+    "traits": [
+      "typical shape and appearance of Scottish Terrier",
+      "characteristic color and texture of Scottish Terrier",
+      "surface patterns and details of Scottish Terrier",
+      "distinctive structural parts of Scottish Terrier",
+      "overall composition defining a Scottish Terrier"
+    ],
+    "compact_prompt": "a photo of a Scottish Terrier, recognized by typical shape and appearance of Scottish Terrier and distinctive structural parts of Scottish Terrier."
+  },
+  "Shiba Inu": {
+    "name": "Shiba Inu",
+    "traits": [
+      "typical shape and appearance of Shiba Inu",
+      "characteristic color and texture of Shiba Inu",
+      "surface patterns and details of Shiba Inu",
+      "distinctive structural parts of Shiba Inu",
+      "overall composition defining a Shiba Inu"
+    ],
+    "compact_prompt": "a photo of a Shiba Inu, recognized by typical shape and appearance of Shiba Inu and distinctive structural parts of Shiba Inu."
+  },
+  "Siamese": {
+    "name": "Siamese",
+    "traits": [
+      "typical shape and appearance of Siamese",
+      "characteristic color and texture of Siamese",
+      "surface patterns and details of Siamese",
+      "distinctive structural parts of Siamese",
+      "overall composition defining a Siamese"
+    ],
+    "compact_prompt": "a photo of a Siamese, recognized by typical shape and appearance of Siamese and distinctive structural parts of Siamese."
+  },
+  "Sphynx": {
+    "name": "Sphynx",
+    "traits": [
+      "typical shape and appearance of Sphynx",
+      "characteristic color and texture of Sphynx",
+      "surface patterns and details of Sphynx",
+      "distinctive structural parts of Sphynx",
+      "overall composition defining a Sphynx"
+    ],
+    "compact_prompt": "a photo of a Sphynx, recognized by typical shape and appearance of Sphynx and distinctive structural parts of Sphynx."
+  },
+  "Staffordshire Bull Terrier": {
+    "name": "Staffordshire Bull Terrier",
+    "traits": [
+      "typical shape and appearance of Staffordshire Bull Terrier",
+      "characteristic color and texture of Staffordshire Bull Terrier",
+      "surface patterns and details of Staffordshire Bull Terrier",
+      "distinctive structural parts of Staffordshire Bull Terrier",
+      "overall composition defining a Staffordshire Bull Terrier"
+    ],
+    "compact_prompt": "a photo of a Staffordshire Bull Terrier, recognized by typical shape and appearance of Staffordshire Bull Terrier and distinctive structural parts of Staffordshire Bull Terrier."
+  },
+  "Wheaten Terrier": {
+    "name": "Wheaten Terrier",
+    "traits": [
+      "typical shape and appearance of Wheaten Terrier",
+      "characteristic color and texture of Wheaten Terrier",
+      "surface patterns and details of Wheaten Terrier",
+      "distinctive structural parts of Wheaten Terrier",
+      "overall composition defining a Wheaten Terrier"
+    ],
+    "compact_prompt": "a photo of a Wheaten Terrier, recognized by typical shape and appearance of Wheaten Terrier and distinctive structural parts of Wheaten Terrier."
+  },
+  "Yorkshire Terrier": {
+    "name": "Yorkshire Terrier",
+    "traits": [
+      "typical shape and appearance of Yorkshire Terrier",
+      "characteristic color and texture of Yorkshire Terrier",
+      "surface patterns and details of Yorkshire Terrier",
+      "distinctive structural parts of Yorkshire Terrier",
+      "overall composition defining a Yorkshire Terrier"
+    ],
+    "compact_prompt": "a photo of a Yorkshire Terrier, recognized by typical shape and appearance of Yorkshire Terrier and distinctive structural parts of Yorkshire Terrier."
+  }
+}

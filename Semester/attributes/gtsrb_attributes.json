@@ -1,0 +1,475 @@
+{
+  "20 speed": {
+    "name": "20 speed",
+    "traits": [
+      "typical shape and appearance of 20 speed",
+      "characteristic color and texture of 20 speed",
+      "surface patterns and details of 20 speed",
+      "distinctive structural parts of 20 speed",
+      "overall composition defining a 20 speed"
+    ],
+    "compact_prompt": "a photo of a 20 speed, recognized by typical shape and appearance of 20 speed and distinctive structural parts of 20 speed."
+  },
+  "30 speed": {
+    "name": "30 speed",
+    "traits": [
+      "typical shape and appearance of 30 speed",
+      "characteristic color and texture of 30 speed",
+      "surface patterns and details of 30 speed",
+      "distinctive structural parts of 30 speed",
+      "overall composition defining a 30 speed"
+    ],
+    "compact_prompt": "a photo of a 30 speed, recognized by typical shape and appearance of 30 speed and distinctive structural parts of 30 speed."
+  },
+  "50 speed": {
+    "name": "50 speed",
+    "traits": [
+      "typical shape and appearance of 50 speed",
+      "characteristic color and texture of 50 speed",
+      "surface patterns and details of 50 speed",
+      "distinctive structural parts of 50 speed",
+      "overall composition defining a 50 speed"
+    ],
+    "compact_prompt": "a photo of a 50 speed, recognized by typical shape and appearance of 50 speed and distinctive structural parts of 50 speed."
+  },
+  "60 speed": {
+    "name": "60 speed",
+    "traits": [
+      "typical shape and appearance of 60 speed",
+      "characteristic color and texture of 60 speed",
+      "surface patterns and details of 60 speed",
+      "distinctive structural parts of 60 speed",
+      "overall composition defining a 60 speed"
+    ],
+    "compact_prompt": "a photo of a 60 speed, recognized by typical shape and appearance of 60 speed and distinctive structural parts of 60 speed."
+  },
+  "70 speed": {
+    "name": "70 speed",
+    "traits": [
+      "typical shape and appearance of 70 speed",
+      "characteristic color and texture of 70 speed",
+      "surface patterns and details of 70 speed",
+      "distinctive structural parts of 70 speed",
+      "overall composition defining a 70 speed"
+    ],
+    "compact_prompt": "a photo of a 70 speed, recognized by typical shape and appearance of 70 speed and distinctive structural parts of 70 speed."
+  },
+  "80 speed": {
+    "name": "80 speed",
+    "traits": [
+      "typical shape and appearance of 80 speed",
+      "characteristic color and texture of 80 speed",
+      "surface patterns and details of 80 speed",
+      "distinctive structural parts of 80 speed",
+      "overall composition defining a 80 speed"
+    ],
+    "compact_prompt": "a photo of a 80 speed, recognized by typical shape and appearance of 80 speed and distinctive structural parts of 80 speed."
+  },
+  "80 lifted": {
+    "name": "80 lifted",
+    "traits": [
+      "typical shape and appearance of 80 lifted",
+      "characteristic color and texture of 80 lifted",
+      "surface patterns and details of 80 lifted",
+      "distinctive structural parts of 80 lifted",
+      "overall composition defining a 80 lifted"
+    ],
+    "compact_prompt": "a photo of a 80 lifted, recognized by typical shape and appearance of 80 lifted and distinctive structural parts of 80 lifted."
+  },
+  "100 speed": {
+    "name": "100 speed",
+    "traits": [
+      "typical shape and appearance of 100 speed",
+      "characteristic color and texture of 100 speed",
+      "surface patterns and details of 100 speed",
+      "distinctive structural parts of 100 speed",
+      "overall composition defining a 100 speed"
+    ],
+    "compact_prompt": "a photo of a 100 speed, recognized by typical shape and appearance of 100 speed and distinctive structural parts of 100 speed."
+  },
+  "120 speed": {
+    "name": "120 speed",
+    "traits": [
+      "typical shape and appearance of 120 speed",
+      "characteristic color and texture of 120 speed",
+      "surface patterns and details of 120 speed",
+      "distinctive structural parts of 120 speed",
+      "overall composition defining a 120 speed"
+    ],
+    "compact_prompt": "a photo of a 120 speed, recognized by typical shape and appearance of 120 speed and distinctive structural parts of 120 speed."
+  },
+  "no overtaking general": {
+    "name": "no overtaking general",
+    "traits": [
+      "typical shape and appearance of no overtaking general",
+      "characteristic color and texture of no overtaking general",
+      "surface patterns and details of no overtaking general",
+      "distinctive structural parts of no overtaking general",
+      "overall composition defining a no overtaking general"
+    ],
+    "compact_prompt": "a photo of a no overtaking general, recognized by typical shape and appearance of no overtaking general and distinctive structural parts of no overtaking general."
+  },
+  "no overtaking trucks": {
+    "name": "no overtaking trucks",
+    "traits": [
+      "typical shape and appearance of no overtaking trucks",
+      "characteristic color and texture of no overtaking trucks",
+      "surface patterns and details of no overtaking trucks",
+      "distinctive structural parts of no overtaking trucks",
+      "overall composition defining a no overtaking trucks"
+    ],
+    "compact_prompt": "a photo of a no overtaking trucks, recognized by typical shape and appearance of no overtaking trucks and distinctive structural parts of no overtaking trucks."
+  },
+  "right of way crossing": {
+    "name": "right of way crossing",
+    "traits": [
+      "typical shape and appearance of right of way crossing",
+      "characteristic color and texture of right of way crossing",
+      "surface patterns and details of right of way crossing",
+      "distinctive structural parts of right of way crossing",
+      "overall composition defining a right of way crossing"
+    ],
+    "compact_prompt": "a photo of a right of way crossing, recognized by typical shape and appearance of right of way crossing and distinctive structural parts of right of way crossing."
+  },
+  "right of way general": {
+    "name": "right of way general",
+    "traits": [
+      "typical shape and appearance of right of way general",
+      "characteristic color and texture of right of way general",
+      "surface patterns and details of right of way general",
+      "distinctive structural parts of right of way general",
+      "overall composition defining a right of way general"
+    ],
+    "compact_prompt": "a photo of a right of way general, recognized by typical shape and appearance of right of way general and distinctive structural parts of right of way general."
+  },
+  "give way": {
+    "name": "give way",
+    "traits": [
+      "typical shape and appearance of give way",
+      "characteristic color and texture of give way",
+      "surface patterns and details of give way",
+      "distinctive structural parts of give way",
+      "overall composition defining a give way"
+    ],
+    "compact_prompt": "a photo of a give way, recognized by typical shape and appearance of give way and distinctive structural parts of give way."
+  },
+  "stop": {
+    "name": "stop",
+    "traits": [
+      "typical shape and appearance of stop",
+      "characteristic color and texture of stop",
+      "surface patterns and details of stop",
+      "distinctive structural parts of stop",
+      "overall composition defining a stop"
+    ],
+    "compact_prompt": "a photo of a stop, recognized by typical shape and appearance of stop and distinctive structural parts of stop."
+  },
+  "no way general": {
+    "name": "no way general",
+    "traits": [
+      "typical shape and appearance of no way general",
+      "characteristic color and texture of no way general",
+      "surface patterns and details of no way general",
+      "distinctive structural parts of no way general",
+      "overall composition defining a no way general"
+    ],
+    "compact_prompt": "a photo of a no way general, recognized by typical shape and appearance of no way general and distinctive structural parts of no way general."
+  },
+  "no way trucks": {
+    "name": "no way trucks",
+    "traits": [
+      "typical shape and appearance of no way trucks",
+      "characteristic color and texture of no way trucks",
+      "surface patterns and details of no way trucks",
+      "distinctive structural parts of no way trucks",
+      "overall composition defining a no way trucks"
+    ],
+    "compact_prompt": "a photo of a no way trucks, recognized by typical shape and appearance of no way trucks and distinctive structural parts of no way trucks."
+  },
+  "no way one way": {
+    "name": "no way one way",
+    "traits": [
+      "typical shape and appearance of no way one way",
+      "characteristic color and texture of no way one way",
+      "surface patterns and details of no way one way",
+      "distinctive structural parts of no way one way",
+      "overall composition defining a no way one way"
+    ],
+    "compact_prompt": "a photo of a no way one way, recognized by typical shape and appearance of no way one way and distinctive structural parts of no way one way."
+  },
+  "attention general": {
+    "name": "attention general",
+    "traits": [
+      "typical shape and appearance of attention general",
+      "characteristic color and texture of attention general",
+      "surface patterns and details of attention general",
+      "distinctive structural parts of attention general",
+      "overall composition defining a attention general"
+    ],
+    "compact_prompt": "a photo of a attention general, recognized by typical shape and appearance of attention general and distinctive structural parts of attention general."
+  },
+  "attention left turn": {
+    "name": "attention left turn",
+    "traits": [
+      "typical shape and appearance of attention left turn",
+      "characteristic color and texture of attention left turn",
+      "surface patterns and details of attention left turn",
+      "distinctive structural parts of attention left turn",
+      "overall composition defining a attention left turn"
+    ],
+    "compact_prompt": "a photo of a attention left turn, recognized by typical shape and appearance of attention left turn and distinctive structural parts of attention left turn."
+  },
+  "attention right turn": {
+    "name": "attention right turn",
+    "traits": [
+      "typical shape and appearance of attention right turn",
+      "characteristic color and texture of attention right turn",
+      "surface patterns and details of attention right turn",
+      "distinctive structural parts of attention right turn",
+      "overall composition defining a attention right turn"
+    ],
+    "compact_prompt": "a photo of a attention right turn, recognized by typical shape and appearance of attention right turn and distinctive structural parts of attention right turn."
+  },
+  "attention curvy": {
+    "name": "attention curvy",
+    "traits": [
+      "typical shape and appearance of attention curvy",
+      "characteristic color and texture of attention curvy",
+      "surface patterns and details of attention curvy",
+      "distinctive structural parts of attention curvy",
+      "overall composition defining a attention curvy"
+    ],
+    "compact_prompt": "a photo of a attention curvy, recognized by typical shape and appearance of attention curvy and distinctive structural parts of attention curvy."
+  },
+  "attention bumpers": {
+    "name": "attention bumpers",
+    "traits": [
+      "typical shape and appearance of attention bumpers",
+      "characteristic color and texture of attention bumpers",
+      "surface patterns and details of attention bumpers",
+      "distinctive structural parts of attention bumpers",
+      "overall composition defining a attention bumpers"
+    ],
+    "compact_prompt": "a photo of a attention bumpers, recognized by typical shape and appearance of attention bumpers and distinctive structural parts of attention bumpers."
+  },
+  "attention slippery": {
+    "name": "attention slippery",
+    "traits": [
+      "typical shape and appearance of attention slippery",
+      "characteristic color and texture of attention slippery",
+      "surface patterns and details of attention slippery",
+      "distinctive structural parts of attention slippery",
+      "overall composition defining a attention slippery"
+    ],
+    "compact_prompt": "a photo of a attention slippery, recognized by typical shape and appearance of attention slippery and distinctive structural parts of attention slippery."
+  },
+  "attention bottleneck": {
+    "name": "attention bottleneck",
+    "traits": [
+      "typical shape and appearance of attention bottleneck",
+      "characteristic color and texture of attention bottleneck",
+      "surface patterns and details of attention bottleneck",
+      "distinctive structural parts of attention bottleneck",
+      "overall composition defining a attention bottleneck"
+    ],
+    "compact_prompt": "a photo of a attention bottleneck, recognized by typical shape and appearance of attention bottleneck and distinctive structural parts of attention bottleneck."
+  },
+  "attention construction": {
+    "name": "attention construction",
+    "traits": [
+      "typical shape and appearance of attention construction",
+      "characteristic color and texture of attention construction",
+      "surface patterns and details of attention construction",
+      "distinctive structural parts of attention construction",
+      "overall composition defining a attention construction"
+    ],
+    "compact_prompt": "a photo of a attention construction, recognized by typical shape and appearance of attention construction and distinctive structural parts of attention construction."
+  },
+  "attention traffic light": {
+    "name": "attention traffic light",
+    "traits": [
+      "typical shape and appearance of attention traffic light",
+      "characteristic color and texture of attention traffic light",
+      "surface patterns and details of attention traffic light",
+      "distinctive structural parts of attention traffic light",
+      "overall composition defining a attention traffic light"
+    ],
+    "compact_prompt": "a photo of a attention traffic light, recognized by typical shape and appearance of attention traffic light and distinctive structural parts of attention traffic light."
+  },
+  "attention pedestrian": {
+    "name": "attention pedestrian",
+    "traits": [
+      "typical shape and appearance of attention pedestrian",
+      "characteristic color and texture of attention pedestrian",
+      "surface patterns and details of attention pedestrian",
+      "distinctive structural parts of attention pedestrian",
+      "overall composition defining a attention pedestrian"
+    ],
+    "compact_prompt": "a photo of a attention pedestrian, recognized by typical shape and appearance of attention pedestrian and distinctive structural parts of attention pedestrian."
+  },
+  "attention children": {
+    "name": "attention children",
+    "traits": [
+      "typical shape and appearance of attention children",
+      "characteristic color and texture of attention children",
+      "surface patterns and details of attention children",
+      "distinctive structural parts of attention children",
+      "overall composition defining a attention children"
+    ],
+    "compact_prompt": "a photo of a attention children, recognized by typical shape and appearance of attention children and distinctive structural parts of attention children."
+  },
+  "attention bikes": {
+    "name": "attention bikes",
+    "traits": [
+      "typical shape and appearance of attention bikes",
+      "characteristic color and texture of attention bikes",
+      "surface patterns and details of attention bikes",
+      "distinctive structural parts of attention bikes",
+      "overall composition defining a attention bikes"
+    ],
+    "compact_prompt": "a photo of a attention bikes, recognized by typical shape and appearance of attention bikes and distinctive structural parts of attention bikes."
+  },
+  "attention snowflake": {
+    "name": "attention snowflake",
+    "traits": [
+      "typical shape and appearance of attention snowflake",
+      "characteristic color and texture of attention snowflake",
+      "surface patterns and details of attention snowflake",
+      "distinctive structural parts of attention snowflake",
+      "overall composition defining a attention snowflake"
+    ],
+    "compact_prompt": "a photo of a attention snowflake, recognized by typical shape and appearance of attention snowflake and distinctive structural parts of attention snowflake."
+  },
+  "attention deer": {
+    "name": "attention deer",
+    "traits": [
+      "typical shape and appearance of attention deer",
+      "characteristic color and texture of attention deer",
+      "surface patterns and details of attention deer",
+      "distinctive structural parts of attention deer",
+      "overall composition defining a attention deer"
+    ],
+    "compact_prompt": "a photo of a attention deer, recognized by typical shape and appearance of attention deer and distinctive structural parts of attention deer."
+  },
+  "lifted general": {
+    "name": "lifted general",
+    "traits": [
+      "typical shape and appearance of lifted general",
+      "characteristic color and texture of lifted general",
+      "surface patterns and details of lifted general",
+      "distinctive structural parts of lifted general",
+      "overall composition defining a lifted general"
+    ],
+    "compact_prompt": "a photo of a lifted general, recognized by typical shape and appearance of lifted general and distinctive structural parts of lifted general."
+  },
+  "turn right": {
+    "name": "turn right",
+    "traits": [
+      "typical shape and appearance of turn right",
+      "characteristic color and texture of turn right",
+      "surface patterns and details of turn right",
+      "distinctive structural parts of turn right",
+      "overall composition defining a turn right"
+    ],
+    "compact_prompt": "a photo of a turn right, recognized by typical shape and appearance of turn right and distinctive structural parts of turn right."
+  },
+  "turn left": {
+    "name": "turn left",
+    "traits": [
+      "typical shape and appearance of turn left",
+      "characteristic color and texture of turn left",
+      "surface patterns and details of turn left",
+      "distinctive structural parts of turn left",
+      "overall composition defining a turn left"
+    ],
+    "compact_prompt": "a photo of a turn left, recognized by typical shape and appearance of turn left and distinctive structural parts of turn left."
+  },
+  "turn straight": {
+    "name": "turn straight",
+    "traits": [
+      "typical shape and appearance of turn straight",
+      "characteristic color and texture of turn straight",
+      "surface patterns and details of turn straight",
+      "distinctive structural parts of turn straight",
+      "overall composition defining a turn straight"
+    ],
+    "compact_prompt": "a photo of a turn straight, recognized by typical shape and appearance of turn straight and distinctive structural parts of turn straight."
+  },
+  "turn straight right": {
+    "name": "turn straight right",
+    "traits": [
+      "typical shape and appearance of turn straight right",
+      "characteristic color and texture of turn straight right",
+      "surface patterns and details of turn straight right",
+      "distinctive structural parts of turn straight right",
+      "overall composition defining a turn straight right"
+    ],
+    "compact_prompt": "a photo of a turn straight right, recognized by typical shape and appearance of turn straight right and distinctive structural parts of turn straight right."
+  },
+  "turn straight left": {
+    "name": "turn straight left",
+    "traits": [
+      "typical shape and appearance of turn straight left",
+      "characteristic color and texture of turn straight left",
+      "surface patterns and details of turn straight left",
+      "distinctive structural parts of turn straight left",
+      "overall composition defining a turn straight left"
+    ],
+    "compact_prompt": "a photo of a turn straight left, recognized by typical shape and appearance of turn straight left and distinctive structural parts of turn straight left."
+  },
+  "turn right down": {
+    "name": "turn right down",
+    "traits": [
+      "typical shape and appearance of turn right down",
+      "characteristic color and texture of turn right down",
+      "surface patterns and details of turn right down",
+      "distinctive structural parts of turn right down",
+      "overall composition defining a turn right down"
+    ],
+    "compact_prompt": "a photo of a turn right down, recognized by typical shape and appearance of turn right down and distinctive structural parts of turn right down."
+  },
+  "turn left down": {
+    "name": "turn left down",
+    "traits": [
+      "typical shape and appearance of turn left down",
+      "characteristic color and texture of turn left down",
+      "surface patterns and details of turn left down",
+      "distinctive structural parts of turn left down",
+      "overall composition defining a turn left down"
+    ],
+    "compact_prompt": "a photo of a turn left down, recognized by typical shape and appearance of turn left down and distinctive structural parts of turn left down."
+  },
+  "turn circle": {
+    "name": "turn circle",
+    "traits": [
+      "typical shape and appearance of turn circle",
+      "characteristic color and texture of turn circle",
+      "surface patterns and details of turn circle",
+      "distinctive structural parts of turn circle",
+      "overall composition defining a turn circle"
+    ],
+    "compact_prompt": "a photo of a turn circle, recognized by typical shape and appearance of turn circle and distinctive structural parts of turn circle."
+  },
+  "lifted no overtaking general": {
+    "name": "lifted no overtaking general",
+    "traits": [
+      "typical shape and appearance of lifted no overtaking general",
+      "characteristic color and texture of lifted no overtaking general",
+      "surface patterns and details of lifted no overtaking general",
+      "distinctive structural parts of lifted no overtaking general",
+      "overall composition defining a lifted no overtaking general"
+    ],
+    "compact_prompt": "a photo of a lifted no overtaking general, recognized by typical shape and appearance of lifted no overtaking general and distinctive structural parts of lifted no overtaking general."
+  },
+  "lifted no overtaking trucks": {
+    "name": "lifted no overtaking trucks",
+    "traits": [
+      "typical shape and appearance of lifted no overtaking trucks",
+      "characteristic color and texture of lifted no overtaking trucks",
+      "surface patterns and details of lifted no overtaking trucks",
+      "distinctive structural parts of lifted no overtaking trucks",
+      "overall composition defining a lifted no overtaking trucks"
+    ],
+    "compact_prompt": "a photo of a lifted no overtaking trucks, recognized by typical shape and appearance of lifted no overtaking trucks and distinctive structural parts of lifted no overtaking trucks."
+  }
+}

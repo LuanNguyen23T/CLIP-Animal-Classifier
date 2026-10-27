@@ -1,0 +1,1124 @@
+{
+  "accordion": {
+    "name": "accordion",
+    "traits": [
+      "typical shape and appearance of accordion",
+      "characteristic color and texture of accordion",
+      "surface patterns and details of accordion",
+      "distinctive structural parts of accordion",
+      "overall composition defining a accordion"
+    ],
+    "compact_prompt": "a photo of a accordion, recognized by typical shape and appearance of accordion and distinctive structural parts of accordion."
+  },
+  "airplanes": {
+    "name": "airplanes",
+    "traits": [
+      "typical shape and appearance of airplanes",
+      "characteristic color and texture of airplanes",
+      "surface patterns and details of airplanes",
+      "distinctive structural parts of airplanes",
+      "overall composition defining a airplanes"
+    ],
+    "compact_prompt": "a photo of a airplanes, recognized by typical shape and appearance of airplanes and distinctive structural parts of airplanes."
+  },
+  "anchor": {
+    "name": "anchor",
+    "traits": [
+      "typical shape and appearance of anchor",
+      "characteristic color and texture of anchor",
+      "surface patterns and details of anchor",
+      "distinctive structural parts of anchor",
+      "overall composition defining a anchor"
+    ],
+    "compact_prompt": "a photo of a anchor, recognized by typical shape and appearance of anchor and distinctive structural parts of anchor."
+  },
+  "ant": {
+    "name": "ant",
+    "traits": [
+      "typical shape and appearance of ant",
+      "characteristic color and texture of ant",
+      "surface patterns and details of ant",
+      "distinctive structural parts of ant",
+      "overall composition defining a ant"
+    ],
+    "compact_prompt": "a photo of a ant, recognized by typical shape and appearance of ant and distinctive structural parts of ant."
+  },
+  "background google": {
+    "name": "background google",
+    "traits": [
+      "typical shape and appearance of background google",
+      "characteristic color and texture of background google",
+      "surface patterns and details of background google",
+      "distinctive structural parts of background google",
+      "overall composition defining a background google"
+    ],
+    "compact_prompt": "a photo of a background google, recognized by typical shape and appearance of background google and distinctive structural parts of background google."
+  },
+  "barrel": {
+    "name": "barrel",
+    "traits": [
+      "typical shape and appearance of barrel",
+      "characteristic color and texture of barrel",
+      "surface patterns and details of barrel",
+      "distinctive structural parts of barrel",
+      "overall composition defining a barrel"
+    ],
+    "compact_prompt": "a photo of a barrel, recognized by typical shape and appearance of barrel and distinctive structural parts of barrel."
+  },
+  "bass": {
+    "name": "bass",
+    "traits": [
+      "typical shape and appearance of bass",
+      "characteristic color and texture of bass",
+      "surface patterns and details of bass",
+      "distinctive structural parts of bass",
+      "overall composition defining a bass"
+    ],
+    "compact_prompt": "a photo of a bass, recognized by typical shape and appearance of bass and distinctive structural parts of bass."
+  },
+  "beaver": {
+    "name": "beaver",
+    "traits": [
+      "typical shape and appearance of beaver",
+      "characteristic color and texture of beaver",
+      "surface patterns and details of beaver",
+      "distinctive structural parts of beaver",
+      "overall composition defining a beaver"
+    ],
+    "compact_prompt": "a photo of a beaver, recognized by typical shape and appearance of beaver and distinctive structural parts of beaver."
+  },
+  "binocular": {
+    "name": "binocular",
+    "traits": [
+      "typical shape and appearance of binocular",
+      "characteristic color and texture of binocular",
+      "surface patterns and details of binocular",
+      "distinctive structural parts of binocular",
+      "overall composition defining a binocular"
+    ],
+    "compact_prompt": "a photo of a binocular, recognized by typical shape and appearance of binocular and distinctive structural parts of binocular."
+  },
+  "bonsai": {
+    "name": "bonsai",
+    "traits": [
+      "typical shape and appearance of bonsai",
+      "characteristic color and texture of bonsai",
+      "surface patterns and details of bonsai",
+      "distinctive structural parts of bonsai",
+      "overall composition defining a bonsai"
+    ],
+    "compact_prompt": "a photo of a bonsai, recognized by typical shape and appearance of bonsai and distinctive structural parts of bonsai."
+  },
+  "brain": {
+    "name": "brain",
+    "traits": [
+      "typical shape and appearance of brain",
+      "characteristic color and texture of brain",
+      "surface patterns and details of brain",
+      "distinctive structural parts of brain",
+      "overall composition defining a brain"
+    ],
+    "compact_prompt": "a photo of a brain, recognized by typical shape and appearance of brain and distinctive structural parts of brain."
+  },
+  "brontosaurus": {
+    "name": "brontosaurus",
+    "traits": [
+      "typical shape and appearance of brontosaurus",
+      "characteristic color and texture of brontosaurus",
+      "surface patterns and details of brontosaurus",
+      "distinctive structural parts of brontosaurus",
+      "overall composition defining a brontosaurus"
+    ],
+    "compact_prompt": "a photo of a brontosaurus, recognized by typical shape and appearance of brontosaurus and distinctive structural parts of brontosaurus."
+  },
+  "buddha": {
+    "name": "buddha",
+    "traits": [
+      "typical shape and appearance of buddha",
+      "characteristic color and texture of buddha",
+      "surface patterns and details of buddha",
+      "distinctive structural parts of buddha",
+      "overall composition defining a buddha"
+    ],
+    "compact_prompt": "a photo of a buddha, recognized by typical shape and appearance of buddha and distinctive structural parts of buddha."
+  },
+  "butterfly": {
+    "name": "butterfly",
+    "traits": [
+      "typical shape and appearance of butterfly",
+      "characteristic color and texture of butterfly",
+      "surface patterns and details of butterfly",
+      "distinctive structural parts of butterfly",
+      "overall composition defining a butterfly"
+    ],
+    "compact_prompt": "a photo of a butterfly, recognized by typical shape and appearance of butterfly and distinctive structural parts of butterfly."
+  },
+  "camera": {
+    "name": "camera",
+    "traits": [
+      "typical shape and appearance of camera",
+      "characteristic color and texture of camera",
+      "surface patterns and details of camera",
+      "distinctive structural parts of camera",
+      "overall composition defining a camera"
+    ],
+    "compact_prompt": "a photo of a camera, recognized by typical shape and appearance of camera and distinctive structural parts of camera."
+  },
+  "cannon": {
+    "name": "cannon",
+    "traits": [
+      "typical shape and appearance of cannon",
+      "characteristic color and texture of cannon",
+      "surface patterns and details of cannon",
+      "distinctive structural parts of cannon",
+      "overall composition defining a cannon"
+    ],
+    "compact_prompt": "a photo of a cannon, recognized by typical shape and appearance of cannon and distinctive structural parts of cannon."
+  },
+  "car side": {
+    "name": "car side",
+    "traits": [
+      "typical shape and appearance of car side",
+      "characteristic color and texture of car side",
+      "surface patterns and details of car side",
+      "distinctive structural parts of car side",
+      "overall composition defining a car side"
+    ],
+    "compact_prompt": "a photo of a car side, recognized by typical shape and appearance of car side and distinctive structural parts of car side."
+  },
+  "ceiling fan": {
+    "name": "ceiling fan",
+    "traits": [
+      "typical shape and appearance of ceiling fan",
+      "characteristic color and texture of ceiling fan",
+      "surface patterns and details of ceiling fan",
+      "distinctive structural parts of ceiling fan",
+      "overall composition defining a ceiling fan"
+    ],
+    "compact_prompt": "a photo of a ceiling fan, recognized by typical shape and appearance of ceiling fan and distinctive structural parts of ceiling fan."
+  },
+  "cellphone": {
+    "name": "cellphone",
+    "traits": [
+      "typical shape and appearance of cellphone",
+      "characteristic color and texture of cellphone",
+      "surface patterns and details of cellphone",
+      "distinctive structural parts of cellphone",
+      "overall composition defining a cellphone"
+    ],
+    "compact_prompt": "a photo of a cellphone, recognized by typical shape and appearance of cellphone and distinctive structural parts of cellphone."
+  },
+  "chair": {
+    "name": "chair",
+    "traits": [
+      "typical shape and appearance of chair",
+      "characteristic color and texture of chair",
+      "surface patterns and details of chair",
+      "distinctive structural parts of chair",
+      "overall composition defining a chair"
+    ],
+    "compact_prompt": "a photo of a chair, recognized by typical shape and appearance of chair and distinctive structural parts of chair."
+  },
+  "chandelier": {
+    "name": "chandelier",
+    "traits": [
+      "typical shape and appearance of chandelier",
+      "characteristic color and texture of chandelier",
+      "surface patterns and details of chandelier",
+      "distinctive structural parts of chandelier",
+      "overall composition defining a chandelier"
+    ],
+    "compact_prompt": "a photo of a chandelier, recognized by typical shape and appearance of chandelier and distinctive structural parts of chandelier."
+  },
+  "cougar body": {
+    "name": "cougar body",
+    "traits": [
+      "typical shape and appearance of cougar body",
+      "characteristic color and texture of cougar body",
+      "surface patterns and details of cougar body",
+      "distinctive structural parts of cougar body",
+      "overall composition defining a cougar body"
+    ],
+    "compact_prompt": "a photo of a cougar body, recognized by typical shape and appearance of cougar body and distinctive structural parts of cougar body."
+  },
+  "cougar face": {
+    "name": "cougar face",
+    "traits": [
+      "typical shape and appearance of cougar face",
+      "characteristic color and texture of cougar face",
+      "surface patterns and details of cougar face",
+      "distinctive structural parts of cougar face",
+      "overall composition defining a cougar face"
+    ],
+    "compact_prompt": "a photo of a cougar face, recognized by typical shape and appearance of cougar face and distinctive structural parts of cougar face."
+  },
+  "crab": {
+    "name": "crab",
+    "traits": [
+      "typical shape and appearance of crab",
+      "characteristic color and texture of crab",
+      "surface patterns and details of crab",
+      "distinctive structural parts of crab",
+      "overall composition defining a crab"
+    ],
+    "compact_prompt": "a photo of a crab, recognized by typical shape and appearance of crab and distinctive structural parts of crab."
+  },
+  "crayfish": {
+    "name": "crayfish",
+    "traits": [
+      "typical shape and appearance of crayfish",
+      "characteristic color and texture of crayfish",
+      "surface patterns and details of crayfish",
+      "distinctive structural parts of crayfish",
+      "overall composition defining a crayfish"
+    ],
+    "compact_prompt": "a photo of a crayfish, recognized by typical shape and appearance of crayfish and distinctive structural parts of crayfish."
+  },
+  "crocodile": {
+    "name": "crocodile",
+    "traits": [
+      "typical shape and appearance of crocodile",
+      "characteristic color and texture of crocodile",
+      "surface patterns and details of crocodile",
+      "distinctive structural parts of crocodile",
+      "overall composition defining a crocodile"
+    ],
+    "compact_prompt": "a photo of a crocodile, recognized by typical shape and appearance of crocodile and distinctive structural parts of crocodile."
+  },
+  "crocodile head": {
+    "name": "crocodile head",
+    "traits": [
+      "typical shape and appearance of crocodile head",
+      "characteristic color and texture of crocodile head",
+      "surface patterns and details of crocodile head",
+      "distinctive structural parts of crocodile head",
+      "overall composition defining a crocodile head"
+    ],
+    "compact_prompt": "a photo of a crocodile head, recognized by typical shape and appearance of crocodile head and distinctive structural parts of crocodile head."
+  },
+  "cup": {
+    "name": "cup",
+    "traits": [
+      "typical shape and appearance of cup",
+      "characteristic color and texture of cup",
+      "surface patterns and details of cup",
+      "distinctive structural parts of cup",
+      "overall composition defining a cup"
+    ],
+    "compact_prompt": "a photo of a cup, recognized by typical shape and appearance of cup and distinctive structural parts of cup."
+  },
+  "dalmatian": {
+    "name": "dalmatian",
+    "traits": [
+      "typical shape and appearance of dalmatian",
+      "characteristic color and texture of dalmatian",
+      "surface patterns and details of dalmatian",
+      "distinctive structural parts of dalmatian",
+      "overall composition defining a dalmatian"
+    ],
+    "compact_prompt": "a photo of a dalmatian, recognized by typical shape and appearance of dalmatian and distinctive structural parts of dalmatian."
+  },
+  "dollar bill": {
+    "name": "dollar bill",
+    "traits": [
+      "typical shape and appearance of dollar bill",
+      "characteristic color and texture of dollar bill",
+      "surface patterns and details of dollar bill",
+      "distinctive structural parts of dollar bill",
+      "overall composition defining a dollar bill"
+    ],
+    "compact_prompt": "a photo of a dollar bill, recognized by typical shape and appearance of dollar bill and distinctive structural parts of dollar bill."
+  },
+  "dolphin": {
+    "name": "dolphin",
+    "traits": [
+      "typical shape and appearance of dolphin",
+      "characteristic color and texture of dolphin",
+      "surface patterns and details of dolphin",
+      "distinctive structural parts of dolphin",
+      "overall composition defining a dolphin"
+    ],
+    "compact_prompt": "a photo of a dolphin, recognized by typical shape and appearance of dolphin and distinctive structural parts of dolphin."
+  },
+  "dragonfly": {
+    "name": "dragonfly",
+    "traits": [
+      "typical shape and appearance of dragonfly",
+      "characteristic color and texture of dragonfly",
+      "surface patterns and details of dragonfly",
+      "distinctive structural parts of dragonfly",
+      "overall composition defining a dragonfly"
+    ],
+    "compact_prompt": "a photo of a dragonfly, recognized by typical shape and appearance of dragonfly and distinctive structural parts of dragonfly."
+  },
+  "electric guitar": {
+    "name": "electric guitar",
+    "traits": [
+      "typical shape and appearance of electric guitar",
+      "characteristic color and texture of electric guitar",
+      "surface patterns and details of electric guitar",
+      "distinctive structural parts of electric guitar",
+      "overall composition defining a electric guitar"
+    ],
+    "compact_prompt": "a photo of a electric guitar, recognized by typical shape and appearance of electric guitar and distinctive structural parts of electric guitar."
+  },
+  "elephant": {
+    "name": "elephant",
+    "traits": [
+      "typical shape and appearance of elephant",
+      "characteristic color and texture of elephant",
+      "surface patterns and details of elephant",
+      "distinctive structural parts of elephant",
+      "overall composition defining a elephant"
+    ],
+    "compact_prompt": "a photo of a elephant, recognized by typical shape and appearance of elephant and distinctive structural parts of elephant."
+  },
+  "emu": {
+    "name": "emu",
+    "traits": [
+      "typical shape and appearance of emu",
+      "characteristic color and texture of emu",
+      "surface patterns and details of emu",
+      "distinctive structural parts of emu",
+      "overall composition defining a emu"
+    ],
+    "compact_prompt": "a photo of a emu, recognized by typical shape and appearance of emu and distinctive structural parts of emu."
+  },
+  "euphonium": {
+    "name": "euphonium",
+    "traits": [
+      "typical shape and appearance of euphonium",
+      "characteristic color and texture of euphonium",
+      "surface patterns and details of euphonium",
+      "distinctive structural parts of euphonium",
+      "overall composition defining a euphonium"
+    ],
+    "compact_prompt": "a photo of a euphonium, recognized by typical shape and appearance of euphonium and distinctive structural parts of euphonium."
+  },
+  "ewer": {
+    "name": "ewer",
+    "traits": [
+      "typical shape and appearance of ewer",
+      "characteristic color and texture of ewer",
+      "surface patterns and details of ewer",
+      "distinctive structural parts of ewer",
+      "overall composition defining a ewer"
+    ],
+    "compact_prompt": "a photo of a ewer, recognized by typical shape and appearance of ewer and distinctive structural parts of ewer."
+  },
+  "faces": {
+    "name": "faces",
+    "traits": [
+      "typical shape and appearance of faces",
+      "characteristic color and texture of faces",
+      "surface patterns and details of faces",
+      "distinctive structural parts of faces",
+      "overall composition defining a faces"
+    ],
+    "compact_prompt": "a photo of a faces, recognized by typical shape and appearance of faces and distinctive structural parts of faces."
+  },
+  "faces easy": {
+    "name": "faces easy",
+    "traits": [
+      "typical shape and appearance of faces easy",
+      "characteristic color and texture of faces easy",
+      "surface patterns and details of faces easy",
+      "distinctive structural parts of faces easy",
+      "overall composition defining a faces easy"
+    ],
+    "compact_prompt": "a photo of a faces easy, recognized by typical shape and appearance of faces easy and distinctive structural parts of faces easy."
+  },
+  "ferry": {
+    "name": "ferry",
+    "traits": [
+      "typical shape and appearance of ferry",
+      "characteristic color and texture of ferry",
+      "surface patterns and details of ferry",
+      "distinctive structural parts of ferry",
+      "overall composition defining a ferry"
+    ],
+    "compact_prompt": "a photo of a ferry, recognized by typical shape and appearance of ferry and distinctive structural parts of ferry."
+  },
+  "flamingo": {
+    "name": "flamingo",
+    "traits": [
+      "typical shape and appearance of flamingo",
+      "characteristic color and texture of flamingo",
+      "surface patterns and details of flamingo",
+      "distinctive structural parts of flamingo",
+      "overall composition defining a flamingo"
+    ],
+    "compact_prompt": "a photo of a flamingo, recognized by typical shape and appearance of flamingo and distinctive structural parts of flamingo."
+  },
+  "flamingo head": {
+    "name": "flamingo head",
+    "traits": [
+      "typical shape and appearance of flamingo head",
+      "characteristic color and texture of flamingo head",
+      "surface patterns and details of flamingo head",
+      "distinctive structural parts of flamingo head",
+      "overall composition defining a flamingo head"
+    ],
+    "compact_prompt": "a photo of a flamingo head, recognized by typical shape and appearance of flamingo head and distinctive structural parts of flamingo head."
+  },
+  "garfield": {
+    "name": "garfield",
+    "traits": [
+      "typical shape and appearance of garfield",
+      "characteristic color and texture of garfield",
+      "surface patterns and details of garfield",
+      "distinctive structural parts of garfield",
+      "overall composition defining a garfield"
+    ],
+    "compact_prompt": "a photo of a garfield, recognized by typical shape and appearance of garfield and distinctive structural parts of garfield."
+  },
+  "gerenuk": {
+    "name": "gerenuk",
+    "traits": [
+      "typical shape and appearance of gerenuk",
+      "characteristic color and texture of gerenuk",
+      "surface patterns and details of gerenuk",
+      "distinctive structural parts of gerenuk",
+      "overall composition defining a gerenuk"
+    ],
+    "compact_prompt": "a photo of a gerenuk, recognized by typical shape and appearance of gerenuk and distinctive structural parts of gerenuk."
+  },
+  "gramophone": {
+    "name": "gramophone",
+    "traits": [
+      "typical shape and appearance of gramophone",
+      "characteristic color and texture of gramophone",
+      "surface patterns and details of gramophone",
+      "distinctive structural parts of gramophone",
+      "overall composition defining a gramophone"
+    ],
+    "compact_prompt": "a photo of a gramophone, recognized by typical shape and appearance of gramophone and distinctive structural parts of gramophone."
+  },
+  "grand piano": {
+    "name": "grand piano",
+    "traits": [
+      "typical shape and appearance of grand piano",
+      "characteristic color and texture of grand piano",
+      "surface patterns and details of grand piano",
+      "distinctive structural parts of grand piano",
+      "overall composition defining a grand piano"
+    ],
+    "compact_prompt": "a photo of a grand piano, recognized by typical shape and appearance of grand piano and distinctive structural parts of grand piano."
+  },
+  "hawksbill": {
+    "name": "hawksbill",
+    "traits": [
+      "typical shape and appearance of hawksbill",
+      "characteristic color and texture of hawksbill",
+      "surface patterns and details of hawksbill",
+      "distinctive structural parts of hawksbill",
+      "overall composition defining a hawksbill"
+    ],
+    "compact_prompt": "a photo of a hawksbill, recognized by typical shape and appearance of hawksbill and distinctive structural parts of hawksbill."
+  },
+  "headphone": {
+    "name": "headphone",
+    "traits": [
+      "typical shape and appearance of headphone",
+      "characteristic color and texture of headphone",
+      "surface patterns and details of headphone",
+      "distinctive structural parts of headphone",
+      "overall composition defining a headphone"
+    ],
+    "compact_prompt": "a photo of a headphone, recognized by typical shape and appearance of headphone and distinctive structural parts of headphone."
+  },
+  "hedgehog": {
+    "name": "hedgehog",
+    "traits": [
+      "typical shape and appearance of hedgehog",
+      "characteristic color and texture of hedgehog",
+      "surface patterns and details of hedgehog",
+      "distinctive structural parts of hedgehog",
+      "overall composition defining a hedgehog"
+    ],
+    "compact_prompt": "a photo of a hedgehog, recognized by typical shape and appearance of hedgehog and distinctive structural parts of hedgehog."
+  },
+  "helicopter": {
+    "name": "helicopter",
+    "traits": [
+      "typical shape and appearance of helicopter",
+      "characteristic color and texture of helicopter",
+      "surface patterns and details of helicopter",
+      "distinctive structural parts of helicopter",
+      "overall composition defining a helicopter"
+    ],
+    "compact_prompt": "a photo of a helicopter, recognized by typical shape and appearance of helicopter and distinctive structural parts of helicopter."
+  },
+  "ibis": {
+    "name": "ibis",
+    "traits": [
+      "typical shape and appearance of ibis",
+      "characteristic color and texture of ibis",
+      "surface patterns and details of ibis",
+      "distinctive structural parts of ibis",
+      "overall composition defining a ibis"
+    ],
+    "compact_prompt": "a photo of a ibis, recognized by typical shape and appearance of ibis and distinctive structural parts of ibis."
+  },
+  "inline skate": {
+    "name": "inline skate",
+    "traits": [
+      "typical shape and appearance of inline skate",
+      "characteristic color and texture of inline skate",
+      "surface patterns and details of inline skate",
+      "distinctive structural parts of inline skate",
+      "overall composition defining a inline skate"
+    ],
+    "compact_prompt": "a photo of a inline skate, recognized by typical shape and appearance of inline skate and distinctive structural parts of inline skate."
+  },
+  "joshua tree": {
+    "name": "joshua tree",
+    "traits": [
+      "typical shape and appearance of joshua tree",
+      "characteristic color and texture of joshua tree",
+      "surface patterns and details of joshua tree",
+      "distinctive structural parts of joshua tree",
+      "overall composition defining a joshua tree"
+    ],
+    "compact_prompt": "a photo of a joshua tree, recognized by typical shape and appearance of joshua tree and distinctive structural parts of joshua tree."
+  },
+  "kangaroo": {
+    "name": "kangaroo",
+    "traits": [
+      "typical shape and appearance of kangaroo",
+      "characteristic color and texture of kangaroo",
+      "surface patterns and details of kangaroo",
+      "distinctive structural parts of kangaroo",
+      "overall composition defining a kangaroo"
+    ],
+    "compact_prompt": "a photo of a kangaroo, recognized by typical shape and appearance of kangaroo and distinctive structural parts of kangaroo."
+  },
+  "ketch": {
+    "name": "ketch",
+    "traits": [
+      "typical shape and appearance of ketch",
+      "characteristic color and texture of ketch",
+      "surface patterns and details of ketch",
+      "distinctive structural parts of ketch",
+      "overall composition defining a ketch"
+    ],
+    "compact_prompt": "a photo of a ketch, recognized by typical shape and appearance of ketch and distinctive structural parts of ketch."
+  },
+  "lamp": {
+    "name": "lamp",
+    "traits": [
+      "typical shape and appearance of lamp",
+      "characteristic color and texture of lamp",
+      "surface patterns and details of lamp",
+      "distinctive structural parts of lamp",
+      "overall composition defining a lamp"
+    ],
+    "compact_prompt": "a photo of a lamp, recognized by typical shape and appearance of lamp and distinctive structural parts of lamp."
+  },
+  "laptop": {
+    "name": "laptop",
+    "traits": [
+      "typical shape and appearance of laptop",
+      "characteristic color and texture of laptop",
+      "surface patterns and details of laptop",
+      "distinctive structural parts of laptop",
+      "overall composition defining a laptop"
+    ],
+    "compact_prompt": "a photo of a laptop, recognized by typical shape and appearance of laptop and distinctive structural parts of laptop."
+  },
+  "leopards": {
+    "name": "leopards",
+    "traits": [
+      "typical shape and appearance of leopards",
+      "characteristic color and texture of leopards",
+      "surface patterns and details of leopards",
+      "distinctive structural parts of leopards",
+      "overall composition defining a leopards"
+    ],
+    "compact_prompt": "a photo of a leopards, recognized by typical shape and appearance of leopards and distinctive structural parts of leopards."
+  },
+  "llama": {
+    "name": "llama",
+    "traits": [
+      "typical shape and appearance of llama",
+      "characteristic color and texture of llama",
+      "surface patterns and details of llama",
+      "distinctive structural parts of llama",
+      "overall composition defining a llama"
+    ],
+    "compact_prompt": "a photo of a llama, recognized by typical shape and appearance of llama and distinctive structural parts of llama."
+  },
+  "lobster": {
+    "name": "lobster",
+    "traits": [
+      "typical shape and appearance of lobster",
+      "characteristic color and texture of lobster",
+      "surface patterns and details of lobster",
+      "distinctive structural parts of lobster",
+      "overall composition defining a lobster"
+    ],
+    "compact_prompt": "a photo of a lobster, recognized by typical shape and appearance of lobster and distinctive structural parts of lobster."
+  },
+  "lotus": {
+    "name": "lotus",
+    "traits": [
+      "typical shape and appearance of lotus",
+      "characteristic color and texture of lotus",
+      "surface patterns and details of lotus",
+      "distinctive structural parts of lotus",
+      "overall composition defining a lotus"
+    ],
+    "compact_prompt": "a photo of a lotus, recognized by typical shape and appearance of lotus and distinctive structural parts of lotus."
+  },
+  "mandolin": {
+    "name": "mandolin",
+    "traits": [
+      "typical shape and appearance of mandolin",
+      "characteristic color and texture of mandolin",
+      "surface patterns and details of mandolin",
+      "distinctive structural parts of mandolin",
+      "overall composition defining a mandolin"
+    ],
+    "compact_prompt": "a photo of a mandolin, recognized by typical shape and appearance of mandolin and distinctive structural parts of mandolin."
+  },
+  "mayfly": {
+    "name": "mayfly",
+    "traits": [
+      "typical shape and appearance of mayfly",
+      "characteristic color and texture of mayfly",
+      "surface patterns and details of mayfly",
+      "distinctive structural parts of mayfly",
+      "overall composition defining a mayfly"
+    ],
+    "compact_prompt": "a photo of a mayfly, recognized by typical shape and appearance of mayfly and distinctive structural parts of mayfly."
+  },
+  "menorah": {
+    "name": "menorah",
+    "traits": [
+      "typical shape and appearance of menorah",
+      "characteristic color and texture of menorah",
+      "surface patterns and details of menorah",
+      "distinctive structural parts of menorah",
+      "overall composition defining a menorah"
+    ],
+    "compact_prompt": "a photo of a menorah, recognized by typical shape and appearance of menorah and distinctive structural parts of menorah."
+  },
+  "metronome": {
+    "name": "metronome",
+    "traits": [
+      "typical shape and appearance of metronome",
+      "characteristic color and texture of metronome",
+      "surface patterns and details of metronome",
+      "distinctive structural parts of metronome",
+      "overall composition defining a metronome"
+    ],
+    "compact_prompt": "a photo of a metronome, recognized by typical shape and appearance of metronome and distinctive structural parts of metronome."
+  },
+  "minaret": {
+    "name": "minaret",
+    "traits": [
+      "typical shape and appearance of minaret",
+      "characteristic color and texture of minaret",
+      "surface patterns and details of minaret",
+      "distinctive structural parts of minaret",
+      "overall composition defining a minaret"
+    ],
+    "compact_prompt": "a photo of a minaret, recognized by typical shape and appearance of minaret and distinctive structural parts of minaret."
+  },
+  "motorbikes": {
+    "name": "motorbikes",
+    "traits": [
+      "typical shape and appearance of motorbikes",
+      "characteristic color and texture of motorbikes",
+      "surface patterns and details of motorbikes",
+      "distinctive structural parts of motorbikes",
+      "overall composition defining a motorbikes"
+    ],
+    "compact_prompt": "a photo of a motorbikes, recognized by typical shape and appearance of motorbikes and distinctive structural parts of motorbikes."
+  },
+  "nautilus": {
+    "name": "nautilus",
+    "traits": [
+      "typical shape and appearance of nautilus",
+      "characteristic color and texture of nautilus",
+      "surface patterns and details of nautilus",
+      "distinctive structural parts of nautilus",
+      "overall composition defining a nautilus"
+    ],
+    "compact_prompt": "a photo of a nautilus, recognized by typical shape and appearance of nautilus and distinctive structural parts of nautilus."
+  },
+  "octopus": {
+    "name": "octopus",
+    "traits": [
+      "typical shape and appearance of octopus",
+      "characteristic color and texture of octopus",
+      "surface patterns and details of octopus",
+      "distinctive structural parts of octopus",
+      "overall composition defining a octopus"
+    ],
+    "compact_prompt": "a photo of a octopus, recognized by typical shape and appearance of octopus and distinctive structural parts of octopus."
+  },
+  "okapi": {
+    "name": "okapi",
+    "traits": [
+      "typical shape and appearance of okapi",
+      "characteristic color and texture of okapi",
+      "surface patterns and details of okapi",
+      "distinctive structural parts of okapi",
+      "overall composition defining a okapi"
+    ],
+    "compact_prompt": "a photo of a okapi, recognized by typical shape and appearance of okapi and distinctive structural parts of okapi."
+  },
+  "pagoda": {
+    "name": "pagoda",
+    "traits": [
+      "typical shape and appearance of pagoda",
+      "characteristic color and texture of pagoda",
+      "surface patterns and details of pagoda",
+      "distinctive structural parts of pagoda",
+      "overall composition defining a pagoda"
+    ],
+    "compact_prompt": "a photo of a pagoda, recognized by typical shape and appearance of pagoda and distinctive structural parts of pagoda."
+  },
+  "panda": {
+    "name": "panda",
+    "traits": [
+      "typical shape and appearance of panda",
+      "characteristic color and texture of panda",
+      "surface patterns and details of panda",
+      "distinctive structural parts of panda",
+      "overall composition defining a panda"
+    ],
+    "compact_prompt": "a photo of a panda, recognized by typical shape and appearance of panda and distinctive structural parts of panda."
+  },
+  "pigeon": {
+    "name": "pigeon",
+    "traits": [
+      "typical shape and appearance of pigeon",
+      "characteristic color and texture of pigeon",
+      "surface patterns and details of pigeon",
+      "distinctive structural parts of pigeon",
+      "overall composition defining a pigeon"
+    ],
+    "compact_prompt": "a photo of a pigeon, recognized by typical shape and appearance of pigeon and distinctive structural parts of pigeon."
+  },
+  "pizza": {
+    "name": "pizza",
+    "traits": [
+      "typical shape and appearance of pizza",
+      "characteristic color and texture of pizza",
+      "surface patterns and details of pizza",
+      "distinctive structural parts of pizza",
+      "overall composition defining a pizza"
+    ],
+    "compact_prompt": "a photo of a pizza, recognized by typical shape and appearance of pizza and distinctive structural parts of pizza."
+  },
+  "platypus": {
+    "name": "platypus",
+    "traits": [
+      "typical shape and appearance of platypus",
+      "characteristic color and texture of platypus",
+      "surface patterns and details of platypus",
+      "distinctive structural parts of platypus",
+      "overall composition defining a platypus"
+    ],
+    "compact_prompt": "a photo of a platypus, recognized by typical shape and appearance of platypus and distinctive structural parts of platypus."
+  },
+  "pyramid": {
+    "name": "pyramid",
+    "traits": [
+      "typical shape and appearance of pyramid",
+      "characteristic color and texture of pyramid",
+      "surface patterns and details of pyramid",
+      "distinctive structural parts of pyramid",
+      "overall composition defining a pyramid"
+    ],
+    "compact_prompt": "a photo of a pyramid, recognized by typical shape and appearance of pyramid and distinctive structural parts of pyramid."
+  },
+  "revolver": {
+    "name": "revolver",
+    "traits": [
+      "typical shape and appearance of revolver",
+      "characteristic color and texture of revolver",
+      "surface patterns and details of revolver",
+      "distinctive structural parts of revolver",
+      "overall composition defining a revolver"
+    ],
+    "compact_prompt": "a photo of a revolver, recognized by typical shape and appearance of revolver and distinctive structural parts of revolver."
+  },
+  "rhino": {
+    "name": "rhino",
+    "traits": [
+      "typical shape and appearance of rhino",
+      "characteristic color and texture of rhino",
+      "surface patterns and details of rhino",
+      "distinctive structural parts of rhino",
+      "overall composition defining a rhino"
+    ],
+    "compact_prompt": "a photo of a rhino, recognized by typical shape and appearance of rhino and distinctive structural parts of rhino."
+  },
+  "rooster": {
+    "name": "rooster",
+    "traits": [
+      "typical shape and appearance of rooster",
+      "characteristic color and texture of rooster",
+      "surface patterns and details of rooster",
+      "distinctive structural parts of rooster",
+      "overall composition defining a rooster"
+    ],
+    "compact_prompt": "a photo of a rooster, recognized by typical shape and appearance of rooster and distinctive structural parts of rooster."
+  },
+  "saxophone": {
+    "name": "saxophone",
+    "traits": [
+      "typical shape and appearance of saxophone",
+      "characteristic color and texture of saxophone",
+      "surface patterns and details of saxophone",
+      "distinctive structural parts of saxophone",
+      "overall composition defining a saxophone"
+    ],
+    "compact_prompt": "a photo of a saxophone, recognized by typical shape and appearance of saxophone and distinctive structural parts of saxophone."
+  },
+  "schooner": {
+    "name": "schooner",
+    "traits": [
+      "typical shape and appearance of schooner",
+      "characteristic color and texture of schooner",
+      "surface patterns and details of schooner",
+      "distinctive structural parts of schooner",
+      "overall composition defining a schooner"
+    ],
+    "compact_prompt": "a photo of a schooner, recognized by typical shape and appearance of schooner and distinctive structural parts of schooner."
+  },
+  "scissors": {
+    "name": "scissors",
+    "traits": [
+      "typical shape and appearance of scissors",
+      "characteristic color and texture of scissors",
+      "surface patterns and details of scissors",
+      "distinctive structural parts of scissors",
+      "overall composition defining a scissors"
+    ],
+    "compact_prompt": "a photo of a scissors, recognized by typical shape and appearance of scissors and distinctive structural parts of scissors."
+  },
+  "scorpion": {
+    "name": "scorpion",
+    "traits": [
+      "typical shape and appearance of scorpion",
+      "characteristic color and texture of scorpion",
+      "surface patterns and details of scorpion",
+      "distinctive structural parts of scorpion",
+      "overall composition defining a scorpion"
+    ],
+    "compact_prompt": "a photo of a scorpion, recognized by typical shape and appearance of scorpion and distinctive structural parts of scorpion."
+  },
+  "sea horse": {
+    "name": "sea horse",
+    "traits": [
+      "typical shape and appearance of sea horse",
+      "characteristic color and texture of sea horse",
+      "surface patterns and details of sea horse",
+      "distinctive structural parts of sea horse",
+      "overall composition defining a sea horse"
+    ],
+    "compact_prompt": "a photo of a sea horse, recognized by typical shape and appearance of sea horse and distinctive structural parts of sea horse."
+  },
+  "snoopy": {
+    "name": "snoopy",
+    "traits": [
+      "typical shape and appearance of snoopy",
+      "characteristic color and texture of snoopy",
+      "surface patterns and details of snoopy",
+      "distinctive structural parts of snoopy",
+      "overall composition defining a snoopy"
+    ],
+    "compact_prompt": "a photo of a snoopy, recognized by typical shape and appearance of snoopy and distinctive structural parts of snoopy."
+  },
+  "soccer ball": {
+    "name": "soccer ball",
+    "traits": [
+      "typical shape and appearance of soccer ball",
+      "characteristic color and texture of soccer ball",
+      "surface patterns and details of soccer ball",
+      "distinctive structural parts of soccer ball",
+      "overall composition defining a soccer ball"
+    ],
+    "compact_prompt": "a photo of a soccer ball, recognized by typical shape and appearance of soccer ball and distinctive structural parts of soccer ball."
+  },
+  "stapler": {
+    "name": "stapler",
+    "traits": [
+      "typical shape and appearance of stapler",
+      "characteristic color and texture of stapler",
+      "surface patterns and details of stapler",
+      "distinctive structural parts of stapler",
+      "overall composition defining a stapler"
+    ],
+    "compact_prompt": "a photo of a stapler, recognized by typical shape and appearance of stapler and distinctive structural parts of stapler."
+  },
+  "starfish": {
+    "name": "starfish",
+    "traits": [
+      "typical shape and appearance of starfish",
+      "characteristic color and texture of starfish",
+      "surface patterns and details of starfish",
+      "distinctive structural parts of starfish",
+      "overall composition defining a starfish"
+    ],
+    "compact_prompt": "a photo of a starfish, recognized by typical shape and appearance of starfish and distinctive structural parts of starfish."
+  },
+  "stegosaurus": {
+    "name": "stegosaurus",
+    "traits": [
+      "typical shape and appearance of stegosaurus",
+      "characteristic color and texture of stegosaurus",
+      "surface patterns and details of stegosaurus",
+      "distinctive structural parts of stegosaurus",
+      "overall composition defining a stegosaurus"
+    ],
+    "compact_prompt": "a photo of a stegosaurus, recognized by typical shape and appearance of stegosaurus and distinctive structural parts of stegosaurus."
+  },
+  "stop sign": {
+    "name": "stop sign",
+    "traits": [
+      "typical shape and appearance of stop sign",
+      "characteristic color and texture of stop sign",
+      "surface patterns and details of stop sign",
+      "distinctive structural parts of stop sign",
+      "overall composition defining a stop sign"
+    ],
+    "compact_prompt": "a photo of a stop sign, recognized by typical shape and appearance of stop sign and distinctive structural parts of stop sign."
+  },
+  "strawberry": {
+    "name": "strawberry",
+    "traits": [
+      "typical shape and appearance of strawberry",
+      "characteristic color and texture of strawberry",
+      "surface patterns and details of strawberry",
+      "distinctive structural parts of strawberry",
+      "overall composition defining a strawberry"
+    ],
+    "compact_prompt": "a photo of a strawberry, recognized by typical shape and appearance of strawberry and distinctive structural parts of strawberry."
+  },
+  "sunflower": {
+    "name": "sunflower",
+    "traits": [
+      "typical shape and appearance of sunflower",
+      "characteristic color and texture of sunflower",
+      "surface patterns and details of sunflower",
+      "distinctive structural parts of sunflower",
+      "overall composition defining a sunflower"
+    ],
+    "compact_prompt": "a photo of a sunflower, recognized by typical shape and appearance of sunflower and distinctive structural parts of sunflower."
+  },
+  "tick": {
+    "name": "tick",
+    "traits": [
+      "typical shape and appearance of tick",
+      "characteristic color and texture of tick",
+      "surface patterns and details of tick",
+      "distinctive structural parts of tick",
+      "overall composition defining a tick"
+    ],
+    "compact_prompt": "a photo of a tick, recognized by typical shape and appearance of tick and distinctive structural parts of tick."
+  },
+  "trilobite": {
+    "name": "trilobite",
+    "traits": [
+      "typical shape and appearance of trilobite",
+      "characteristic color and texture of trilobite",
+      "surface patterns and details of trilobite",
+      "distinctive structural parts of trilobite",
+      "overall composition defining a trilobite"
+    ],
+    "compact_prompt": "a photo of a trilobite, recognized by typical shape and appearance of trilobite and distinctive structural parts of trilobite."
+  },
+  "umbrella": {
+    "name": "umbrella",
+    "traits": [
+      "typical shape and appearance of umbrella",
+      "characteristic color and texture of umbrella",
+      "surface patterns and details of umbrella",
+      "distinctive structural parts of umbrella",
+      "overall composition defining a umbrella"
+    ],
+    "compact_prompt": "a photo of a umbrella, recognized by typical shape and appearance of umbrella and distinctive structural parts of umbrella."
+  },
+  "watch": {
+    "name": "watch",
+    "traits": [
+      "typical shape and appearance of watch",
+      "characteristic color and texture of watch",
+      "surface patterns and details of watch",
+      "distinctive structural parts of watch",
+      "overall composition defining a watch"
+    ],
+    "compact_prompt": "a photo of a watch, recognized by typical shape and appearance of watch and distinctive structural parts of watch."
+  },
+  "water lilly": {
+    "name": "water lilly",
+    "traits": [
+      "typical shape and appearance of water lilly",
+      "characteristic color and texture of water lilly",
+      "surface patterns and details of water lilly",
+      "distinctive structural parts of water lilly",
+      "overall composition defining a water lilly"
+    ],
+    "compact_prompt": "a photo of a water lilly, recognized by typical shape and appearance of water lilly and distinctive structural parts of water lilly."
+  },
+  "wheelchair": {
+    "name": "wheelchair",
+    "traits": [
+      "typical shape and appearance of wheelchair",
+      "characteristic color and texture of wheelchair",
+      "surface patterns and details of wheelchair",
+      "distinctive structural parts of wheelchair",
+      "overall composition defining a wheelchair"
+    ],
+    "compact_prompt": "a photo of a wheelchair, recognized by typical shape and appearance of wheelchair and distinctive structural parts of wheelchair."
+  },
+  "wild cat": {
+    "name": "wild cat",
+    "traits": [
+      "typical shape and appearance of wild cat",
+      "characteristic color and texture of wild cat",
+      "surface patterns and details of wild cat",
+      "distinctive structural parts of wild cat",
+      "overall composition defining a wild cat"
+    ],
+    "compact_prompt": "a photo of a wild cat, recognized by typical shape and appearance of wild cat and distinctive structural parts of wild cat."
+  },
+  "windsor chair": {
+    "name": "windsor chair",
+    "traits": [
+      "typical shape and appearance of windsor chair",
+      "characteristic color and texture of windsor chair",
+      "surface patterns and details of windsor chair",
+      "distinctive structural parts of windsor chair",
+      "overall composition defining a windsor chair"
+    ],
+    "compact_prompt": "a photo of a windsor chair, recognized by typical shape and appearance of windsor chair and distinctive structural parts of windsor chair."
+  },
+  "wrench": {
+    "name": "wrench",
+    "traits": [
+      "typical shape and appearance of wrench",
+      "characteristic color and texture of wrench",
+      "surface patterns and details of wrench",
+      "distinctive structural parts of wrench",
+      "overall composition defining a wrench"
+    ],
+    "compact_prompt": "a photo of a wrench, recognized by typical shape and appearance of wrench and distinctive structural parts of wrench."
+  },
+  "yin yang": {
+    "name": "yin yang",
+    "traits": [
+      "typical shape and appearance of yin yang",
+      "characteristic color and texture of yin yang",
+      "surface patterns and details of yin yang",
+      "distinctive structural parts of yin yang",
+      "overall composition defining a yin yang"
+    ],
+    "compact_prompt": "a photo of a yin yang, recognized by typical shape and appearance of yin yang and distinctive structural parts of yin yang."
+  }
+}

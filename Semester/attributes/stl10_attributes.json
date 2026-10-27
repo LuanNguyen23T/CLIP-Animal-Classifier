@@ -1,0 +1,112 @@
+{
+  "airplane": {
+    "name": "airplane",
+    "traits": [
+      "typical shape and appearance of airplane",
+      "characteristic color and texture of airplane",
+      "surface patterns and details of airplane",
+      "distinctive structural parts of airplane",
+      "overall composition defining a airplane"
+    ],
+    "compact_prompt": "a photo of a airplane, recognized by typical shape and appearance of airplane and distinctive structural parts of airplane."
+  },
+  "bird": {
+    "name": "bird",
+    "traits": [
+      "typical shape and appearance of bird",
+      "characteristic color and texture of bird",
+      "surface patterns and details of bird",
+      "distinctive structural parts of bird",
+      "overall composition defining a bird"
+    ],
+    "compact_prompt": "a photo of a bird, recognized by typical shape and appearance of bird and distinctive structural parts of bird."
+  },
+  "car": {
+    "name": "car",
+    "traits": [
+      "typical shape and appearance of car",
+      "characteristic color and texture of car",
+      "surface patterns and details of car",
+      "distinctive structural parts of car",
+      "overall composition defining a car"
+    ],
+    "compact_prompt": "a photo of a car, recognized by typical shape and appearance of car and distinctive structural parts of car."
+  },
+  "cat": {
+    "name": "cat",
+    "traits": [
+      "typical shape and appearance of cat",
+      "characteristic color and texture of cat",
+      "surface patterns and details of cat",
+      "distinctive structural parts of cat",
+      "overall composition defining a cat"
+    ],
+    "compact_prompt": "a photo of a cat, recognized by typical shape and appearance of cat and distinctive structural parts of cat."
+  },
+  "deer": {
+    "name": "deer",
+    "traits": [
+      "typical shape and appearance of deer",
+      "characteristic color and texture of deer",
+      "surface patterns and details of deer",
+      "distinctive structural parts of deer",
+      "overall composition defining a deer"
+    ],
+    "compact_prompt": "a photo of a deer, recognized by typical shape and appearance of deer and distinctive structural parts of deer."
+  },
+  "dog": {
+    "name": "dog",
+    "traits": [
+      "typical shape and appearance of dog",
+      "characteristic color and texture of dog",
+      "surface patterns and details of dog",
+      "distinctive structural parts of dog",
+      "overall composition defining a dog"
+    ],
+    "compact_prompt": "a photo of a dog, recognized by typical shape and appearance of dog and distinctive structural parts of dog."
+  },
+  "horse": {
+    "name": "horse",
+    "traits": [
+      "typical shape and appearance of horse",
+      "characteristic color and texture of horse",
+      "surface patterns and details of horse",
+      "distinctive structural parts of horse",
+      "overall composition defining a horse"
+    ],
+    "compact_prompt": "a photo of a horse, recognized by typical shape and appearance of horse and distinctive structural parts of horse."
+  },
+  "monkey": {
+    "name": "monkey",
+    "traits": [
+      "typical shape and appearance of monkey",
+      "characteristic color and texture of monkey",
+      "surface patterns and details of monkey",
+      "distinctive structural parts of monkey",
+      "overall composition defining a monkey"
+    ],
+    "compact_prompt": "a photo of a monkey, recognized by typical shape and appearance of monkey and distinctive structural parts of monkey."
+  },
+  "ship": {
+    "name": "ship",
+    "traits": [
+      "typical shape and appearance of ship",
+      "characteristic color and texture of ship",
+      "surface patterns and details of ship",
+      "distinctive structural parts of ship",
+      "overall composition defining a ship"
+    ],
+    "compact_prompt": "a photo of a ship, recognized by typical shape and appearance of ship and distinctive structural parts of ship."
+  },
+  "truck": {
+    "name": "truck",
+    "traits": [
+      "typical shape and appearance of truck",
+      "characteristic color and texture of truck",
+      "surface patterns and details of truck",
+      "distinctive structural parts of truck",
+      "overall composition defining a truck"
+    ],
+    "compact_prompt": "a photo of a truck, recognized by typical shape and appearance of truck and distinctive structural parts of truck."
+  }
+}

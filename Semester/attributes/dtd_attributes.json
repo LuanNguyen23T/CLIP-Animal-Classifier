@@ -1,0 +1,519 @@
+{
+  "banded": {
+    "name": "banded",
+    "traits": [
+      "typical shape and appearance of banded",
+      "characteristic color and texture of banded",
+      "surface patterns and details of banded",
+      "distinctive structural parts of banded",
+      "overall composition defining a banded"
+    ],
+    "compact_prompt": "a photo of a banded, recognized by typical shape and appearance of banded and distinctive structural parts of banded."
+  },
+  "blotchy": {
+    "name": "blotchy",
+    "traits": [
+      "typical shape and appearance of blotchy",
+      "characteristic color and texture of blotchy",
+      "surface patterns and details of blotchy",
+      "distinctive structural parts of blotchy",
+      "overall composition defining a blotchy"
+    ],
+    "compact_prompt": "a photo of a blotchy, recognized by typical shape and appearance of blotchy and distinctive structural parts of blotchy."
+  },
+  "braided": {
+    "name": "braided",
+    "traits": [
+      "typical shape and appearance of braided",
+      "characteristic color and texture of braided",
+      "surface patterns and details of braided",
+      "distinctive structural parts of braided",
+      "overall composition defining a braided"
+    ],
+    "compact_prompt": "a photo of a braided, recognized by typical shape and appearance of braided and distinctive structural parts of braided."
+  },
+  "bubbly": {
+    "name": "bubbly",
+    "traits": [
+      "typical shape and appearance of bubbly",
+      "characteristic color and texture of bubbly",
+      "surface patterns and details of bubbly",
+      "distinctive structural parts of bubbly",
+      "overall composition defining a bubbly"
+    ],
+    "compact_prompt": "a photo of a bubbly, recognized by typical shape and appearance of bubbly and distinctive structural parts of bubbly."
+  },
+  "bumpy": {
+    "name": "bumpy",
+    "traits": [
+      "typical shape and appearance of bumpy",
+      "characteristic color and texture of bumpy",
+      "surface patterns and details of bumpy",
+      "distinctive structural parts of bumpy",
+      "overall composition defining a bumpy"
+    ],
+    "compact_prompt": "a photo of a bumpy, recognized by typical shape and appearance of bumpy and distinctive structural parts of bumpy."
+  },
+  "chequered": {
+    "name": "chequered",
+    "traits": [
+      "typical shape and appearance of chequered",
+      "characteristic color and texture of chequered",
+      "surface patterns and details of chequered",
+      "distinctive structural parts of chequered",
+      "overall composition defining a chequered"
+    ],
+    "compact_prompt": "a photo of a chequered, recognized by typical shape and appearance of chequered and distinctive structural parts of chequered."
+  },
+  "cobwebbed": {
+    "name": "cobwebbed",
+    "traits": [
+      "typical shape and appearance of cobwebbed",
+      "characteristic color and texture of cobwebbed",
+      "surface patterns and details of cobwebbed",
+      "distinctive structural parts of cobwebbed",
+      "overall composition defining a cobwebbed"
+    ],
+    "compact_prompt": "a photo of a cobwebbed, recognized by typical shape and appearance of cobwebbed and distinctive structural parts of cobwebbed."
+  },
+  "cracked": {
+    "name": "cracked",
+    "traits": [
+      "typical shape and appearance of cracked",
+      "characteristic color and texture of cracked",
+      "surface patterns and details of cracked",
+      "distinctive structural parts of cracked",
+      "overall composition defining a cracked"
+    ],
+    "compact_prompt": "a photo of a cracked, recognized by typical shape and appearance of cracked and distinctive structural parts of cracked."
+  },
+  "crosshatched": {
+    "name": "crosshatched",
+    "traits": [
+      "typical shape and appearance of crosshatched",
+      "characteristic color and texture of crosshatched",
+      "surface patterns and details of crosshatched",
+      "distinctive structural parts of crosshatched",
+      "overall composition defining a crosshatched"
+    ],
+    "compact_prompt": "a photo of a crosshatched, recognized by typical shape and appearance of crosshatched and distinctive structural parts of crosshatched."
+  },
+  "crystalline": {
+    "name": "crystalline",
+    "traits": [
+      "typical shape and appearance of crystalline",
+      "characteristic color and texture of crystalline",
+      "surface patterns and details of crystalline",
+      "distinctive structural parts of crystalline",
+      "overall composition defining a crystalline"
+    ],
+    "compact_prompt": "a photo of a crystalline, recognized by typical shape and appearance of crystalline and distinctive structural parts of crystalline."
+  },
+  "dotted": {
+    "name": "dotted",
+    "traits": [
+      "typical shape and appearance of dotted",
+      "characteristic color and texture of dotted",
+      "surface patterns and details of dotted",
+      "distinctive structural parts of dotted",
+      "overall composition defining a dotted"
+    ],
+    "compact_prompt": "a photo of a dotted, recognized by typical shape and appearance of dotted and distinctive structural parts of dotted."
+  },
+  "fibrous": {
+    "name": "fibrous",
+    "traits": [
+      "typical shape and appearance of fibrous",
+      "characteristic color and texture of fibrous",
+      "surface patterns and details of fibrous",
+      "distinctive structural parts of fibrous",
+      "overall composition defining a fibrous"
+    ],
+    "compact_prompt": "a photo of a fibrous, recognized by typical shape and appearance of fibrous and distinctive structural parts of fibrous."
+  },
+  "flecked": {
+    "name": "flecked",
+    "traits": [
+      "typical shape and appearance of flecked",
+      "characteristic color and texture of flecked",
+      "surface patterns and details of flecked",
+      "distinctive structural parts of flecked",
+      "overall composition defining a flecked"
+    ],
+    "compact_prompt": "a photo of a flecked, recognized by typical shape and appearance of flecked and distinctive structural parts of flecked."
+  },
+  "freckled": {
+    "name": "freckled",
+    "traits": [
+      "typical shape and appearance of freckled",
+      "characteristic color and texture of freckled",
+      "surface patterns and details of freckled",
+      "distinctive structural parts of freckled",
+      "overall composition defining a freckled"
+    ],
+    "compact_prompt": "a photo of a freckled, recognized by typical shape and appearance of freckled and distinctive structural parts of freckled."
+  },
+  "frilly": {
+    "name": "frilly",
+    "traits": [
+      "typical shape and appearance of frilly",
+      "characteristic color and texture of frilly",
+      "surface patterns and details of frilly",
+      "distinctive structural parts of frilly",
+      "overall composition defining a frilly"
+    ],
+    "compact_prompt": "a photo of a frilly, recognized by typical shape and appearance of frilly and distinctive structural parts of frilly."
+  },
+  "gauzy": {
+    "name": "gauzy",
+    "traits": [
+      "typical shape and appearance of gauzy",
+      "characteristic color and texture of gauzy",
+      "surface patterns and details of gauzy",
+      "distinctive structural parts of gauzy",
+      "overall composition defining a gauzy"
+    ],
+    "compact_prompt": "a photo of a gauzy, recognized by typical shape and appearance of gauzy and distinctive structural parts of gauzy."
+  },
+  "grid": {
+    "name": "grid",
+    "traits": [
+      "typical shape and appearance of grid",
+      "characteristic color and texture of grid",
+      "surface patterns and details of grid",
+      "distinctive structural parts of grid",
+      "overall composition defining a grid"
+    ],
+    "compact_prompt": "a photo of a grid, recognized by typical shape and appearance of grid and distinctive structural parts of grid."
+  },
+  "grooved": {
+    "name": "grooved",
+    "traits": [
+      "typical shape and appearance of grooved",
+      "characteristic color and texture of grooved",
+      "surface patterns and details of grooved",
+      "distinctive structural parts of grooved",
+      "overall composition defining a grooved"
+    ],
+    "compact_prompt": "a photo of a grooved, recognized by typical shape and appearance of grooved and distinctive structural parts of grooved."
+  },
+  "honeycombed": {
+    "name": "honeycombed",
+    "traits": [
+      "typical shape and appearance of honeycombed",
+      "characteristic color and texture of honeycombed",
+      "surface patterns and details of honeycombed",
+      "distinctive structural parts of honeycombed",
+      "overall composition defining a honeycombed"
+    ],
+    "compact_prompt": "a photo of a honeycombed, recognized by typical shape and appearance of honeycombed and distinctive structural parts of honeycombed."
+  },
+  "interlaced": {
+    "name": "interlaced",
+    "traits": [
+      "typical shape and appearance of interlaced",
+      "characteristic color and texture of interlaced",
+      "surface patterns and details of interlaced",
+      "distinctive structural parts of interlaced",
+      "overall composition defining a interlaced"
+    ],
+    "compact_prompt": "a photo of a interlaced, recognized by typical shape and appearance of interlaced and distinctive structural parts of interlaced."
+  },
+  "knitted": {
+    "name": "knitted",
+    "traits": [
+      "typical shape and appearance of knitted",
+      "characteristic color and texture of knitted",
+      "surface patterns and details of knitted",
+      "distinctive structural parts of knitted",
+      "overall composition defining a knitted"
+    ],
+    "compact_prompt": "a photo of a knitted, recognized by typical shape and appearance of knitted and distinctive structural parts of knitted."
+  },
+  "lacelike": {
+    "name": "lacelike",
+    "traits": [
+      "typical shape and appearance of lacelike",
+      "characteristic color and texture of lacelike",
+      "surface patterns and details of lacelike",
+      "distinctive structural parts of lacelike",
+      "overall composition defining a lacelike"
+    ],
+    "compact_prompt": "a photo of a lacelike, recognized by typical shape and appearance of lacelike and distinctive structural parts of lacelike."
+  },
+  "lined": {
+    "name": "lined",
+    "traits": [
+      "typical shape and appearance of lined",
+      "characteristic color and texture of lined",
+      "surface patterns and details of lined",
+      "distinctive structural parts of lined",
+      "overall composition defining a lined"
+    ],
+    "compact_prompt": "a photo of a lined, recognized by typical shape and appearance of lined and distinctive structural parts of lined."
+  },
+  "marbled": {
+    "name": "marbled",
+    "traits": [
+      "typical shape and appearance of marbled",
+      "characteristic color and texture of marbled",
+      "surface patterns and details of marbled",
+      "distinctive structural parts of marbled",
+      "overall composition defining a marbled"
+    ],
+    "compact_prompt": "a photo of a marbled, recognized by typical shape and appearance of marbled and distinctive structural parts of marbled."
+  },
+  "matted": {
+    "name": "matted",
+    "traits": [
+      "typical shape and appearance of matted",
+      "characteristic color and texture of matted",
+      "surface patterns and details of matted",
+      "distinctive structural parts of matted",
+      "overall composition defining a matted"
+    ],
+    "compact_prompt": "a photo of a matted, recognized by typical shape and appearance of matted and distinctive structural parts of matted."
+  },
+  "meshed": {
+    "name": "meshed",
+    "traits": [
+      "typical shape and appearance of meshed",
+      "characteristic color and texture of meshed",
+      "surface patterns and details of meshed",
+      "distinctive structural parts of meshed",
+      "overall composition defining a meshed"
+    ],
+    "compact_prompt": "a photo of a meshed, recognized by typical shape and appearance of meshed and distinctive structural parts of meshed."
+  },
+  "paisley": {
+    "name": "paisley",
+    "traits": [
+      "typical shape and appearance of paisley",
+      "characteristic color and texture of paisley",
+      "surface patterns and details of paisley",
+      "distinctive structural parts of paisley",
+      "overall composition defining a paisley"
+    ],
+    "compact_prompt": "a photo of a paisley, recognized by typical shape and appearance of paisley and distinctive structural parts of paisley."
+  },
+  "perforated": {
+    "name": "perforated",
+    "traits": [
+      "typical shape and appearance of perforated",
+      "characteristic color and texture of perforated",
+      "surface patterns and details of perforated",
+      "distinctive structural parts of perforated",
+      "overall composition defining a perforated"
+    ],
+    "compact_prompt": "a photo of a perforated, recognized by typical shape and appearance of perforated and distinctive structural parts of perforated."
+  },
+  "pitted": {
+    "name": "pitted",
+    "traits": [
+      "typical shape and appearance of pitted",
+      "characteristic color and texture of pitted",
+      "surface patterns and details of pitted",
+      "distinctive structural parts of pitted",
+      "overall composition defining a pitted"
+    ],
+    "compact_prompt": "a photo of a pitted, recognized by typical shape and appearance of pitted and distinctive structural parts of pitted."
+  },
+  "pleated": {
+    "name": "pleated",
+    "traits": [
+      "typical shape and appearance of pleated",
+      "characteristic color and texture of pleated",
+      "surface patterns and details of pleated",
+      "distinctive structural parts of pleated",
+      "overall composition defining a pleated"
+    ],
+    "compact_prompt": "a photo of a pleated, recognized by typical shape and appearance of pleated and distinctive structural parts of pleated."
+  },
+  "polka-dotted": {
+    "name": "polka-dotted",
+    "traits": [
+      "typical shape and appearance of polka-dotted",
+      "characteristic color and texture of polka-dotted",
+      "surface patterns and details of polka-dotted",
+      "distinctive structural parts of polka-dotted",
+      "overall composition defining a polka-dotted"
+    ],
+    "compact_prompt": "a photo of a polka-dotted, recognized by typical shape and appearance of polka-dotted and distinctive structural parts of polka-dotted."
+  },
+  "porous": {
+    "name": "porous",
+    "traits": [
+      "typical shape and appearance of porous",
+      "characteristic color and texture of porous",
+      "surface patterns and details of porous",
+      "distinctive structural parts of porous",
+      "overall composition defining a porous"
+    ],
+    "compact_prompt": "a photo of a porous, recognized by typical shape and appearance of porous and distinctive structural parts of porous."
+  },
+  "potholed": {
+    "name": "potholed",
+    "traits": [
+      "typical shape and appearance of potholed",
+      "characteristic color and texture of potholed",
+      "surface patterns and details of potholed",
+      "distinctive structural parts of potholed",
+      "overall composition defining a potholed"
+    ],
+    "compact_prompt": "a photo of a potholed, recognized by typical shape and appearance of potholed and distinctive structural parts of potholed."
+  },
+  "scaly": {
+    "name": "scaly",
+    "traits": [
+      "typical shape and appearance of scaly",
+      "characteristic color and texture of scaly",
+      "surface patterns and details of scaly",
+      "distinctive structural parts of scaly",
+      "overall composition defining a scaly"
+    ],
+    "compact_prompt": "a photo of a scaly, recognized by typical shape and appearance of scaly and distinctive structural parts of scaly."
+  },
+  "smeared": {
+    "name": "smeared",
+    "traits": [
+      "typical shape and appearance of smeared",
+      "characteristic color and texture of smeared",
+      "surface patterns and details of smeared",
+      "distinctive structural parts of smeared",
+      "overall composition defining a smeared"
+    ],
+    "compact_prompt": "a photo of a smeared, recognized by typical shape and appearance of smeared and distinctive structural parts of smeared."
+  },
+  "spiralled": {
+    "name": "spiralled",
+    "traits": [
+      "typical shape and appearance of spiralled",
+      "characteristic color and texture of spiralled",
+      "surface patterns and details of spiralled",
+      "distinctive structural parts of spiralled",
+      "overall composition defining a spiralled"
+    ],
+    "compact_prompt": "a photo of a spiralled, recognized by typical shape and appearance of spiralled and distinctive structural parts of spiralled."
+  },
+  "sprinkled": {
+    "name": "sprinkled",
+    "traits": [
+      "typical shape and appearance of sprinkled",
+      "characteristic color and texture of sprinkled",
+      "surface patterns and details of sprinkled",
+      "distinctive structural parts of sprinkled",
+      "overall composition defining a sprinkled"
+    ],
+    "compact_prompt": "a photo of a sprinkled, recognized by typical shape and appearance of sprinkled and distinctive structural parts of sprinkled."
+  },
+  "stained": {
+    "name": "stained",
+    "traits": [
+      "typical shape and appearance of stained",
+      "characteristic color and texture of stained",
+      "surface patterns and details of stained",
+      "distinctive structural parts of stained",
+      "overall composition defining a stained"
+    ],
+    "compact_prompt": "a photo of a stained, recognized by typical shape and appearance of stained and distinctive structural parts of stained."
+  },
+  "stratified": {
+    "name": "stratified",
+    "traits": [
+      "typical shape and appearance of stratified",
+      "characteristic color and texture of stratified",
+      "surface patterns and details of stratified",
+      "distinctive structural parts of stratified",
+      "overall composition defining a stratified"
+    ],
+    "compact_prompt": "a photo of a stratified, recognized by typical shape and appearance of stratified and distinctive structural parts of stratified."
+  },
+  "striped": {
+    "name": "striped",
+    "traits": [
+      "typical shape and appearance of striped",
+      "characteristic color and texture of striped",
+      "surface patterns and details of striped",
+      "distinctive structural parts of striped",
+      "overall composition defining a striped"
+    ],
+    "compact_prompt": "a photo of a striped, recognized by typical shape and appearance of striped and distinctive structural parts of striped."
+  },
+  "studded": {
+    "name": "studded",
+    "traits": [
+      "typical shape and appearance of studded",
+      "characteristic color and texture of studded",
+      "surface patterns and details of studded",
+      "distinctive structural parts of studded",
+      "overall composition defining a studded"
+    ],
+    "compact_prompt": "a photo of a studded, recognized by typical shape and appearance of studded and distinctive structural parts of studded."
+  },
+  "swirly": {
+    "name": "swirly",
+    "traits": [
+      "typical shape and appearance of swirly",
+      "characteristic color and texture of swirly",
+      "surface patterns and details of swirly",
+      "distinctive structural parts of swirly",
+      "overall composition defining a swirly"
+    ],
+    "compact_prompt": "a photo of a swirly, recognized by typical shape and appearance of swirly and distinctive structural parts of swirly."
+  },
+  "veined": {
+    "name": "veined",
+    "traits": [
+      "typical shape and appearance of veined",
+      "characteristic color and texture of veined",
+      "surface patterns and details of veined",
+      "distinctive structural parts of veined",
+      "overall composition defining a veined"
+    ],
+    "compact_prompt": "a photo of a veined, recognized by typical shape and appearance of veined and distinctive structural parts of veined."
+  },
+  "waffled": {
+    "name": "waffled",
+    "traits": [
+      "typical shape and appearance of waffled",
+      "characteristic color and texture of waffled",
+      "surface patterns and details of waffled",
+      "distinctive structural parts of waffled",
+      "overall composition defining a waffled"
+    ],
+    "compact_prompt": "a photo of a waffled, recognized by typical shape and appearance of waffled and distinctive structural parts of waffled."
+  },
+  "woven": {
+    "name": "woven",
+    "traits": [
+      "typical shape and appearance of woven",
+      "characteristic color and texture of woven",
+      "surface patterns and details of woven",
+      "distinctive structural parts of woven",
+      "overall composition defining a woven"
+    ],
+    "compact_prompt": "a photo of a woven, recognized by typical shape and appearance of woven and distinctive structural parts of woven."
+  },
+  "wrinkled": {
+    "name": "wrinkled",
+    "traits": [
+      "typical shape and appearance of wrinkled",
+      "characteristic color and texture of wrinkled",
+      "surface patterns and details of wrinkled",
+      "distinctive structural parts of wrinkled",
+      "overall composition defining a wrinkled"
+    ],
+    "compact_prompt": "a photo of a wrinkled, recognized by typical shape and appearance of wrinkled and distinctive structural parts of wrinkled."
+  },
+  "zigzagged": {
+    "name": "zigzagged",
+    "traits": [
+      "typical shape and appearance of zigzagged",
+      "characteristic color and texture of zigzagged",
+      "surface patterns and details of zigzagged",
+      "distinctive structural parts of zigzagged",
+      "overall composition defining a zigzagged"
+    ],
+    "compact_prompt": "a photo of a zigzagged, recognized by typical shape and appearance of zigzagged and distinctive structural parts of zigzagged."
+  }
+}

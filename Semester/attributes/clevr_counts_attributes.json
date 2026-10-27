@@ -1,0 +1,123 @@
+{
+  "0 objects": {
+    "name": "0 objects",
+    "traits": [
+      "typical shape and appearance of 0 objects",
+      "characteristic color and texture of 0 objects",
+      "surface patterns and details of 0 objects",
+      "distinctive structural parts of 0 objects",
+      "overall composition defining a 0 objects"
+    ],
+    "compact_prompt": "a photo of a 0 objects, recognized by typical shape and appearance of 0 objects and distinctive structural parts of 0 objects."
+  },
+  "1 objects": {
+    "name": "1 objects",
+    "traits": [
+      "typical shape and appearance of 1 objects",
+      "characteristic color and texture of 1 objects",
+      "surface patterns and details of 1 objects",
+      "distinctive structural parts of 1 objects",
+      "overall composition defining a 1 objects"
+    ],
+    "compact_prompt": "a photo of a 1 objects, recognized by typical shape and appearance of 1 objects and distinctive structural parts of 1 objects."
+  },
+  "2 objects": {
+    "name": "2 objects",
+    "traits": [
+      "typical shape and appearance of 2 objects",
+      "characteristic color and texture of 2 objects",
+      "surface patterns and details of 2 objects",
+      "distinctive structural parts of 2 objects",
+      "overall composition defining a 2 objects"
+    ],
+    "compact_prompt": "a photo of a 2 objects, recognized by typical shape and appearance of 2 objects and distinctive structural parts of 2 objects."
+  },
+  "3 objects": {
+    "name": "3 objects",
+    "traits": [
+      "typical shape and appearance of 3 objects",
+      "characteristic color and texture of 3 objects",
+      "surface patterns and details of 3 objects",
+      "distinctive structural parts of 3 objects",
+      "overall composition defining a 3 objects"
+    ],
+    "compact_prompt": "a photo of a 3 objects, recognized by typical shape and appearance of 3 objects and distinctive structural parts of 3 objects."
+  },
+  "4 objects": {
+    "name": "4 objects",
+    "traits": [
+      "typical shape and appearance of 4 objects",
+      "characteristic color and texture of 4 objects",
+      "surface patterns and details of 4 objects",
+      "distinctive structural parts of 4 objects",
+      "overall composition defining a 4 objects"
+    ],
+    "compact_prompt": "a photo of a 4 objects, recognized by typical shape and appearance of 4 objects and distinctive structural parts of 4 objects."
+  },
+  "5 objects": {
+    "name": "5 objects",
+    "traits": [
+      "typical shape and appearance of 5 objects",
+      "characteristic color and texture of 5 objects",
+      "surface patterns and details of 5 objects",
+      "distinctive structural parts of 5 objects",
+      "overall composition defining a 5 objects"
+    ],
+    "compact_prompt": "a photo of a 5 objects, recognized by typical shape and appearance of 5 objects and distinctive structural parts of 5 objects."
+  },
+  "6 objects": {
+    "name": "6 objects",
+    "traits": [
+      "typical shape and appearance of 6 objects",
+      "characteristic color and texture of 6 objects",
+      "surface patterns and details of 6 objects",
+      "distinctive structural parts of 6 objects",
+      "overall composition defining a 6 objects"
+    ],
+    "compact_prompt": "a photo of a 6 objects, recognized by typical shape and appearance of 6 objects and distinctive structural parts of 6 objects."
+  },
+  "7 objects": {
+    "name": "7 objects",
+    "traits": [
+      "typical shape and appearance of 7 objects",
+      "characteristic color and texture of 7 objects",
+      "surface patterns and details of 7 objects",
+      "distinctive structural parts of 7 objects",
+      "overall composition defining a 7 objects"
+    ],
+    "compact_prompt": "a photo of a 7 objects, recognized by typical shape and appearance of 7 objects and distinctive structural parts of 7 objects."
+  },
+  "8 objects": {
+    "name": "8 objects",
+    "traits": [
+      "typical shape and appearance of 8 objects",
+      "characteristic color and texture of 8 objects",
+      "surface patterns and details of 8 objects",
+      "distinctive structural parts of 8 objects",
+      "overall composition defining a 8 objects"
+    ],
+    "compact_prompt": "a photo of a 8 objects, recognized by typical shape and appearance of 8 objects and distinctive structural parts of 8 objects."
+  },
+  "9 objects": {
+    "name": "9 objects",
+    "traits": [
+      "typical shape and appearance of 9 objects",
+      "characteristic color and texture of 9 objects",
+      "surface patterns and details of 9 objects",
+      "distinctive structural parts of 9 objects",
+      "overall composition defining a 9 objects"
+    ],
+    "compact_prompt": "a photo of a 9 objects, recognized by typical shape and appearance of 9 objects and distinctive structural parts of 9 objects."
+  },
+  "10 objects": {
+    "name": "10 objects",
+    "traits": [
+      "typical shape and appearance of 10 objects",
+      "characteristic color and texture of 10 objects",
+      "surface patterns and details of 10 objects",
+      "distinctive structural parts of 10 objects",
+      "overall composition defining a 10 objects"
+    ],
+    "compact_prompt": "a photo of a 10 objects, recognized by typical shape and appearance of 10 objects and distinctive structural parts of 10 objects."
+  }
+}
