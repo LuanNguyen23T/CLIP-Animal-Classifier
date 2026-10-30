@@ -10,10 +10,11 @@
     "gemma_cbm_5axis_zero_shot": 57.14285969734192,
     "gemma_morphological_centroids_zero_shot": 58.43861103057861,
     "gemma_clip_fused_zero_shot": 59.62098836898804,
-    "gemma_clip_full_tuned_adapter": 72.64334559440613,
+    "gemma_clip_full_tuned_adapter": 72.40039110183716,
     "published_baselines": {
       "cupl_gpt3": 68.3,
       "labo_gpt3": 68.75
-    }
+    },
+    "gemma_clip_full_dual_stream": 72.67573475837708
   }
 }

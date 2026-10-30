@@ -1,0 +1,67 @@
+{
+  "dataset": "Oxford-IIIT Pet",
+  "total_classes": 37,
+  "test_samples": 3669,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "zero_shot_accuracy": 87.35,
+  "few_shot_scaling": {
+    "1_shot": {
+      "seed_runs": {
+        "seed_1": 85.39,
+        "seed_2": 85.61,
+        "seed_3": 86.32
+      },
+      "mean": 85.77,
+      "std": 0.48
+    },
+    "2_shot": {
+      "seed_runs": {
+        "seed_1": 87.16,
+        "seed_2": 88.23,
+        "seed_3": 86.75
+      },
+      "mean": 87.38,
+      "std": 0.76
+    },
+    "4_shot": {
+      "seed_runs": {
+        "seed_1": 87.82,
+        "seed_2": 89.37,
+        "seed_3": 88.09
+      },
+      "mean": 88.43,
+      "std": 0.83
+    },
+    "8_shot": {
+      "seed_runs": {
+        "seed_1": 87.22,
+        "seed_2": 88.72,
+        "seed_3": 87.14
+      },
+      "mean": 87.69,
+      "std": 0.89
+    },
+    "16_shot": {
+      "seed_runs": {
+        "seed_1": 87.19,
+        "seed_2": 89.29,
+        "seed_3": 87.52
+      },
+      "mean": 88.0,
+      "std": 1.13
+    },
+    "full_trainval": {
+      "seed_runs": {
+        "seed_1": 89.32,
+        "seed_2": 89.48,
+        "seed_3": 89.51
+      },
+      "mean": 89.43,
+      "std": 0.1
+    }
+  }
+}
