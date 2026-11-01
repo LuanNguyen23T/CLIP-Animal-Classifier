@@ -1,0 +1,18 @@
+{
+  "dataset": "Stanford Dogs",
+  "partition": "Custom 70:30 cached (14,406 train, 6,174 test). Train stratified into 13,024 train / 1,382 val.",
+  "zero_shot": {
+    "clip_raw": 51.78166627883911,
+    "clip_handcrafted": 59.41042900085449,
+    "gemma_cbm_600axis": 57.14285969734192,
+    "gemma_centroid": 57.661157846450806,
+    "gemma_zeroshot_blend": 59.782958030700684
+  },
+  "supervised_visadapter": {
+    "best_epoch_on_val": 16,
+    "val_acc": 72.64833450317383,
+    "test_acc": 72.46517539024353,
+    "correct_test_samples": 4474,
+    "total_test_samples": 6174
+  }
+}

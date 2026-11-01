@@ -1,0 +1,52 @@
+[
+  {
+    "ground_truth": "Staffordshire Bull Terrier",
+    "test_n": 89,
+    "correct_n": 69,
+    "correct_pct": 77.53,
+    "counterpart": "American Pit Bull Terrier",
+    "errors_to_counterpart": 15,
+    "total_errors": 20,
+    "pct_of_errors": 75.0
+  },
+  {
+    "ground_truth": "Birman",
+    "test_n": 100,
+    "correct_n": 72,
+    "correct_pct": 72.0,
+    "counterpart": "Ragdoll",
+    "errors_to_counterpart": 24,
+    "total_errors": 28,
+    "pct_of_errors": 85.71
+  },
+  {
+    "ground_truth": "Beagle",
+    "test_n": 100,
+    "correct_n": 99,
+    "correct_pct": 99.0,
+    "counterpart": "Basset Hound",
+    "errors_to_counterpart": 0,
+    "total_errors": 1,
+    "pct_of_errors": 0.0
+  },
+  {
+    "ground_truth": "British Shorthair",
+    "test_n": 100,
+    "correct_n": 84,
+    "correct_pct": 84.0,
+    "counterpart": "Russian Blue",
+    "errors_to_counterpart": 15,
+    "total_errors": 16,
+    "pct_of_errors": 93.75
+  },
+  {
+    "ground_truth": "English Cocker Spaniel",
+    "test_n": 100,
+    "correct_n": 85,
+    "correct_pct": 85.0,
+    "counterpart": "English Setter",
+    "errors_to_counterpart": 14,
+    "total_errors": 15,
+    "pct_of_errors": 93.33
+  }
+]

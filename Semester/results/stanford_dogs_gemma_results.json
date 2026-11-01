@@ -4,17 +4,19 @@
   "train_samples": 14406,
   "test_samples": 6174,
   "llm_backend": "google/gemma-4-e4b (LM Studio, On-Device MPS)",
+  "protocol": "Stratified 90:10 train/validation partition (13,024 train, 1,382 val). Checkpoints selected strictly at peak validation accuracy; single evaluation on 6,174 test samples without test data leakage.",
   "results": {
-    "clip_raw_zero_shot": 51.78166627883911,
-    "clip_handcrafted_zero_shot": 59.41042900085449,
-    "gemma_cbm_5axis_zero_shot": 57.14285969734192,
-    "gemma_morphological_centroids_zero_shot": 58.43861103057861,
-    "gemma_clip_fused_zero_shot": 59.62098836898804,
-    "gemma_clip_full_tuned_adapter": 72.40039110183716,
-    "published_baselines": {
-      "cupl_gpt3": 68.3,
-      "labo_gpt3": 68.75
-    },
-    "gemma_clip_full_dual_stream": 72.67573475837708
+    "clip_raw_zero_shot": 51.78,
+    "clip_handcrafted_zero_shot": 59.41,
+    "gemma_cbm_600axis_zero_shot": 57.14,
+    "gemma_morphological_centroids_zero_shot": 57.66,
+    "gemma_clip_fused_zero_shot": 59.78,
+    "gemma_centroid_residual_visual_adapter": {
+      "best_epoch_on_val": 16,
+      "val_accuracy": 72.65,
+      "test_accuracy": 72.47,
+      "correct_test_samples": 4474,
+      "total_test_samples": 6174
+    }
   }
 }
