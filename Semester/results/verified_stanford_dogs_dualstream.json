@@ -1,0 +1,33 @@
+{
+  "dataset": "Stanford Dogs",
+  "protocol": "Stratified 90:10 train/val partition (13,024 train, 1,382 val). Checkpoint selected strictly on peak validation accuracy.",
+  "models": {
+    "coop_baseline": {
+      "val_acc": 57.81475901603699,
+      "best_epoch": 9,
+      "test_top1": 57.547783851623535,
+      "test_top5": 89.9092972278595,
+      "correct_test": 3553,
+      "total_test": 6174,
+      "trainable_params": 2048
+    },
+    "gemma_coop": {
+      "val_acc": 57.30825066566467,
+      "best_epoch": 12,
+      "test_top1": 57.968902587890625,
+      "test_top5": 90.34661650657654,
+      "correct_test": 3579,
+      "total_test": 6174,
+      "trainable_params": 2048
+    },
+    "gemma_dualstream": {
+      "best_beta_on_val": 0.7,
+      "val_acc": 58.6107075214386,
+      "test_top1": 59.62098836898804,
+      "test_top5": 89.09944891929626,
+      "correct_test": 3681,
+      "total_test": 6174,
+      "trainable_params": 2048
+    }
+  }
+}

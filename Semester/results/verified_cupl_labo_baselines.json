@@ -1,0 +1,28 @@
+{
+  "oxford_iiit_pet": {
+    "cupl": {
+      "test_raw_acc": 85.88171005249023,
+      "test_tta_acc": 86.01799011230469,
+      "correct": 3156,
+      "total": 3669
+    },
+    "labo": {
+      "test_raw_acc": 82.52930045127869,
+      "test_tta_acc": 82.61106610298157,
+      "correct": 3031,
+      "total": 3669
+    }
+  },
+  "stanford_dogs": {
+    "cupl": {
+      "test_top1_acc": 56.85130953788757,
+      "correct": 3510,
+      "total": 6174
+    },
+    "labo": {
+      "test_top1_acc": 56.94849491119385,
+      "correct": 3516,
+      "total": 6174
+    }
+  }
+}
