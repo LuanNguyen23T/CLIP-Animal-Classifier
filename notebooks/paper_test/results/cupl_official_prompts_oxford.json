@@ -1,0 +1,62 @@
+{
+  "method": "CuPL full prompts released by authors; local CLIP feature evaluation",
+  "dataset": "Oxford-IIIT Pet official 3669 test",
+  "prompt_source_url": "https://raw.githubusercontent.com/sarahpratt/CuPL/main/all_prompts/full_prompts/pets_prompts_full.json",
+  "prompt_sha256": "b53cbe7f37e807c13a3f02e511c6058e6a50bafea3f8c4363cb85bf32920c6c6",
+  "model_id": "openai/clip-vit-base-patch32",
+  "feature_files": {
+    "raw": "Semester/cached_features/oxford_pets/test_clip.pt",
+    "tta": "dataset/cached/test_features_tta.pt"
+  },
+  "prompt_count_per_class": {
+    "Abyssinian": 20,
+    "American Bulldog": 20,
+    "American Pit Bull Terrier": 20,
+    "Basset Hound": 20,
+    "Beagle": 20,
+    "Bengal": 20,
+    "Birman": 20,
+    "Bombay": 20,
+    "Boxer": 20,
+    "British Shorthair": 20,
+    "Chihuahua": 20,
+    "Egyptian Mau": 20,
+    "English Cocker Spaniel": 20,
+    "English Setter": 20,
+    "German Shorthaired": 20,
+    "Great Pyrenees": 20,
+    "Havanese": 20,
+    "Japanese Chin": 20,
+    "Keeshond": 20,
+    "Leonberger": 20,
+    "Maine Coon": 20,
+    "Miniature Pinscher": 20,
+    "Newfoundland": 20,
+    "Persian": 20,
+    "Pomeranian": 20,
+    "Pug": 20,
+    "Ragdoll": 20,
+    "Russian Blue": 20,
+    "Saint Bernard": 20,
+    "Samoyed": 20,
+    "Scottish Terrier": 20,
+    "Shiba Inu": 20,
+    "Siamese": 20,
+    "Sphynx": 20,
+    "Staffordshire Bull Terrier": 20,
+    "Wheaten Terrier": 20,
+    "Yorkshire Terrier": 20
+  },
+  "results": {
+    "raw": {
+      "correct": 3200,
+      "total": 3669,
+      "accuracy": 87.2172254020169
+    },
+    "tta": {
+      "correct": 3215,
+      "total": 3669,
+      "accuracy": 87.62605614608886
+    }
+  }
+}
