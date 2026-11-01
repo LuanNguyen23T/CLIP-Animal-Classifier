@@ -185,7 +185,7 @@ Table 2 evaluates all architectures on the 3,669-image test split, comparing raw
 
 > <sup>†</sup> *Table 2 reports performance on the official 3,669 test split. '(9:1 Split)' denotes models trained on 3,310 training images with 370 validation images for hyperparameter tuning, evaluated on the unobserved 3,669 test images (see Section 4.1 for partition protocols and evaluation settings).*  
 > <sup>§</sup> *Gemma-CBM is designed for transparent clinical attribution rather than unconstrained categorization.*  
-> <sup>¶</sup> *ResNet-50 Cosine Oracle (93.08% TTA) represents the fully supervised reference baseline trained on 100% full trainval (3,680 images) with ImageNet initialization as requested in the initial review; under the matched 9:1 split protocol on frozen features, ResNet-50 achieves 86.51% TTA (86.75% full trainval), as logged in Semester/results/verified_oxford_pets_benchmark.json.*
+> <sup>¶</sup> *ResNet-50 Cosine Oracle (93.08% TTA) represents the fully supervised reference upper-bound trained end-to-end on 100% full trainval (3,680 images) with ImageNet initialization; under the matched 9:1 split protocol on frozen visual features, ResNet-50 achieves 86.51% TTA (86.75% across full trainval).*
 
 A systematic comparison across Table 2 highlights critical architectural trade-offs between supervised learning and foundation adaptation. Under the identical 9:1 data partition (3,310 train / 370 val), Gemma-DualStream attains **92.07% TTA** (91.55% raw) and **99.73% Top-5 accuracy** with only **2,048 trainable prompt parameters** (0.0013% of ViT-B/32), outperforming the supervised ResNet-50 Cosine Head (86.51% TTA, $\Delta = +5.56\%$) and exceeding all PEFT baselines (CoOp 91.39%, CLIP-Adapter 91.28%, Tip-Adapter-F 89.56%). While the fully-supervised ResNet-50 Cosine Oracle trained on 100% full trainval achieves 93.08% TTA, it requires complete labeled supervision across all 3,680 images and degrades sharply under few-shot data scarcity ($72.88\%$ at $K=1$, as shown in Table 7).
 
@@ -253,7 +253,7 @@ The specimen is correctly classified as Ragdoll. While coat and eye scores are n
 
 Morphological descriptors provide the greatest separation for breeds with distinctive localized anatomy: Sphynx (hairless wrinkle texture, large wide-set ears), Persian (brachycephalic flat facial geometry, compact muzzle), and Bengal (rosetted leopard markings). Across the entire 3,669-image test set, cat-vs-dog cross-species classification achieves **99.95% accuracy**, with only 2 cross-species misclassifications (0.05% error rate: Great Pyrenees confused as Siamese, and Scottish Terrier confused as Bombay).
 
-Table 6 analyzes representative confusable breed pairs identified across the 37 classes of Oxford-IIIT Pet, reporting official test sample counts directly verified from aligned model predictions (verified on official test split).
+Table 6 analyzes representative confusable breed pairs identified across the 37 classes of Oxford-IIIT Pet, reporting official test sample counts computed directly from aligned model predictions.
 
 *Table 6. Fine-Grained Morphological Boundary and Confusable Breed Pair Analysis on Oxford-IIIT Pet.*
 
