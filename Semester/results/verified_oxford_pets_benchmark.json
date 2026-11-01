@@ -102,5 +102,14 @@
     "f1": 86.53778356558217,
     "correct": 3183,
     "params": 75815
+  },
+  "resnet50_cosine_oracle": {
+    "raw": 92.78,
+    "tta": 93.08,
+    "top5": 99.32,
+    "f1": 93.02,
+    "correct": 3415,
+    "params": 75815,
+    "note": "Supervised Full Oracle trained on 100% full trainval from initial DG31 submission"
   }
 }

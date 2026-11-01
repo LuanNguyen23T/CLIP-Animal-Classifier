@@ -6,6 +6,13 @@
     "chi2": 3.2914285714285714,
     "p_value": 0.06964240479832817
   },
+  "gemma_dualstream_vs_clip_adapter": {
+    "b": 88,
+    "c": 59,
+    "b_minus_c": 29,
+    "chi2": 5.333333333333333,
+    "p_value": 0.020921340156828555
+  },
   "gemma_dualstream_vs_resnet50_90split": {
     "b": 360,
     "c": 156,

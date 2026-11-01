@@ -79,7 +79,7 @@ CBMs [6] route predictions through interpretable concept scores. In parallel, pr
                                           ▼
                                    [ Softmax Loss ]
 ```
-*Figure 1. Architecture of Gemma-CLIP: coupling visual residual adaptation, parameterized Gemma-CoOp prompt tuning, and non-parametric morphological centroids.*
+*Figure 1. Architecture of Gemma-CLIP: coupling visual residual adaptation, parameterized Gemma-CoOp prompt tuning, and non-parametric morphological centroids. Note: In the parameter-efficient Gemma-DualStream setting (2,048 parameters), the visual adapter is bypassed ($f'(x) \equiv f(x)$), directly combining Gemma-CoOp soft prompt tuning with the centroid bank.*
 
 ### 3.1. Local Morphological Knowledge Distillation via Gemma 4 SLM
 Gemma 4 E4B (`google/gemma-4-e4b`) [8] is served locally via LM Studio with deterministic greedy decoding (`temp=0.0`, `seed=42`). For each class $c$, the SLM generates structured descriptors across five anatomical axes: `head_and_ears`, `eyes`, `coat`, `body`, and `distinguishing_mark` (Appendix A). Non-visual descriptors are excluded. A 10% stratified random spot-check (19 descriptors across canine and feline classes) confirmed 18/19 (94.7%) clinical compliance against AKC/FCI and CFA/TICA breed standards (Appendix A). The complete knowledge base is serialized openly in structured JSON format (see Appendix A for prompt templates and public knowledge base links).
@@ -184,7 +184,8 @@ Table 2 evaluates all architectures on the 3,669-image test split, comparing raw
 | | **Gemma-DualStream (9:1 Split)** | CoOp + Centroid Blend | 2,048 | **91.55%** | — | **92.07%** | **99.73%** | **92.02%** |
 
 > <sup>†</sup> *Table 2 reports performance on the official 3,669 test split. '(9:1 Split)' denotes models trained on 3,310 training images with 370 validation images for hyperparameter tuning, evaluated on the unobserved 3,669 test images (see Section 4.1 for partition protocols and evaluation settings).*  
-> <sup>§</sup> *Gemma-CBM is designed for transparent clinical attribution rather than unconstrained categorization.*
+> <sup>§</sup> *Gemma-CBM is designed for transparent clinical attribution rather than unconstrained categorization.*  
+> <sup>¶</sup> *ResNet-50 Cosine Oracle (93.08% TTA) represents the fully supervised reference baseline trained on 100% full trainval (3,680 images) with ImageNet initialization as requested in the initial review; under the matched 9:1 split protocol on frozen features, ResNet-50 achieves 86.51% TTA (86.75% full trainval), as logged in Semester/results/verified_oxford_pets_benchmark.json.*
 
 A systematic comparison across Table 2 highlights critical architectural trade-offs between supervised learning and foundation adaptation. Under the identical 9:1 data partition (3,310 train / 370 val), Gemma-DualStream attains **92.07% TTA** (91.55% raw) and **99.73% Top-5 accuracy** with only **2,048 trainable prompt parameters** (0.0013% of ViT-B/32), outperforming the supervised ResNet-50 Cosine Head (86.51% TTA, $\Delta = +5.56\%$) and exceeding all PEFT baselines (CoOp 91.39%, CLIP-Adapter 91.28%, Tip-Adapter-F 89.56%). While the fully-supervised ResNet-50 Cosine Oracle trained on 100% full trainval achieves 93.08% TTA, it requires complete labeled supervision across all 3,680 images and degrades sharply under few-shot data scarcity ($72.88\%$ at $K=1$, as shown in Table 7).
 
@@ -357,7 +358,7 @@ Under few-shot and parameter-efficient adaptation, Compact Trait conditioning (G
 * [5] R. Zhang, R. Fang, W. Zhang, P. Gao, K. Li, J. Dai, Y. Qiao, and H. Li, "Tip-Adapter: Training-Free CLIP-Adapter for Better Vision-Language Modeling," in *European Conference on Computer Vision (ECCV)*, pp. 493–510, 2022.
 * [6] P. W. Koh, T. Nguyen, Y. S. Tang, S. Mussmann, E. Pierson, B. Ghorbani, and P. Liang, "Concept Bottleneck Models," in *International Conference on Machine Learning (ICML)*, pp. 5338–5348, 2020.
 * [7] S. Menon and C. Vondrick, "Visual Classification via Description from Large Language Models," in *International Conference on Learning Representations (ICLR)*, 2023.
-* [8] Gemma Team, Google, "Gemma 4: Open Models for Multimodal Reasoning and Local Intelligence," *arXiv:2607.02770*, 2026.
+* [8] Gemma Team, Google, "Gemma 4 Technical Report," *arXiv:2607.02770*, 2026.
 * [9] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 30, 2017.
 * [10] K. He, X. Zhang, S. Ren, and J. Sun, "Deep Residual Learning for Image Recognition," in *IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, pp. 770–778, 2016.
 * [11] J. Snell, K. Swersky, and R. Zemel, "Prototypical Networks for Few-shot Learning," in *Advances in Neural Information Processing Systems (NeurIPS)*, pp. 4077–4087, 2017.
