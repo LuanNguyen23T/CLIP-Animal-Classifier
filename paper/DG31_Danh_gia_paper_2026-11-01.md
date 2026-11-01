@@ -1,5 +1,7 @@
 # Đánh giá paper Gemma-CLIP sau bản push ngày 01/11/2026
 
+> **Lưu ý:** Bản nhận xét này ghi trạng thái trước commit kết quả `d001f15`. Xem bản cập nhật `paper/DG31_Danh_gia_sau_chay_2026-11-01.md` để biết các số Stanford/CuPL đã chạy.
+
 **Bản được đánh giá:** `paper/paper_CLIP_Gemma4_revised_v2.md` tại commit `8816f1e5`; hậu kiểm bản clone ở commit `dcd7d95` có **cùng blob paper** `01485ddc`.  
 **Mục đích:** Nhận xét công tâm và lập plan sửa trước khi gửi giảng viên. Mọi đường dẫn tệp trong nhận xét đều tương đối theo repository.
 
