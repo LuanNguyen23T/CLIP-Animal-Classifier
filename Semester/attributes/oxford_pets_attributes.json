@@ -76,11 +76,11 @@
     "human_name": "Birman",
     "species": "cat",
     "attributes": {
-      "head_and_ears": "Moderately sized, rounded cranium with a balanced muzzle; ears are medium in size, set wide, and possess a semi-erect carriage.",
-      "eyes": "Large, expressive eyes with an almond to round shape, typically exhibiting a rich copper or amber pigmentation.",
-      "coat": "A dense, medium-pile coat of creamy ivory body color, contrasted by uniform, rich mahogany or seal-point saturation on the extremities (mask, tail, legs).",
-      "body": "A medium to large frame exhibiting a graceful, muscular build; the tail is proportionate and tapers elegantly.",
-      "distinguishing_mark": "The sharp visual contrast between the pale, creamy base coat and the deep, saturated mahogany tipping that defines the facial mask and points."
+      "head_and_ears": "Broad, rounded skull contour with a balanced muzzle; ears are medium in size, set wide.",
+      "eyes": "Round, deep sapphire-blue eyes with expressive gaze.",
+      "coat": "Silky semi-longhair coat of creamy ivory body color, contrasted by uniform, rich mahogany or seal-point saturation on extremities.",
+      "body": "Medium to large frame exhibiting a graceful, muscular build; the tail is proportionate and tapers elegantly.",
+      "distinguishing_mark": "Pure white symmetrical gloves on all four paws contrasting with seal points."
     }
   },
   "bombay": {
@@ -316,11 +316,11 @@
     "human_name": "Ragdoll",
     "species": "cat",
     "attributes": {
-      "head_and_ears": "Moderately sized, well-chiseled head structure with a proportionate muzzle; ears are medium in size and semi-erect, providing excellent cranial orientation.",
-      "eyes": "Large, deeply set eyes characterized by a luminous quality; color is typically striking blue or deep amber depending on the specific genetic line.",
-      "coat": "Dense, plush double coat texture; exhibits a semi-long pile that feels exceptionally soft. Coloration is often achieved through distinct 'pointed' patterns or solid hues, depending on the specific phenotype.",
-      "body": "Medium to large frame with a muscular yet graceful build; the body is well-balanced and exhibits fluid movement. The tail is proportionate to the body length.",
-      "distinguishing_mark": "The unique combination of a large, expressive facial structure with the plush density and specific color patterning of the coat, creating a highly uniform visual profile."
+      "head_and_ears": "Broad modified wedge with flat plane between ears; muzzle is well-developed.",
+      "eyes": "Large, vivid blue, oval-shaped eyes set moderately wide.",
+      "coat": "Semi-long plush coat with minimal matting; dense undercoat with distinct point coloration across extremities.",
+      "body": "Substantial, muscular body; long, broad chest and heavy bone structure.",
+      "distinguishing_mark": "Absence of white gloves; point colorations across extremities."
     }
   },
   "russian_blue": {

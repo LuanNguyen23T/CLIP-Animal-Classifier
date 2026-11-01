@@ -1,14 +1,23 @@
 {
   "gemma_dualstream_vs_coop": {
     "b": 100,
-    "c": 88,
-    "chi2": 0.6436170212765957,
-    "p_value": 0.42240404833424894
+    "c": 75,
+    "b_minus_c": 25,
+    "chi2": 3.2914285714285714,
+    "p_value": 0.06964240479832817
   },
-  "gemma_dualstream_vs_resnet50": {
-    "b": 352,
-    "c": 161,
-    "chi2": 70.37037037037037,
+  "gemma_dualstream_vs_resnet50_90split": {
+    "b": 360,
+    "c": 156,
+    "b_minus_c": 204,
+    "chi2": 79.8624031007752,
+    "p_value": 0.0
+  },
+  "gemma_dualstream_vs_resnet50_full": {
+    "b": 350,
+    "c": 155,
+    "b_minus_c": 195,
+    "chi2": 74.52673267326733,
     "p_value": 0.0
   }
 }

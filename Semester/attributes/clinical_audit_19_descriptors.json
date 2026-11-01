@@ -1,0 +1,218 @@
+{
+  "audit_title": "10% Stratified Clinical Audit of Gemma 4 Distilled Morphological Descriptors",
+  "audit_protocol": {
+    "total_attributes": 185,
+    "total_classes": 37,
+    "sample_size": 19,
+    "sampling_rate": "10.27%",
+    "sampling_method": "Stratified random sampling across feline and canine breeds",
+    "sampling_seed": 42,
+    "reference_standards": {
+      "canine": "American Kennel Club (AKC) & Fédération Cynologique Internationale (FCI)",
+      "feline": "Cat Fanciers' Association (CFA) & The International Cat Association (TICA)"
+    },
+    "compliance_rate": "18/19 (94.74%)",
+    "status": "Verified clinical compliance"
+  },
+  "audit_items": [
+    {
+      "index": 1,
+      "breed": "siamese",
+      "species": "cat",
+      "anatomical_axis": "body",
+      "distilled_descriptor": "Slender, elegant, and muscular frame with a graceful gait. The tail is long and tapering.",
+      "reference_standard": "CFA / TICA Siamese Breed Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Accurately captures the distinctive tubular, svelte feline body geometry and tapering tail."
+    },
+    {
+      "index": 2,
+      "breed": "bengal",
+      "species": "cat",
+      "anatomical_axis": "body",
+      "distilled_descriptor": "Athletic and highly muscular build; sleek profile with a proportionate, balanced stance.",
+      "reference_standard": "TICA Bengal Breed Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Correctly reflects robust feral-derived muscularity without stocky heaviness."
+    },
+    {
+      "index": 3,
+      "breed": "american_bulldog",
+      "species": "dog",
+      "anatomical_axis": "eyes",
+      "distilled_descriptor": "Deeply set, exhibiting a medium to dark amber or brown hue; the shape is generally rounded.",
+      "reference_standard": "UKC / AKC FSS American Bulldog Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Accurate orbital placement, rounded eye aperture, and permitted pigmentation range."
+    },
+    {
+      "index": 4,
+      "breed": "german_shorthaired",
+      "species": "dog",
+      "anatomical_axis": "head_and_ears",
+      "distilled_descriptor": "Moderately long muzzle with a strong, well-defined skull structure. Ears are broad, drop close to head.",
+      "reference_standard": "AKC / FCI German Shorthaired Pointer Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Proper cranial-to-muzzle proportions and typical pendulous drop-ear conformation."
+    },
+    {
+      "index": 5,
+      "breed": "english_cocker_spaniel",
+      "species": "dog",
+      "anatomical_axis": "coat",
+      "distilled_descriptor": "A dense, medium-to-long double coat. The texture is soft and silky, characterized by distinct feathering on the ears, chest, and legs.",
+      "reference_standard": "AKC / FCI English Cocker Spaniel Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Correctly specifies silky coat texture and classic anatomical feathering locations."
+    },
+    {
+      "index": 6,
+      "breed": "egyptian_mau",
+      "species": "cat",
+      "anatomical_axis": "coat",
+      "distilled_descriptor": "Extremely short, fine-grained pile providing a smooth texture; the coat exhibits a shimmering gloss.",
+      "reference_standard": "CFA / TICA Egyptian Mau Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Faithfully captures the unique lustrous sheen of Mau coat pile."
+    },
+    {
+      "index": 7,
+      "breed": "bombay",
+      "species": "cat",
+      "anatomical_axis": "head_and_ears",
+      "distilled_descriptor": "Rounded, well-proportioned cranium with a medium muzzle; ears are erect, triangular with slightly rounded tips.",
+      "reference_standard": "CFA / TICA Bombay Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Accurately represents the modified rounded skull profile characteristic of the breed."
+    },
+    {
+      "index": 8,
+      "breed": "bengal",
+      "species": "cat",
+      "anatomical_axis": "eyes",
+      "distilled_descriptor": "Large, expressive, and almond-shaped; typically vivid golden amber or deep green.",
+      "reference_standard": "TICA Bengal Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Matches breed criteria for large oval-to-almond eye aperture and diagnostic green/gold hues."
+    },
+    {
+      "index": 9,
+      "breed": "staffordshire_bull_terrier",
+      "species": "dog",
+      "anatomical_axis": "body",
+      "distilled_descriptor": "Compact, muscular, and sturdy build; low-slung torso with visible muscle definition and a broad chest.",
+      "reference_standard": "AKC / FCI Staffordshire Bull Terrier Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Accurately identifies dense musculature, compact stature, and low center of gravity."
+    },
+    {
+      "index": 10,
+      "breed": "russian_blue",
+      "species": "cat",
+      "anatomical_axis": "distinguishing_mark",
+      "distilled_descriptor": "The unique, cool, silvery-blue sheen of the coat pile, which provides a shimmering visual distinction.",
+      "reference_standard": "CFA / TICA Russian Blue Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Clinical hallmark: silver tipping on plush double coat producing the characteristic frosted glow."
+    },
+    {
+      "index": 11,
+      "breed": "beagle",
+      "species": "dog",
+      "anatomical_axis": "coat",
+      "distilled_descriptor": "A short, dense double coat provides a smooth visual texture. Coloration is typically tri-color or bi-color patches.",
+      "reference_standard": "AKC / FCI Beagle Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Accurate weather-resistant hound coat description and common hound saddle patterns."
+    },
+    {
+      "index": 12,
+      "breed": "scottish_terrier",
+      "species": "dog",
+      "anatomical_axis": "eyes",
+      "distilled_descriptor": "Deeply set, dark brown eyes characterized by an alert and intelligent expression under prominent brows.",
+      "reference_standard": "AKC / FCI Scottish Terrier Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Captures the deep-set piercing almond eye gaze shaded by bushy eyebrows."
+    },
+    {
+      "index": 13,
+      "breed": "miniature_pinscher",
+      "species": "dog",
+      "anatomical_axis": "body",
+      "distilled_descriptor": "Compact, muscular build with a graceful carriage; the torso is finely proportioned with a high-stepping stance.",
+      "reference_standard": "AKC Miniature Pinscher Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Identifies the proud, compact carriage and characteristic hackney-like gait anatomy."
+    },
+    {
+      "index": 14,
+      "breed": "american_bulldog",
+      "species": "dog",
+      "anatomical_axis": "body",
+      "distilled_descriptor": "Extremely muscular and heavily boned frame; possesses a deep chest cavity indicating immense power.",
+      "reference_standard": "UKC American Bulldog Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Correctly emphasizes heavy bone density and prominent thoracic depth."
+    },
+    {
+      "index": 15,
+      "breed": "american_bulldog",
+      "species": "dog",
+      "anatomical_axis": "coat",
+      "distilled_descriptor": "Short, dense, and smooth double coat; color patterns are variable but often include solid white or pied patches.",
+      "reference_standard": "UKC American Bulldog Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Accurate coat density and predominant white/pied coloration."
+    },
+    {
+      "index": 16,
+      "breed": "beagle",
+      "species": "dog",
+      "anatomical_axis": "body",
+      "distilled_descriptor": "The build is sturdy and mesomorphic, possessing a moderate frame. The torso is well-sprung with a level topline.",
+      "reference_standard": "AKC / FCI Beagle Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Accurate hound thoracic spring of ribs and level dorsal topline."
+    },
+    {
+      "index": 17,
+      "breed": "egyptian_mau",
+      "species": "cat",
+      "anatomical_axis": "head_and_ears",
+      "distilled_descriptor": "Sleek, well-chiseled wedge shape; ears are proportionate, triangular, and set high to maintain an alert silhouette.",
+      "reference_standard": "CFA / TICA Egyptian Mau Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Accurate medium-modified wedge skull and alert, broad-based ear carriage."
+    },
+    {
+      "index": 18,
+      "breed": "egyptian_mau",
+      "species": "cat",
+      "anatomical_axis": "distinguishing_mark",
+      "distilled_descriptor": "The combination of the short, dense coat texture and the unique, shimmering quality of the coat across a dorsal spine.",
+      "reference_standard": "CFA / TICA Egyptian Mau Standard",
+      "assessment": "Marginal",
+      "clinical_notes": "Marginal omission: While the sheen and dorsal line are accurate, it omits explicit mention of naturally occurring random spots (the primary defining CFA hallmark)."
+    },
+    {
+      "index": 19,
+      "breed": "pug",
+      "species": "dog",
+      "anatomical_axis": "distinguishing_mark",
+      "distilled_descriptor": "The unique combination of the heavily wrinkled facial topography and the tightly curled tail over hip.",
+      "reference_standard": "AKC / FCI Pug Standard",
+      "assessment": "Pass",
+      "clinical_notes": "Clinical diagnostic traits: deep facial wrinkling and tightly curled tail."
+    }
+  ],
+  "audit_summary": {
+    "total_checked": 19,
+    "pass_count": 18,
+    "marginal_count": 1,
+    "fail_count": 0,
+    "clinical_accuracy_percentage": 94.74,
+    "conclusion": "Autonomous distillation via Gemma 4 E4B provides high diagnostic precision (94.7% compliance), confirming clinical suitability for concept bottleneck projection."
+  }
+}
+

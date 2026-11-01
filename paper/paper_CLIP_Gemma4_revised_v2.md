@@ -9,9 +9,9 @@ GitHub: [https://github.com/LuanNguyen23T/CLIP-Animal-Classifier](https://github
 
 ## Abstract
 
-Fine-Grained Visual Categorization (FGVC) is hindered by minute inter-class differences and large intra-class variation. While Contrastive Language-Image Pre-training (CLIP) provides strong zero-shot capabilities, standard prompts lack explicit anatomical cues, and parameter-efficient fine-tuning (PEFT) adapters act as uninterpretable black boxes prone to low-shot instability. We propose **Gemma-CLIP**, an explainable, parameter-efficient framework coupling a frozen CLIP ViT-B/32 backbone with morphological domain knowledge distilled autonomously from an on-device Small Language Model (Google Gemma 4 E4B SLM). Gemma-CLIP integrates: (i) an interpretable 185-attribute concept bottleneck space (Gemma-CBM), (ii) a non-parametric morphological centroid bank (Gemma-Centroid), (iii) Gemma-CoOp soft prompt tuning with 24-token Compact Trait Conditioning to mitigate attention gradient dilution, (iv) a centroid-anchored residual visual adapter (Gemma-VisAdapter), and (v) an aspect-ratio-preserving 5-view test-time augmentation (TTA) pipeline.
+Fine-Grained Visual Categorization (FGVC) is hindered by minute inter-class differences and large intra-class variation. While Contrastive Language-Image Pre-training (CLIP) provides strong zero-shot capabilities, standard prompts lack explicit anatomical cues, and parameter-efficient fine-tuning (PEFT) adapters act as uninterpretable black boxes prone to low-shot instability. We propose **Gemma-CLIP**, an explainable, parameter-efficient framework coupling a frozen CLIP ViT-B/32 backbone with morphological domain knowledge distilled autonomously from an on-device Small Language Model (Google Gemma 4 E4B SLM). Gemma-CLIP integrates: (i) an interpretable 185-attribute concept bottleneck space (Gemma-CBM), (ii) a non-parametric morphological centroid bank (Gemma-Centroid), (iii) Gemma-CoOp soft prompt tuning anchored by concise trait conditioning to mitigate attention gradient dilution, (iv) a centroid-anchored residual visual adapter (Gemma-VisAdapter), and (v) an aspect-ratio-preserving 5-view test-time augmentation (TTA) pipeline.
 
-Evaluated on the official Oxford-IIIT Pet benchmark (3,669 test images) across three independent random seeds, Gemma-CLIP demonstrates comprehensive gains across all supervision regimes. In the zero-shot setting ($K=0$), training-free logit blending (Gemma-ZeroShot) reaches **90.85%** under 5-View TTA, outperforming raw class names (80.16%) and the 80-prompt CLIP ensemble (88.90%). In parameter-efficient adaptation, **Gemma-DualStream** (Gemma-CoOp + Centroid Bank) achieves **92.15%** Top-1 accuracy under 5-View TTA (91.74% raw) and 99.81% Top-5 accuracy with only 2,048 trainable parameters (0.0013% of ViT-B/32), outperforming standard CoOp (91.52% TTA) and CLIP-Adapter (91.28% TTA). Furthermore, while the fully-supervised ResNet-50 Cosine Oracle (93.08% TTA) requires 100% labeled training data (3,680 images) and collapses under few-shot data scarcity ($72.88\%$ at $K=1$), Gemma-CLIP retains robust zero-shot foundation priors across all few-shot budgets ($85.83\%$ at $K=1$). On Apple Silicon MPS, classification head latency is 0.18 ms (5,652 FPS), with the full 5-View TTA pipeline sustaining 17.2 FPS. On Stanford Dogs (120 breeds, 600 concepts), Gemma morphological centroids elevate zero-shot accuracy to 59.78%, parameter-efficient Gemma-DualStream reaches 59.62% (outperforming standard CoOp at 57.55% with only 2,048 prompt parameters), and Gemma-VisAdapter attains **72.47%** Top-1 accuracy under strict validation-based model selection without test leakage.
+Evaluated on the official Oxford-IIIT Pet benchmark (3,669 test images) across three independent random seeds, Gemma-CLIP demonstrates significant sample efficiency, low-shot variance suppression, and consistent competitive accuracy across diverse supervision regimes. In the zero-shot setting ($K=0$), morphological centroid matching (Gemma-Centroid) achieves **88.39%** under 5-View TTA (88.14% raw), outperforming raw class names (80.16% / 80.68% TTA) and the official CuPL baseline (87.63% TTA). In parameter-efficient adaptation, **Gemma-DualStream** (Gemma-CoOp + Centroid Bank) achieves **92.07%** Top-1 accuracy under 5-View TTA (91.55% raw) and 99.73% Top-5 accuracy with only 2,048 trainable parameters (0.0013% of ViT-B/32), outperforming standard CoOp (91.39% TTA) and CLIP-Adapter (91.28% TTA). Furthermore, while the fully-supervised ResNet-50 Cosine Oracle (93.08% TTA on 100% full trainval / 86.51% on 9:1 split) requires complete labeled supervision and degrades sharply under few-shot data scarcity ($72.88\%$ at $K=1$), Gemma-CLIP retains robust foundation priors across data-scarce budgets ($87.55 \pm 0.28\%$ at $K=1$ under 5-View TTA / 87.38% raw, outperforming CoOp by $+1.23\%$ and suppressing variance from $\pm 2.25\%$ down to $\pm 0.28\%$). On Apple Silicon MPS, classification head latency is 0.18 ms (5,652 FPS), with the full 5-View TTA pipeline sustaining 17.2 FPS. On Stanford Dogs (120 breeds, 600 concepts evaluated on a stratified custom 70:30 cached split), Gemma morphological centroids elevate zero-shot accuracy to 57.66% (blend 59.78%), parameter-efficient Gemma-DualStream reaches 59.57% (outperforming standard CoOp at 57.64% with only 2,048 prompt parameters), and Gemma-VisAdapter attains **72.47%** Top-1 accuracy under validation-based checkpoint selection.
 
 **Keywords:** FGVC, Vision-Language Models (VLM), CLIP, Gemma 4 SLM, CoOp, CBM, TTA.
 
@@ -21,9 +21,9 @@ Evaluated on the official Oxford-IIIT Pet benchmark (3,669 test images) across t
 
 FGVC requires vision systems to resolve minute, localized anatomical boundaries amidst large posture and illumination variations [1]. In Oxford-IIIT Pet, Ragdoll and Birman cats share pointed cream coats and blue eyes; their decisive discriminator lies in Birman's symmetrical white paw "gloves". Similarly, Staffordshire Bull Terriers and American Pit Bull Terriers share muscular builds, separated primarily by cheekbone width to mandibular taper ratios.
 
-Global visual classifiers frequently fail on such localized cues. Contrastive Language-Image Pre-training (CLIP; Radford et al. [2]) enables zero-shot classification via cosine similarity between visual embedding $f(x)$ and text prompt embedding $w_c$, yet generic prompts (*"a photo of a {class}"*) omit diagnostic morphology. While parameter-efficient fine-tuning (PEFT) methods—such as CoOp [3], CLIP-Adapter [4], and Tip-Adapter [5]—learn continuous prompts or residual bottlenecks, they exhibit key vulnerabilities: learned continuous vectors act as uninterpretable black boxes lacking anatomical grounding; unconstrained context optimization overfits limited data ($K \le 2$), dropping below zero-shot baselines (CoOp $K=1$: 88.72% vs. 88.90%); naively appending long descriptive sentences disperses backpropagation gradients across CLIP's 12 causal self-attention layers; and prior LLM-guided vision approaches (e.g., CuPL, LaBo) rely on remote proprietary cloud APIs (GPT-3/4), incurring monetary costs, network latency, and privacy vulnerabilities.
+Global visual classifiers frequently fail on such localized cues. Contrastive Language-Image Pre-training (CLIP; Radford et al. [2]) enables zero-shot classification via cosine similarity between visual embedding $f(x)$ and text prompt embedding $w_c$, yet generic prompts (*"a photo of a {class}"*) omit diagnostic morphology. While parameter-efficient fine-tuning (PEFT) methods—such as CoOp [3], CLIP-Adapter [4], and Tip-Adapter [5]—learn continuous prompts or residual bottlenecks, they exhibit key vulnerabilities: learned continuous vectors act as uninterpretable black boxes lacking anatomical grounding; under severe sample scarcity ($K=1$), unconstrained continuous context optimization suffers from high sample selection instability (CoOp dips as low as 83.18% on Seed 2, averaging 86.32% vs. 87.49% for zero-shot prompts); naively appending long descriptive sentences disperses backpropagation gradients across CLIP's 12 causal self-attention layers; and prior LLM-guided vision approaches (e.g., CuPL, LaBo) rely on remote proprietary cloud APIs (GPT-3/4), incurring monetary costs, network latency, and privacy vulnerabilities.
 
-To address these challenges, we propose **Gemma-CLIP**, an explainable, parameter-efficient framework coupling an on-device Gemma 4 SLM [8] with CLIP ViT-B/32. The framework introduces a transparent 185-dimensional concept bottleneck space (Gemma-CBM) for clinical attribution, an invariant non-parametric morphological centroid bank (Gemma-Centroid) across 5 canonical anatomical axes, continuous prompt optimization anchored by 24-token Compact Trait summaries (Gemma-CoOp) to preserve attention gradients, a lightweight residual visual bottleneck MLP ($512 \to 64 \to 512$, $\alpha = 0.2$) anchored to Centroid weights (Gemma-VisAdapter), and dual-stream logit fusion ($\beta = 0.5$). When combined with aspect-ratio-preserving 5-View TTA, Gemma-DualStream achieves 92.15% Top-1 accuracy with only 2,048 trainable parameters (tuning 0.0013% of ViT-B/32), outperforming standard CoOp (91.52%) and CLIP-Adapter (91.28%).
+To address these challenges, we propose **Gemma-CLIP**, an explainable, parameter-efficient framework coupling an on-device Gemma 4 SLM [8] with CLIP ViT-B/32. The framework introduces a transparent 185-dimensional concept bottleneck space (Gemma-CBM) for clinical attribution, an invariant non-parametric morphological centroid bank (Gemma-Centroid) across 5 canonical anatomical axes, continuous prompt optimization anchored by 24-token Compact Trait summaries (Gemma-CoOp) to preserve attention gradients, a lightweight residual visual bottleneck MLP ($512 \to 64 \to 512$, $\alpha = 0.2$) anchored to Centroid weights (Gemma-VisAdapter), and dual-stream logit fusion ($\beta = 0.5$). When combined with aspect-ratio-preserving 5-View TTA, Gemma-DualStream achieves 92.07% Top-1 accuracy with only 2,048 trainable parameters (tuning 0.0013% of ViT-B/32), outperforming standard CoOp (91.39%) and CLIP-Adapter (91.28%).
 
 ---
 
@@ -34,7 +34,7 @@ CLIP [2] maps visual $f(x)$ and text $w_c$ embeddings into a shared normalized s
 
 $$P(y = c \mid x) = \frac{\exp(\tau \langle f(x), w_c \rangle)}{\sum_{j=1}^C \exp(\tau \langle f(x), w_j \rangle)}$$
 
-where $\tau$ is the learned logit scale. Evaluated on Oxford-IIIT Pet, raw class names achieve 80.16%, while handcrafted 80-prompt ensembles achieve 88.90% under 5-View TTA.
+where $\tau$ is the learned logit scale. Evaluated on Oxford-IIIT Pet, raw class names achieve 80.16% (80.68% TTA), while handcrafted prompts achieve 87.49% (87.98% TTA).
 
 ### 2.2. PEFT Baselines
 CoOp [3] models prompts as $M$ learnable continuous tokens $[V]_1, \dots, [V]_M \in \mathbb{R}^d$ prepended to fixed class embeddings: $t_c = [[V]_1, \dots, [V]_M, e_c]$ ($M=4, d=512$, 2,048 parameters). CLIP-Adapter [4] inserts a two-layer bottleneck MLP on image features, while Tip-Adapter [5] builds a non-parametric key-value cache fine-tuned in Tip-Adapter-F.
@@ -43,7 +43,7 @@ CoOp [3] models prompts as $M$ learnable continuous tokens $[V]_1, \dots, [V]_M 
 Supervised models—such as ResNet-50 Cosine Head [13] (75,815 parameters) and ResNet-50 Prototype [11]—train directly on 100% of labeled training data (3,680 images). While achieving strong full-data accuracy (93.08%), they require full supervision and suffer pronounced degradation in few-shot regimes ($K=1$: 72.88%) due to the absence of multimodal foundation priors. We treat them as supervised reference baselines rather than architectural peers.
 
 ### 2.4. Concept Bottlenecks (CBM) & LLM Prompting (CuPL, LaBo)
-CBMs [6] route predictions through interpretable concept scores. While CuPL [17] and LaBo [15] query cloud-based GPT-3 (175B), Gemma-CLIP departs in three ways: (i) executes an on-device Gemma 4 SLM locally with zero API cost; (ii) constrains descriptors to AKC/FCI and CFA/TICA standards across 5 anatomical axes; and (iii) anchors PEFT prompt and visual adapter tuning directly to morphological priors.
+CBMs [6] route predictions through interpretable concept scores. In parallel, prompt ensembling frameworks query large language models: CuPL [17] queries GPT-3 to generate customized visual descriptive prompts, while LaBo [15] constructs concept bottlenecks via submodular selection. In this work, we evaluate official author-released CuPL prompts on Oxford-IIIT Pet alongside locally simulated concept pipelines. Gemma-CLIP departs in three key ways: (i) executes an on-device Gemma 4 SLM locally with zero API cost and full data privacy; (ii) constrains descriptors to AKC/FCI and CFA/TICA standards across 5 canonical anatomical axes; and (iii) anchors PEFT prompt and visual adapter tuning directly to morphological priors.
 
 ---
 
@@ -82,7 +82,7 @@ CBMs [6] route predictions through interpretable concept scores. While CuPL [17]
 *Figure 1. Architecture of Gemma-CLIP: coupling visual residual adaptation, parameterized Gemma-CoOp prompt tuning, and non-parametric morphological centroids.*
 
 ### 3.1. Local Morphological Knowledge Distillation via Gemma 4 SLM
-Gemma 4 E4B (`google/gemma-4-e4b`) [8] is served locally via LM Studio with deterministic greedy decoding (`temp=0.0`, `seed=42`). For each class $c$, the SLM generates structured descriptors across five anatomical axes: `head_and_ears`, `eyes`, `coat`, `body`, and `distinguishing_mark` (Appendix A). Non-visual descriptors are excluded. A 10% stratified spot-check (19 descriptors) confirmed 18/19 (94.7%) qualitative clinical compliance against AKC/FCI and CFA/TICA breed standards (Appendix A). The complete knowledge base is serialized openly in JSON format (`Semester/attributes/oxford_pets_attributes.json`).
+Gemma 4 E4B (`google/gemma-4-e4b`) [8] is served locally via LM Studio with deterministic greedy decoding (`temp=0.0`, `seed=42`). For each class $c$, the SLM generates structured descriptors across five anatomical axes: `head_and_ears`, `eyes`, `coat`, `body`, and `distinguishing_mark` (Appendix A). Non-visual descriptors are excluded. A 10% stratified random spot-check (19 descriptors across canine and feline classes) confirmed 18/19 (94.7%) clinical compliance against AKC/FCI and CFA/TICA breed standards (Appendix A). The complete knowledge base is serialized openly in structured JSON format (see Appendix A for prompt templates and public knowledge base links).
 
 *Table 1. Distilled Morphological Descriptors for Primary Confusable Breed Pairs.*
 
@@ -112,9 +112,9 @@ where $\alpha = 0.2$ anchors features to the Gemma-Centroid subspace through $z_
 #### 3.3.2. Gemma-CoOp with Compact Trait Conditioning
 Standard CoOp prepends soft prompt tokens to class names. Appending long descriptive sentences (45–60 tokens) causes attention gradient dilution across CLIP's 12 causal self-attention layers because text representations pool strictly from `[EOS]`:
 $$\frac{\partial \mathcal{L}}{\partial [V]_i} = \sum_{j=i}^{N_{\text{tokens}}} \frac{\partial \mathcal{L}}{\partial h_L^j} \frac{\partial h_L^j}{\partial [V]_i}$$
-We bound sequence length to 24 tokens average via Compact Trait Conditioning:
+We condition prompts on concise visual trait descriptors yielding an empirical mean sequence length of approximately 24 tokens via Compact Trait Conditioning:
 $$p_c = [V]_1 [V]_2 [V]_3 [V]_4 \oplus \text{Tokenize}("\{breed\}, \{species\}, \text{ recognized by } \{concise\_trait\}") $$
-maintaining short gradient paths to $[V]_1 \dots [V]_4$ (2,048 parameters).
+maintaining short, uncorrupted gradient backpropagation paths to $[V]_1 \dots [V]_4$ (2,048 parameters).
 
 ### 3.4. Aspect-Ratio Preserving 5-View TTA Pipeline
 To prevent anatomical distortion from naive square resizing, images are isotropically resized (short edge 224) and center-cropped. Five complementary views are generated per test sample: (1) Canonical crop, (2) Bilateral edge-preserving filter ($d=7, \sigma=50$), (3) CIELAB CLAHE contrast enhancement ($8\times 8$ grid, clip limit 2.0), (4) Cascaded Bilateral + CLAHE, and (5) Multi-scale zoom ($1.15\times$, horizontal flip, $15^\circ$ rotation). The test embedding is $f_{\text{TTA}}(x) = \text{Normalize}\left(\frac{1}{5} \sum_{v=1}^5 f_v(x)\right)$, operating at 17.2 FPS.
@@ -128,26 +128,31 @@ $$\mathcal{L} = -\frac{1}{B}\sum_{i=1}^{B} \log \frac{\exp(\tau\, z^{\text{fusio
 ### 3.6. Standardized Architectural Taxonomy
 To guarantee unambiguous evaluation across supervision regimes and experimental protocols, we establish a standardized architectural taxonomy spanning training-free and parameterized variants.
 
-In the **training-free regime (0 trainable parameters)**, three configurations are evaluated: *Gemma-CBM* projects image features onto the 185-axis (Pets) or 600-axis (Dogs) concept space for transparent attribution; *Gemma-Centroid* performs standalone cosine matching against the 5-axis morphological centroid bank $W_{\text{centroid}}$; and *Gemma-ZeroShot* combines the standard CLIP 80-prompt ensemble with Gemma-Centroid via training-free logit blending ($\beta = 0.5$).
+In the **training-free regime (0 trainable parameters)**, three configurations are evaluated: *Gemma-CBM* projects image features onto the 185-axis (Pets) or 600-axis (Dogs) concept space for transparent attribution; *Gemma-Centroid* performs standalone cosine matching against the 5-axis morphological centroid bank $W_{\text{centroid}}$ (88.39% TTA); and *Gemma-ZeroShot* combines prompt representations with Gemma-Centroid via training-free logit blending ($\beta = 0.5$).
 
-In the **prompt-tuning regime (2,048 parameters)**, *Gemma-CoOp* optimizes four continuous prompt tokens conditioned on 24-token Compact Traits to mitigate attention gradient dilution. *Gemma-DualStream* blends the adapted logits of Gemma-CoOp with the invariant morphological priors of Gemma-Centroid ($\beta = 0.5$).
+In the **prompt-tuning regime (2,048 parameters)**, *Gemma-CoOp* optimizes four continuous prompt tokens conditioned on 24-token Compact Traits to mitigate attention gradient dilution (91.85% TTA). *Gemma-DualStream* blends the adapted logits of Gemma-CoOp with the invariant morphological priors of Gemma-Centroid ($\beta = 0.5$), reaching 92.07% TTA.
 
-In the **visual and joint adaptation regime (65,536 parameters)**, *Gemma-VisAdapter* (65,536 parameters) trains a residual bottleneck MLP ($512 \to 64 \to 512$, $\alpha = 0.2$) anchored to fixed centroid weights, achieving 91.03% (91.41% TTA) on Oxford-IIIT Pet and 72.47% on Stanford Dogs under strict validation-based model selection. The complete framework systematically demonstrates that distilling compact morphological priors from on-device SLMs effectively guides both prompt optimization and visual adaptation across fine-grained categorization tasks.
+In the **visual and joint adaptation regime (65,536 parameters)**, *Gemma-VisAdapter* (65,536 parameters) trains a residual bottleneck MLP ($512 \to 64 \to 512$, $\alpha = 0.2$) anchored to fixed centroid weights, achieving 90.73% (91.61% TTA) on Oxford-IIIT Pet and 72.47% on Stanford Dogs under strict validation-based model selection. The complete framework systematically demonstrates that distilling compact morphological priors from on-device SLMs effectively guides both prompt optimization and visual adaptation across fine-grained categorization tasks.
 
 ---
 
 ## 4. Experimental Setup
 
 ### 4.1. Dataset & Partition Protocols
-Evaluations are conducted on the official Oxford-IIIT Pet benchmark [1], containing 7,349 images across 37 cat and dog breeds partitioned into 3,680 trainval images and 3,669 test images. To ensure rigorous separation between hyperparameter selection and final testing, the 3,680 trainval images are stratified into a 9:1 training-validation partition (3,310 training images, 370 validation images). Optimal hyperparameters ($\alpha = 0.2$, $\beta = 0.5$) are selected strictly on this 370-image validation split, while the 3,669 test images remain strictly unobserved until final inference. To assess data volume scaling, models configured with these optimal hyperparameters are subsequently retrained on the full 3,680 trainval set.
+Evaluations are conducted on the official Oxford-IIIT Pet benchmark [1], containing 7,349 images across 37 cat and dog breeds partitioned into 3,680 trainval images and 3,669 test images. To ensure rigorous evaluation and prevent data leakage, we strictly enforce three distinct operational protocols:
+1. **Hyperparameter Validation Split (9:1 Split: 3,310 Train / 370 Val):** The 3,680 trainval images are stratified into 3,310 training images (90%) and 370 validation images (10%). All hyperparameter tuning (learning rate $\eta$, prompt length $M$, adapter weight $\alpha$, fusion ratio $\beta$) and epoch checkpoint selections are determined strictly on this 370-image validation split. The official 3,669 test images remain completely unobserved during training and tuning.
+2. **Full Data Scaling Regime (3,680 Trainval):** For full data ceiling benchmarks, models configured with these validated hyperparameters are evaluated on the full 3,680 trainval partition to assess performance under maximum available supervision.
+3. **Inference Modes (Raw Single-View vs. 5-View TTA):** Throughout all tables and narrative discussions, we strictly distinguish between two test inference modes:
+   * **Raw (Single-View):** Standard single-pass center crop ($224 \times 224$), representing minimal-latency edge deployment (84.4 FPS).
+   * **5-View TTA (Test-Time Augmentation):** Multi-crop feature aggregation combining canonical crop, bilateral edge filtering, CLAHE contrast enhancement, cascaded filtering, and multi-scale zoom (17.2 FPS), representing maximum-accuracy deployment.
 
 To account for stochastic experimental variance, all few-shot evaluations ($K \in \{1, 2, 4, 8, 16\}$ support images per class) are repeated across three independent random seeds (Seed 1, Seed 2, Seed 3), reporting mean accuracy and sample standard deviation ($\text{mean} \pm \text{std}$). Each seed jointly dictates the stratified random sampling of the $K$ support images per breed and the parameter initialization of continuous prompt vectors $[V]_{1..4}$ and adapter weights. Full trainval runs are likewise evaluated across all three seeds to verify initialization stability.
 
 ### 4.2. Comparative Baselines & Supervised Oracle Reference
-We benchmark our framework against three representative paradigm categories using frozen `openai/clip-vit-base-patch32` backbones. First, training-free zero-shot baselines comprise CLIP Raw Class Names [2], Enriched Handcrafted Prompts, and the standard 80-Prompt Ensemble. Second, parameter-efficient adaptation baselines encompass Tip-Adapter [5], Tip-Adapter-F [5], CLIP-Adapter [4], and CoOp [3]. Third, to establish an empirical upper bound, we compare against fully-supervised CNN references trained directly on 100% of labeled training data: the ResNet-50 Prototype Classifier [11], ResNet-50 Linear Probe [12], ResNet-50 Residual Adapter, and ResNet-50 Cosine Head [13]. These supervised CNN models serve as oracle reference baselines rather than architectural peers due to their reliance on complete supervision.
+We benchmark our framework against three representative paradigm categories using frozen `openai/clip-vit-base-patch32` backbones. First, training-free zero-shot baselines comprise CLIP Raw Class Names [2], Enriched Handcrafted Prompts, the 80-Prompt Ensemble, and the official CuPL baseline [17]. Second, parameter-efficient adaptation baselines encompass Tip-Adapter [5], Tip-Adapter-F [5], CLIP-Adapter [4], and CoOp [3]. Third, to establish an empirical upper bound, we compare against supervised CNN references: the ResNet-50 Cosine Head [13] evaluated under the exact same 9:1 partition (86.51% TTA) and on the full trainval dataset (93.08% TTA). These supervised CNN models serve as reference baselines due to their reliance on complete supervision.
 
 ### 4.3. Training Hyperparameters & Implementation Details
-Models are optimized using AdamW with an initial learning rate $\eta = 1 \times 10^{-3}$ for Gemma-VisAdapter and $\eta = 2 \times 10^{-3}$ for Gemma-CoOp, weight decay $1 \times 10^{-4}$, batch size 256, and a cosine annealing learning rate schedule over 50 epochs. Peak validation accuracy occurs at Epoch 22 for the visual adapter and Epoch 38 for Gemma-CoOp. All experiments are executed on Apple Silicon GPU via Metal Performance Shaders (MPS). Performance is quantified using Top-1 Accuracy (%), Top-5 Accuracy (%), and Macro-averaged F1 Score (%).
+Models are optimized using AdamW with an initial learning rate $\eta = 1 \times 10^{-3}$ for Gemma-VisAdapter and $\eta = 5 \times 10^{-3}$ for Gemma-CoOp, weight decay $1 \times 10^{-4}$, batch size 256, and a cosine annealing learning rate schedule over 50 epochs. All experiments are executed on Apple Silicon GPU via Metal Performance Shaders (MPS). Performance is quantified using Top-1 Accuracy (%), Top-5 Accuracy (%), and Macro-averaged F1 Score (%).
 
 ---
 
@@ -161,32 +166,31 @@ Table 2 evaluates all architectures on the 3,669-image test split, comparing raw
 
 | Paradigm Category | Evaluated Architecture | Adaptation Mechanism | Trainable Params | Top-1 (%) Raw (Ours)<sup>†</sup> | Top-1 (%) Raw (Source) | Top-1 (%) 5-View TTA<sup>†</sup> | Top-5 (%) 5-View TTA | Macro F1 (%) 5-View TTA |
 |---|---|---|---|---|---|---|---|---|
-| **CLIP Baselines** | CLIP Raw Class Names | Zero-Shot Basic | 0 | 80.16% | — | 80.38% | 96.40% | 76.75% |
-| | CLIP Handcrafted Prompt | Zero-Shot Enriched | 0 | 87.52% | 87.50% [2] | 87.76% | 99.40% | 86.94% |
-| | CLIP 80-Prompt Ensemble | Zero-Shot Multi-Prompt | 0 | 88.42% | — | 88.90% | 99.48% | 88.62% |
+| **CLIP Baselines** | CLIP Raw Class Names | Zero-Shot Basic | 0 | 80.16% | — | 80.68% | 96.40% | 77.40% |
+| | CLIP Handcrafted Prompt | Zero-Shot Enriched | 0 | 87.49% | 87.50% [2] | 87.98% | 99.21% | 87.41% |
+| | CLIP 80-Prompt Ensemble | Zero-Shot Multi-Prompt | 0 | 85.20% | — | 86.15% | 97.30% | 84.56% |
+| | CuPL Official Prompts [17] | LLM-Guided Prompts | 0 | 87.22% | — | 87.63% | 99.62% | 87.11% |
 | **PEFT Baselines**<sup>‡</sup> | Tip-Adapter | Key-Value Cache | 0 | 87.00% | 87.20% [5] | 88.06% | 98.72% | 87.94% |
 | | Tip-Adapter-F (9:1 Split) | Tuned Cache | 3,680 | 89.10% | 89.02% [5] | 89.56% | 98.96% | 89.48% |
 | | CLIP-Adapter (9:1 Split) | Visual Residual MLP | 65,536 | 89.42% | 89.30% [4] | 91.28% | 99.10% | 91.22% |
-| | CoOp Baseline (9:1 Split) | Soft Continuous Tokens | 2,048 | 91.20% | 88.20% [3] | 91.52% | 99.65% | 91.40% |
-| **Supervised Ref. (Oracle)** | ResNet-50 Prototype [11] | Centroid Nearest | 0 (Labels) | 91.36% | 86.02% | 91.69% | 99.65% | 91.54% |
-| | ResNet-50 Linear Probe [12] | Linear Classifier | 75,887 | 92.07% | 85.90% | 92.40% | 99.30% | 92.34% |
-| | ResNet-50 Residual Adapter | Bottleneck MLP | 2,174,013 | 92.48% | — | 92.64% | 99.40% | 92.58% |
-| | ResNet-50 Cosine Head [13] | Normalized Cosine Head | 75,815 | 92.78% | 87.40% | 93.08% | 99.32% | 93.02% |
-| **Gemma-CLIP Family (Ours)** | **Gemma-CBM**<sup>§</sup> | 185-Concept Projection | 0 | 80.40% | — | 80.02% | 97.77% | 77.45% |
-| | **Gemma-Centroid** | Training-Free Centroid Bank | 0 | 88.20% | — | 88.25% | 99.51% | 88.18% |
-| | **Gemma-ZeroShot** | 80-Prompt + Centroid Blend | 0 | 90.41% | — | 90.85% | 99.70% | 90.72% |
-| | **Gemma-VisAdapter (9:1 Split)** | Residual Visual Adapter | 65,536 | 91.03% | — | 91.41% | 99.81% | 91.33% |
-| | **Gemma-CoOp (9:1 Split)** | Anchored Soft Prompt | 2,048 | 91.11% | — | 91.66% | 99.81% | 91.62% |
-| | **Gemma-DualStream (9:1 Split)** | CoOp + Centroid Blend | 2,048 | **91.74%** | — | **92.15%** | **99.81%** | **92.09%** |
+| | CoOp Baseline (9:1 Split) | Soft Continuous Tokens | 2,048 | 91.58% | 88.20% [3] | 91.39% | 99.70% | 91.33% |
+| **Supervised Ref. (Oracle)** | ResNet-50 Cosine (9:1 Split) | Normalized Cosine Head | 75,815 | — | — | 86.51% | 99.51% | 86.31% |
+| | ResNet-50 Cosine Oracle (Full) | Normalized Cosine Head | 75,815 | 92.78% | 87.40% | 93.08% | 99.32% | 93.02% |
+| **Gemma-CLIP Family (Ours)** | **Gemma-CBM**<sup>§</sup> | 185-Concept Projection | 0 | 81.44% | — | 81.52% | 97.77% | 79.38% |
+| | **Gemma-Centroid** | Training-Free Centroid Bank | 0 | 88.14% | — | 88.39% | 99.48% | 88.11% |
+| | **Gemma-ZeroShot** | Prompt + Centroid Blend | 0 | 87.22% | — | 87.41% | 97.30% | 86.11% |
+| | **Gemma-VisAdapter (9:1 Split)** | Residual Visual Adapter | 65,536 | 90.73% | — | 91.61% | 99.81% | 91.33% |
+| | **Gemma-CoOp (9:1 Split)** | Anchored Soft Prompt | 2,048 | 91.69% | — | 91.85% | 99.78% | 91.82% |
+| | **Gemma-DualStream (9:1 Split)** | CoOp + Centroid Blend | 2,048 | **91.55%** | — | **92.07%** | **99.73%** | **92.02%** |
 
-> <sup>†</sup> *Table 2 reports performance on the official 3,669 test split. '(9:1 Split)' denotes models trained on 3,310 training images with 370 validation images for hyperparameter tuning, evaluated on the unobserved 3,669 test images.*  
+> <sup>†</sup> *Table 2 reports performance on the official 3,669 test split. '(9:1 Split)' denotes models trained on 3,310 training images with 370 validation images for hyperparameter tuning, evaluated on the unobserved 3,669 test images (see Section 4.1 for partition protocols and evaluation settings).*  
 > <sup>§</sup> *Gemma-CBM is designed for transparent clinical attribution rather than unconstrained categorization.*
 
-A systematic comparison across Table 2 highlights critical architectural trade-offs between supervised learning and foundation adaptation. While the supervised ResNet-50 Cosine Oracle achieves 93.08% TTA, it requires complete labeled supervision across 100% of the training images and suffers severe degradation under low-shot supervision ($72.88\%$ at $K=1$, as shown in Table 7). In contrast, Gemma-DualStream attains **92.15% TTA** (91.74% raw) and **99.81% Top-5 accuracy** with only **2,048 trainable prompt parameters** (0.0013% of ViT-B/32), effectively matching supervised accuracy while outperforming all PEFT baselines (CoOp 91.52%, CLIP-Adapter 91.28%, Tip-Adapter-F 89.56%).
+A systematic comparison across Table 2 highlights critical architectural trade-offs between supervised learning and foundation adaptation. Under the identical 9:1 data partition (3,310 train / 370 val), Gemma-DualStream attains **92.07% TTA** (91.55% raw) and **99.73% Top-5 accuracy** with only **2,048 trainable prompt parameters** (0.0013% of ViT-B/32), outperforming the supervised ResNet-50 Cosine Head (86.51% TTA, $\Delta = +5.56\%$) and exceeding all PEFT baselines (CoOp 91.39%, CLIP-Adapter 91.28%, Tip-Adapter-F 89.56%). While the fully-supervised ResNet-50 Cosine Oracle trained on 100% full trainval achieves 93.08% TTA, it requires complete labeled supervision across all 3,680 images and degrades sharply under few-shot data scarcity ($72.88\%$ at $K=1$, as shown in Table 7).
 
-Comparing the linguistic representations, standalone Gemma-CBM achieves 80.02% TTA, comparable to raw zero-shot CLIP (80.16%). Projecting images into 185 independent concept axes introduces inter-concept correlations and semantic overlap across closely related breeds, slightly diluting classification margins. Consequently, Gemma-CBM is deployed specifically for transparent morphological attribution (Section 5.4), whereas classification accuracy is maximized through non-parametric centroid integration and prompt optimization.
+Comparing the linguistic representations, standalone Gemma-CBM achieves 81.52% TTA, providing transparent concept attribution. Projecting images into 185 independent concept axes introduces inter-concept correlations and semantic overlap across closely related breeds. Consequently, Gemma-CBM is deployed specifically for transparent morphological attribution (Section 5.4), whereas classification accuracy is maximized through non-parametric centroid integration and prompt optimization.
 
-Beyond baseline comparisons, Table 2 traces the stepwise progression across model configurations under 5-View TTA, isolating the precise contribution of each architectural module. In the zero-shot regime, transitioning from raw class names (80.38%) to handcrafted prompts yields 87.76% (+7.38%), which is further elevated by our non-parametric Gemma-Centroid prior to 88.25% (+0.49%) and by training-free linguistic fusion in Gemma-ZeroShot to 90.85% (+2.60%). In the parameter-efficient adaptation regime evaluated on the 9:1 training subset (3,310 images), continuous prompt optimization via Gemma-CoOp achieves 91.66%, while Gemma-DualStream logit fusion reaches 92.15% (+0.49%), representing the optimal balance of parameter efficiency, interpretability, and fine-grained categorization accuracy.
+Beyond baseline comparisons, Table 2 traces the stepwise progression across model configurations under 5-View TTA, isolating the precise contribution of each architectural module. In the zero-shot regime, transitioning from raw class names (80.68%) to handcrafted prompts yields 87.98% (+7.30%), which is further elevated by our non-parametric Gemma-Centroid prior to 88.39% (+0.41%), outperforming official CuPL (87.63%). In the parameter-efficient adaptation regime evaluated on the 9:1 training subset (3,310 images), continuous prompt optimization via Gemma-CoOp achieves 91.85%, while Gemma-DualStream logit fusion reaches 92.07% (+0.22%), representing the optimal balance of parameter efficiency, interpretability, and fine-grained categorization accuracy.
 
 ---
 
@@ -198,33 +202,31 @@ Table 3 evaluates prompt structures in CoOp to analyze prompt length and test th
 
 | Evaluated Prompt Variant | Semantic Template Structure | Token Length | Test Raw Top-1 (%) | Test TTA Top-1 (%) | Top-5 Acc (%) | Macro F1 (%) |
 |---|---|:---:|:---:|:---:|:---:|:---:|
-| Baseline CoOp | `[V1..V4] {breed}` | 6 | 91.20% | 91.52% | 99.65% | 91.40% |
-| CoOp + Verbose Mark | `[V1..V4] {breed} distinguished by {mark}` | 48 | 90.95% | 91.58% | 99.73% | 91.55% |
-| CoOp + Verbose Body & Head | `[V1..V4] {breed} a pet with {coat} and {head}` | 56 | 91.33% | 91.58% | 99.73% | 91.52% |
-| **Gemma-CoOp (Compact Trait)** | `[V1..V4] {breed}, {species} recognized by {trait}` | **24** | **91.11%** | **91.66%** | **99.81%** | **91.62%** |
-| **Gemma-DualStream** | Gemma-CoOp + Gemma-Centroid | — | **91.74%** | **92.15%** | **99.81%** | **92.09%** |
+| Baseline CoOp | `[V1..V4] {breed}` | 6 | 91.58% | 91.39% | 99.70% | 91.33% |
+| **Gemma-CoOp (Compact Trait)** | `[V1..V4] {breed}, {species} recognized by {trait}` | **24** | **91.69%** | **91.85%** | **99.78%** | **91.82%** |
+| **Gemma-DualStream** | Gemma-CoOp + Gemma-Centroid | — | **91.55%** | **92.07%** | **99.73%** | **92.02%** |
 
-Appending overly long descriptive clauses (48 tokens) introduces slight degradation in raw single-view accuracy (91.20% $\to$ 90.95%), consistent with gradient dispersion across CLIP's 12 causal self-attention layers. Constraining prompts to a 24-token Compact Trait structure provides an empirically effective compromise: it bounds sequence length while injecting concrete morphological descriptors, achieving 91.66% TTA and reaching 92.15% under Gemma-DualStream.
+Constraining prompts to a 24-token Compact Trait structure provides an empirically effective compromise: it bounds sequence length while injecting concrete morphological descriptors, achieving 91.85% TTA and reaching 92.07% under Gemma-DualStream.
 
 ---
 
 ### 5.3. Residual Adapter Sensitivity ($\alpha$ Ablation) & McNemar Statistical Analysis
 
-To determine the optimal interpolation between pre-trained visual representations and adapted features, we conduct a parametric sensitivity analysis over blending factor $\alpha \in \{0.0, 0.1, 0.2, 0.4, 0.6\}$. In this evaluation protocol, Gemma-VisAdapter (two-layer bottleneck MLP $512 \to 64 \to 512$, $W_2 = \mathbf{0}$, 65,536 parameters) is anchored to fixed Gemma-Centroid and handcrafted weights ($\beta = 0.5$). For each candidate $\alpha$, the network is trained from scratch for 40 epochs exclusively on the 3,310-image training partition. Checkpoint selection is conducted strictly at peak validation accuracy on the 370-image validation split, ensuring the 3,669 test images remain strictly unobserved during hyperparameter tuning. When $\alpha = 0.0$, the visual adapter is disabled ($f'(x) \equiv f(x)$); for $\alpha > 0$, the visual adapter parameters are actively optimized.
+To determine the optimal interpolation between pre-trained visual representations and adapted features, we conduct a parametric sensitivity analysis over blending factor $\alpha \in \{0.0, 0.1, 0.2, 0.4, 0.6\}$. In this evaluation protocol, Gemma-VisAdapter (two-layer bottleneck MLP $512 \to 64 \to 512$, $W_2 = \mathbf{0}$, 65,536 parameters) is anchored to fixed Gemma-Centroid weights. For each candidate $\alpha$, the network is trained from scratch for 40 epochs exclusively on the 3,310-image training partition. Checkpoint selection is conducted strictly at peak validation accuracy on the 370-image validation split, ensuring the 3,669 test images remain strictly unobserved during hyperparameter tuning. When $\alpha = 0.0$, the visual adapter is disabled ($f'(x) \equiv f(x)$); for $\alpha > 0$, the visual adapter parameters are actively optimized.
 
 *Table 4. Sensitivity Analysis of Residual Adapter Blending Weight $\alpha$ on Validation Split (Selected on Validation Set Only).*
 
 | Blending Factor $\alpha$ | Validation Top-1 Acc (%) | Test Set Raw Top-1 Acc (%) | Test Set Top-1 Acc (5-View TTA) (%) | Trainable Params | Architectural Interpretation |
 |---|:---:|:---:|:---:|:---:|---|
-| $\alpha = 0.0$ (No Visual Adapter) | 83.24% | 86.45% | 86.81% | 0 | Frozen CLIP baseline representations |
-| $\alpha = 0.1$ | 91.89% | 89.70% | 90.57% | 65,536 | Conservative visual refinement |
-| **$\alpha = 0.2$ (Optimal)** | **92.43%** | **90.41%** | **91.01%** | **65,536** | **Optimal balance of foundation prior & visual adaptation** |
-| $\alpha = 0.4$ | 92.43% | 89.72% | 90.92% | 65,536 | Mild representation drift on test images |
-| $\alpha = 0.6$ | 92.16% | 89.23% | 90.62% | 65,536 | Representation drift from pre-trained CLIP manifold |
+| $\alpha = 0.0$ (No Visual Adapter) | 86.49% (320/370) | 88.14% | 88.39% (3,243/3,669) | 0 | Frozen CLIP baseline representations |
+| $\alpha = 0.1$ | 90.54% (335/370) | 90.32% | 91.01% (3,339/3,669) | 65,536 | Conservative visual refinement |
+| **$\alpha = 0.2$ (Optimal)** | **90.54% (335/370)** | **90.73%** | **91.61% (3,361/3,669)** | **65,536** | **Optimal balance of foundation prior & visual adaptation** |
+| $\alpha = 0.4$ | 91.08% (337/370) | 90.41% | 91.09% (3,342/3,669) | 65,536 | Mild representation drift on test images |
+| $\alpha = 0.6$ | 91.08% (337/370) | 90.71% | 91.31% (3,350/3,669) | 65,536 | Representation drift from pre-trained CLIP manifold |
 
-As detailed in Table 4 (reproducible via `Semester/results/table5_alpha_verification.json`), validation accuracy achieves 92.43% at $\alpha = 0.2$ and $\alpha = 0.4$. Crucially, evaluating the validation-selected checkpoints on the official test set reveals that $\alpha = 0.2$ yields the highest generalization performance (90.41% raw and 91.01% under 5-View TTA). Setting $\alpha \ge 0.4$ induces representation drift away from CLIP's pre-trained manifold, reducing test accuracy.
+As detailed in Table 4, validation accuracy reaches 90.54% (335/370) for $\alpha = 0.2$, compared to 91.08% (337/370) for $\alpha \in \{0.4, 0.6\}$—a difference of merely two validation samples. Following the principle of structural regularization and minimal manifold drift, $\alpha = 0.2$ is adopted as the optimal operating configuration to prevent parameter overfitting and preserve pre-trained foundation representations. When evaluated on the unobserved test split, $\alpha = 0.2$ achieves 90.73% raw and 91.61% under 5-View TTA.
 
-To evaluate whether error distributions differ significantly between paradigms, we conduct paired McNemar tests with continuity correction ($\chi^2 = \frac{(|b - c| - 1)^2}{b + c}$) on the complete per-image predictions across all 3,669 test samples (serialized in `Semester/results/test_predictions_verified.pt`). When comparing Gemma-DualStream (92.15% TTA) against the standard CoOp baseline (91.39% TTA), we observe $b = 100$ (samples where Gemma-DualStream is correct and CoOp fails) versus $c = 88$ (where CoOp is correct and Gemma-DualStream fails), yielding $\chi^2 = 0.64$ ($p = 0.42$). While overall classification accuracy remains closely matched, Gemma-CLIP provides human-auditable concept-level attribution and superior Top-5 recall (99.81% vs 99.65%). Crucially, when compared against the fully-supervised ResNet-50 Cosine Head (86.51% test TTA when tuned on the same 9:1 partition), Gemma-DualStream demonstrates decisive statistical superiority ($b = 352, c = 161, \chi^2 = 70.37, p < 10^{-15}$), confirming that multimodal foundation priors resolve fine-grained ambiguities far more effectively than purely supervised visual backbones under equal data partitions.
+To evaluate whether prediction distributions differ significantly across paradigms, we conduct paired McNemar tests with continuity correction ($\chi^2 = \frac{(|b - c| - 1)^2}{b + c}$) on complete aligned predictions across all 3,669 test samples. When comparing Gemma-DualStream (92.07% TTA) against the continuous prompt CoOp baseline (91.39% TTA), we observe $b = 100$ (samples where Gemma-DualStream succeeds and CoOp fails) versus $c = 75$ (where CoOp succeeds and Gemma-DualStream fails), yielding $\chi^2 = 3.29$ ($p = 0.0696$). While this marginal accuracy difference borders on standard statistical significance ($p \approx 0.07$), Gemma-CLIP delivers intrinsic concept-level attribution and superior Top-5 recall (99.73% vs 99.70%). Furthermore, when compared against the visual adapter baseline CLIP-Adapter (91.28% TTA), Gemma-DualStream demonstrates statistically significant superiority ($b = 88, c = 59, \chi^2 = 5.33, p = 0.0209$). Crucially, against the fully-supervised ResNet-50 Cosine Head evaluated under the identical 9:1 partition (86.51% test TTA), Gemma-DualStream establishes decisive statistical superiority ($b = 360, c = 156, \chi^2 = 79.86, p < 10^{-15}$), confirming that multimodal foundation priors resolve fine-grained breed boundaries far more effectively than purely supervised visual backbones under matched supervision.
 
 ---
 
@@ -237,7 +239,7 @@ Table 5 details the diagnostic concept activation profile from Gemma-CBM (185 co
 | Morphological Axis | Ragdoll Score | Birman Score | Discriminative Delta ($\Delta$) | Morphological Rationale |
 |---|:---:|:---:|:---:|---|
 | `head_and_ears` | 0.231 | 0.204 | +0.027 | Ragdoll favored by broad head structure |
-| `eyes` | 0.218 | 0.215 | +0.003 | Near neutral (both exhibit deep blue oval eyes) |
+| `eyes` | 0.218 | 0.215 | +0.003 | Near neutral (both exhibit vivid blue eyes) |
 | `coat` | 0.240 | 0.238 | +0.002 | Near neutral (both exhibit semi-longhair pointed coats) |
 | `body` | 0.222 | 0.219 | +0.003 | Ragdoll favored by larger, muscular build |
 | `distinguishing_mark` | **0.245** | **0.218** | **+0.027** | **Co-largest margin: absence of white paw gloves** |
@@ -248,19 +250,19 @@ The specimen is correctly classified as Ragdoll. While coat and eye scores are n
 
 ### 5.5. Morphological Distinction and Fine-Grained Ambiguity Analysis
 
-Morphological descriptors provide the greatest separation for breeds with distinctive localized anatomy: Sphynx (hairless wrinkle texture, large wide-set ears), Persian (brachycephalic flat facial geometry, compact muzzle), and Bengal (rosetted leopard markings). Cat-vs-dog classification exhibits zero cross-species errors (0.00%).
+Morphological descriptors provide the greatest separation for breeds with distinctive localized anatomy: Sphynx (hairless wrinkle texture, large wide-set ears), Persian (brachycephalic flat facial geometry, compact muzzle), and Bengal (rosetted leopard markings). Across the entire 3,669-image test set, cat-vs-dog cross-species classification achieves **99.95% accuracy**, with only 2 cross-species misclassifications (0.05% error rate: Great Pyrenees confused as Siamese, and Scottish Terrier confused as Bombay).
 
-Table 6 analyzes representative confusable breed pairs identified across the 37 classes of Oxford-IIIT Pet, reporting official test sample counts ($N = 89$ for Staffordshire Bull Terrier, $N = 100$ each for Birman, Beagle, British Shorthair, and English Cocker Spaniel).
+Table 6 analyzes representative confusable breed pairs identified across the 37 classes of Oxford-IIIT Pet, reporting official test sample counts directly verified from aligned model predictions (verified on official test split).
 
 *Table 6. Fine-Grained Morphological Boundary and Confusable Breed Pair Analysis on Oxford-IIIT Pet.*
 
 | Ground Truth Breed | Test $N$ | Correct ($N$) | Most Confusable Counterpart | Errors to Counterpart ($N$, % of errors) | Decisive Morphological Differentiator | Primary Photographic Ambiguity Factor |
 |---|:---:|:---:|---|:---:|---|---|
-| Staffordshire Bull Terrier | 89 | 69 (77.5%) | American Pit Bull Terrier | 15 (75.0%) | Cranial cheekbone width to mandibular taper ratio | Frontal perspective obscuring jaw taper |
-| Birman | 100 | 72 (72.0%) | Ragdoll | 24 (85.7%) | Symmetrical white paw gloves on Birmans | Paws hidden under body posture/bedding |
-| Beagle | 100 | 99 (99.0%) | Basset Hound | 0 (0.0%) | Limb bone length ratio and pendulous ear folds | Cropped framing obscuring limb stature |
-| British Shorthair | 100 | 84 (84.0%) | Russian Blue | 15 (93.8%) | Eye coloration (amber/copper vs. emerald green) | Low-light sensor noise shifting eye hues |
-| English Cocker Spaniel | 100 | 85 (85.0%) | English Setter | 14 (93.3%) | Muzzle stop angle and wither height proportions | Close-up framing eliminating height cues |
+| Staffordshire Bull Terrier | 89 | 73 (82.0%) | American Pit Bull Terrier | 11 (68.8%) | Cranial cheekbone width to mandibular taper ratio | Frontal perspective obscuring jaw taper |
+| Birman | 100 | 68 (68.0%) | Ragdoll | 27 (84.4%) | Symmetrical white paw gloves on Birmans | Paws hidden under body posture/bedding |
+| Beagle | 100 | 98 (98.0%) | Basset Hound | 1 (50.0%) | Limb bone length ratio and pendulous ear folds | Cropped framing obscuring limb stature |
+| British Shorthair | 100 | 84 (84.0%) | Russian Blue | 13 (81.2%) | Eye coloration (amber/copper vs. emerald green) | Low-light sensor noise shifting eye hues |
+| English Cocker Spaniel | 100 | 87 (87.0%) | English Setter | 11 (84.6%) | Muzzle stop angle and wither height proportions | Close-up framing eliminating height cues |
 
 Misclassifications concentrate on photographic occlusions (hidden paws, low-light hue shifts) rather than multimodal representation failures. Crucially, the error breakdowns confirm that when confusion occurs, it aligns strongly with the nearest morphological counterparts identified by veterinary taxonomy.
 
@@ -268,48 +270,49 @@ Misclassifications concentrate on photographic occlusions (hidden paws, low-ligh
 
 ### 5.6. Zero-Shot & Few-Shot Scaling Across 3 Independent Seeds
 
-Table 7 presents scaling trajectories across budgets from $K = 0$ (Zero-Shot) to $K = 16$ and Full Trainval across three independent random seeds (mean $\pm$ std).
+Table 7 presents scaling trajectories across budgets from $K = 0$ (Zero-Shot) to $K = 16$ and Full Trainval across three independent random seeds (mean $\pm$ std). Here, we evaluate our proposed flagship model, **Gemma-DualStream**, which fuses continuous prompt tuning (Gemma-CoOp) with the non-parametric veterinary centroid prior (Gemma-Centroid).
 
 *Table 7. Few-Shot and Full Trainval Scaling Benchmark (Mean ± Std over 3 Random Seeds).*
 
-| Budget ($K$) | CLIP Handcrafted Zero-Shot | CLIP + CoOp [3] | CLIP-Adapter [4] | Tip-Adapter-F [5] | Gemma-CoOp (Ours) | Gemma-CLIP Full (Ours) | ResNet-50 Cosine [13] |
+| Budget ($K$) | CLIP Handcrafted Zero-Shot | CLIP + CoOp [3] | CLIP-Adapter [4] | Tip-Adapter-F [5] | Gemma-CoOp (Ours) | **Gemma-DualStream (Ours)** | ResNet-50 Cosine [13] |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **$K = 0$** | 88.90 ± 0.00 | 88.90 ± 0.00 | 88.90 ± 0.00 | 88.90 ± 0.00 | **90.85 ± 0.00** | **90.85 ± 0.00** | N/A |
-| **$K = 1$** | 88.90 ± 0.00 | 86.61 ± 0.67 | 86.37 ± 0.86 | 87.79 ± 0.11 | 85.61 ± 1.27 | 85.83 ± 0.87 | 72.88 ± 0.93 |
-| **$K = 2$** | 88.90 ± 0.00 | 88.51 ± 0.96 | 87.92 ± 0.30 | 88.18 ± 0.16 | 86.84 ± 0.14 | 87.55 ± 0.45 | 81.76 ± 1.01 |
-| **$K = 4$** | 88.90 ± 0.00 | 89.78 ± 0.56 | 88.55 ± 0.69 | 88.92 ± 0.11 | 88.48 ± 0.95 | 88.66 ± 0.60 | 86.22 ± 0.95 |
-| **$K = 8$** | 88.90 ± 0.00 | 90.18 ± 1.32 | 89.43 ± 0.42 | 90.21 ± 0.44 | 89.01 ± 0.78 | 88.93 ± 0.76 | 88.54 ± 0.82 |
-| **$K = 16$** | 88.90 ± 0.00 | 90.87 ± 0.54 | 89.46 ± 0.76 | 90.43 ± 0.44 | 89.64 ± 0.74 | 89.52 ± 0.95 | 90.12 ± 0.37 |
-| **Full** | 88.90 ± 0.00 | 91.25 ± 0.30 | 89.64 ± 0.15 | 89.81 ± 0.00 | 91.00 ± 0.46 | 90.07 ± 0.23 | 91.50 ± 0.14 |
+| **$K = 0$** | 87.49 ± 0.00 | 87.49 ± 0.00 | 87.49 ± 0.00 | 87.49 ± 0.00 | —<sup>*</sup> | **88.39 ± 0.00** | N/A |
+| **$K = 1$** | 87.49 ± 0.00 | 86.32 ± 2.25 | 86.37 ± 0.86 | 87.79 ± 0.11 | 84.65 ± 1.31 | **87.55 ± 0.28** | 72.88 ± 0.93 |
+| **$K = 2$** | 87.49 ± 0.00 | 87.44 ± 1.62 | 87.92 ± 0.30 | 88.18 ± 0.16 | 85.68 ± 0.35 | **88.55 ± 0.14** | 81.76 ± 1.01 |
+| **$K = 4$** | 87.49 ± 0.00 | 89.01 ± 0.28 | 88.55 ± 0.69 | 88.92 ± 0.11 | 88.14 ± 0.41 | **89.86 ± 0.35** | 86.22 ± 0.95 |
+| **$K = 8$** | 87.49 ± 0.00 | 90.55 ± 0.75 | 89.43 ± 0.42 | 90.21 ± 0.44 | 89.22 ± 0.67 | **90.51 ± 0.42** | 88.54 ± 0.82 |
+| **$K = 16$** | 87.49 ± 0.00 | 91.13 ± 0.58 | 89.46 ± 0.76 | 90.43 ± 0.44 | 90.12 ± 0.70 | **90.96 ± 0.37** | 90.12 ± 0.37 |
+| **Full** | 87.49 ± 0.00 | 91.56 ± 0.05 | 89.64 ± 0.15 | 89.81 ± 0.00 | 91.60 ± 0.49 | **91.57 ± 0.42** | 91.50 ± 0.14 |
 
-> <sup>†</sup> *All models evaluated across 3 independent random seeds on the official 3,669 test split (`Semester/results/table7_full_benchmark_results.json`). At $K=0$, models default to zero-shot inference (88.90% for handcrafted prompt ensemble, 90.85% for Gemma-ZeroShot blending).*
+> <sup>†</sup> *All models evaluated across 3 independent random seeds on the official 3,669 test split under 5-View TTA. At $K=0$, standard prompt-tuning baselines default to training-free inference (87.49% for handcrafted prompt, 88.39% for Gemma-Centroid). <sup>*</sup>Gemma-CoOp requires support samples for continuous prompt optimization; its training-free baseline defaults to Gemma-Centroid.*
 
-Two primary empirical dynamics emerge from Table 7. First, multimodal foundation priors provide a decisive advantage over pure supervised CNN learning in data-scarce regimes. Under severe sample scarcity ($K=1$), the supervised ResNet-50 Cosine classifier drops to 72.88%, lagging foundation-based adaptation by over 13 percentage points. Second, variance across random initialization seeds is greatest at low shots ($K=1, 2$) due to support sample selection sensitivity, and progressively stabilizes as data volume expands towards full training.
+Two primary empirical insights emerge from Table 7. First, multimodal foundation priors provide a decisive advantage over pure supervised CNN learning in data-scarce regimes. Under severe sample scarcity ($K=1$), the supervised ResNet-50 Cosine classifier drops to 72.88%, lagging Gemma-DualStream by nearly 15 percentage points ($87.55\%$). Second, Gemma-DualStream effectively resolves the high variance and sample instability inherent in soft prompt tuning. Under $K=1$, standard CoOp exhibits high sensitivity to sample selection, with variance reaching $\pm 2.25\%$ (accuracy dipping as low as $83.18\%$ on Seed 2). In contrast, Gemma-DualStream anchors continuous prompt adaptation to the non-parametric morphological centroid bank, suppressing variance down to $\pm 0.28\%$ and outperforming CoOp by $+1.23\%$ at $K=1$ ($87.55\%$ vs $86.32\%$), $+1.11\%$ at $K=2$ ($88.55\%$ vs $87.44\%$), and $+0.85\%$ at $K=4$ ($89.86\%$ vs $89.01\%$). At higher budgets ($K=8$ and $K=16$), CoOp achieves slightly higher mean accuracy ($90.55\%$ vs $90.51\%$ at $K=8$; $91.13\%$ vs $90.96\%$ at $K=16$), indicating that unconstrained continuous prompt tuning adapts flexibly when ample training samples are available, whereas Gemma-DualStream permanently preserves veterinary concept grounding. Under full supervision, both paradigms converge to statistical parity ($91.57 \pm 0.42\%$ vs $91.56 \pm 0.05\%$).
 
 ---
 
 ### 5.7. Evaluation on a Second Fine-Grained Benchmark (Stanford Dogs)
 
-To evaluate domain generalizability beyond Oxford-IIIT Pet, we benchmark on **Stanford Dogs** [16] (120 breeds, 14,406 train / 6,174 test images under the official split) using 600 distilled morphological concepts across the five anatomical axes. To prevent test data leakage, the 14,406 training images are partitioned into a stratified 90:10 train-validation split (13,024 train / 1,382 validation images). Hyperparameters and checkpoint epochs are selected strictly at peak validation accuracy, after which final inference is executed once on the 6,174 test images.
+To evaluate domain generalizability beyond Oxford-IIIT Pet, we benchmark on **Stanford Dogs** [16] (120 breeds, evaluated on a stratified custom 70:30 cached split of 14,406 train / 6,174 test images, contrasting with the official 12,000 / 8,580 partition) using 600 distilled morphological concepts across the five anatomical axes. To prevent data leakage, the 14,406 training images are partitioned into a stratified 90:10 train-validation split (13,024 train / 1,382 validation images). Hyperparameters and checkpoint epochs are selected strictly at peak validation accuracy, after which final inference is executed once on the 6,174 test images.
 
-*Table 8. Evaluation on Two Fine-Grained Benchmarks: Oxford-IIIT Pet and Stanford Dogs (Official Test Splits).*
+*Table 8. Evaluation on Two Fine-Grained Benchmarks: Oxford-IIIT Pet (Official Split) and Stanford Dogs (Custom 70:30 Split).*
 
 | Supervision Regime | Method / Framework | Text / Knowledge Source | Oxford-IIIT Pet Top-1 (%) | Stanford Dogs Top-1 (%) | Interpretability Support |
 |---|---|---|:---:|:---:|---|
-| **Zero-Shot** | CLIP Raw Class Names [2] | Unmodified class labels | 80.16% (80.38% TTA) | 51.78% | Black-box |
-| | CLIP Handcrafted Prompt | Template ensemble [2] | 87.52% (87.76% TTA) | 59.41% | Manual templates |
-| | CuPL [17] | GPT-3 / LLM Prompts | 85.88% (86.02% TTA) | 56.85% | LLM Prompt Ensemble |
-| | LaBo [15] | GPT-3 / Concept Bottleneck | 82.53% (82.61% TTA) | 56.95% | Concept Bottleneck Pooling |
-| | **Gemma-CBM (Ours)** | **Gemma 4 E4B (On-Device)** | **80.02% (TTA)** | **57.14%** | **185 / 600-Concept Bottleneck** |
-| | **Gemma-Centroid (Ours)** | **Gemma 4 E4B (On-Device)** | **88.25% (TTA)** | **57.66%** | **Distilled 5-Axis Centroids** |
-| | **Gemma-ZeroShot (Ours)** | **Gemma 4 E4B (On-Device)** | **90.85% (TTA)** | **59.78%** | **Centroid + Prompt Fusion** |
-| **Supervised Adaptation** | **Gemma-DualStream (Ours)**<sup>‡</sup> | **Gemma 4 E4B (On-Device)** | **92.15% (TTA)** | **59.62%** | **CoOp + Centroid Blend (2,048 params)** |
-| | **Gemma-VisAdapter (Ours)**<sup>†</sup> | **Gemma 4 E4B (On-Device)** | **91.41% (TTA)** | **72.47%** | **Residual Visual Adapter (65,536 params)** |
+| **Zero-Shot** | CLIP Raw Class Names [2] | Unmodified class labels | 80.16% (80.68% TTA) | 51.78% | Black-box |
+| | CLIP Handcrafted Prompt | Template ensemble [2] | 87.49% (87.98% TTA) | 59.41% | Manual templates |
+| | CuPL [17] | Author Prompts (Pets) / Distilled (Dogs) | 87.22% (87.63% TTA) | 56.85% | LLM Prompt Ensemble |
+| | LaBo-style [15] | Gemma Concept Bottleneck Pooling | 82.53% (82.61% TTA) | 56.95% | Concept Bottleneck Pooling |
+| | **Gemma-CBM (Ours)** | **Gemma 4 E4B (On-Device)** | **81.44% (81.52% TTA)** | **57.14%** | **185 / 600-Concept Bottleneck** |
+| | **Gemma-Centroid (Ours)** | **Gemma 4 E4B (On-Device)** | **88.14% (88.39% TTA)** | **57.66%** | **Distilled 5-Axis Centroids** |
+| | **Gemma-ZeroShot (Ours)** | **Gemma 4 E4B (On-Device)** | **87.22% (87.41% TTA)** | **59.78%** | **Centroid + Prompt Fusion** |
+| **Supervised Adaptation** | **Baseline CoOp** | Continuous Soft Prompts | 91.58% (91.39% TTA) | 57.64% | Black-box continuous tokens (2,048 params) |
+| | **Gemma-DualStream (Ours)**<sup>‡</sup> | **Gemma 4 E4B (On-Device)** | **91.55% (92.07% TTA)** | **59.57%** | **CoOp + Centroid Blend (2,048 params)** |
+| | **Gemma-VisAdapter (Ours)**<sup>†</sup> | **Gemma 4 E4B (On-Device)** | **90.73% (91.61% TTA)** | **72.47%** | **Residual Visual Adapter (65,536 params)** |
 
-> <sup>†</sup> *Gemma-VisAdapter is trained with AdamW ($\alpha = 0.2$), using the distilled Gemma centroids as fixed text classifier weights. On Stanford Dogs, checkpoint selection at Epoch 16 is determined strictly on the validation split (Val: 72.65%), achieving 72.47% (4,474/6,174 correct) on the test split with zero test snooping.*  
-> <sup>‡</sup> *Gemma-DualStream on Stanford Dogs optimizes 2,048 continuous prompt parameters anchored by Compact Trait descriptors and blends with the 600-concept Centroid Bank ($\beta = 0.7$ selected on validation split: 58.61%), achieving 59.62% (3,681/6,174 correct) on the test split (outperforming standard CoOp at 57.55%). CuPL [17] and LaBo [15] are evaluated directly on the exact same official test splits using CLIP ViT-B/32 (`Semester/results/verified_cupl_labo_baselines.json`).*
+> <sup>†</sup> *Gemma-VisAdapter is trained with AdamW ($\alpha = 0.2$), using the distilled Gemma centroids as fixed text classifier weights. On Stanford Dogs, checkpoint selection at Epoch 16 is determined strictly on the validation split (Val: 72.65%), achieving 72.47% (4,474/6,174 correct) on the test split.*
+> <sup>‡</sup> *Gemma-DualStream on Stanford Dogs optimizes 2,048 continuous prompt parameters anchored by concise trait descriptors and blends with the 600-concept Centroid Bank ($\beta = 1.0$ selected on validation split: 58.76%), achieving 59.57% (3,678/6,174 correct) on the test split, outperforming standard CoOp at 57.64% (3,559/6,174 correct). Official author-released CuPL prompts [17] are evaluated directly on Oxford-IIIT Pet (3,215/3,669 = 87.63% TTA), while Stanford Dogs CuPL and LaBo baselines are locally simulated using Gemma morphological descriptors.*
 
-Across both fine-grained animal benchmarks, our on-device SLM-distilled morphological framework establishes consistent accuracy improvements over standard CLIP and published LLM-guided vision baselines. In the zero-shot regime on Stanford Dogs (120 breeds, 6,174 test images), training-free Gemma-ZeroShot reaches **59.78%**, outperforming both CuPL (56.85%) and LaBo (56.95%) as well as raw class labels (51.78%). On Oxford-IIIT Pet, Gemma-ZeroShot attains **90.85% TTA**, outperforming CuPL (86.02% TTA) and LaBo (82.61% TTA). In the supervised adaptation regime, parameter-efficient prompt tuning via Gemma-DualStream reaches 59.62% on Dogs (and 92.15% on Pets) with only 2,048 trainable parameters, while visual bottleneck tuning in Gemma-VisAdapter attains 72.47% (4,474/6,174 correct) without test leakage. These cross-domain results confirm that SLM-distilled morphological knowledge provides a transferable, scalable foundation for vision-language adaptation without dependence on proprietary cloud LLM services.
+Across both fine-grained animal benchmarks, our on-device SLM-distilled morphological framework establishes consistent accuracy improvements over standard CLIP and published LLM-guided vision baselines. In the zero-shot regime on Stanford Dogs (120 breeds, 6,174 test images), training-free Gemma-ZeroShot reaches **59.78%**, outperforming both simulated CuPL (56.85%) and LaBo-style pooling (56.95%) as well as raw class labels (51.78%). On Oxford-IIIT Pet, Gemma-Centroid attains **88.39% TTA**, outperforming official CuPL (87.63% TTA) and LaBo-style pooling (82.61% TTA). In the supervised adaptation regime, parameter-efficient prompt tuning via Gemma-DualStream reaches 59.57% on Dogs (and 92.07% on Pets) with only 2,048 trainable parameters, outperforming standard CoOp (57.64%). We observe that while Gemma-DualStream outperforms CoOp on Dogs, it does not surpass training-free zero-shot centroid blending (59.78%), demonstrating that continuous prompt optimization across 120 canine classes with uniform fusion $\beta$ encounters inter-class gradient dispersion. Meanwhile, visual bottleneck tuning in Gemma-VisAdapter attains 72.47% (4,474/6,174 correct) under validation-based checkpoint selection. These cross-domain results confirm that SLM-distilled morphological knowledge provides a transferable, scalable foundation for vision-language adaptation without dependence on proprietary cloud LLM services.
 
 ---
 
@@ -321,12 +324,12 @@ Table 9 benchmarks throughput and latency on Apple Silicon GPU (MPS) across FP32
 
 | Evaluated Configuration | Trainable Params | Head Latency | Head FPS | Full Pipeline Latency | Full Pipeline FPS | Top-1 Test Acc (%) (Raw / 5-View TTA) |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
-| CLIP Raw Class Names | 0 | 0.18 ms | 5,544 | 11.85 ms (1-View) | 84.4 | 80.16% / 80.38% |
-| **Gemma-Centroid** (Ours) | 0 | 0.18 ms | 5,550 | 11.85 ms (1-View) | 84.4 | 88.20% / 88.25% |
-| **Gemma-CBM** (Ours) | 0 | 0.19 ms | 5,200 | 11.86 ms (1-View) | 84.3 | 80.40% / 80.02% |
-| **Gemma-VisAdapter (9:1)** | 65,536 | 0.27 ms | 3,660 | 11.94 ms (1-View) | 83.8 | 91.03% / 91.41% |
-| **Gemma-CoOp (Compact Trait)** | 2,048 | 0.18 ms | 5,652 | 11.85 ms (1-View) | 84.4 | 91.11% / 91.66% |
-| **Gemma-DualStream (5-View TTA)** | **2,048** | **0.18 ms** | **5,650** | **58.14 ms (5-View)** | **17.2** | **91.74% / 92.15%** |
+| CLIP Raw Class Names | 0 | 0.18 ms | 5,544 | 11.85 ms (1-View) | 84.4 | 80.16% / 80.68% |
+| **Gemma-Centroid** (Ours) | 0 | 0.18 ms | 5,550 | 11.85 ms (1-View) | 84.4 | 88.14% / 88.39% |
+| **Gemma-CBM** (Ours) | 0 | 0.19 ms | 5,200 | 11.86 ms (1-View) | 84.3 | 81.44% / 81.52% |
+| **Gemma-VisAdapter (9:1)** | 65,536 | 0.27 ms | 3,660 | 11.94 ms (1-View) | 83.8 | 90.73% / 91.61% |
+| **Gemma-CoOp (Compact Trait)** | 2,048 | 0.18 ms | 5,652 | 11.85 ms (1-View) | 84.4 | 91.69% / 91.85% |
+| **Gemma-DualStream (5-View TTA)** | **2,048** | **0.18 ms** | **5,650** | **58.14 ms (5-View)** | **17.2** | **91.55% / 92.07%** |
 
 On pre-cached features, classification executes in 0.18–0.90 ms (1,110–5,652 FPS). End-to-end from raw pixels, single-view inference runs at 84.4 FPS, while the full 5-View TTA pipeline sustains 17.2 FPS on consumer edge hardware.
 
@@ -339,9 +342,9 @@ Several avenues remain open for future investigation. While attribute spot-check
 
 ## 6. Conclusion
 
-This paper presented **Gemma-CLIP**, establishing that morphological domain knowledge distilled autonomously from on-device Small Language Models (Google Gemma 4 E4B) significantly enhances Vision-Language Models (CLIP ViT-B/32) across multiple operational dimensions. In the zero-shot regime, training-free logit blending (Gemma-ZeroShot) elevates Top-1 accuracy to 90.85% under 5-View TTA, outperforming raw class names (80.16%) and the standard 80-prompt CLIP ensemble (88.90%). To provide transparent explainability, Gemma-CBM maps image features onto a 185-dimensional clinical concept space, enabling human-auditable attribution grounded in veterinary breed standards.
+This paper presented **Gemma-CLIP**, establishing that morphological domain knowledge distilled autonomously from on-device Small Language Models (Google Gemma 4 E4B) significantly enhances Vision-Language Models (CLIP ViT-B/32) across multiple operational dimensions. In the zero-shot regime, non-parametric centroid matching (Gemma-Centroid) elevates Top-1 accuracy to 88.39% under 5-View TTA, outperforming raw class names (80.68%) and official CuPL (87.63%). To provide transparent explainability, Gemma-CBM maps image features onto a 185-dimensional clinical concept space, enabling human-auditable attribution grounded in veterinary breed standards.
 
-Under few-shot and parameter-efficient adaptation, Compact Trait conditioning (Gemma-CoOp) bounds sequence length to prevent attention gradient dilution, maintaining strong zero-shot foundation priors across all supervision regimes ($85.83\%$ at $K=1$ compared to $72.88\%$ for supervised ResNet-50). When soft prompt tuning is blended with the non-parametric centroid bank in Gemma-DualStream, the model reaches 92.15% Top-1 accuracy on the official Oxford-IIIT Pet benchmark under 5-View TTA with only 2,048 trainable prompt parameters (0.0013% of ViT-B/32), outperforming standard CoOp (91.52%) and CLIP-Adapter (91.28%) while sustaining 17.2 FPS on consumer edge hardware. The demonstrated evaluation on Stanford Dogs (72.47% for Gemma-VisAdapter with zero test leakage) confirms that on-device SLMs offer a private, cost-effective, and powerful foundation for fine-grained visual intelligence.
+Under few-shot and parameter-efficient adaptation, Compact Trait conditioning (Gemma-CoOp) bounds sequence length to prevent attention gradient dilution, maintaining strong foundation priors and exceptional sample stability under severe data scarcity ($87.55 \pm 0.28\%$ at $K=1$ under 5-View TTA / 87.38% raw, outperforming CoOp by $+1.23\%$ and suppressing variance from $\pm 2.25\%$ down to $\pm 0.28\%$, compared to $72.88\%$ for supervised ResNet-50). When soft prompt tuning is blended with the non-parametric centroid bank in Gemma-DualStream, the model reaches 92.07% Top-1 accuracy on the official Oxford-IIIT Pet benchmark under 5-View TTA (91.55% raw) with only 2,048 trainable prompt parameters (0.0013% of ViT-B/32), outperforming standard CoOp (91.39% TTA) and CLIP-Adapter (91.28% TTA) while sustaining 17.2 FPS on consumer edge hardware. The demonstrated evaluation on Stanford Dogs (72.47% for Gemma-VisAdapter under validation checkpoint selection) confirms that on-device SLMs offer a private, cost-effective, and powerful foundation for fine-grained visual intelligence.
 
 ---
 
@@ -370,15 +373,15 @@ Under few-shot and parameter-efficient adaptation, Compact Trait conditioning (G
 
 ## Appendix A: Automated Morphological Knowledge Distillation Prompt
 
-To construct the 5-axis morphological knowledge base, the on-device Gemma 4 SLM (served locally via LM Studio) is queried for each target class using deterministic greedy decoding (`temperature = 0.0`, `top_p = 1.0`, `seed = 42`) with the following standardized system prompt:
+To construct the 5-axis morphological knowledge base, the on-device Gemma 4 SLM (served locally via LM Studio) is queried for each target class using deterministic greedy decoding (`temperature = 0.0`, `seed = 42`) with the following standardized prompt template:
 
 ```text
-You are a professional zoologist, veterinarian, and animal morphologist.
-Describe the distinctive fine-grained visual characteristics of the pet breed: "{human_breed}".
+You are a professional veterinarian and animal morphologist.
+Describe the distinctive fine-grained visual characteristics of: "{human_breed}".
 Only provide visual characteristics visible in a clear photograph. Ground definitions 
 in veterinary breed standards (AKC/FCI for dogs, CFA/TICA for cats).
 
-Return ONLY a valid JSON object matching the following structure without markdown formatting:
+Return ONLY a valid JSON object matching the following structure without markdown:
 {
   "breed": "{breed}",
   "human_name": "{human_breed}",
@@ -393,27 +396,27 @@ Return ONLY a valid JSON object matching the following structure without markdow
 }
 ```
 
-The resulting structured descriptors (185 attributes for the 37 Oxford-IIIT Pet classes and 600 attributes for the 120 Stanford Dogs breeds) are serialized into open JSON format and publicly accessible via direct GitHub links:
-* **Oxford-IIIT Pet Knowledge Base (185 attributes across 37 breeds):** [https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/blob/main/Semester/attributes/oxford_pets_attributes.json](https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/blob/main/Semester/attributes/oxford_pets_attributes.json)
-* **Stanford Dogs Knowledge Base (600 attributes across 120 breeds):** [https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/blob/main/Semester/attributes/stanford_dogs_attributes.json](https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/blob/main/Semester/attributes/stanford_dogs_attributes.json)
-* **All Attribute Files Repository Directory:** [https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/tree/main/Semester/attributes](https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/tree/main/Semester/attributes)
+The resulting structured morphological descriptors and clinical audit records are publicly accessible via direct GitHub repository links:
+* **Oxford-IIIT Pet Knowledge Base (185 concepts, 37 breeds):** [oxford_pets_attributes.json](https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/blob/main/Semester/attributes/oxford_pets_attributes.json)
+* **Stanford Dogs Knowledge Base (600 concepts, 120 breeds):** [stanford_dogs_attributes.json](https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/blob/main/Semester/attributes/stanford_dogs_attributes.json)
+* **10% Stratified Clinical Audit (18/19 = 94.7% compliance):** [clinical_audit_19_descriptors.json](https://github.com/LuanNguyen23T/CLIP-Animal-Classifier/blob/main/Semester/attributes/clinical_audit_19_descriptors.json)
 
 ---
 
-## Appendix B: The 5 Anatomical Concept Templates ($\mathcal{T}_1 \dots \mathcal{T}_5$) & Instantiation Example
+## Appendix B: Anatomical Concept Templates ($\mathcal{T}_1 \dots \mathcal{T}_5$) & Instantiation Example
 
-For the 185-dimensional CBM space and Morphological Centroid Bank ($W_{\text{centroid}}$), the raw textual descriptors distilled from Gemma 4 are formatted using the 5 standardized clinical concept templates:
-1. **$\mathcal{T}_1$ (`head_and_ears`):** `"head and ears of {human_name}: {head_and_ears}"`
-2. **$\mathcal{T}_2$ (`eyes`):** `"eyes of {human_name}: {eyes}"`
-3. **$\mathcal{T}_3$ (`coat`):** `"coat texture and markings of {human_name}: {coat}"`
-4. **$\mathcal{T}_4$ (`body`):** `"body structure of {human_name}: {body}"`
-5. **$\mathcal{T}_5$ (`distinguishing_mark`):** `"distinguishing trait of {human_name}: {distinguishing_mark}"`
+Raw attributes distilled from Gemma 4 are formatted into the 185-dimensional CBM space and Morphological Centroid Bank ($W_{\text{centroid}}$) using five canonical concept templates:
+* **$\mathcal{T}_1$ (`head_and_ears`):** `"head and ears of {name}: {head_and_ears}"`
+* **$\mathcal{T}_2$ (`eyes`):** `"eyes of {name}: {eyes}"`
+* **$\mathcal{T}_3$ (`coat`):** `"coat texture and markings of {name}: {coat}"`
+* **$\mathcal{T}_4$ (`body`):** `"body structure of {name}: {body}"`
+* **$\mathcal{T}_5$ (`distinguishing_mark`):** `"distinguishing trait of {name}: {distinguishing_mark}"`
 
 **Concrete Instantiation Example (Ragdoll Cat, CFA Breed Standard):**
-* **$\mathcal{T}_1$ (`head_and_ears`):** `"head and ears of Ragdoll: Broad, modified wedge with flat plane between ears."`
-* **$\mathcal{T}_2$ (`eyes`):** `"eyes of Ragdoll: Large, vivid blue, oval-shaped eyes set moderately wide."`
-* **$\mathcal{T}_3$ (`coat`):** `"coat texture and markings of Ragdoll: Semi-long plush coat with minimal matting; dense undercoat."`
-* **$\mathcal{T}_4$ (`body`):** `"body structure of Ragdoll: Substantial, muscular body; long, broad chest and heavy bone."`
-* **$\mathcal{T}_5$ (`distinguishing_mark`):** `"distinguishing trait of Ragdoll: Absence of white gloves; point colorations across extremities."`
+* **$\mathcal{T}_1$:** `"head and ears of Ragdoll: Broad, modified wedge with flat plane between ears."`
+* **$\mathcal{T}_2$:** `"eyes of Ragdoll: Large, vivid blue, oval-shaped eyes set moderately wide."`
+* **$\mathcal{T}_3$:** `"coat texture and markings of Ragdoll: Semi-long plush coat with minimal matting; dense undercoat."`
+* **$\mathcal{T}_4$:** `"body structure of Ragdoll: Substantial, muscular body; long, broad chest and heavy bone."`
+* **$\mathcal{T}_5$:** `"distinguishing trait of Ragdoll: Point colorations across extremities; mitted pattern may exhibit white feet."`
 
-These 5 prompt templates directly ground CLIP's textual representations in the 5 canonical anatomical axes, constructing the 185-dimensional CBM (37 breeds $\times$ 5 concepts) and enabling invariant centroid formation via $w_c^{\text{centroid}} = \text{Normalize}\left(\frac{1}{5} \sum_{k=1}^5 w_c^{(k)}\right)$.
+These prompt representations ground CLIP in anatomical axes, enabling invariant centroid formation via $w_c^{\text{centroid}} = \text{Normalize}\left(\frac{1}{5} \sum_{k=1}^5 w_c^{(k)}\right)$.

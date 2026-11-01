@@ -1,52 +1,67 @@
-[
-  {
-    "ground_truth": "Staffordshire Bull Terrier",
-    "test_n": 89,
-    "correct_n": 69,
-    "correct_pct": 77.53,
-    "counterpart": "American Pit Bull Terrier",
-    "errors_to_counterpart": 15,
-    "total_errors": 20,
-    "pct_of_errors": 75.0
-  },
-  {
-    "ground_truth": "Birman",
-    "test_n": 100,
-    "correct_n": 72,
-    "correct_pct": 72.0,
-    "counterpart": "Ragdoll",
-    "errors_to_counterpart": 24,
-    "total_errors": 28,
-    "pct_of_errors": 85.71
-  },
-  {
-    "ground_truth": "Beagle",
-    "test_n": 100,
-    "correct_n": 99,
-    "correct_pct": 99.0,
-    "counterpart": "Basset Hound",
-    "errors_to_counterpart": 0,
-    "total_errors": 1,
-    "pct_of_errors": 0.0
-  },
-  {
-    "ground_truth": "British Shorthair",
-    "test_n": 100,
-    "correct_n": 84,
-    "correct_pct": 84.0,
-    "counterpart": "Russian Blue",
-    "errors_to_counterpart": 15,
-    "total_errors": 16,
-    "pct_of_errors": 93.75
-  },
-  {
-    "ground_truth": "English Cocker Spaniel",
-    "test_n": 100,
-    "correct_n": 85,
-    "correct_pct": 85.0,
-    "counterpart": "English Setter",
-    "errors_to_counterpart": 14,
-    "total_errors": 15,
-    "pct_of_errors": 93.33
-  }
-]
+{
+  "pairs": [
+    {
+      "ground_truth": "Staffordshire Bull Terrier",
+      "test_n": 89,
+      "correct_n": 73,
+      "correct_pct": 82.02,
+      "counterpart": "American Pit Bull Terrier",
+      "errors_to_counterpart": 11,
+      "total_errors": 16,
+      "pct_of_errors": 68.75
+    },
+    {
+      "ground_truth": "Birman",
+      "test_n": 100,
+      "correct_n": 68,
+      "correct_pct": 68.0,
+      "counterpart": "Ragdoll",
+      "errors_to_counterpart": 27,
+      "total_errors": 32,
+      "pct_of_errors": 84.38
+    },
+    {
+      "ground_truth": "Beagle",
+      "test_n": 100,
+      "correct_n": 98,
+      "correct_pct": 98.0,
+      "counterpart": "Basset Hound",
+      "errors_to_counterpart": 1,
+      "total_errors": 2,
+      "pct_of_errors": 50.0
+    },
+    {
+      "ground_truth": "British Shorthair",
+      "test_n": 100,
+      "correct_n": 84,
+      "correct_pct": 84.0,
+      "counterpart": "Russian Blue",
+      "errors_to_counterpart": 13,
+      "total_errors": 16,
+      "pct_of_errors": 81.25
+    },
+    {
+      "ground_truth": "English Cocker Spaniel",
+      "test_n": 100,
+      "correct_n": 87,
+      "correct_pct": 87.0,
+      "counterpart": "English Setter",
+      "errors_to_counterpart": 11,
+      "total_errors": 13,
+      "pct_of_errors": 84.62
+    }
+  ],
+  "cross_species_errors": [
+    {
+      "index": 1576,
+      "true_class": "Great Pyrenees",
+      "predicted_class": "Siamese"
+    },
+    {
+      "index": 3013,
+      "true_class": "Scottish Terrier",
+      "predicted_class": "Bombay"
+    }
+  ],
+  "cross_species_accuracy": 99.95
+}
