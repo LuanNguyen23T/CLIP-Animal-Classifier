@@ -1,0 +1,112 @@
+{
+  "benchmark": "Stanford Dogs (Official Split: 12,000 Train / 8,580 Test)",
+  "partition_details": {
+    "official_train": 12000,
+    "official_test": 8580,
+    "internal_train_split": 10800,
+    "internal_val_split": 1200,
+    "num_classes": 120
+  },
+  "zero_shot_baselines": {
+    "clip_raw": {
+      "top1_acc": 58.17016363143921,
+      "correct_count": 4991,
+      "total_count": 8580,
+      "top5_acc": 88.24009299278259,
+      "macro_f1": 55.17545191082719
+    },
+    "clip_handcrafted": {
+      "top1_acc": 59.45221185684204,
+      "correct_count": 5101,
+      "total_count": 8580,
+      "top5_acc": 88.53147029876709,
+      "macro_f1": 56.444441532930114
+    },
+    "cupl": {
+      "top1_acc": 57.0046603679657,
+      "correct_count": 4891,
+      "total_count": 8580,
+      "top5_acc": 87.48251795768738,
+      "macro_f1": 53.71031958406083
+    },
+    "labo_style": {
+      "top1_acc": 56.93473219871521,
+      "correct_count": 4885,
+      "total_count": 8580,
+      "top5_acc": 87.0046615600586,
+      "macro_f1": 53.64183121463372
+    },
+    "gemma_cbm": {
+      "top1_acc": 56.03729486465454,
+      "correct_count": 4808,
+      "total_count": 8580,
+      "top5_acc": 86.21212244033813,
+      "macro_f1": 52.5051975480548
+    },
+    "gemma_centroid": {
+      "top1_acc": 57.296037673950195,
+      "correct_count": 4916,
+      "total_count": 8580,
+      "top5_acc": 87.33100295066833,
+      "macro_f1": 54.20213040775263
+    },
+    "gemma_zeroshot": {
+      "top1_acc": 59.72027778625488,
+      "correct_count": 5124,
+      "total_count": 8580,
+      "top5_acc": 88.51981163024902,
+      "macro_f1": 56.729706079008416
+    }
+  },
+  "peft_models": {
+    "coop_baseline": {
+      "val_acc": 63.41666579246521,
+      "best_epoch": 49,
+      "trainable_params": 2048,
+      "test_results": {
+        "top1_acc": 63.62470984458923,
+        "correct_count": 5459,
+        "total_count": 8580,
+        "top5_acc": 93.170166015625,
+        "macro_f1": 61.71996439816122
+      }
+    },
+    "gemma_coop": {
+      "val_acc": 63.333332538604736,
+      "best_epoch": 41,
+      "trainable_params": 2048,
+      "test_results": {
+        "top1_acc": 64.45221304893494,
+        "correct_count": 5530,
+        "total_count": 8580,
+        "top5_acc": 93.31002235412598,
+        "macro_f1": 62.91464070314047
+      }
+    },
+    "gemma_dualstream": {
+      "val_acc": 63.58333230018616,
+      "best_beta": 0.1,
+      "trainable_params": 2048,
+      "test_results": {
+        "top1_acc": 64.1724944114685,
+        "correct_count": 5506,
+        "total_count": 8580,
+        "top5_acc": 93.26340556144714,
+        "macro_f1": 62.414663584683105
+      }
+    },
+    "gemma_visadapter": {
+      "val_acc": 63.91666531562805,
+      "best_epoch": 40,
+      "alpha": 0.2,
+      "trainable_params": 65536,
+      "test_results": {
+        "top1_acc": 63.32167983055115,
+        "correct_count": 5433,
+        "total_count": 8580,
+        "top5_acc": 92.5291359424591,
+        "macro_f1": 61.55573331064297
+      }
+    }
+  }
+}
