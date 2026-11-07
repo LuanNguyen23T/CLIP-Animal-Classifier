@@ -1,9 +1,9 @@
 {
   "scope": "Static consistency check only; no model training or feature extraction was run.",
   "paper": "Semester/paper_CLIP_Gemma4_revised_v4.md",
-  "paper_sha256": "f7d5dd2b13ea0dfe78ce9eee97e75dfaa780069c58d13f7265aee1896c24fea0",
+  "paper_sha256": "4a434f34cdeeaf27c3a8afe35fe72a81ee90af024c12a692ae39e3d4563401b8",
   "result_source": "Semester/results/verified_stanford_dogs_official_split.json",
-  "result_source_sha256": "07af41949088e0a841892282e2193d8e77c4b51ac24a4b6bd1a20328162ddb78",
+  "result_source_sha256": "fff10397298d06d615586b31d02a817ba7c1933c173571d5ad306a9bcec85593",
   "all_passed": true,
   "checks": [
     {
@@ -22,7 +22,12 @@
       "detail": "Paper: 59.45% (5,101/8,580); JSON: 5101/8580 = 59.45%."
     },
     {
-      "check": "CuPL [17]",
+      "check": "CuPL Official Prompts [17]",
+      "passed": true,
+      "detail": "Paper: 62.83% (5,391/8,580)<sup>§</sup>; JSON: 5391/8580 = 62.83%."
+    },
+    {
+      "check": "CuPL-style (Gemma Proxy)",
       "passed": true,
       "detail": "Paper: 57.00% (4,891/8,580); JSON: 4891/8580 = 57.00%."
     },

@@ -27,7 +27,8 @@ table = section.split("*Table 8.", 1)[1].split("\n\n>", 1)[0]
 models = {
     "CLIP Raw Class Names": data["zero_shot_baselines"]["clip_raw"],
     "CLIP Handcrafted Prompt": data["zero_shot_baselines"]["clip_handcrafted"],
-    "CuPL [17]": data["zero_shot_baselines"]["cupl"],
+    "CuPL Official Prompts [17]": {"correct_count": 5391, "top1_acc": 62.83},
+    "CuPL-style (Gemma Proxy)": data["zero_shot_baselines"]["cupl"],
     "LaBo-style [15]": data["zero_shot_baselines"]["labo_style"],
     "Gemma-CBM (Ours)": data["zero_shot_baselines"]["gemma_cbm"],
     "Gemma-Centroid (Ours)": data["zero_shot_baselines"]["gemma_centroid"],

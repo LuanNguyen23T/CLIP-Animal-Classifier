@@ -1,0 +1,15 @@
+{
+  "dataset": "Stanford Dogs Official Test Split (8,580 images)",
+  "model": "openai/clip-vit-base-patch32",
+  "cupl_source": "sarahpratt/CuPL imagenet_prompts_full.json mapped via synset",
+  "cupl_standalone": {
+    "top1_acc": 62.832170724868774,
+    "correct": 5391,
+    "total": 8580
+  },
+  "cupl_combined_templates": {
+    "top1_acc": 63.449883460998535,
+    "correct": 5444,
+    "total": 8580
+  }
+}
