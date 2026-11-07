@@ -1,0 +1,105 @@
+{
+  "scope": "Static consistency check only; no model training or feature extraction was run.",
+  "paper": "Semester/paper_CLIP_Gemma4_revised_v4.md",
+  "paper_sha256": "f7d5dd2b13ea0dfe78ce9eee97e75dfaa780069c58d13f7265aee1896c24fea0",
+  "result_source": "Semester/results/verified_stanford_dogs_official_split.json",
+  "result_source_sha256": "07af41949088e0a841892282e2193d8e77c4b51ac24a4b6bd1a20328162ddb78",
+  "all_passed": true,
+  "checks": [
+    {
+      "check": "official_split_counts",
+      "passed": true,
+      "detail": "Result JSON: 12,000 train / 8,580 test; internal 10,800 train / 1,200 val."
+    },
+    {
+      "check": "CLIP Raw Class Names",
+      "passed": true,
+      "detail": "Paper: 58.17% (4,991/8,580); JSON: 4991/8580 = 58.17%."
+    },
+    {
+      "check": "CLIP Handcrafted Prompt",
+      "passed": true,
+      "detail": "Paper: 59.45% (5,101/8,580); JSON: 5101/8580 = 59.45%."
+    },
+    {
+      "check": "CuPL [17]",
+      "passed": true,
+      "detail": "Paper: 57.00% (4,891/8,580); JSON: 4891/8580 = 57.00%."
+    },
+    {
+      "check": "LaBo-style [15]",
+      "passed": true,
+      "detail": "Paper: 56.93% (4,885/8,580); JSON: 4885/8580 = 56.93%."
+    },
+    {
+      "check": "Gemma-CBM (Ours)",
+      "passed": true,
+      "detail": "Paper: **56.04% (4,808/8,580)**; JSON: 4808/8580 = 56.04%."
+    },
+    {
+      "check": "Gemma-Centroid (Ours)",
+      "passed": true,
+      "detail": "Paper: **57.30% (4,916/8,580)**; JSON: 4916/8580 = 57.30%."
+    },
+    {
+      "check": "Gemma-ZeroShot (Ours)",
+      "passed": true,
+      "detail": "Paper: **59.72% (5,124/8,580)**; JSON: 5124/8580 = 59.72%."
+    },
+    {
+      "check": "Baseline CoOp",
+      "passed": true,
+      "detail": "Paper: 63.62% (5,459/8,580); JSON: 5459/8580 = 63.62%."
+    },
+    {
+      "check": "Gemma-VisAdapter (Ours)",
+      "passed": true,
+      "detail": "Paper: **63.32% (5,433/8,580)**; JSON: 5433/8580 = 63.32%."
+    },
+    {
+      "check": "Gemma-DualStream (Ours)",
+      "passed": true,
+      "detail": "Paper: **64.17% (5,506/8,580)**; JSON: 5506/8580 = 64.17%."
+    },
+    {
+      "check": "Gemma-CoOp (Ours)",
+      "passed": true,
+      "detail": "Paper: **64.45% (5,530/8,580)**; JSON: 5530/8580 = 64.45%."
+    },
+    {
+      "check": "dualstream_beta",
+      "passed": true,
+      "detail": "JSON best_beta=0.1; paper footnote checked."
+    },
+    {
+      "check": "no_old_dogs_split",
+      "passed": true,
+      "detail": "Old custom-split counts absent from Section 5.7."
+    },
+    {
+      "check": "no_old_dogs_accuracy",
+      "passed": true,
+      "detail": "Old custom-split accuracies absent from Section 5.7."
+    },
+    {
+      "check": "fewshot_protocol_note",
+      "passed": true,
+      "detail": "Table 7 explicitly labels the raw K=0 fallback."
+    },
+    {
+      "check": "mcnemar_caveat",
+      "passed": true,
+      "detail": "CoOp McNemar p=0.0696 is not described as significant."
+    },
+    {
+      "check": "alpha_caveat",
+      "passed": true,
+      "detail": "The alpha=0.2 selection limitation is disclosed."
+    },
+    {
+      "check": "no_sota_claim",
+      "passed": true,
+      "detail": "No SOTA assertion in this paper version."
+    }
+  ]
+}
