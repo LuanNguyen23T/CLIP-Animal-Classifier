@@ -30,9 +30,9 @@ We study how locally generated morphological descriptors can support parameter-e
 ### 2.1. Vision-Language Models (CLIP)
 CLIP [2] maps visual $f(x)$ and text $w_c$ embeddings into a shared normalized space $\mathbb{R}^D$ ($D=512$). Class probabilities are given by:
 
-$$P(y = c \mid x) = \frac{\exp(\tau \langle f(x), w_c \rangle)}{\sum_{j=1}^C \exp(\tau \langle f(x), w_j \rangle)}$$
+$$P(y = c \mid x) = \frac{\exp(\tau \langle f(x), w_c \rangle)}{\sum_{j=1}^C \exp(\tau \langle f(x), w_j \rangle)} \tag{1}$$
 
-where $\tau$ is the learned logit scale. Evaluated on Oxford-IIIT Pet, raw class names achieve 80.16% (80.68% TTA), while handcrafted prompts achieve 87.49% (87.98% TTA).
+where $f(x) \in \mathbb{R}^{512}$ denotes the $L_2$-normalized visual feature vector extracted by the frozen Vision Transformer ($\|f(x)\|_2 = 1$), $w_c \in \mathbb{R}^{512}$ is the normalized text embedding of class $c$ ($\|w_c\|_2 = 1$), $\tau$ represents the learned logit scale parameter ($\tau \approx 100.0$ at evaluation), and $C$ is the total number of candidate classes ($C=37$ for Oxford-IIIT Pet and $C=120$ for Stanford Dogs). Evaluated on Oxford-IIIT Pet, raw class names achieve 80.16% (80.68% TTA), while handcrafted prompts achieve 87.49% (87.98% TTA).
 
 ### 2.2. PEFT Baselines
 CoOp [3] models prompts as $M$ learnable continuous tokens $[V]_1, \dots, [V]_M \in \mathbb{R}^d$ prepended to fixed class embeddings: $t_c = [[V]_1, \dots, [V]_M, e_c]$ ($M=4, d=512$, 2,048 parameters). CLIP-Adapter [4] inserts a two-layer bottleneck MLP on image features, while Tip-Adapter [5] builds a non-parametric key-value cache fine-tuned in Tip-Adapter-F.
@@ -47,37 +47,8 @@ CBMs [6] route predictions through interpretable concept scores. In parallel, pr
 
 ## 3. Proposed Methodology
 
-```
-                                  [ Input Image x ]
-                                          │
-                        ┌─────────────────┴─────────────────┐
-                        │ Aspect-Ratio 5-View Augmentation  │
-                        └─────────────────┬─────────────────┘
-                                          │ 5 Views
-                                 ┌────────▼────────┐
-                                 │ Frozen CLIP ViT │
-                                 └────────┬────────┘
-                                          │ f_TTA(x)
-                                 ┌────────▼────────┐
-                                 │ Gemma-VisAdapter│ ── Residual MLP: f'(x)
-                                 └────────┬────────┘    (512 → 64 → 512, α = 0.2)
-                                          │
-                  ┌───────────────────────┴───────────────────────┐
-                  ▼                                               ▼
-     [ Stream 1: Gemma-CoOp ]                        [ Stream 2: Gemma-Centroid ]
-  Continuous Soft Prompts Anchored                185-Attribute Non-parametric Bank
-  by Compact Traits (24 tokens)                   Distilled from Local Gemma 4 SLM
-                  │ W_coop                                        │ W_centroid
-                  ▼                                               ▼
-         z_coop = f' @ W_coop^T                          z_cent = f' @ W_centroid^T
-                  │                                               │
-                  └───────────────────────┬───────────────────────┘
-                                          ▼
-                         Logit Blend: z = z_coop + β * z_cent (β = 0.5)
-                                          ▼
-                                   [ Softmax Loss ]
-```
-*Figure 1. Architecture of Gemma-CLIP: coupling visual residual adaptation, parameterized Gemma-CoOp prompt tuning, and non-parametric morphological centroids. Note: In the parameter-efficient Gemma-DualStream setting (2,048 parameters), the visual adapter is bypassed ($f'(x) \equiv f(x)$), directly combining Gemma-CoOp soft prompt tuning with the centroid bank.*
+![Architecture of Gemma-CLIP](architecture.jpg)
+*Figure 1. Architecture of Gemma-CLIP: coupling 5-View Test-Time Augmentation (TTA), frozen CLIP visual encoding, non-parametric Hierarchical Centroid Bank distilled from on-device Google Gemma 4 SLM across 5 anatomical axes, and parameterized Gemma-CoOp soft prompt tuning with dual-stream logit fusion. Note: In the parameter-efficient Gemma-DualStream setting (2,048 parameters), the visual adapter is bypassed ($f'(x) \equiv f(x)$), directly combining Gemma-CoOp soft prompt tuning with the centroid bank.*
 
 ### 3.1. Local Morphological Knowledge Distillation via Gemma 4 SLM
 Gemma 4 E4B (`google/gemma-4-e4b`) [8] is served locally via LM Studio with deterministic greedy decoding (`temp=0.0`, `seed=42`). For each class $c$, the SLM generates structured descriptors across five anatomical axes: `head_and_ears`, `eyes`, `coat`, `body`, and `distinguishing_mark` (Appendix A). Non-visual descriptors are excluded. An existing internal spot-check of 19/185 descriptors reports 18/19 matches to referenced breed-standard descriptions (Appendix A); this is neither an independent expert review nor validation of the entire attribute bank. We identify a Ragdoll paw-marking overgeneralization below and do not perform an additional audit for this revision. The complete knowledge base is serialized openly in structured JSON format (see Appendix A for prompt templates and public knowledge base links).
@@ -94,34 +65,65 @@ Gemma 4 E4B (`google/gemma-4-e4b`) [8] is served locally via LM Studio with dete
 ### 3.2. 185-Dimensional CBM Space & Morphological Centroids
 Each raw attribute $a_c^{(k)}$ ($k \in \{1..5\}$) is formatted via template $\mathcal{T}_k(\cdot)$ (Appendix B) and projected through frozen CLIP text encoder $\mathcal{E}_{\text{txt}}$ into normalized vector $w_c^{(k)} \in \mathbb{R}^{512}$.
 
-In the **Gemma-CBM** stream, stacking all 185 concept vectors forms the morphological concept projection matrix $W_{\text{concept}} \in \mathbb{R}^{185 \times 512}$. For any image embedding $f(x)$, concept activation scores are computed via inner products $s_{c,k}(x) = \langle f(x), w_c^{(k)} \rangle$, and class predictions are produced through uniform pooling across the five anatomical concepts: $\hat{y}_{\text{CBM}} = \arg\max_{c} \frac{1}{5} \sum_{k=1}^5 s_{c,k}(x)$.
+In the **Gemma-CBM** stream, stacking all 185 concept vectors forms the morphological concept projection matrix $W_{\text{concept}} \in \mathbb{R}^{185 \times 512}$. For any image embedding $f(x)$, concept activation scores and diagnostic class predictions are computed as:
 
-In parallel, the **Gemma-Centroid** stream constructs an invariant morphological centroid representation for each class $c$ by normalizing the average of its five concept projections: $w_c^{\text{centroid}} = \text{Normalize}\left(\frac{1}{5} \sum_{k=1}^5 w_c^{(k)}\right)$. These class centroids form the non-parametric text matrix $W_{\text{centroid}} \in \mathbb{R}^{C \times 512}$, serving as fixed semantic anchors for inference and adaptation.
+$$\hat{y}_{\text{CBM}} = \arg\max_{c \in \{1 \dots C\}} \frac{1}{K_{\text{axes}}} \sum_{k=1}^{K_{\text{axes}}} \langle f(x), w_c^{(k)} \rangle \tag{2}$$
+
+where $s_{c,k}(x) \in [-1, 1]$ represents the cosine activation score between the normalized image representation $f(x) \in \mathbb{R}^{512}$ and the $k$-th anatomical concept vector $w_c^{(k)} \in \mathbb{R}^{512}$ of class $c$, and $K_{\text{axes}} = 5$ corresponds to the five canonical anatomical axes (`head_and_ears`, `eyes`, `coat`, `body`, `distinguishing_mark`). Uniform pooling across these 5 concept scores yields the transparent prediction $\hat{y}_{\text{CBM}}$ across the $C$ candidate categories.
+
+In parallel, the **Gemma-Centroid** stream constructs an invariant morphological centroid representation for each class $c$ by normalizing the average of its five concept projections:
+
+$$w_c^{\text{centroid}} = \text{Normalize}\left(\frac{1}{5} \sum_{k=1}^5 w_c^{(k)}\right) = \frac{\sum_{k=1}^5 w_c^{(k)}}{\left\|\sum_{k=1}^5 w_c^{(k)}\right\|_2} \in \mathbb{R}^{512} \tag{3}$$
+
+where $w_c^{\text{centroid}} \in \mathbb{R}^{512}$ is the $L_2$-normalized mean concept vector for class $c$. Stacking all $C$ centroids forms the static non-parametric text matrix $W_{\text{centroid}} \in \mathbb{R}^{C \times 512}$ ($37 \times 512$ for Pets; $120 \times 512$ for Dogs), serving as fixed semantic anchors for inference and adaptation with zero trainable parameters.
 
 ### 3.3. Residual Visual Adaptation & Gemma-CoOp Prompt Optimization
 
 #### 3.3.1. Gemma-VisAdapter with Prior Weight Anchoring
-Visual adaptation employs a lightweight two-layer residual MLP ($512 \to 64 \to 512$, 65,536 parameters):
-$$\Delta f(x) = W_2 \cdot \text{ReLU}(W_1 f(x))$$
-Zero-initialization ($W_2 \leftarrow \mathbf{0}$) guarantees $f'(x) \equiv f(x)$ at step 0, preserving pre-trained representations. The adapted visual embedding is:
-$$f'(x) = \text{Normalize}\left((1 - \alpha)f(x) + \alpha \cdot \Delta f(x)\right)$$
-where $\alpha = 0.2$ anchors features to the Gemma-Centroid subspace through $z_c^{\text{adapter}} = \tau \langle f'(x), w_c^{\text{centroid}} \rangle$.
+Visual adaptation employs a lightweight two-layer residual bottleneck MLP ($512 \to 64 \to 512$, 65,536 parameters):
+
+$$\Delta f(x) = W_2 \cdot \text{ReLU}(W_1 f(x)) \tag{4}$$
+
+where $W_1 \in \mathbb{R}^{64 \times 512}$ is a down-projection matrix, $W_2 \in \mathbb{R}^{512 \times 64}$ is an up-projection matrix, and $\text{ReLU}(\cdot) = \max(0, \cdot)$ introduces non-linearity. Zero-initialization ($W_2 \leftarrow \mathbf{0}$) guarantees $\Delta f(x) = 0$ at step 0, strictly preserving pre-trained CLIP representations ($2 \times 512 \times 64 = 65,536$ trainable parameters).
+
+The adapted visual embedding is obtained by residual interpolation:
+
+$$f'(x) = \text{Normalize}\left((1 - \alpha)f(x) + \alpha \cdot \Delta f(x)\right) \tag{5}$$
+
+where $\alpha \in [0, 1]$ is the residual blending factor ($\alpha = 0.2$ is our conservative reported operating point), and $f'(x) \in \mathbb{R}^{512}$ is the adapted normalized visual embedding. Classification logits are evaluated against fixed centroid weights via $z_c^{\text{adapter}} = \tau \langle f'(x), w_c^{\text{centroid}} \rangle$.
 
 #### 3.3.2. Gemma-CoOp with Compact Trait Conditioning
 Standard CoOp prepends soft prompt tokens to class names. Appending long descriptive sentences (45–60 tokens) causes attention gradient dilution across CLIP's 12 causal self-attention layers because text representations pool strictly from `[EOS]`:
-$$\frac{\partial \mathcal{L}}{\partial [V]_i} = \sum_{j=i}^{N_{\text{tokens}}} \frac{\partial \mathcal{L}}{\partial h_L^j} \frac{\partial h_L^j}{\partial [V]_i}$$
+
+$$\frac{\partial \mathcal{L}}{\partial [V]_i} = \sum_{j=i}^{N_{\text{tokens}}} \frac{\partial \mathcal{L}}{\partial h_L^j} \frac{\partial h_L^j}{\partial [V]_i} \tag{6}$$
+
+where $[V]_i \in \mathbb{R}^{512}$ ($1 \le i \le M, M=4$ soft tokens, totaling $2,048$ trainable parameters) denotes the $i$-th continuous prompt vector, $h_L^j$ denotes the hidden state at position $j$ in the final Transformer layer ($L=12$), and $N_{\text{tokens}}$ denotes sequence length. When $N_{\text{tokens}}$ grows beyond 50 tokens, the compounding chain of intermediate attention Jacobian matrices dilutes the backward gradient reaching $[V]_i$.
+
 We condition prompts on concise visual trait descriptors yielding an empirical mean sequence length of approximately 24 tokens via Compact Trait Conditioning:
-$$p_c = [V]_1 [V]_2 [V]_3 [V]_4 \oplus \text{Tokenize}("\{breed\}, \{species\}, \text{ recognized by } \{concise\_trait\}") $$
-maintaining short, uncorrupted gradient backpropagation paths to $[V]_1 \dots [V]_4$ (2,048 parameters).
+
+$$p_c = [V]_1 [V]_2 [V]_3 [V]_4 \oplus \text{Tokenize}("\{breed\}, \{species\}, \text{ recognized by } \{concise\_trait\}") \tag{7}$$
+
+where $[V]_{1..4} \in \mathbb{R}^{4 \times 512}$ are the four continuous prompt vectors ($2,048$ trainable parameters), $\oplus$ denotes sequence concatenation, and $\{concise\_trait\}$ injects a compact morphological summary distilled from Gemma. This bounds sequence length to $\approx 24$ tokens, maintaining short, uncorrupted gradient backpropagation paths.
 
 ### 3.4. Aspect-Ratio Preserving 5-View TTA Pipeline
-To prevent anatomical distortion from naive square resizing, images are isotropically resized (short edge 224) and center-cropped. Five complementary views are generated per test sample: (1) Canonical crop, (2) Bilateral edge-preserving filter ($d=7, \sigma=50$), (3) CIELAB CLAHE contrast enhancement ($8\times 8$ grid, clip limit 2.0), (4) Cascaded Bilateral + CLAHE, and (5) Multi-scale zoom ($1.15\times$, horizontal flip, $15^\circ$ rotation). The test embedding is $f_{\text{TTA}}(x) = \text{Normalize}\left(\frac{1}{5} \sum_{v=1}^5 f_v(x)\right)$, operating at 17.2 FPS.
+To prevent anatomical distortion from naive square resizing, images are isotropically resized (short edge 224) and center-cropped. Five complementary views are generated per test sample: **1)** Canonical crop, **2)** Bilateral edge-preserving filter ($d=7, \sigma=50$), **3)** CIELAB CLAHE contrast enhancement ($8\times 8$ grid, clip limit 2.0), **4)** Cascaded Bilateral + CLAHE, and **5)** Multi-scale zoom ($1.15\times$, horizontal flip, $15^\circ$ rotation). The test embedding is:
+
+$$f_{\text{TTA}}(x) = \text{Normalize}\left(\frac{1}{5} \sum_{v=1}^5 f_v(x)\right) = \frac{\sum_{v=1}^5 f_v(x)}{\left\|\sum_{v=1}^5 f_v(x)\right\|_2} \in \mathbb{R}^{512} \tag{8}$$
+
+where $f_v(x) \in \mathbb{R}^{512}$ denotes the normalized visual embedding of view $v \in \{1..5\}$. This multi-view fusion operates at 17.2 FPS on Apple Silicon MPS.
 
 ### 3.5. Dual-Stream Logit Fusion & Loss
 Logits from Gemma-CoOp and Gemma-Centroid are blended:
-$$z_c^{\text{fusion}} = z_c^{\text{Gemma-CoOp}} + \beta \cdot z_c^{\text{centroid}} \quad (\beta = 0.5)$$
-Learnable parameters ($[V]_{1..4}, W_1, W_2$) are trained with cross-entropy loss:
-$$\mathcal{L} = -\frac{1}{B}\sum_{i=1}^{B} \log \frac{\exp(\tau\, z^{\text{fusion}}_{y_i})}{\sum_{c=1}^{C}\exp(\tau\, z^{\text{fusion}}_{c})}$$
+
+$$z_c^{\text{fusion}} = z_c^{\text{Gemma-CoOp}} + \beta \cdot z_c^{\text{centroid}} \tag{9}$$
+
+where $z_c^{\text{Gemma-CoOp}} = \tau \langle f(x), w_c^{\text{CoOp}} \rangle$ is the logit produced by continuous prompt tuning, $z_c^{\text{centroid}} = \tau \langle f(x), w_c^{\text{centroid}} \rangle$ is the invariant morphological anchor logit, and $\beta$ is the fusion weight ($\beta = 0.5$ on Oxford-IIIT Pet; $\beta = 0.1$ on Stanford Dogs). In Gemma-DualStream, the visual adapter is bypassed ($f'(x) \equiv f(x)$), directly combining Gemma-CoOp with the centroid bank using exactly $2,048$ trainable prompt parameters.
+
+Learnable parameters ($[V]_{1..4}$) are optimized using cross-entropy loss:
+
+$$\mathcal{L} = -\frac{1}{B}\sum_{i=1}^{B} \log \frac{\exp(\tau\, z^{\text{fusion}}_{y_i})}{\sum_{c=1}^{C}\exp(\tau\, z^{\text{fusion}}_{c})} \tag{10}$$
+
+where $B=256$ is the training batch size, $y_i \in \{1 \dots C\}$ is the ground-truth breed label, and optimization is carried out with AdamW ($\eta = 5\times 10^{-3}$, weight decay $1\times 10^{-4}$) under a cosine annealing schedule over 50 epochs.
 
 ### 3.6. Standardized Architectural Taxonomy
 To guarantee unambiguous evaluation across supervision regimes and experimental protocols, we establish a standardized architectural taxonomy spanning training-free and parameterized variants.
@@ -138,9 +140,9 @@ In the **visual and joint adaptation regime (65,536 parameters)**, *Gemma-VisAda
 
 ### 4.1. Dataset & Partition Protocols
 Evaluations are conducted on the official Oxford-IIIT Pet benchmark [1], containing 7,349 images across 37 cat and dog breeds partitioned into 3,680 trainval images and 3,669 test images. To ensure rigorous evaluation and prevent data leakage, we strictly enforce three distinct operational protocols:
-1. **Hyperparameter Validation Split (9:1 Split: 3,310 Train / 370 Val):** The 3,680 trainval images are stratified into 3,310 training images (90%) and 370 validation images (10%). Learning rate $\eta$, prompt length $M$, fusion ratio $\beta$, and epoch checkpoints are evaluated using this 370-image validation split. The visual-adapter $\alpha$ sweep is reported separately in Section 5.3; its retained $\alpha=0.2$ configuration is a conservative operating point, not the maximum-validation-accuracy setting. The official 3,669 test images remain completely unobserved during training and tuning.
-2. **Full Data Scaling Regime (3,680 Trainval):** For full data ceiling benchmarks, models configured with these validated hyperparameters are evaluated on the full 3,680 trainval partition to assess performance under maximum available supervision.
-3. **Inference Modes (Raw Single-View vs. 5-View TTA):** Throughout all tables and narrative discussions, we strictly distinguish between two test inference modes:
+**1) Hyperparameter Validation Split (9:1 Split: 3,310 Train / 370 Val):** The 3,680 trainval images are stratified into 3,310 training images (90%) and 370 validation images (10%). Learning rate $\eta$, prompt length $M$, fusion ratio $\beta$, and epoch checkpoints are evaluated using this 370-image validation split. The visual-adapter $\alpha$ sweep is reported separately in Section 5.3; its retained $\alpha=0.2$ configuration is a conservative operating point, not the maximum-validation-accuracy setting. The official 3,669 test images remain completely unobserved during training and tuning.
+**2) Full Data Scaling Regime (3,680 Trainval):** For full data ceiling benchmarks, models configured with these validated hyperparameters are evaluated on the full 3,680 trainval partition to assess performance under maximum available supervision.
+**3) Inference Modes (Raw Single-View vs. 5-View TTA):** Throughout all tables and narrative discussions, we strictly distinguish between two test inference modes:
    * **Raw (Single-View):** Standard single-pass center crop ($224 \times 224$), representing minimal-latency edge deployment (84.4 FPS).
    * **5-View TTA (Test-Time Augmentation):** Multi-crop feature aggregation combining canonical crop, bilateral edge filtering, CLAHE contrast enhancement, cascaded filtering, and multi-scale zoom (17.2 FPS), representing maximum-accuracy deployment.
 
@@ -173,12 +175,12 @@ Table 2 evaluates all architectures on the 3,669-image test split, comparing raw
 | | CLIP-Adapter (9:1 Split) [4] | Visual Residual MLP | 65,536 | 89.42% | 91.28% | 99.10% | 91.22% |
 | | CoOp Baseline (9:1 Split) [3] | Soft Continuous Tokens | 2,048 | 91.58% | 91.39% | 99.70% | 91.33% |
 | **Supervised Reference** | ResNet-50 Cosine (9:1 Split, Frozen Features) | Normalized Cosine Head (Frozen Features) | 75,815 | — | 86.51% | 99.51% | 86.31% |
-| | ResNet-50 Cosine (Full Ceiling)<sup>¶</sup> | Normalized Cosine Head (End-to-End) | 75,815 | 92.78% | 93.08% | 99.32% | 93.02% |
-| **Gemma-CLIP (Ours)** | **Gemma-CBM**<sup>§</sup> | 185-Concept Projection | 0 | 81.44% | 81.52% | 97.77% | 79.38% |
-| | **Gemma-Centroid** | Training-Free Centroid Bank | 0 | 88.14% | 88.39% | 99.48% | 88.11% |
-| | **Gemma-ZeroShot** | Prompt + Centroid Blend | 0 | 87.22% | 87.41% | 97.30% | 86.11% |
-| | **Gemma-VisAdapter (9:1 Split)** | Residual Visual Adapter | 65,536 | 90.73% | 91.61% | 99.81% | 91.33% |
-| | **Gemma-CoOp (9:1 Split)** | Anchored Soft Prompt | 2,048 | 91.69% | 91.85% | 99.78% | 91.82% |
+| | **ResNet-50 Cosine (Full Ceiling)**<sup>¶</sup> | Normalized Cosine Head (End-to-End) | 75,815 | **92.78%** | **93.08%** | **99.32%** | **93.02%** |
+| **Gemma-CLIP (Ours)** | Gemma-CBM<sup>§</sup> | 185-Concept Projection | 0 | 81.44% | 81.52% | 97.77% | 79.38% |
+| | Gemma-Centroid | Training-Free Centroid Bank | 0 | 88.14% | 88.39% | 99.48% | 88.11% |
+| | Gemma-ZeroShot | Prompt + Centroid Blend | 0 | 87.22% | 87.41% | 97.30% | 86.11% |
+| | Gemma-VisAdapter (9:1 Split) | Residual Visual Adapter | 65,536 | 90.73% | 91.61% | 99.81% | 91.33% |
+| | Gemma-CoOp (9:1 Split) | Anchored Soft Prompt | 2,048 | 91.69% | 91.85% | 99.78% | 91.82% |
 | | **Gemma-DualStream (9:1 Split)** | CoOp + Centroid Blend | 2,048 | **91.55%** | **92.07%** | **99.73%** | **92.02%** |
 
 > <sup>†</sup> *Table 2 reports performance on the official 3,669 test split. '(9:1 Split)' denotes models trained on 3,310 training images with 370 validation images for hyperparameter tuning, evaluated on the unobserved 3,669 test images (see Section 4.1 for partition protocols and evaluation settings).*
@@ -211,7 +213,7 @@ Constraining prompts to a 24-token Compact Trait structure provides an empirical
 
 ### 5.3. Residual Adapter Sensitivity ($\alpha$ Ablation) & McNemar Statistical Analysis
 
-To examine sensitivity to interpolation between pre-trained visual representations and adapted features, we evaluate blending factor $\alpha \in \{0.0, 0.1, 0.2, 0.4, 0.6\}$. In this evaluation protocol, Gemma-VisAdapter (two-layer bottleneck MLP $512 \to 64 \to 512$, $W_2 = \mathbf{0}$, 65,536 parameters) is anchored to fixed Gemma-Centroid weights. For each candidate $\alpha$, the network is trained from scratch for 40 epochs exclusively on the 3,310-image training partition. Checkpoint selection is conducted strictly at peak validation accuracy on the 370-image validation split, ensuring the 3,669 test images remain strictly unobserved during hyperparameter tuning. When $\alpha = 0.0$, the visual adapter is disabled ($f'(x) \equiv f(x)$); for $\alpha > 0$, the visual adapter parameters are actively optimized.
+To examine sensitivity to interpolation between pre-trained visual representations and adapted features, we evaluate blending factor $\alpha \in \{0.0, 0.1, 0.2, 0.4, 0.6\}$. In this evaluation protocol, Gemma-VisAdapter (two-layer bottleneck MLP $512 \to 64 \to 512$, $W_2 = 0$, 65,536 parameters) is anchored to fixed Gemma-Centroid weights. For each candidate $\alpha$, the network is trained from scratch for 40 epochs exclusively on the 3,310-image training partition. Checkpoint selection is conducted strictly at peak validation accuracy on the 370-image validation split, ensuring the 3,669 test images remain strictly unobserved during hyperparameter tuning. When $\alpha = 0.0$, the visual adapter is disabled ($f'(x) \equiv f(x)$); for $\alpha > 0$, the visual adapter parameters are actively optimized.
 
 *Table 4. Sensitivity Analysis of Residual Adapter Blending Weight $\alpha$; validation and held-out test results are shown separately.*
 
@@ -225,7 +227,11 @@ To examine sensitivity to interpolation between pre-trained visual representatio
 
 Table 4 shows 90.54% validation accuracy (335/370) at $\alpha=0.2$ and 91.08% (337/370) at both $\alpha=0.4$ and $0.6$. We retain $\alpha=0.2$ as the conservative configuration reported for Gemma-VisAdapter, but it is **not** the setting with the highest validation accuracy in this sweep. Its held-out test results are 90.73% single-view and 91.61% under 5-View TTA. The observed test ranking is reported descriptively and is not used to claim that $\alpha=0.2$ was selected by maximizing validation accuracy.
 
-To evaluate whether prediction distributions differ significantly across paradigms, we conduct paired McNemar tests with continuity correction ($\chi^2 = \frac{(|b - c| - 1)^2}{b + c}$) on complete aligned predictions across all 3,669 test samples. When comparing Gemma-DualStream (92.07% TTA) against the continuous prompt CoOp baseline (91.39% TTA), we observe $b = 100$ (samples where Gemma-DualStream succeeds and CoOp fails) versus $c = 75$ (where CoOp succeeds and Gemma-DualStream fails), yielding $\chi^2 = 3.29$ ($p = 0.0696$). This CoOp comparison does **not** reach the 0.05 significance threshold. Top-5 recall is 99.73% versus 99.70%, and the concept branch offers inspectable scores; neither observation changes the McNemar result. Against CLIP-Adapter (91.28% TTA), the paired counts are $b=88$, $c=59$, $\chi^2=5.33$, and unadjusted $p=0.0209$. Against the ResNet-50 Cosine Head evaluated on the 9:1 partition with frozen visual features (86.51% TTA), they are $b=360$, $c=156$, $\chi^2=79.86$, and unadjusted $p<10^{-15}$. These are separate comparisons; no multiple-comparison adjustment is claimed here, and the ResNet full-data end-to-end reference uses a different training protocol.
+To evaluate whether prediction distributions differ significantly across paradigms, we conduct paired McNemar tests with continuity correction:
+
+$$\chi^2 = \frac{(|b - c| - 1)^2}{b + c} \tag{11}$$
+
+where $b$ denotes the number of test instances correctly identified by model A but misclassified by model B, $c$ denotes the number of instances correctly identified by model B but misclassified by model A, and $-1$ represents Yates' continuity correction for discrete 1-degree-of-freedom distributions ($\text{df}=1$). Tests are computed on complete aligned predictions across all 3,669 test samples. When comparing Gemma-DualStream (92.07% TTA) against the continuous prompt CoOp baseline (91.39% TTA), we observe $b = 100$ (samples where Gemma-DualStream succeeds and CoOp fails) versus $c = 75$ (where CoOp succeeds and Gemma-DualStream fails), yielding $\chi^2 = 3.29$ ($p = 0.0696$). This CoOp comparison does **not** reach the 0.05 significance threshold. Top-5 recall is 99.73% versus 99.70%, and the concept branch offers inspectable scores; neither observation changes the McNemar result. Against CLIP-Adapter (91.28% TTA), the paired counts are $b=88$, $c=59$, $\chi^2=5.33$, and unadjusted $p=0.0209$. Against the ResNet-50 Cosine Head evaluated on the 9:1 partition with frozen visual features (86.51% TTA), they are $b=360$, $c=156$, $\chi^2=79.86$, and unadjusted $p<10^{-15}$. These are separate comparisons; no multiple-comparison adjustment is claimed here, and the ResNet full-data end-to-end reference uses a different training protocol.
 
 ---
 
@@ -271,7 +277,7 @@ Misclassifications concentrate on photographic occlusions (hidden paws, low-ligh
 
 Table 7 presents scaling trajectories across budgets from $K = 0$ (Zero-Shot) to $K = 16$ and Full Trainval across three independent random seeds (mean $\pm$ std). Here, we evaluate our proposed flagship model, **Gemma-DualStream**, which fuses continuous prompt tuning (Gemma-CoOp) with the non-parametric morphological centroid bank (Gemma-Centroid).
 
-*Table 7. Few-Shot and Full Trainval Scaling Benchmark on Oxford-IIIT Pet (Mean ± Std over 3 Random Seeds).*<sup>†</sup>
+*Table 7. Few-Shot and Full Trainval Scaling Benchmark on Oxford-IIIT Pet (Mean ± Std over 3 Random Seeds)<sup>†</sup>.*
 
 | Budget ($K$) | CLIP Handcrafted Zero-Shot | CLIP + CoOp [3] | CLIP-Adapter [4] | Tip-Adapter-F [5] | Gemma-CoOp (Ours) | **Gemma-DualStream (Ours)** | ResNet-50 Cosine [13] |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -407,21 +413,23 @@ The resulting structured morphological descriptors and breed-standard audit reco
 
 ---
 
-## Appendix B: Anatomical Concept Templates ($\mathcal{T}_1 \dots \mathcal{T}_5$) & Instantiation Example
+## Appendix B: Anatomical Concept Templates ($T_1 \dots T_5$) & Instantiation Example
 
 Raw attributes distilled from Gemma 4 are formatted into the 185-dimensional CBM space and Morphological Centroid Bank ($W_{\text{centroid}}$) using five canonical concept templates:
-* **$\mathcal{T}_1$ (`head_and_ears`):** `"head and ears of {name}: {head_and_ears}"`
-* **$\mathcal{T}_2$ (`eyes`):** `"eyes of {name}: {eyes}"`
-* **$\mathcal{T}_3$ (`coat`):** `"coat texture and markings of {name}: {coat}"`
-* **$\mathcal{T}_4$ (`body`):** `"body structure of {name}: {body}"`
-* **$\mathcal{T}_5$ (`distinguishing_mark`):** `"distinguishing trait of {name}: {distinguishing_mark}"`
+* **$T_1$ (`head_and_ears`):** `"head and ears of {name}: {head_and_ears}"`
+* **$T_2$ (`eyes`):** `"eyes of {name}: {eyes}"`
+* **$T_3$ (`coat`):** `"coat texture and markings of {name}: {coat}"`
+* **$T_4$ (`body`):** `"body structure of {name}: {body}"`
+* **$T_5$ (`distinguishing_mark`):** `"distinguishing trait of {name}: {distinguishing_mark}"`
 
 **Breed-standard-aware wording example (Ragdoll; not the archived descriptor used for the reported results):**
-* **$\mathcal{T}_1$:** `"head and ears of Ragdoll: Broad, modified wedge with flat plane between ears."`
-* **$\mathcal{T}_2$:** `"eyes of Ragdoll: Large, vivid blue, oval-shaped eyes set moderately wide."`
-* **$\mathcal{T}_3$:** `"coat texture and markings of Ragdoll: Semi-long plush coat with minimal matting; dense undercoat."`
-* **$\mathcal{T}_4$:** `"body structure of Ragdoll: Substantial, muscular body; long, broad chest and heavy bone."`
-* **$\mathcal{T}_5$:** `"distinguishing trait of Ragdoll: Point colorations across extremities; mitted pattern may exhibit white feet."`  
+* **$T_1$:** `"head and ears of Ragdoll: Broad, modified wedge with flat plane between ears."`
+* **$T_2$:** `"eyes of Ragdoll: Large, vivid blue, oval-shaped eyes set moderately wide."`
+* **$T_3$:** `"coat texture and markings of Ragdoll: Semi-long plush coat with minimal matting; dense undercoat."`
+* **$T_4$:** `"body structure of Ragdoll: Substantial, muscular body; long, broad chest and heavy bone."`
+* **$T_5$:** `"distinguishing trait of Ragdoll: Point colorations across extremities; mitted pattern may exhibit white feet."`  
 This corrected example is illustrative only. The archived attribute JSON contains a different, overgeneralized `distinguishing_mark`; reported model scores have **not** been recomputed with this wording [19].
 
-These prompt representations ground CLIP in anatomical axes, enabling invariant centroid formation via $w_c^{\text{centroid}} = \text{Normalize}\left(\frac{1}{5} \sum_{k=1}^5 w_c^{(k)}\right)$.
+These prompt representations ground CLIP in anatomical axes, enabling invariant centroid formation via:
+
+$$\mathbf{w}_{\text{centroid}}^{(c)} = \frac{1}{5}\sum_{i=1}^{5} \frac{g(T_{c,i})}{\|g(T_{c,i})\|_2}, \quad \bar{\mathbf{w}}^{(c)} = \frac{\mathbf{w}_{\text{centroid}}^{(c)}}{\|\mathbf{w}_{\text{centroid}}^{(c)}\|_2}$$
