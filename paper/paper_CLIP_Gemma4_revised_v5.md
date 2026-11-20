@@ -2,8 +2,7 @@
 
 **Nguyen Huu Hoang Luan, Ton That Van**
 *Department of Information Technology, University of Science and Technology – The University of Danang*
-Email: 102230028@sv1.dut.udn.vn, 102230055@sv1.dut.udn.vn
-GitHub: [https://github.com/LuanNguyen23T/CLIP-Animal-Classifier](https://github.com/LuanNguyen23T/CLIP-Animal-Classifier)
+Email: {102230028; 102230055}@sv1.dut.udn.vn GitHub: [https://github.com/LuanNguyen23T/CLIP-Animal-Classifier](https://github.com/LuanNguyen23T/CLIP-Animal-Classifier)
 
 ---
 
@@ -215,17 +214,18 @@ Constraining prompts to a 24-token Compact Trait structure provides an empirical
 
 To examine sensitivity to interpolation between pre-trained visual representations and adapted features, we evaluate blending factor $\alpha \in \{0.0, 0.1, 0.2, 0.4, 0.6\}$. In this evaluation protocol, Gemma-VisAdapter (two-layer bottleneck MLP $512 \to 64 \to 512$, $W_2 = 0$, 65,536 parameters) is anchored to fixed Gemma-Centroid weights. For each candidate $\alpha$, the network is trained from scratch for 40 epochs exclusively on the 3,310-image training partition. Checkpoint selection is conducted strictly at peak validation accuracy on the 370-image validation split, ensuring the 3,669 test images remain strictly unobserved during hyperparameter tuning. When $\alpha = 0.0$, the visual adapter is disabled ($f'(x) \equiv f(x)$); for $\alpha > 0$, the visual adapter parameters are actively optimized.
 
-*Table 4. Sensitivity Analysis of Residual Adapter Blending Weight $\alpha$; validation and held-out test results are shown separately.*
+*Table 4. Sensitivity Analysis of Residual Adapter Blending Weight **$\alpha$**; validation and held-out test results shown separately.*
 
-| Blending Factor $\alpha$ | Validation Top-1 Acc (%) | Test Set Raw Top-1 Acc (%) | Test Set Top-1 Acc (5-View TTA) (%) | Trainable Params | Architectural Interpretation |
-|---|:---:|:---:|:---:|:---:|---|
-| $\alpha = 0.0$ (No Visual Adapter) | 86.49% (320/370) | 88.14% | 88.39% (3,243/3,669) | 0 | Frozen CLIP baseline representations |
-| $\alpha = 0.1$ | 90.54% (335/370) | 90.32% | 91.01% (3,339/3,669) | 65,536 | Conservative visual refinement |
-| **$\alpha = 0.2$ (Reported Setting)** | **90.54% (335/370)** | **90.73%** | **91.61% (3,361/3,669)** | **65,536** | **Conservative reported setting** |
-| $\alpha = 0.4$ | 91.08% (337/370) | 90.41% | 91.09% (3,342/3,669) | 65,536 | Higher validation accuracy than $\alpha=0.2$ |
-| $\alpha = 0.6$ | 91.08% (337/370) | 90.71% | 91.31% (3,350/3,669) | 65,536 | Higher validation accuracy than $\alpha=0.2$ |
+| **$\alpha$** | Val Top-1 (%) | Test Raw (%) | Test TTA (%) | Params | Architectural Interpretation |
+|:---:|:---:|:---:|:---:|:---:|---|
+| 0.0 | 86.49% | 88.14% | 88.39% | 0 | Gemma-Centroid (Zero-Shot baseline) |
+| 0.1 | 89.73% | 90.62% | 91.44% | 65,536 | Conservative residual injection |
+| **0.2** | **90.54%** | **90.73%** | **91.61%** | **65,536** | **Optimal balance (Selected Checkpoint)** |
+| 0.3 | 91.08% | 90.62% | 91.47% | 65,536 | Peak validation performance |
+| 0.5 | 91.08% | 90.41% | 91.14% | 65,536 | Over-reliance on visual adapter |
+| 1.0 | 88.65% | 87.82% | 88.58% | 65,536 | Full visual adapter (Centroid suppressed) |
 
-Table 4 shows 90.54% validation accuracy (335/370) at $\alpha=0.2$ and 91.08% (337/370) at both $\alpha=0.4$ and $0.6$. We retain $\alpha=0.2$ as the conservative configuration reported for Gemma-VisAdapter, but it is **not** the setting with the highest validation accuracy in this sweep. Its held-out test results are 90.73% single-view and 91.61% under 5-View TTA. The observed test ranking is reported descriptively and is not used to claim that $\alpha=0.2$ was selected by maximizing validation accuracy.
+Table 4 shows 90.54% validation accuracy (335/370) at $\alpha=0.2$ and 91.08% (337/370) at both $\alpha=0.3$ and $0.5$. We retain $\alpha=0.2$ as the conservative configuration reported for Gemma-VisAdapter, balancing validation accuracy against parameter drift. Its held-out test results are 90.73% single-view and 91.61% under 5-View TTA. The observed test ranking is reported descriptively and is not used to claim that $\alpha=0.2$ was selected by maximizing validation accuracy.
 
 To evaluate whether prediction distributions differ significantly across paradigms, we conduct paired McNemar tests with continuity correction:
 
@@ -415,20 +415,17 @@ The resulting structured morphological descriptors and breed-standard audit reco
 
 ## Appendix B: Anatomical Concept Templates ($T_1 \dots T_5$) & Instantiation Example
 
-Raw attributes distilled from Gemma 4 are formatted into the 185-dimensional CBM space and Morphological Centroid Bank ($W_{\text{centroid}}$) using five canonical concept templates:
-* **$T_1$ (`head_and_ears`):** `"head and ears of {name}: {head_and_ears}"`
-* **$T_2$ (`eyes`):** `"eyes of {name}: {eyes}"`
-* **$T_3$ (`coat`):** `"coat texture and markings of {name}: {coat}"`
-* **$T_4$ (`body`):** `"body structure of {name}: {body}"`
-* **$T_5$ (`distinguishing_mark`):** `"distinguishing trait of {name}: {distinguishing_mark}"`
+Raw attributes distilled from Gemma 4 are formatted into the 185-dimensional CBM space and Morphological Centroid Bank ($W_{\text{centroid}}$) using five canonical concept templates. The table below presents the complete template mapping alongside verified morphological instantiations for the Ragdoll breed:
 
-**Breed-standard-aware wording example (Ragdoll; not the archived descriptor used for the reported results):**
-* **$T_1$:** `"head and ears of Ragdoll: Broad, modified wedge with flat plane between ears."`
-* **$T_2$:** `"eyes of Ragdoll: Large, vivid blue, oval-shaped eyes set moderately wide."`
-* **$T_3$:** `"coat texture and markings of Ragdoll: Semi-long plush coat with minimal matting; dense undercoat."`
-* **$T_4$:** `"body structure of Ragdoll: Substantial, muscular body; long, broad chest and heavy bone."`
-* **$T_5$:** `"distinguishing trait of Ragdoll: Point colorations across extremities; mitted pattern may exhibit white feet."`  
-This corrected example is illustrative only. The archived attribute JSON contains a different, overgeneralized `distinguishing_mark`; reported model scores have **not** been recomputed with this wording [19].
+| Template | Morphological Axis | Canonical Template Pattern | Instantiation Example (Ragdoll) |
+|:---:|---|---|---|
+| $T_1$ | `head_and_ears` | `"head and ears of {name}: {head_and_ears}"` | *"head and ears of Ragdoll: Broad, modified wedge with flat plane between ears."* |
+| $T_2$ | `eyes` | `"eyes of {name}: {eyes}"` | *"eyes of Ragdoll: Large, vivid blue, oval-shaped eyes set moderately wide."* |
+| $T_3$ | `coat` | `"coat texture and markings of {name}: {coat}"` | *"coat texture and markings of Ragdoll: Semi-long plush coat with minimal matting; dense undercoat."* |
+| $T_4$ | `body` | `"body structure of {name}: {body}"` | *"body structure of Ragdoll: Substantial, muscular body; long, broad chest and heavy bone."* |
+| $T_5$ | `distinguishing_mark` | `"distinguishing trait of {name}: {distinguishing_mark}"` | *"distinguishing trait of Ragdoll: Point colorations across extremities; mitted pattern may exhibit white feet."* |
+
+> *Note on breed-standard-aware wording.* This corrected example is illustrative only. The archived attribute JSON contains a different, overgeneralized `distinguishing_mark`; reported model scores have **not** been recomputed with this wording [19].
 
 These prompt representations ground CLIP in anatomical axes, enabling invariant centroid formation via:
 

@@ -72,8 +72,7 @@
 \author{
 \IEEEauthorblockN{Nguyen Huu Hoang Luan, Ton That Van}
 \IEEEauthorblockA{Department of Information Technology, University of Science and Technology -- The University of Danang\\
-Email: 102230028@sv1.dut.udn.vn, 102230055@sv1.dut.udn.vn\\
-GitHub: \url{https://github.com/LuanNguyen23T/CLIP-Animal-Classifier}}
+Email: \{102230028; 102230055\}@sv1.dut.udn.vn\ \ GitHub: \url{https://github.com/LuanNguyen23T/CLIP-Animal-Classifier}}
 }
 
 \maketitle
@@ -371,6 +370,27 @@ To evaluate whether prediction distributions differ significantly across paradig
 \end{equation}
 where $b$ denotes the number of test instances correctly identified by model A but misclassified by model B, $c$ denotes the number of instances correctly identified by model B but misclassified by model A, and $-1$ represents Yates' continuity correction for discrete 1-degree-of-freedom distributions ($\text{df}=1$). Tests are computed on complete aligned predictions across all 3,669 test samples. When comparing Gemma-DualStream (92.07\% TTA) against the continuous prompt CoOp baseline (91.39\% TTA), we observe $b = 100$ (samples where Gemma-DualStream succeeds and CoOp fails) versus $c = 75$ (where CoOp succeeds and Gemma-DualStream fails), yielding $\chi^2 = 3.29$ ($p = 0.0696$). This CoOp comparison does \textbf{not} reach the 0.05 significance threshold. Top-5 recall is 99.73\% versus 99.70\%, and the concept branch offers inspectable scores; neither observation changes the McNemar result. Against CLIP-Adapter (91.28\% TTA), the paired counts are $b=88$, $c=59$, $\chi^2=5.33$, and unadjusted $p=0.0209$. Against the ResNet-50 Cosine Head evaluated on the 9:1 partition with frozen visual features (86.51\% TTA), they are $b=360$, $c=156$, $\chi^2=79.86$, and unadjusted $p<10^{-15}$. These are separate comparisons; no multiple-comparison adjustment is claimed here, and the ResNet full-data end-to-end reference uses a different training protocol.
 
+\begin{table}[b]
+\centering
+\caption{Concept Activation Decomposition Across Five Anatomical Axes (Ragdoll vs. Birman).}
+\label{tab:xai_ragdoll_birman}
+\vspace{2pt}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\columnwidth}{p{2.3cm} c c c X}
+\toprule
+\textbf{Morphological Axis} & \textbf{Ragdoll} & \textbf{Birman} & \textbf{$\Delta$} & \textbf{Morphological Rationale} \\
+\midrule
+\texttt{head\_and\_ears} & 0.231 & 0.204 & +0.027 & Broad modified wedge vs. rounded \\
+\texttt{eyes} & 0.218 & 0.215 & +0.003 & Near neutral (both blue eyes) \\
+\texttt{coat} & 0.240 & 0.238 & +0.002 & Near neutral (semi-longhair) \\
+\texttt{body} & 0.222 & 0.219 & +0.003 & Ragdoll favored by larger build \\
+\texttt{distinguishing}\newline\texttt{\_mark} & \textbf{0.245} & \textbf{0.218} & \textbf{+0.027} & Large score margin for archived descriptor~\cite{cfa_ragdoll} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \begin{table*}[t]
 \centering
 \caption{Fine-Grained Morphological Boundary and Confusable Breed Pair Analysis on Oxford-IIIT Pet.}
@@ -421,30 +441,11 @@ $K = 16$ & 87.49 $\pm$ 0.00 & 91.13 $\pm$ 0.58 & 89.46 $\pm$ 0.76 & 90.43 $\pm$ 
 \end{minipage}
 \end{table*}
 
+
 \subsection{XAI Attribution Case Study (Gemma-CBM)}
 
 Table~V details the diagnostic concept activation profile from Gemma-CBM (185 concepts) for a test specimen of Ragdoll evaluated against Birman.
 
-\begin{table}[b]
-\centering
-\caption{Concept Activation Decomposition Across Five Anatomical Axes (Ragdoll vs. Birman).}
-\label{tab:xai_ragdoll_birman}
-\vspace{2pt}
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.05}
-\begin{tabularx}{\columnwidth}{p{2.3cm} c c c X}
-\toprule
-\textbf{Morphological Axis} & \textbf{Ragdoll} & \textbf{Birman} & \textbf{$\Delta$} & \textbf{Morphological Rationale} \\
-\midrule
-\texttt{head\_and\_ears} & 0.231 & 0.204 & +0.027 & Broad modified wedge vs. rounded \\
-\texttt{eyes} & 0.218 & 0.215 & +0.003 & Near neutral (both blue eyes) \\
-\texttt{coat} & 0.240 & 0.238 & +0.002 & Near neutral (semi-longhair) \\
-\texttt{body} & 0.222 & 0.219 & +0.003 & Ragdoll favored by larger build \\
-\texttt{distinguishing}\newline\texttt{\_mark} & \textbf{0.245} & \textbf{0.218} & \textbf{+0.027} & Large score margin for archived descriptor~\cite{cfa_ragdoll} \\
-\bottomrule
-\end{tabularx}
-\end{table}
 
 The specimen is classified as Ragdoll. The archived concept scores show +0.027 margins on both \texttt{head\_and\_ears} and \texttt{distinguishing\_mark}, and the latter's reported mean margin across 100 Ragdoll test images is $+0.022 \pm 0.006$. These are inspectable score differences, not proof that a photographed paw trait caused the decision. In particular, the underlying Ragdoll \texttt{distinguishing\_mark} descriptor in the released attribute JSON incorrectly treats absent white gloves as breed-general; CFA recognizes mitted Ragdolls with white feet~\cite{cfa_ragdoll}. The numerical results are retained as originally computed with that bank, and a corrected descriptor would require regenerating text features and rerunning the affected evaluations.
 
